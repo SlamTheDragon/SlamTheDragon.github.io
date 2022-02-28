@@ -1,3 +1,2 @@
 # SlamTheDragon.github.io
-# Written by SLamTheDragon himself
-# Website | Portfolio | Contact
+# Please write something useful here lol
