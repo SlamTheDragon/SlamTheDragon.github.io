@@ -1,0 +1,983 @@
+@import url('fonts.css');
+
+/*general Parent*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0%;
+    min-height: 100%;
+    max-height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    font-family: 'CustomFont', 'Roboto';
+    background-color: #131313;
+    box-sizing: border-box;
+}
+
+footer {
+    margin-top: auto;
+    background-color: rgb(26, 26, 26);
+    background-image: linear-gradient(99deg, rgb(26, 26, 26) 45%, rgba(26, 26, 26, 0.541) 100%), url('assets/images/Footer.png');
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: 190% 0%;
+    color: rgb(151, 151, 151);
+    padding: 50px;
+    display: flex;
+    flex: 1;
+    justify-content: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'CustomFont', 'montbold';
+    padding: 0%;
+    margin: 0%;
+}
+
+p {
+    padding: 0%;
+    margin: 0%;
+    font-size: 12pt;
+}
+
+a {
+    color: rgb(255, 166, 0);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:focus-visible {
+    outline: 4px solid rgb(255, 166, 0);
+    border-radius: 5px;
+    box-shadow: 0px 3px 25px -6px rgba(0, 0, 0, 0.75);
+}
+
+input[type=text],
+select {
+    padding: 5px;
+    margin: 8px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: #ffa600;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.PageHeader {
+    color: white;
+    margin-top: 140px;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: 20pt;
+}
+
+.PageHeader div {
+    padding-bottom: 50px;
+}
+
+.emptyspcae {
+    margin-bottom: 140px;
+}
+
+ ::-webkit-scrollbar {
+    width: 10px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: rgb(26, 26, 26);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(59, 59, 59);
+    border-radius: 1px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(54, 54, 54);
+}
+
+ ::-webkit-scrollbar-corner {
+    background: rgb(59, 59, 59);
+}
+
+ ::-webkit-progress-bar {
+    background-color: rgb(255, 166, 0);
+}
+
+
+/*Header*/
+
+.mainHeader {
+    font-family: 'CustomFont', 'DIN Pro Cond';
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    align-items: center;
+    user-select: none;
+    z-index: 1;
+}
+
+header #logoHome {
+    padding: 0px;
+    border-style: none;
+}
+
+header #logoHome:hover {
+    background-color: rgb(0, 0, 0, 0);
+    padding: 0px;
+}
+
+header a {
+    border: none;
+    padding: 20px 20px 20px 20px;
+}
+
+.logo img {
+    width: 135px;
+    float: left;
+    padding-left: 30px;
+}
+
+#mainNav {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    float: left;
+}
+
+#tabActive {
+    color: white;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    box-shadow: 0px -3px 0px inset;
+}
+
+#tabActive:hover {
+    color: rgb(255, 209, 124);
+    border-width: 0.5px;
+    text-decoration: none;
+}
+
+#tabInactive:hover {
+    background-color: transparent;
+    box-shadow: 0px -3px 0px inset;
+    color: rgb(255, 209, 124);
+    text-decoration: none;
+}
+
+#playButton {
+    margin: 0px 40px 0px 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+#tabPlay {
+    font-family: 'CustomFont', 'montbold';
+    justify-content: center;
+    flex: 1;
+    color: rgb(255, 255, 255);
+    padding: 10px 30px 10px 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+#tabPlay:hover {
+    box-shadow: 0px 0px 200px rgb(255, 178, 35);
+    background: radial-gradient(circle, rgb(255, 199, 46) 0%, rgb(255, 166, 0) 200%);
+}
+
+#verticalDivider {
+    float: left;
+    padding: 0px 10px 0px 10px;
+}
+
+#account {
+    justify-content: center;
+    padding-top: 5px;
+}
+
+#account a {
+    padding: 0px;
+}
+
+#account a:hover {
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.dropIcon {
+    margin-left: 10px;
+    padding-bottom: 1.5px;
+    display: inline-block;
+}
+
+.dropIcon:hover {
+    fill: white;
+}
+
+.dropdownContent li {
+    list-style-type: none;
+    border-bottom: solid 2px rgb(26, 26, 26);
+    text-align: left;
+    color: white;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.dropdownContent li:hover {
+    color: rgb(255, 166, 0);
+}
+
+
+/*footer*/
+
+.socialLinks {
+    margin-top: 0x;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+.socialLinks ul {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style: none;
+    justify-content: left;
+    align-items: center;
+}
+
+.socialLinks ul li {
+    margin-left: 0px;
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    align-items: center;
+    z-index: 0;
+}
+
+.socialLinks ul li a {
+    padding: 20px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.socialLinks ul li a svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.socialLinks ul li a svg path {
+    fill: rgb(94, 94, 94);
+    /*apparently it's not working idk*/
+}
+
+footer .footerContent {
+    padding: 10px;
+    width: 400px;
+    font-family: 'CustomFont', 'montbold';
+}
+
+footer .footerDownaload {
+    padding: 10px;
+    width: 100%;
+}
+
+footer .footerContent #footerDescription div a {
+    /*image link..?*/
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+}
+
+footer .footerContent #footerDescription div a img {
+    width: 131px;
+    height: 70px;
+    object-fit: cover;
+}
+
+#footerDescription h2 {
+    margin: 20px 0px 20px 0px;
+}
+
+.footerSupport h2 {
+    margin: 20px 0px 20px 0px;
+}
+
+footer .footerContent #footerTrademark {
+    padding: 0px 0px 0px 0px;
+    font-family: 'CustomFont', 'Roboto';
+}
+
+#footerTrademark p {
+    font-size: 9pt;
+}
+
+footer .footerDownload #footerDescription {
+    padding: 0px 0px 5px 0px;
+    font-size: 13px;
+    font-family: 'CustomFont', 'DIN Pro Cond';
+}
+
+footer .footerDownload #footerDescription h2 {
+    font-size: 24px;
+}
+
+footer .footerDownload #footerDescription a {
+    padding: 0px;
+    font-size: 13px;
+    color: rgb(151, 151, 151);
+    font-family: 'CustomFont', 'Roboto';
+    border-style: none;
+    text-decoration: none;
+}
+
+footer .footerDownload #footerDescription a:hover {
+    background-color: rgba(151, 151, 151, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+#About {
+    margin-top: 12px;
+    z-index: 1;
+}
+
+#About a {
+    font-family: 'CustomFont', 'Roboto';
+    margin-right: 10px;
+    border-style: none;
+    color: rgb(151, 151, 151);
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+    text-decoration: none;
+}
+
+#About a:hover {
+    background-color: rgba(151, 151, 151, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+.footerSupport {
+    padding: 0px 0px 0px 0px;
+    font-size: 13px;
+    font-family: 'CustomFont', 'DIN Pro Cond';
+}
+
+.footerSupport h2 {
+    font-size: 24px;
+}
+
+.footerSupport ul li a {
+    padding: 0px;
+    font-size: 13px;
+    color: rgb(151, 151, 151);
+    font-family: 'CustomFont', 'Roboto';
+    border-style: none;
+    text-decoration: none;
+}
+
+.footerSupport ul li a:hover {
+    background-color: rgba(151, 151, 151, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+
+/*============[ Contents - Home ]============*/
+
+
+/*Introduction*/
+
+.content {
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    overflow: hidden;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.678);
+    z-index: -1;
+}
+
+.content #frontPage {
+    display: flexbox;
+    font-family: 'CustomFont', 'montbold';
+    color: #f1f1f1;
+    align-content: center;
+    text-align: center;
+    overflow: hidden;
+    top: 0;
+    margin-top: 60px;
+    padding: 100px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    height: 92vh;
+}
+
+.content #frontPage img {
+    margin-top: 0%;
+}
+
+.content #frontPage #title {
+    font-size: 174pt;
+    margin-bottom: 0%;
+    margin-top: 10%;
+}
+
+#intro {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    position: absolute;
+    display: contents;
+}
+
+.backgroundVideo {
+    object-fit: cover;
+    position: absolute;
+    z-index: -3;
+}
+
+.content #frontPage #SplashButton {
+    background-color: rgb(255, 255, 255, 0);
+    color: rgb(255, 166, 0);
+    border-color: rgb(255, 166, 0);
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.content #frontPage #SplashButton:hover {
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding: 10px 50px 10px 50px;
+}
+
+
+/*news contents*/
+
+#news {
+    padding: 100px;
+    padding-left: 150px;
+    padding-right: 150px;
+    overflow: hidden;
+    background-color: white;
+    z-index: -1;
+}
+
+#news #container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 30vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#news #container a {
+    filter: grayscale(100%);
+    width: 100%;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px white solid;
+    outline: 1px white solid;
+    box-shadow: 0px 5px 5px -7px rgba(0, 0, 0, 0.6);
+    background-image: url('assets/images/news-placeholder.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 0.1s;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#news #container a:hover {
+    filter: grayscale(0%);
+    border: 2px white solid;
+    outline: 2px white solid;
+    box-shadow: 0px 5px 15px -7px rgba(0, 0, 0, 0.6);
+}
+
+#news #container a:focus {
+    outline: none;
+}
+
+#news #container a:focus-visible {
+    filter: grayscale(0%);
+    border: 2px rgb(255, 166, 0) solid;
+    outline: 2px rgb(255, 166, 0) solid;
+    box-shadow: 0px 5px 15px -7px rgba(0, 0, 0, 0.6);
+}
+
+#news #container a #card {
+    width: 100%;
+    height: 13%;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*description Contents*/
+
+#description {
+    background-color: white;
+    color: white;
+}
+
+#description p {
+    font-size: 14pt;
+}
+
+#secContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 70px;
+}
+
+#section1,
+#section3 {
+    display: flex;
+    flex-direction: row;
+}
+
+#section3 h1 {
+    line-height: 60pt;
+    margin-bottom: 10px;
+}
+
+#section2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /*
+    */
+    background-color: rgba(0, 0, 0, 0.096);
+}
+
+#section2 p {
+    font-family: 'CustomFont', 'montbold';
+}
+
+#secContentC {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 70px;
+    width: 30%;
+}
+
+#section1 div {
+    width: 100%;
+    background-color: #030025;
+    padding: 100px;
+    padding-left: 0px;
+}
+
+#section3 div {
+    background-color: #1a010d;
+    width: 100%;
+    padding: 100px;
+    padding-right: 0px;
+}
+
+#sec1Photo {
+    background-image: url('assets/images/Section\ 1.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    height: 40vh;
+}
+
+#sec2Photo {
+    background-image: url('assets/images/Section\ 2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+}
+
+#sec3Photo {
+    background-image: url('assets/images/Section\ 3.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    height: 45vh;
+}
+
+#DownloadButton {
+    background-color: #faa200;
+    color: white;
+    font-size: 14pt;
+    padding: 10px 30px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-family: 'CustomFont', 'montbold';
+}
+
+#DownloadButton:hover {
+    background-color: #ffaf1b;
+    text-decoration: none;
+    padding: 10px 30px;
+    box-shadow: 0px 11px 19px -8px rgba(74, 33, 3, 0.89);
+}
+
+#DownloadButton:active {
+    background-color: #faa200;
+    padding: 10px 30px;
+    margin-top: 18px;
+    margin-bottom: 2px;
+    box-shadow: 0px 0px 19px -2px rgba(74, 33, 3, 0.99);
+}
+
+
+/*============[ Contents - Account ]============*/
+
+.signinBody,
+.signinHTML {
+    height: 100%;
+    user-select: none;
+}
+
+.signin {
+    display: flex;
+    background-image: url('assets/images/signinscreen.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.signin #content {
+    padding: 115px 235px;
+    overflow: hidden;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 34px -7px rgba(0, 0, 0, 0.6);
+}
+
+.signin #unavailable {
+    border-radius: 10px;
+    position: fixed;
+    padding: 124px 116px 124px 116px;
+    color: white;
+    background-color: rgba(26, 26, 26, 0.849);
+    background-size: cover;
+}
+
+#FEmail,
+#FPass {
+    outline: none;
+    background-color: #3c3c3c;
+    border: none;
+    padding: 8.3px;
+    color: #ffffff;
+    border-radius: 2px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#Fsubmit {
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background-color: #ffa600;
+}
+
+
+/*============[ Contents - Forums ]============*/
+
+
+/*Please Integrate with Javascript once a go signal for backend programming is allowed*/
+
+
+/*Fetch data and format posts in Javascript*/
+
+.forumSkeleton {
+    visibility: visible;
+    display: block;
+    margin-top: 40px;
+}
+
+.forumContent {
+    visibility: visible;
+}
+
+.forumsTop #h1 {
+    margin-left: 20px;
+    padding: 10px;
+    font-family: 'CustomFont', 'montbold';
+    font-size: 20pt;
+}
+
+#forumsSearch {
+    background-color: #202020;
+    color: white;
+    padding: 20px;
+    margin-top: 4%;
+    z-index: 1;
+}
+
+#forumsSearch form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#forumsDirectory {
+    background-color: #202020;
+    color: #ffa600;
+    padding: 5px 20px 20px 50px;
+}
+
+.forumLeftContent {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    float: left;
+    overflow: hidden;
+}
+
+.forumRightContent {
+    width: 100%;
+    padding: 20px;
+    background-color: #202020;
+    color: white;
+    box-shadow: 1px 40px 40px -40px rgba(0, 0, 0, 0.75) inset;
+}
+
+
+/*skeleton animation*/
+
+.post {
+    margin: 20px;
+    overflow: hidden;
+    margin-right: 100px;
+    margin-left: 80px;
+}
+
+.br {
+    background-color: #303030;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.card {
+    padding: 30px 40px 30px 40px;
+    width: 65vw;
+}
+
+.wrapper {
+    width: 0px;
+    animation: fullView 0.5s forwards cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.profilePic {
+    height: 65px;
+    width: 65px;
+    border-radius: 1%;
+}
+
+.comment {
+    height: 10px;
+    margin-top: 20px;
+}
+
+@keyframes fullView {
+    100% {
+        width: 100%;
+    }
+}
+
+.animate {
+    animation: shimmer 4s infinite linear;
+    background: linear-gradient(to right, #383838 4%, rgb(73, 73, 73) 25%, #383838 36%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+
+/*============[ Contents - Support ]============*/
+
+.PageHeader section {
+    display: flex;
+    flex-direction: row;
+}
+
+.PageHeader section div {
+    background-color: #2b2b2b;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 10px 12px;
+    width: 30%;
+    height: 40vh;
+    overflow: hidden;
+    align-items: flex-start;
+}
+
+.PageHeader section h3 {
+    font-size: 16pt;
+}
+
+#boxSupport h3,
+#boxSupport p {
+    padding: 10px;
+}
+
+
+/*============[ Contents - Download ]============*/
+
+.backgroundDownload {
+    display: flex;
+    background-image: url('assets/images/Voxel\ Art.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.downloadConetent {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.658);
+}
+
+#container {
+    margin-top: 60px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 30%;
+    padding: 50px;
+    background-color: white;
+    position: inherit;
+}
+
+#container #title {
+    margin: 10px 0px;
+}
+
+#container #DSignIn {
+    color: #e49400;
+    margin-top: 20px;
+}
+
+#container div {
+    display: flex;
+    flex-direction: column;
+}
+
+#container div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+#container div a {
+    margin-top: 10px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'CustomFont', 'montbold';
+    background-color: transparent;
+}
+
+#container div a:hover {
+    text-decoration: none;
+    box-shadow: 0px 7px 19px -6px rgba(20, 11, 0, 0.514);
+}
+
+#container div a div:hover {
+    background-color: #222222;
+    border-radius: 10px;
+    box-shadow: 0px -7px 0px -5px rgba(255, 138, 0, 1) inset;
+}
+
+#container div a div span {
+    margin-left: 25px;
+}
+
+
+/*============[ Contents - FAQ ]============*/
+
+.PageHeader section #boxFAQ {
+    background-color: #2b2b2b;
+    border-radius: 7px;
+    padding: 30px;
+    margin: 10px 12px;
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    align-items: flex-start;
+}

@@ -1,0 +1,28 @@
+Template: done
+front-end tree: generating [100%] [celebration woooo]
+Assets: missing/incomplete
+
+back-end: empty
+
+
+===[ TREE ]===
+Home:
+    - Download
+    - Support
+        - Forums
+        - Bug Reporter
+    - About
+    - Contact
+    - FAQ
+    - Sign In
+
+Tree Not Needed for Project:
+    - Profile
+    - Market
+
+Home Page Content: ideas
+    "Flow in Music"
+
+    "Explore"
+
+    "Build, Share And Play"
