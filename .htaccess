@@ -1,6 +1,3 @@
-//Custom 404 errors
-ErrorDocument 404 /BeatBlox-NotFound.html
-
 //Block bad bots
 RewriteEngine On 
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
@@ -86,7 +83,4 @@ RewriteRule ^.* - [F,L]
 order allow,deny
 deny from all
 </Files>
-
-//Prevent directory listings
-Options All -Indexes
  
