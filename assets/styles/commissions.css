@@ -1,0 +1,235 @@
+.commissionsBody {
+    background-image: url(/assets/images/Abstract\ Art.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    text-indent: 0pt;
+    font-size: 10pt;
+    color: #797979;
+}
+
+#slots {
+    color: white;
+}
+
+.profilephoto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+#profilephoto {
+    top: 0;
+    margin-right: 30px;
+    border-radius: 100%;
+}
+
+.info p,
+.info h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #00000075;
+    background-size: auto;
+}
+
+.commissionContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+}
+
+.MainContent {
+    margin-left: 50px;
+    display: grid;
+    overflow: auto;
+    text-align: left;
+}
+
+#img {
+    width: 100%;
+}
+
+.tabContent {
+    overflow: hidden;
+    object-fit: scale-down;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.tabContent img {
+    width: 100%;
+    height: 100%;
+}
+
+.commissionContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+    padding: 20px;
+    color: black;
+    background-color: white;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 20px 20px 00px 0px;
+    box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    justify-content: flex-start;
+}
+
+.tabSelector {
+    margin: 82px 12px 82px 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: normal;
+    background-color: #e7e7e7;
+    height: 55%;
+    border-radius: 10px;
+}
+
+.tablinks {
+    color: #838383;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin: 8px 0px;
+    box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+    transition: all 200ms;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tablinks:hover {
+    color: #3a3a3a;
+    background-color: #ffffff;
+    box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0.75);
+    z-index: 2;
+}
+
+.tablinks:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
+.tablinks.active {
+    background-color: #ffffff;
+}
+
+.informationContainer {
+    padding-left: 10px;
+}
+
+.sectionLinks,
+.sectionLinks2,
+.sectionLinks3 {
+    color: black;
+    font-weight: lighter;
+}
+
+.sectionLinks:hover,
+.sectionLinks2:hover,
+.sectionLinks3:hover {
+    color: black;
+    font-weight: lighter;
+    cursor: pointer;
+    animation: none;
+    text-decoration-color: #5309ff;
+}
+
+.sectionLinks:active,
+.sectionLinks2:active,
+.sectionLinks3:active {
+    color: rgb(109, 109, 109);
+}
+
+#defaultOpen2,
+#defaultOpen3,
+#defaultOpen4 {
+    text-decoration: underline;
+}
+
+#defaultOpen2:hover,
+#defaultOpen3:hover,
+#defaultOpen4:hover {
+    text-decoration-color: #5309ff;
+}
+
+#open {
+    display: block;
+}
+
+@media only screen and (max-width: 800px) {
+    .tablinks {
+        padding: 2% 5%;
+        font-size: 8pt;
+        margin: 0px;
+    }
+    .commissionContent {
+        width: 100%;
+        height: 100%;
+    }
+    .tablinks:focus {
+        box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+        -webkit-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+        -moz-box-shadow: 0px 7px 22px -13px rgba(0, 0, 0, 0);
+    }
+    .tabSelector {
+        margin: 0px;
+        padding: 3px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 8%;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .commissionContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .MainContent {
+        margin-left: 0px;
+    }
+    button {
+        overflow-y: hidden;
+        height: 90%;
+        background-color: white;
+        border-radius: 15px;
+        margin: 2px 4px;
+        padding: 7px 20px;
+        border-style: none;
+        font-weight: normal;
+    }
+    .informationContainer {
+        padding-left: 0px;
+    }
+}

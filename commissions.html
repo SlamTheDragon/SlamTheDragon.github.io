@@ -1,3 +1,12 @@
+<!--
+===========================
+© 2022 Website Made By
+SlamTheDragon
+All Rights Reserved
+
+Coded with love <3
+===========================
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,115 +14,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="icon" type="image/jpg" href="assets/images/favicon.png">
-    <script src="assets/scripts/main.js"></script>
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/commissions.css">
+    <script src="/assets/scripts/main.js" defer></script>
     <title>Commissions</title>
-    <style>
-        body {
-            color: white;
-            margin: 0%;
-            font-family: 'Segoe UI';
-            box-sizing: border-box;
-            background-image: url(assets/images/Abstract\ Art.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        
-        .profilephoto {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 50px;
-        }
-        
-        img {
-            margin-right: 30px;
-            border-radius: 100%;
-        }
-        
-        .main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
-            background-color: #00000075;
-        }
-        
-        .div {
-            padding: 90px;
-            padding-bottom: 60%;
-            height: 100%;
-            color: black;
-            background-color: white;
-            background-image: url(assets/images/Commissions\ Background\ Temp.png);
-            background-position: center;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-radius: 20px 20px 00px 0px;
-            box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
-            -webkit-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
-        }
-        
-        a {
-            color: #4d39c2;
-            text-decoration: underline;
-            text-decoration-color: #571c9b00;
-            transition: text-decoration-color 300ms;
-            font-weight: bold;
-        }
-        
-        a:hover {
-            color: #571c9b;
-            text-decoration-color: #571c9b;
-            animation: pulse 1s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                color: #571c9b;
-            }
-            50% {
-                color: #4d39c2;
-            }
-            100% {
-                color: #571c9b;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body class="commissionsBody">
     <div class="main">
-        <div class="profilephoto">
-            <img src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240" width="20%">
-            <h1>
-                Status: Closed
-            </h1>
-        </div>
-        <div class="div">
-            <h1>
-                More information will be added soon.
-            </h1>
-            <p>
-                Thanks for visiting this page! Commission info and commission sheet will be posted here when it is available.
-            </p>
-            <p>
-                For the mean time you may send a DM to
-                <a href="https://discord.com/users/345819451247296516" target="_blank">SlamTheDragon</a> via Discord for inquiries.
-            </p>
-            <hr>
-            <p>
-                Looking for my portfolio? Check out my
-                <a href="https://bit.ly/SlamTheDragon-I" target="_blank">Instagram</a> for the mean time, thanks!
-            </p>
-        </div>
+
+        <!--Internal Header-->
+        <section class="profilephoto">
+            <img id="profilephoto" src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240" width="20%">
+            <div class="info">
+                <h1>
+                    Status: Open
+                </h1>
+                <p id="slots">Slots: (0/3)</p>
+            </div>
+
+        </section>
+
+        <!--Card Content-->
+        <section class="commissionContent">
+            <div>
+                <h1 class="Htitle">Available Offers:</h1>
+            </div>
+            <div class="commissionContainer">
+                <div class="tabSelector">
+                    <button class="tablinks" onclick="switchTabSketch(event, 'Head')" id="defaultOpen">Head</button>
+                    <button class="tablinks" onclick="switchTabSketch(event, 'Bust')">Bust</button>
+                    <button class="tablinks" onclick="switchTabSketch(event, 'Half Body')">Half Body</button>
+                    <button class="tablinks" onclick="switchTabSketch(event, 'Full Body')"><span style="text-decoration: line-through;">Full Body</span></button>
+                </div>
+
+
+                <!-----------[ MAIN CONTENT ]----------->
+
+                <div class="MainContent">
+                    <div id="Head" class="tabContent">
+                        <h1>Head Shot | Profile Photo</h1>
+
+                        <div id="color1" class="sectionContent">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.5;">
+                        </div>
+                        <div id="sketch1" class="sectionContent">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 1;">
+                        </div>
+                        <h3>
+                            $21
+                            <a class="sectionLinks" onclick="switchImage(event, 'color1')" id="defaultOpen2">Full Color</a> | $16
+                            <a class="sectionLinks" onclick="switchImage(event, 'sketch1')">Sketch</a>
+                        </h3>
+                    </div>
+
+                    <div id="Bust" class="tabContent">
+                        <h1>Bust</h1>
+                        <div id="color2" class="sectionContent2">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.5;">
+                        </div>
+                        <div id="sketch2" class="sectionContent2">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 1;">
+                        </div>
+                        <h3>
+                            $26
+                            <a class="sectionLinks2" onclick="switchImage2(event, 'color2')" id="defaultOpen3">Full Color</a> | $19
+                            <a class="sectionLinks2" onclick="switchImage2(event, 'sketch2')">Sketch</a>
+                        </h3>
+                    </div>
+
+                    <div id="Half Body" class="tabContent">
+                        <h1>Half Body</h1>
+                        <div id="color3" class="sectionContent3">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.5;">
+                        </div>
+                        <div id="sketch3" class="sectionContent3">
+                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 1;">
+                        </div>
+                        <h3>
+                            $36
+                            <a class="sectionLinks3" onclick="switchImage3(event, 'color3')" id="defaultOpen4">Full Color</a> | $26
+                            <a class="sectionLinks3" onclick="switchImage3(event, 'sketch3')">Sketch</a>
+                        </h3>
+                    </div>
+
+                    <div id="Full Body" class="tabContent">
+                        <h1>Offer Not Available <span style="font-weight: lighter;">(yet)</span></h1>
+                        <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.5;">
+
+                        <h3>
+                            $--
+                            <a class="sectionLinks">Full Color</a> | $--
+                            <a class="sectionLinks">Sketch</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="informationContainer">
+                <p>
+                    Please read <a href="/service-and-agreement.html">Commissioner's Service and Agreement</a> before contacting me via
+                    <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> for any inquiries.
+                </p>
+                <p>
+                    Looking for my portfolio? I only have my <a href="https://bit.ly/SlamTheDragon-I">Instagram</a> at the moment, thanks!
+                </p>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <div class="footerDiv">
+            <div class="footerHeader">
+                <img id="footerLogo" src="/assets/images/favicon.png">
+                <div class="footerHeaderContent">
+                    <div>
+                        <h1>SlamTheDragon</h1>
+                    </div>
+                    <div>
+                        <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
+                        <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
+                        <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footerMobileLinks">
+                <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
+                <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
+                <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+            </div>
+            <div class="footerText">
+                <p>
+                    Coded With Love
+                </p>
+                <p>
+                    © 2022 | Written By SlamTheDragon
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

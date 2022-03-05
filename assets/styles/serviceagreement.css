@@ -1,0 +1,70 @@
+h1 {
+    font-size: 24pt;
+    margin-bottom: 5px;
+}
+
+h2,
+h3 {
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.serviceBody {
+    background-image: url(/assets/images/Abstract\ Art.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
+    user-select: text;
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px;
+    user-select: none;
+}
+
+.info p,
+.info h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #00000075;
+    background-size: auto;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding: 40px;
+    color: black;
+    background-color: white;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 20px 20px 00px 0px;
+    box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    justify-content: flex-start;
+}
+
+@media only screen and (max-width: 800px) {
+    .Content {
+        width: 100%;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 20pt;
+    }
+}
