@@ -51,7 +51,7 @@ html {
 
 body {
     min-height: 100vh;
-    color: white;
+    color: black;
     margin: 0%;
     font-family: 'Segoe UI';
     user-select: none;
@@ -64,6 +64,15 @@ body {
 
 #example:hover {
     color: black;
+}
+
+#importantHighlighted {
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: red;
+    border-style: solid;
+    padding: 20px;
+    margin: 35px 10px;
 }
 
 
@@ -86,10 +95,6 @@ h3 {
     padding: 0px;
     margin: 50px 0px 0px 30px;
     font-size: 24pt;
-}
-
-img {
-    object-fit: scale-down;
 }
 
 article {
@@ -129,6 +134,14 @@ a:hover {
     100% {
         color: #571c9b;
     }
+}
+
+.mobileLinks {
+    display: none;
+}
+
+.desktopLinks {
+    display: inline;
 }
 
 button {
@@ -176,31 +189,34 @@ button {
 footer {
     padding: 50px;
     margin-top: auto;
-    background-color: rgb(29, 29, 29);
+    color: black;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     color: rgb(94, 94, 94);
     user-select: none;
+    justify-content: center;
 }
 
 footer p {
     text-indent: 0px;
 }
 
-footer h1 {
+
+/* footer h1 {
     color: white;
-}
+} */
 
 .footerDiv {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .footerHeader {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footerHeaderContent {
@@ -214,15 +230,15 @@ footer h1 {
 }
 
 #footerLogo {
-    width: 100px;
+    width: 130px;
 }
 
 #footerLinks img {
-    width: 20px;
-    margin: 2x 0px;
-    margin-right: 5px;
+    width: 25px;
+    margin: 0px;
+    margin-right: 2px;
+    margin-left: 2px;
     opacity: 0.3;
-    transition: opacity 200ms;
 }
 
 #footerLinks img:hover {
@@ -230,13 +246,14 @@ footer h1 {
 }
 
 .footerText {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
 }
 
 .footerText p {
-    margin: 5px;
+    margin: 2px;
 }
 
 .footerMobileLinks {
@@ -244,6 +261,12 @@ footer h1 {
 }
 
 @media only screen and (max-width: 800px) {
+    .mobileLinks {
+        display: inline;
+    }
+    .desktopLinks {
+        display: none;
+    }
     p {
         padding: 0px;
         margin: 0px 0px;
@@ -263,6 +286,10 @@ footer h1 {
     }
     article {
         padding: 20px;
+    }
+    #importantHighlighted {
+        margin: 20px 0px;
+        padding: 20px 12px;
     }
     footer {
         flex-direction: column;
@@ -287,5 +314,12 @@ footer h1 {
         width: 25px;
         opacity: 0.3;
         transition: opacity 200ms;
+    }
+    .footerText {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 }

@@ -10,7 +10,6 @@ h3 {
 }
 
 .serviceBody {
-    background-image: url(/assets/images/Abstract\ Art.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
@@ -38,8 +37,6 @@ h3 {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #00000075;
-    background-size: auto;
 }
 
 .Content {
@@ -47,15 +44,15 @@ h3 {
     flex-direction: column;
     height: 100%;
     width: 50%;
-    padding: 40px;
+    padding: 24px;
     color: black;
     background-color: white;
     box-sizing: border-box;
     overflow: hidden;
-    border-radius: 20px 20px 00px 0px;
-    box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
+    -webkit-box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
+    -moz-box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
     justify-content: flex-start;
     background-image: url(/assets/images/Commissions\ Background\ Temp.png);
     background-position: bottom;
@@ -64,8 +61,13 @@ h3 {
 
 @media only screen and (max-width: 800px) {
     .Content {
-        width: 100%;
-        padding: 30px;
+        width: 95%;
+        padding: 15px;
+        padding-bottom: 40px;
+    }
+    .Content,
+    #nav {
+        text-align: right;
     }
     h1 {
         font-size: 20pt;

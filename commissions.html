@@ -17,27 +17,63 @@ Coded with love <3
     <link rel="icon" type="image/jpg" href="assets/images/favicon.png">
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/commissions.css">
-    <script src="/assets/scripts/main.js" defer></script>
+    <script src="/assets/scripts/commWorker.js" defer></script>
+    <script src="/assets/scripts/clicker.js" defer></script>
     <title>Commissions</title>
 </head>
 
 <body class="commissionsBody">
     <div class="main">
 
-        <!--Internal Header-->
-        <section class="profilephoto">
-            <img id="profilephoto" src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240" width="20%">
-            <div class="info">
-                <h1>
-                    Status: Closed
-                </h1>
-                <p id="slots">Slots: (1/3)</p>
+        <!--Header-->
+
+        <section class="profile">
+
+            <div class="profileCard">
+                <div class="profileContent">
+                    <img loading="lazy" id="profilephoto" src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240" width="20%">
+
+                    <div class="profileDescription">
+                        <div class="profileName">
+                            <h1>SlamTheDragon</h1>
+                        </div>
+                        <div class="profileLinks">
+                            <div class="linksDiv">
+                                <a id="navLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
+                                <a id="navLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
+                                <a id="navLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profileSlots">
+                    <h3>Commissions are </h3>
+                    <h3 id="availabilityStatus">-</h3>
+                    <h3 id="profileSlots"><span id="minComm">-</span>/<span id="maxComm">-</span></h3>
+                </div>
+
+                <div class="profileAvailabilityBar">
+                    <h3>Schedule Availablity
+                        <div class="profileStatusInfo">
+                            <p id="psFree">FREE</p>
+                            <p id="psBusy">OCCUPIED</p>
+                        </div>
+                    </h3>
+                    <div class="availabilityBar">
+                        <!--INFO empty div-->
+                    </div>
+                </div>
             </div>
 
+            <div class="profileCardNav">
+                <a id="navLinksDisabled" tabindex="-1"><img src="/assets/images/icons/material-settings.png"></a>
+                <a id="navLinks" href="/home.html"><img src="/assets/images/icons/material-home.png"></a>
+            </div>
         </section>
+
         <!--Card Content-->
         <section class="commissionContent">
-            <span style="color: red; font-weight: bold;">NOTICE: This page will be taken down soon to be revamped</span>
             <div>
                 <h1 class="Htitle">Available Offers:</h1>
             </div>
@@ -45,80 +81,98 @@ Coded with love <3
                 <div class="tabSelector">
                     <button class="tablinks" onclick="switchTabSketch(event, 'Head')" id="defaultOpen">Head</button>
                     <button class="tablinks" onclick="switchTabSketch(event, 'Bust')">Bust</button>
-                    <button class="tablinks" onclick="switchTabSketch(event, 'Half Body')">Half Body</button>
-                    <button class="tablinks" onclick="switchTabSketch(event, 'Full Body')"><span style="text-decoration: line-through;">Full Body</span></button>
+                    <button class="tablinks" id="topChosen" onclick="switchTabSketch(event, 'Half Body')">Half Body</button>
+                    <button class="tablinks" onclick="switchTabSketch(event, 'Full Body')">Full Body</button>
                 </div>
 
-
                 <!-----------[ MAIN CONTENT ]----------->
-
                 <div class="MainContent">
                     <div id="Head" class="tabContent">
-                        <h1>Head Shot | Profile Photo</h1>
-
+                        <h1>Head Shot | Avatar</h1>
                         <div id="color1" class="sectionContent">
-                            <img id="img" src="/assets/images//Commission Sample 1.png">
+                            <img loading="lazy" id="img" src="/assets/images//Commission Sample 1.png">
                         </div>
                         <div id="sketch1" class="sectionContent">
-                            <img id="img" src="/assets/images/Commission Sample 2.png">
+                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 2.png">
                         </div>
-                        <h3>
-                            $21
-                            <a class="sectionLinks" onclick="switchImage(event, 'color1')" id="defaultOpen2">Full Color</a> | $16
-                            <a class="sectionLinks" onclick="switchImage(event, 'sketch1')">Sketch</a>
+
+                        <h3 class="artworkBtns">
+                            <button class="sectionLinks" onclick="switchImage(event, 'color1')" id="defaultOpen2">$30 Full Color</button>
+                            <button class="sectionLinks" onclick="switchImage(event, 'sketch1')">$21 Sketch</button>
                         </h3>
                     </div>
 
                     <div id="Bust" class="tabContent">
                         <h1>Bust</h1>
                         <div id="color2" class="sectionContent2">
-                            <img id="img" src="/assets/images/Commission Sample 3.png">
+                            <!--image carousel-->
+                            <div class="carousel" data-carousel>
+                                <button class="carousel-button prev" tabindex="-1" id="clicker2" data-carousel-button="prev"> </button>
+                                <button class="carousel-button next" tabindex="-1" id="clicker" data-carousel-button="next"> </button>
+
+                                <div data-slides>
+                                    <div class="slide" id="slide1" data-active>
+                                        <img loading="lazy" id="img" src="/assets/images/Commission Sample 3.png">
+                                    </div>
+                                    <div class="slide" id="slide2">
+                                        <img loading="lazy" id="img" src="/assets/images/Commission Sample 3-1.png">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div id="sketch2" class="sectionContent2">
-                            <img id="img" src="/assets/images/Commission Sample 4.png">
+                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 4.png">
                         </div>
-                        <h3>
-                            $26
-                            <a class="sectionLinks2" onclick="switchImage2(event, 'color2')" id="defaultOpen3">Full Color</a> | $19
-                            <a class="sectionLinks2" onclick="switchImage2(event, 'sketch2')">Sketch</a>
+                        <h3 class="artworkBtns">
+                            <button class="sectionLinks2" onclick="switchImage2(event, 'color2')" id="defaultOpen3">$49 Full Color</button>
+                            <button class="sectionLinks2" onclick="switchImage2(event, 'sketch2')">$37 Sketch</button>
                         </h3>
                     </div>
 
                     <div id="Half Body" class="tabContent">
-                        <h1>Half Body</h1>
+                        <div class="bestSellerHeader">
+                            <h1>Half Body</h1>
+                            <img id="bestsellerTag" src="/assets/images/best-seller.png">
+                        </div>
                         <div id="color3" class="sectionContent3">
-                            <img id="img" src="/assets/images/Commission Sample 5.png">
+                            <img loading="lazy" id="img" class="bestSellerImg" src="/assets/images/Commission Sample 5.png">
                         </div>
                         <div id="sketch3" class="sectionContent3">
-                            <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
+                            <img loading="lazy" id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
                         </div>
-                        <h3>
-                            $36
-                            <a class="sectionLinks3" onclick="switchImage3(event, 'color3')" id="defaultOpen4">Full Color</a> | $26
-                            <a class="sectionLinks3" onclick="switchImage3(event, 'sketch3')">Sketch</a>
+                        <h3 class="artworkBtns">
+                            <button class="sectionLinks3" onclick="switchImage3(event, 'color3')" id="defaultOpen4">$71 Full Color</button>
+                            <button class="sectionLinks3" onclick="switchImage3(event, 'sketch3')">$48 Sketch</button>
                         </h3>
                     </div>
 
                     <div id="Full Body" class="tabContent">
-                        <h1>Offer Not Available <span style="font-weight: lighter;">(yet)</span></h1>
-                        <img id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
-
-                        <h3>
-                            $--
-                            <a class="sectionLinks">Full Color</a> | $--
-                            <a class="sectionLinks">Sketch</a>
+                        <h1>Full Body</h1>
+                        <div id="color4" class="sectionContent4">
+                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 7.png">
+                        </div>
+                        <div id="sketch4" class="sectionContent4">
+                            <img loading="lazy" id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
+                        </div>
+                        <h3 class="artworkBtns">
+                            <button class="sectionLinks4" onclick="switchImage4(event, 'color4')" id="defaultOpen5">$99 Full Color</button>
+                            <button class="sectionLinks4" onclick="switchImage4(event, 'sketch4')">$60 Sketch</button>
                         </h3>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="importantnfo">
             <div class="informationContainer">
                 <p>
                     Please read <a href="/service-and-agreement.html">Commissioner's Service and Agreement</a> before contacting me via
-                    <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> for any inquiries.
+                    <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> or <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a> for any inquiries.
                 </p>
-                <p>
+                <!-- <p>
                     Looking for my portfolio? I only have my <a href="https://bit.ly/SlamTheDragon-I">Instagram</a> at the moment, thanks!
-                </p>
+                </p> -->
             </div>
         </section>
     </div>
@@ -126,11 +180,8 @@ Coded with love <3
     <footer>
         <div class="footerDiv">
             <div class="footerHeader">
-                <img id="footerLogo" src="/assets/images/favicon.png">
+                <img id="footerLogo" src="/assets/images/favicon_light.png">
                 <div class="footerHeaderContent">
-                    <div>
-                        <h1>SlamTheDragon</h1>
-                    </div>
                     <div>
                         <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
                         <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
