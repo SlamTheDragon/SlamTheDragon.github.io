@@ -3,7 +3,7 @@ window.onload = function() {
 
     //FIXME add json parser method here
     var parsedValue = 1
-    var minComm = 2
+    var minComm = 3
     var maxComm = 5
     var infStatus
 
