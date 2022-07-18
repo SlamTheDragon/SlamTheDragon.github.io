@@ -95,7 +95,7 @@ p {
 .availabilityBar {
     border-radius: 10px;
     background: #654aff;
-    background: linear-gradient(90deg, #654aff 1%, #e1d8ff 1.1%);
+    background: linear-gradient(90deg, #654aff 10%, #e1d8ff 10.1%);
     background-color: #c9b9ff;
     padding: 8px;
 }
