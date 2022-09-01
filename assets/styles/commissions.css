@@ -410,6 +410,13 @@ p {
     background-color: #7f51ff;
 }
 
+#btnDisable {
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(124, 124, 124);
+    background-color: #cacaca;
+}
+
 #topChosen {
     background-color: #f5f2eb;
     border-style: solid;

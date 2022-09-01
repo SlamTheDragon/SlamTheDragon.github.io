@@ -2,9 +2,9 @@
 window.onload = function() {
 
     //FIXME add json parser method here
-    var parsedValue = 0
-    var minComm = 0
-    var maxComm = 5
+    var parsedValue = 1
+    var minComm = 1
+    var maxComm = 4
     var infStatus
 
     let commStatus = parsedValue
@@ -23,8 +23,6 @@ window.onload = function() {
     document.getElementById('maxComm').innerHTML = maxComm;
 
 }
-
-
 
 
 //Tab Switcher
