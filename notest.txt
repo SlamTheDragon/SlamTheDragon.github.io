@@ -1,6 +1,0 @@
-header card:
-
-include: 
-    title
-    social links
-    
