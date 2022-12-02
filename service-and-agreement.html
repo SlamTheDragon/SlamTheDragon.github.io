@@ -7,6 +7,7 @@ All Rights Reserved
 Coded with love <3
 ===========================
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,15 +15,58 @@ Coded with love <3
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="assets/images/favicon.png">
+
+    <link rel="icon" type="image/jpg" href="assets/images/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/jpg" href="assets/images/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="stylesheet" href="assets/styles/serviceagreement.css">
-    <script src="/assets/scripts/scroll.js" defer></script>
+    <link rel="stylesheet" href="assets/styles/theme.css">
+    <link rel="stylesheet" href="assets/styles/page-components/service-agreement.css">
+    
+    <!-- internal stylesheet may be moved in the future -->
+    <style>
+        #ScrollUp {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            z-index: 2;
+            border: none;
+            outline: none;
+            background-color: rgb(19, 19, 19);
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 100%;
+            margin: 0px;
+            transition: all 200ms;
+            box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+        }
+
+        #ScrollUp:hover {
+            background-color: #555;
+        }
+
+        #ScrollUp:focus-visible {
+            border: rgb(255, 255, 255);
+            border-style: solid;
+            background-color: #555;
+        }
+    </style>
+
+    <script src="/assets/scripts/main.js" defer></script>
+    <script src="/assets/scripts/page-components/service-and-agreement/scroll.js" defer></script>
+
     <title>Service and Agreement</title>
 </head>
 
 <body class="serviceBody">
-    <div class="main">
+    <div>
+
         <!--Internal Header-->
         <section class="Header">
             <div class="info">
@@ -33,6 +77,18 @@ Coded with love <3
         </section>
 
         <button onclick="topFunction()" id="ScrollUp" title="Go to top"><img src="/assets/images/icons/arrow-up.png" width="100%"></button>
+
+        <div id="destructableWarningIncomplete" class="cardDestructable">
+            <div id="toastWARN" class="card">
+                <div>
+                    <span class="material-symbols-rounded">info</span>
+                    <span>This page is still a WIP</span>
+                </div>
+                <button id="destructableDebug" class="material-symbols-rounded"
+                    onclick="destroyElement('destructableWarningIncomplete');">close</button>
+            </div>
+        </div>
+
         <!--Card Content-->
         <section class="Content">
             <article>
@@ -153,31 +209,36 @@ Coded with love <3
                 <a href="/commissions.html">Back</a>
             </div>
         </section>
+        
     </div>
 
     <footer>
         <div class="footerDiv">
+    
             <div class="footerHeader">
+    
                 <img id="footerLogo" src="/assets/images/favicon_light.png">
+    
                 <div class="footerHeaderContent">
-                    <!-- <div>
-                        <h1>SlamTheDragon</h1>
-                    </div> -->
-                    <div id="socialsLinksDesktop">
-                        <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
-                        <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
-                        <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+                    <div id="footerLinks">
+                        <a href="https://twitter.com/SlamTheDragon" target="_blank"><img
+                                src="/assets/images/icons/twitter-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://bit.ly/SlamTheDragon-I" target="_blank"><img
+                                src="/assets/images/icons/instagram-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://www.deviantart.com/slamdx16" target="_blank"><img
+                                src="/assets/images/icons/deviantart-icon.png"></a>
                     </div>
                 </div>
+    
             </div>
-            <div class="footerMobileLinks" id="socialsLinks">
-                <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
-                <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
-                <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
-            </div>
+    
             <div class="footerText">
                 <p>
-                    Coded With Love
+                    <a id="footerGitLink" href="https://github.com/SlamTheDragon/SlamTheDragon.github.io" target="_blank">Coded With Love</a>
                 </p>
                 <p>
                     © 2022 | Written By SlamTheDragon
@@ -185,6 +246,7 @@ Coded with love <3
             </div>
         </div>
     </footer>
+    
 </body>
 
 </html>

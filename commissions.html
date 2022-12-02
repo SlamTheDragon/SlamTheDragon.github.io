@@ -7,6 +7,7 @@ All Rights Reserved
 Coded with love <3
 ===========================
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,207 +15,460 @@ Coded with love <3
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="assets/images/favicon.png">
+    
+    <link rel="icon" type="image/jpg" href="assets/images/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/jpg" href="assets/images/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="stylesheet" href="assets/styles/commissions.css">
-    <script src="/assets/scripts/commWorker.js" defer></script>
-    <script src="/assets/scripts/clicker.js" defer></script>
-    <title>Commissions</title>
+    <link rel="stylesheet" href="assets/styles/theme.css">
+    <link rel="stylesheet" href="assets/styles/page-components/commissions.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
+    <script src="assets/scripts/main.js" defer></script>
+    <script src="assets/scripts/page-components/commissions/commissions.js" defer></script>
+    <script src="assets/scripts/page-components/commissions/commissionsClock.js" defer></script>
+
+    <title>SlamTheDragon - Commissions</title>
 </head>
 
-<body class="commissionsBody">
-    <div class="main">
+<body>
 
-        <!--Header-->
+    <div class="Main">
 
-        <section class="profile">
 
-            <div class="profileCard">
-                <div class="profileContent">
-                    <img loading="lazy" id="profilephoto" src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240" width="20%">
 
-                    <div class="profileDescription">
-                        <div class="profileName">
-                            <h1>SlamTheDragon</h1>
-                        </div>
-                        <div class="profileLinks">
-                            <div class="linksDiv">
-                                <a id="navLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
-                                <a id="navLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
-                                <a id="navLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
-                            </div>
-                        </div>
-                    </div>
+        <section class="headerContainer">
+            
+            <div><!-- empty --></div>    
+            <div id="headerTexts">
+
+                <h1 id="mainTitle">Welcome!</h1>
+                <div id="commissionStatus">
+                    <a href="#commissionSheet">
+                        <h1>Commissions are&#8196</h1>
+                        <h1 id="commissionStatusContainer"><span style="font-family: 'Segoe UI'; font-weight:normal; font-style:italic;">loading</span></h1>
+                        <span class="material-symbols-rounded" id="headerArrow">arrow_forward_ios</span>
+                    </a>
                 </div>
 
-                <div class="profileSlots">
-                    <h3>Commissions are </h3>
-                    <h3 id="availabilityStatus">-</h3>
-                    <h3 id="profileSlots"><span id="minComm">-</span>/<span id="maxComm">-</span></h3>
-                </div>
-
-                <div class="profileAvailabilityBar">
-                    <h3>Schedule Availablity
-                        <div class="profileStatusInfo">
-                            <p id="psFree">FREE</p>
-                            <p id="psBusy">OCCUPIED</p>
-                        </div>
-                    </h3>
-                    <div class="availabilityBar">
-                        <!--INFO empty div-->
-                    </div>
-                </div>
             </div>
+            <div id="headerScroller"><button onclick="focusScroll('#commissionSheet');"><strong><span class="material-symbols-rounded">expand_more</span></strong></button></div>
 
-            <div class="profileCardNav">
-                <a id="navLinksDisabled" tabindex="-1"><img src="/assets/images/icons/material-settings.png"></a>
-                <a id="navLinks" href="/home.html"><img src="/assets/images/icons/material-home.png"></a>
-            </div>
         </section>
 
-        <!--Card Content-->
 
+        <section class="commissionSheetContainer" id="commissionSheet">
+            
+            <!-- ### PANEL 1 ### -->
+            <div id="commSelectionPanel" class="card">
 
-        <section class="commissionContent">
-            <div>
-                <h1 class="Htitle">Available Offers:</h1>
-            </div>
-
-            <div class="commissionContainer">
-
-                <div class="tabSelector">
-                    <button class="tablinks" onclick="switchTabSketch(event, 'Head')" id="defaultOpen">Head</button>
-                    <button class="tablinks" id="btnDisable" style="text-decoration:line-through">Unavailable</button>
-                    <!--onclick="switchTabSketch(event, 'Bust')"-->
-                    <button class="tablinks" id="topChosen" onclick="switchTabSketch(event, 'Half Body')">Half Body</button>
-                    <button class="tablinks" onclick="switchTabSketch(event, 'Full Body')">Full Body</button>
+                <div id="hamburgerBtnContainer">
+                    <span id="hamburgerInnerBtnContainer">
+                        <button id="hamburgerButton" onclick="panelToggle();">
+                            <span class="material-symbols-rounded">menu</span>
+                        </button>
+                        <span></span>
+                    </span>
+                    <button id="defaultOpen" class="tabButtons" onclick="mainTabClicker(event, 'profileCard'); contentSelectionTab();">
+                        <img src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240">
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">SlamTheDragon</span>
+                        </span>
+                    </button>
                 </div>
 
-                <!-----------[ MAIN CONTENT ]----------->
-                <div class="MainContent">
+                <div id="commBtnsContainer">
+                    <button id="scrollOpen" class="tabButtons" onclick="mainTabClicker(event, 'characterPortraits'); contentSelectionTab('buttonSetPortrait'); document.getElementById('ribbonDefaultOpen').click();">
+                        <span class="material-symbols-rounded" id="panelIcons">person</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Portraits</span>
+                        </span>
+                    </button>
 
-                    <div id="Head" class="tabContent">
-                        <h1>Head Shot | Avatar</h1>
-                        <div id="color1" class="sectionContent">
-                            <img loading="lazy" id="img" src="/assets/images//Commission Sample 1.png">
-                        </div>
-                        <div id="sketch1" class="sectionContent">
-                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 2.png">
-                        </div>
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'illustrations'); contentSelectionTab('buttonSetIllustration'); document.getElementById('ribbonDefaultOpen2').click();">
+                        <span class="material-symbols-rounded" id="panelIcons">panorama</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">illustrations</span>
+                        </span>
+                    </button>
 
-                        <h3 class="artworkBtns">
-                            <button class="sectionLinks" onclick="switchImage(event, 'color1')" id="defaultOpen2">$30 Full Color</button>
-                            <button class="sectionLinks" onclick="switchImage(event, 'sketch1')">$21 Sketch</button>
-                        </h3>
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'others'); contentSelectionTab();">
+                        <span class="material-symbols-rounded" id="panelIcons">apps</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Others</span>
+                        </span>
+                    </button>
+
+                </div>
+                
+                <div id="extraBtnsContainer">                    
+
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'specialComm'); contentSelectionTab();">
+                        <span class="material-symbols-rounded" id="panelIcons">temp_preferences_custom</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Special</span>
+                        </span>
+                    </button>
+
+                    <div id="settings">
+                        <button id="theme-btn" onclick="themeChanger()">
+                            <span class="material-symbols-rounded">dark_mode</span>
+                            <span id="panelBtnTextContainer">
+                                <span class="panelBtnText">Change Mode</span>
+                            </span>
+                        </button>
                     </div>
 
-                    <div id="Bust" class="tabContent">
-                        <h1>Bust <span style="font-weight: normal; font-size:small;">(to be removed)</span></h1>
-                        <div id="color2" class="sectionContent2">
-                            <!--image carousel-->
-                            <div class="carousel" data-carousel>
-                                <button class="carousel-button prev" tabindex="-1" id="clicker2" data-carousel-button="prev"> </button>
-                                <button class="carousel-button next" tabindex="-1" id="clicker" data-carousel-button="next"> </button>
+                </div>
 
-                                <div data-slides>
-                                    <div class="slide" id="slide1" data-active>
-                                        <img loading="lazy" id="img" src="/assets/images/Commission Sample 3.png">
+            </div>
+
+
+            <!-- ### PANEL 2 ### -->
+            <div id="commViewPanel" class="card">
+                
+                <div id="destructableToSReminder" class="cardDestructable">
+                    <div id="toastINFO" class="card">
+                        <div>
+                            <span class="material-symbols-rounded">info</span>
+                            <span>Please read <a href="/service-and-agreement.html">Commissioner's Service and Agreement</a> before
+                                contacting me via <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> or
+                                <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a> for any inquiries</span>
+                        </div>
+                        <button id="destructableDebug" class="material-symbols-rounded" onclick="destroyElement('destructableToSReminder');">close</button>
+                    </div>
+                </div>
+
+                <div id="profileCard" class="mainTabContent">
+                    
+                    <!-- row 1 -->
+                    <div id="profileR1">
+
+                        <div id="profileInfo" class="card">
+                            
+                            <div id="profilePhoto">
+                                <div>
+                                    <img src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240">
+                                </div>
+                                <div id="profileAboutMe">
+                                    <h1 id="headerTitle">SlamTheDragon</h1>
+                                    <span>
+                                        Hey! I'm Slam, I'm an artist! I can make beautiful and vibrant art for you from portraits to illustrations!
+                                    </span>
+                                    <span>
+                                        Check other cards I've provided to see what else I have for you.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="profileContactA" class="card" style="display: none;">
+                            <span>
+                                <h1>Ready to Commission Me?</h1>
+                                <p>
+                                    make sure you have read <a href="/service-and-agreement.html">my ToS</a> before contacting me.
+                                </p>
+                            </span>
+                            <button class="alertButton">click here</button>
+                        </div>
+                        <div id="profileContactB" class="card" style="display: none;">
+                            <span>
+                                <h1>Commissions Are Closed</h1>
+                                <p>
+                                    Unfortunately my commissions are currently closed. Please come back next time!
+                                </p>
+                            </span>
+                            <!-- FIXME: remove style attribute -->
+                            <button class="alertButton" style="cursor: not-allowed;">Check Availability</button>
+                        </div>
+                        <div id="profileContact" class="card B">
+                        </div>
+                    </div>
+                     
+
+                    <!-- row 2 -->
+                    <div id="profileR2">
+
+                        <div id="profileCurrentSatus" class="card">
+                            <div>
+                                <h1>Current WIP</h1>
+                            </div>
+
+                            <!-- add paramenter for later in Js -->
+
+                            <div id="imageContainer" class="card">
+                                <div class="openInFullView" style="cursor: not-allowed;">
+                                    <span>
+                                        Open
+                                    </span>
+                                    <span class="material-symbols-outlined">open_in_new</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="profileArtPreview" class="card" onclick="focusScroll('#sectionArtworks');" tabindex="0">
+                            <div id="profileArtPreviewImage">
+                                <div id="profileArtPreviewContents">
+                                    <div>
+                                        <h1>Artworks</h1>
                                     </div>
-                                    <div class="slide" id="slide2">
-                                        <img loading="lazy" id="img" src="/assets/images/Commission Sample 3-1.png">
+                                    <div>
+                                        <span>Check what else I've done here</span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div id="characterPortraits" style="flex-direction: row;" class="mainTabContent">
+                    <h1 id="headerTitle">Portraits</h1>
+
+                    <div id="portraitContainer" class="card B">
+
+                        <div id="profileHead" class="subContent">
+                            <div id="profileA" class="portraitNoBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Headshot | $30
+                                    </h1>
+                                    <span>
+                                        2k/4k
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileB" class="portraitBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Headshot | $30+
+                                    </h1>
+                                    <span>
+                                        2k/4k
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="profileHalf" class="subContent">
+                            <div id="profileC" class="portraitNoBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Halfshot | $56
+                                    </h1>
+                                    <span>
+                                        Around 4k
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileD" class="portraitBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Halfshot | $56+
+                                    </h1>
+                                    <span>
+                                        Around 4k
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="profileFull" class="subContent">
+                            <div id="profileE" class="portraitNoBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Fullshot | $79
+                                    </h1>
+                                    <span>
+                                        4k | 4k+
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileF" class="portraitBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Fullshot | $79+
+                                    </h1>
+                                    <span>
+                                        4k | 4k+
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card B" id="contentSelectionBar">
+                    
+                        <div id="buttonSetPortrait">
+                            <div id="buttonSetLeft">
+                    
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileHead', 'subContent', 'barButtonsA')" id="ribbonDefaultOpen"><span>Headshot</span></button>
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileHalf', 'subContent', 'barButtonsA')"><span>Halfshot</span></button>
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileFull', 'subContent', 'barButtonsA')"><span>Fullshot</span></button>
+                    
+                            </div>
+                            <div id="buttonSetRight">
+                    
+                                <button id="backgroundBtnA" style="background-color:var(--primaryAccent); filter: brightness(110%);"
+                                    onclick="backgroundSelector('A')"><span>Simple Background</span></button>
+                                <button id="backgroundBtnB" style="background-color:var(--primaryAccent); filter: brightness(120%);"
+                                    onclick="backgroundSelector('B')"><span>With Background</span></button>
+                    
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+
+
+                <div id="illustrations" style="flex-direction: row;" class="mainTabContent">
+                    <h1 id="headerTitle">Illustrations</h1>
+
+                    <div id="illustrationsContainer" class="card B">
+
+                        <div id="illustrationCharacter" class="subContent">
+
+                            <div id="illustrationA">
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Character Illustration | $??
+                                    </h1>
+                                    <span>
+                                        4k
+                                    </span>
                                 </div>
                             </div>
 
                         </div>
-                        <div id="sketch2" class="sectionContent2">
-                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 4.png">
+                        <div id="illustrationNoCharacter" class="subContent">
+
+                            <div id="illustrationB">
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Illustration | $??
+                                    </h1>
+                                    <span>
+                                        4k
+                                    </span>
+                                </div>
+                            </div>
+
                         </div>
-                        <h3 class="artworkBtns">
-                            <button class="sectionLinks2" onclick="switchImage2(event, 'color2')" id="defaultOpen3">$49 Full Color</button>
-                            <button class="sectionLinks2" onclick="switchImage2(event, 'sketch2')">$37 Sketch</button>
-                        </h3>
                     </div>
 
-                    <div id="Half Body" class="tabContent">
-                        <div class="bestSellerHeader">
-                            <h1>Half Body</h1>
-                            <img id="bestsellerTag" src="/assets/images/best-seller.png">
+                    <div class="card B" id="contentSelectionBar">
+                        <div id="buttonSetIllustration">
+                            <div>
+                                <button class="barButtonsB" onclick="barBtnClicker(event, 'illustrationCharacter', 'subContent', 'barButtonsB')" id="ribbonDefaultOpen2"><span>Character Illustration</span></button>
+                                <button class="barButtonsB" onclick="barBtnClicker(event, 'illustrationNoCharacter', 'subContent', 'barButtonsB')"><span>Landscape</span></button>
+                            </div>
                         </div>
-                        <div id="color3" class="sectionContent3">
-                            <img loading="lazy" id="img" class="bestSellerImg" src="/assets/images/Commission Sample 5.png">
-                        </div>
-                        <div id="sketch3" class="sectionContent3">
-                            <img loading="lazy" id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
-                        </div>
-                        <h3 class="artworkBtns">
-                            <button class="sectionLinks3" onclick="switchImage3(event, 'color3')" id="defaultOpen4">$64 Full Color</button>
-                            <button class="sectionLinks3" onclick="switchImage3(event, 'sketch3')">$48 Sketch</button>
-                        </h3>
                     </div>
-
-                    <div id="Full Body" class="tabContent">
-                        <h1>Full Body</h1>
-                        <div id="color4" class="sectionContent4">
-                            <img loading="lazy" id="img" src="/assets/images/Commission Sample 7.png">
-                        </div>
-                        <div id="sketch4" class="sectionContent4">
-                            <img loading="lazy" id="img" src="/assets/images/Placeholder.png" style="filter: invert(); opacity: 0.3;">
-                        </div>
-                        <h3 class="artworkBtns">
-                            <button class="sectionLinks4" onclick="switchImage4(event, 'color4')" id="defaultOpen5">$80 Full Color</button>
-                            <button class="sectionLinks4" onclick="switchImage4(event, 'sketch4')">$60 Sketch</button>
-                        </h3>
-                    </div>
-                    
                 </div>
+
+
+                <div id="others" class="mainTabContent">
+                    <h1 id="headerTitle">Other Offers</h1>
+                </div>
+
+
+                <div id="specialComm" class="mainTabContent">
+                    <h1>Special</h1>
+                </div>
+
             </div>
         </section>
 
-        <section class="importantnfo">
-            <div class="informationContainer">
-                <p>
-                    Please read <a href="/service-and-agreement.html">Commissioner's Service and Agreement</a> before contacting
-                    me via
-                    <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> or <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a> for any inquiries.
-                </p>
-                <!--
-                    <p>
-                        Looking for my portfolio? I only have my <a href="https://bit.ly/SlamTheDragon-I">Instagram</a> at the moment, thanks!
-                    </p>
-                 -->
+        <div id="destructableWarningIncomplete" class="cardDestructable">
+            <div id="toastWARN" class="card">
+                <div>
+                    <span class="material-symbols-rounded">info</span>
+                    <span>This section is still a WIP</span>
+                </div>
+                <button id="destructableDebug" class="material-symbols-rounded"
+                    onclick="destroyElement('destructableWarningIncomplete');">close</button>
             </div>
+        </div>
+
+        <section class="Gallery" id="sectionArtworks">
+            <div id="Socials" class="card">
+                <h1>More contents soon!</h1>
+                <div class="card B">
+                    <div id="pageInfoNotDone" class="cardDestructable">
+                        <div id="toastINFO" class="card">
+                            <div>
+                                <span class="material-symbols-rounded">info</span>
+                                <span>
+                                    more things will be listed here and there showcasing most my work. <br>
+                                    come back again next time!
+                                </span>
+                            </div>
+                            <!-- <button id="destructableDebug" class="material-symbols-rounded"onclick="destroyElement('destructableWarningIncomplete');">close</button> -->
+                        </div>
+                    </div>
+                    <p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </p>
+                </div>
+            </div>
+            <!-- <div id="artGallery" class="card">
+            </div> -->
         </section>
 
     </div>
 
     <footer>
         <div class="footerDiv">
+
             <div class="footerHeader">
+
                 <img id="footerLogo" src="/assets/images/favicon_light.png">
+
                 <div class="footerHeaderContent">
-                    <div>
-                        <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
-                        <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
-                        <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+                    <div id="footerLinks">
+                        <a href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
                     </div>
                 </div>
+
             </div>
-            <div class="footerMobileLinks">
-                <a id="footerLinks" href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
-                <a id="footerLinks" href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
-                <a id="footerLinks" href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
-            </div>
+
             <div class="footerText">
                 <p>
-                    Coded With Love
+                    <a id="footerGitLink" href="https://github.com/SlamTheDragon/SlamTheDragon.github.io" target="_blank">Coded With Love | Powered By Github Pages</a>
                 </p>
                 <p>
-                    © 2022 | Written By SlamTheDragon
+                    © 2022 Written By SlamTheDragon
                 </p>
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

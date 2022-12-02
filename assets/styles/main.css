@@ -1,3 +1,56 @@
+/*
+    ==========[ MAIN.CSS OVERVIEW ]==========
+
+    [            NAME           |             DESCRIPTION            ]
+    
+    ### Overview ###
+    - MAIN                      : general formatting
+    - Custom Formats            : theme formatting
+    - Footer                    : general footer format
+    - [mobile format]           : .
+    
+    - colors are primarily controlled by variables [see Theme Control]
+    
+    
+    ### Custom Formatting ###
+    - headerTitle               : Style for headers
+    - card                      : Style for cards
+    - #toastINFO/WARN/ALERT     : Style for toasts
+    - #activeButton             : Style for .active buttons
+    - #actionButton             : Style for action buttons
+    - #alertButton              : Style for alerting/important action buttons
+
+
+    [         VARIABLES         |             DESCRIPTION            |          ID'S        ]
+
+    ### Theme Control [look for theme.css] ###
+        --backgroundColor       : general background color
+        --color                 : general text color
+        --links                 : general links color
+        --cardElement           : general color for cards
+
+        buttons/color           : accent colors
+            --primaryAccent     : active/accent                     : activeButton
+            --secondaryAccent   : default accent                    : actionButton
+            --tertiaryAccent    : alert/important button            : alertButton
+            --defaultButton     : default look
+        
+        misc/info
+            --info              : info color accent                 : toastINFO
+            --warning           : warning color accent              : toastWARN
+            --alert             : alert color accent                : toastALERT
+
+            --imageInvert       : inverts plain colored images/icons
+            --shadow            : inverts general shadow color 
+
+        animation
+            --transitionDelay   : sets animation transition
+*/
+
+
+
+/* Font Package */
+
 @font-face {
     font-family: 'Segoe UI';
     src: url('/assets/styles/font-packages/SegoeUI-BoldItalic.woff2') format('woff2'), url('/assets/styles/font-packages/SegoeUI-BoldItalic.woff') format('woff');
@@ -33,167 +86,264 @@
 
 /*=======[ Main ]=======*/
 
-html,
-body {
-    height: 100%;
+:focus-visible {
+    border-color: var(--tertiaryAccent);
+    outline: solid;
+    border-radius: 3px;
+    outline-width: 3px;
+    transition: 0ms;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-:focus-visible {
-    border-color: #571c9b;
-    outline: solid;
-    border-radius: 5px;
-    outline-width: 3px;
-}
-
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color);
+    background-color: var(--backgroundColor);
     min-height: 100vh;
-    color: black;
     margin: 0%;
     font-family: 'Segoe UI';
     user-select: none;
 }
 
-#example {
-    color: gray;
-    transition: color 200ms;
-}
 
-#example:hover {
-    color: black;
-}
+/* Custom Element Formats */
 
-#importantHighlighted {
-    border-radius: 20px;
-    border-width: 2px;
-    border-color: red;
-    border-style: solid;
-    padding: 20px;
-    margin: 35px 10px;
-}
-
-
-/*general tag formats*/
-
-p {
+#headerTitle {
     padding: 0px;
-    margin: 0px 0px;
-    text-indent: 25pt;
-}
-
-h1,
-h2,
-h3 {
-    padding: 0px 0px;
-    margin: 25px 0px;
-}
-
-.Htitle {
-    padding: 0px;
-    margin: 50px 0px 0px 30px;
+    margin: 30px 0px 30px 0px;
     font-size: 24pt;
 }
 
-article {
-    padding: 50px;
-    padding-top: 25px;
-    text-align: justify;
+.imgIcons {
+    filter: invert(var(--imageInvert));
 }
 
-article p {
-    margin-bottom: 30px;
+/* 
+    ### NOTE ###
+    - Toasts ID's needs .card before it can be completed
+*/
+
+.card {
+    color: var(--color);
+    background-color: var(--cardElement);
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px -10px var(--shadow);
 }
 
+.card.B {
+    background-color: var(--cardElementB);
+}
 
-/*links and buttons*/
+.cardDestructable div div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: var(--transitionDelay);
+}
+
+.cardDestructable.active {
+    transform-origin: top;
+    animation: opacityOut var(--transitionDelay) cubic-bezier(0, .99, .48, .99) 0s 1 normal both;
+}
+
+@keyframes opacityOut {
+    0% {
+        height: 10%;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+    100% {
+        height: 0%;
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+.cardDestructable button {
+    width: 25px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#toastINFO,
+#toastWARN,
+#toastALERT {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#toastINFO span,
+#toastWARN span,
+#toastALERT span {
+    margin: 5px;   
+}
+
+#toastINFO {
+    color: var(--info);
+    border-color: var(--info);
+    border-left: 5px solid;
+    background-color: var(--infoBackground);
+}
+
+#toastWARN {
+    color: var(--warn);
+    border-color: var(--warn);
+    border-left: 5px solid;
+    background-color: var(--warnBackground);
+}
+
+#toastALERT {
+    color: var(--alert);
+    border-color: var(--alert);
+    border: 1px solid;
+    background-color: var(--alertBackground);
+}
+
+/* links and buttons */
 
 a {
-    color: #4d39c2;
+    color: var(--links);
     text-decoration: underline;
-    text-decoration-color: #571c9b00;
-    transition: text-decoration-color 300ms;
+    text-decoration-color: #00000000;
+    transition: var(--transitionDelay);
     font-weight: bold;
 }
 
 a:hover {
-    color: #571c9b;
-    text-decoration-color: #571c9b;
-    animation: pulse 1s infinite;
+    color: var(--linksAccent);
+    text-decoration-color: var(--linksAccent);
+    animation: linkUnderline var(--transitionDelay);
 }
 
-@keyframes pulse {
+@keyframes linkUnderline {
     0% {
-        color: #571c9b;
-    }
-    50% {
-        color: #4d39c2;
+        text-decoration-color: #00000000;
     }
     100% {
-        color: #571c9b;
+        text-decoration-color: var(--linksAccent);
     }
 }
 
-.mobileLinks {
-    display: none;
+
+/* 
+    ### NOTE ###
+    - always put buttons inside containers and it must contain
+      these attributes;
+
+      .container {
+          display: flex;
+          flex-direction: row;
+      }
+
+      therefore it will always fit and extend onto the walls
+
+*/
+
+
+/* Action Buttons */
+
+.actionButton {
+    color: white;
+    background-color: var(--secondaryAccent);
 }
 
-.desktopLinks {
-    display: inline;
+.activeButton {
+    color: var(--color);
+    background-color: var(--primaryAccent);
+}
+
+.alertButton {
+    color: white;
+    background-color: var(--tertiaryAccent);
+}
+
+.actionButton:hover,
+.activeButton:hover,
+.alertButton:hover {
+    color: white;
+    filter: brightness(110%);
+    box-shadow: 0px 6px 20px -10px var(--shadow);
+}
+
+.actionButton:active,
+.activeButton:active,
+.alertButton:active {
+    filter: brightness(90%);
+    background-color: var(--primaryAccent);
+}
+
+.actionButton:focus-visible,
+.activeButton:focus-visible,
+.alertButton:focus-visible {
+    color: white;
+    border-color: #00000000;
+    box-shadow: 0px 6px 20px -10px var(--shadow);
 }
 
 button {
-    background-color: white;
-    margin: 0px 15px;
-    padding: 7px 17px;
-    border-style: none;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-#ScrollUp {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 2;
-    border: none;
-    outline: none;
-    background-color: rgb(19, 19, 19);
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 100%;
-    margin: 0px;
-    transition: all 200ms;
-    box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
-}
-
-#ScrollUp:hover {
-    background-color: #555;
-}
-
-#ScrollUp:focus-visible {
-    border: rgb(255, 255, 255);
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--color);
+    border-color: #00000000;
+    background-color: var(--defaultButton);
+    width: 100%;
+    margin: 8px 15px;
+    padding: 13px 20px;
     border-style: solid;
-    background-color: #555;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transitionDelay);
 }
 
+button:hover {
+    color: var(--linksAccent);
+}
+
+button:active {
+    background-color: var(--primaryAccent);
+}
+
+button:focus-visible {
+    outline-width: 0px;
+    border-radius: 100px;
+    color: var(--linksAccent);
+    border-color: var(--linksAccent);
+    transition: 0ms;
+    filter: brightness(110%);
+}
+
+#toastINFO button {
+    color: var(--info);
+}
+
+#toastWARN button {
+    color: var(--warn);
+}
+#toastALERT button {
+    color: var(--alert);
+}
 
 /*footer*/
 
 footer {
-    padding: 50px;
-    margin-top: auto;
-    color: black;
+    padding: 150px 50px;
+    color: var(--color);
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    color: rgb(94, 94, 94);
     user-select: none;
     justify-content: center;
 }
@@ -201,11 +351,6 @@ footer {
 footer p {
     text-indent: 0px;
 }
-
-
-/* footer h1 {
-    color: white;
-} */
 
 .footerDiv {
     display: flex;
@@ -221,28 +366,48 @@ footer p {
 
 .footerHeaderContent {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.footerHeaderContent h1 {
-    margin: 0px;
-    margin-top: 15px;
+.footerHeaderContent div {
+    display: flex;
 }
 
 #footerLogo {
     width: 130px;
+    filter: invert(var(--imageInvert));
+}
+
+#footerLinks {
+    margin: 0px 6px;
 }
 
 #footerLinks img {
-    width: 25px;
-    margin: 0px;
-    margin-right: 2px;
-    margin-left: 2px;
+    height: 100%;
     opacity: 0.3;
+    transition: 300ms;
+    filter: invert(var(--imageInvert));
 }
 
 #footerLinks img:hover {
     opacity: 1;
+}
+
+#footerGitLink {
+    color: var(--color);
+    text-decoration: none;
+    font-family: 'Segoe UI';
+    font-weight: normal;
+    transition: var(--transitionDelay);
+}
+
+#footerGitLink:hover {
+    color: var(--linksAccent);
+}
+
+#footerGitLink:focus-visible {
+    transition: 0ms;
+    color: var(--links);
 }
 
 .footerText {
@@ -250,47 +415,46 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0.5;
 }
 
 .footerText p {
     margin: 2px;
 }
 
-.footerMobileLinks {
-    display: none;
+
+/* google icons */
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 200,
+        'opsz' 48
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+/* ===[ MOBILE LAYOUT ]=== */
+
 @media only screen and (max-width: 800px) {
-    .mobileLinks {
-        display: inline;
-    }
-    .desktopLinks {
-        display: none;
-    }
-    p {
-        padding: 0px;
-        margin: 0px 0px;
-        text-align: justify;
-    }
-    h1,
-    h2,
-    h3 {
-        padding: 0px 0px;
-        margin: 25px 0px;
-        text-align: left;
-    }
-    .Htitle {
+    
+    /*common*/
+
+    .headerTitle {
         padding: 0px;
         margin: 30px 0px 30px 0px;
         font-size: 24pt;
     }
-    article {
-        padding: 20px;
-    }
-    #importantHighlighted {
-        margin: 20px 0px;
-        padding: 20px 12px;
-    }
+
+    /*footer*/
+
     footer {
         flex-direction: column;
         align-items: center;
@@ -303,17 +467,6 @@ footer p {
     }
     .footerDiv {
         align-items: center;
-    }
-    .footerHeaderContent {
-        display: none;
-    }
-    .footerMobileLinks {
-        display: flex;
-    }
-    #footerLinks img {
-        width: 25px;
-        opacity: 0.3;
-        transition: opacity 200ms;
     }
     .footerText {
         padding: 10px;
