@@ -444,6 +444,11 @@ footer p {
 /* ===[ MOBILE LAYOUT ]=== */
 
 @media only screen and (max-width: 800px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
     
     /*common*/
 

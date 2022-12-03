@@ -124,7 +124,6 @@ Coded with love <3
 
             </div>
 
-
             <!-- ### PANEL 2 ### -->
             <div id="commViewPanel" class="card">
                 
@@ -179,8 +178,7 @@ Coded with love <3
                                     Unfortunately my commissions are currently closed. Please come back next time!
                                 </p>
                             </span>
-                            <!-- FIXME: remove style attribute -->
-                            <button class="alertButton" style="cursor: not-allowed;">Check Availability</button>
+                            <button class="alertButton">Check Availability</button>
                         </div>
                         <div id="profileContact" class="card B">
                         </div>
@@ -198,7 +196,7 @@ Coded with love <3
                             <!-- add paramenter for later in Js -->
 
                             <div id="imageContainer" class="card">
-                                <div class="openInFullView" style="cursor: not-allowed;">
+                                <div class="openInFullView" >
                                     <span>
                                         Open
                                     </span>
@@ -381,6 +379,7 @@ Coded with love <3
 
                 <div id="others" class="mainTabContent">
                     <h1 id="headerTitle">Other Offers</h1>
+                    <div class="card B"></div>
                 </div>
 
 
@@ -391,48 +390,12 @@ Coded with love <3
             </div>
         </section>
 
-        <div id="destructableWarningIncomplete" class="cardDestructable">
-            <div id="toastWARN" class="card">
-                <div>
-                    <span class="material-symbols-rounded">info</span>
-                    <span>This section is still a WIP</span>
-                </div>
-                <button id="destructableDebug" class="material-symbols-rounded"
-                    onclick="destroyElement('destructableWarningIncomplete');">close</button>
-            </div>
-        </div>
-
         <section class="Gallery" id="sectionArtworks">
-            <div id="Socials" class="card">
-                <h1>More contents soon!</h1>
-                <div class="card B">
-                    <div id="pageInfoNotDone" class="cardDestructable">
-                        <div id="toastINFO" class="card">
-                            <div>
-                                <span class="material-symbols-rounded">info</span>
-                                <span>
-                                    more things will be listed here and there showcasing most my work. <br>
-                                    come back again next time!
-                                </span>
-                            </div>
-                            <!-- <button id="destructableDebug" class="material-symbols-rounded"onclick="destroyElement('destructableWarningIncomplete');">close</button> -->
-                        </div>
-                    </div>
-                    <p>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </p>
+            <div class="card">
+                <h1 id="headerTitle">Featured Gallery</h1>
+                <div id="artGallery">
                 </div>
             </div>
-            <!-- <div id="artGallery" class="card">
-            </div> -->
         </section>
 
     </div>
