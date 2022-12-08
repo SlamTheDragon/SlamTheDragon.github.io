@@ -109,7 +109,7 @@ window.addEventListener('scroll', () => {
 });
 
 function check() { 
-    if (scroller <= 500) {
+    if (scroller <= 300) {
         return;
     }
     if (scroller <= 1000) {
@@ -119,6 +119,54 @@ function check() {
 
 function focusWorker() {
     focus.scrollIntoView();
+}
+
+
+// tab selector scroll fadeout on mobile
+
+
+// construct hardcoded device width
+const deviceWidth = window.matchMedia("(max-width: 800px)")
+deviceWidth.addListener(isMobile) // listens for changes
+isMobile(deviceWidth) // if changes detected this triggers
+
+function isMobile(deviceWidth) {
+    
+    if (!deviceWidth.matches) {
+        window.removeEventListener("scroll", console.log("listener removed"))
+    }
+
+    if (deviceWidth.matches) {
+
+        window.addEventListener('scroll', scrollHandler);
+
+        var header = document.getElementById('commSelectionPanel');
+
+        function fadeOutOnScroll(element) {
+            if (!element) {
+                return;
+            }
+
+            var distanceToTop = window.pageYOffset + element.getBoundingClientRect().top - 650;
+            var elementHeight = element.offsetHeight;
+            var scrollTop = document.documentElement.scrollTop;
+
+            var opacity = 1;
+
+            if (scrollTop > distanceToTop) {
+                opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
+            }
+            
+            if (opacity >= 0) {
+                element.style.opacity = opacity;
+            }
+
+            }
+
+        function scrollHandler() {
+            fadeOutOnScroll(header);
+        }
+    }
 }
 
 

@@ -99,6 +99,7 @@ html {
 }
 
 body {
+    /* overflow-x: hidden; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -444,11 +445,6 @@ footer p {
 /* ===[ MOBILE LAYOUT ]=== */
 
 @media only screen and (max-width: 800px) {
-
-    html,
-    body {
-        overflow-x: hidden;
-    }
     
     /*common*/
 
@@ -456,6 +452,18 @@ footer p {
         padding: 0px;
         margin: 30px 0px 30px 0px;
         font-size: 24pt;
+    }
+
+    /* custom */
+
+    #toastINFO,
+    #toastWARN,
+    #toastALERT {
+        padding: 10px;
+    }
+
+    .cardDestructable button {
+        width: 100px;
     }
 
     /*footer*/
