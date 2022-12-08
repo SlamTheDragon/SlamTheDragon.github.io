@@ -1,5 +1,3 @@
-//
-
 timeout()
 
 function timeout() {

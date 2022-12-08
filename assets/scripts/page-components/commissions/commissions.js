@@ -1,6 +1,7 @@
 // I like functions so much
 // I'm way into OOP lmao
 
+
 // window.onload variables
 // parsedval 0 = false
 let parsedValue = 0

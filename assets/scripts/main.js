@@ -12,7 +12,6 @@ function themeChanger() {
     localStorage.setItem("theme", root.id);
 }
 
-
 // destroy element button
 
 function destroyElement(destructable) {

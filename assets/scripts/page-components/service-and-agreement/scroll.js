@@ -1,6 +1,5 @@
 // Back To Top
 
-
 const mybutton = document.getElementById("ScrollUp");
 
 window.onscroll = function() { scrollFunction() };
