@@ -683,38 +683,38 @@ a:focus-visible > #headerArrow {
 /* PORTRAITS */
 
 #profileA {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-1.png');
 }
 
 #profileC {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-3.png');
 }
 
 #profileE {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-5.png');
 }
 
 #profileB {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-2.png');
 }
 
 #profileD {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-4.png');
 }
 
 #profileF {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-6.png');
 }
 
 
 /* ILLUSTRATIONS */
 
 #illustrationA {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-a.png');
 }
 
 #illustrationB {
-    background-image: url('/assets/images/character-illustration.png');
+    background-image: url('/assets/images/character-illustration-b.png');
 }
 
 
@@ -996,6 +996,30 @@ a:focus-visible > #headerArrow {
 
 #contentSelectionBar {
     overflow-x: scroll;
+}
+
+
+/* PORTRAITS */
+
+#priceTag {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 15px;
+}
+
+#profileA,
+#profileB,
+#profileC,
+#profileD,
+#profileE,
+#profileF {
+    background-position: -163px;
+}
+
+
+#illustrationA,
+#illustrationB {
+    display: flex;
 }
 
 /* ===[ GALLERY ]=== */
