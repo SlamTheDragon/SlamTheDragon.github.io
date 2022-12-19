@@ -4,7 +4,7 @@
 
 // window.onload variables
 // parsedval 0 = false
-let parsedValue = 0
+let parsedValue = 1
 let minComm = 0
 let maxComm = 0
 let infStatus

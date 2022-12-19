@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
-    background-image: url('/assets/images/Abstract-Art.jpg');
+    background-image: url('/assets/images/Cover-Art.png');
     background-position: center;
     background-size: cover;
     overflow: hidden;
@@ -821,6 +821,7 @@ a:focus-visible > #headerArrow {
     margin: 0px;
     padding: 20px;
     height: 100vh;
+    background-position: left;
 }
 
 #headerTexts {
