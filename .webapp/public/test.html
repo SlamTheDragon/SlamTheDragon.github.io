@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script defer>
+        // https://raw.githubusercontent.com/octocat/octocat.github.io/master/params.json
+        // https://raw.githubusercontent.com/SlamTheDragon/slamthedragon.github.io-jsonbin/main/bin/json/test.json
+
+        $.getJSON("https://raw.githubusercontent.com/octocat/octocat.github.io/master/params.json", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+                items.push("<li id='" + key + "'>" + val + "</li>");
+            });
+
+            $("<ul/>", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("p");
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/*
+    ### TODO ###
+
+    ### VARIABLES NOT NEEDED FOR DARKMODE ###
+    * --transitionDelay
+*/
+
+:root {
+    /*base*/
+    --backgroundColor: #eff1ff;
+    --color: #000000;
+    --cardElement: #ffffff;
+    --cardElementB: #ffffff;
+
+    /*accent*/
+    --links: #0038f0;
+    --linksAccent: #7800f0;
+
+    --subPrimaryAccent: #d4dcff;
+    --primaryAccent: #b9c6ff;
+    --secondaryAccent: #0038f0;
+    --tertiaryAccent: #c32af5;
+    --defaultButton: #ffffff00;
+
+    /*misc*/
+    --info: #005eff;
+    --warn: #ffc400;
+    --alert: #ff0000;
+    --infoBackground: #dfebff;
+    --warnBackground: #fffdf5;
+    --alertBackground: #fff5f5;
+
+    --imageInvert: 0;
+    --shadow: #000000;
+
+    /*animation*/
+    --transitionDelay: 300ms;
+}
+
+:root#dark {
+    /*base*/
+    --backgroundColor: #161824;
+    --color: #ffffff;
+    --cardElement: #1e2135;
+    --cardElementB: #22263d;
+
+    /*accent*/
+    --links: #4b90ff;
+    --linksAccent: #8161ff;
+
+    --subPrimaryAccent: #323544;
+    --primaryAccent: #323544;
+    --secondaryAccent: #1a4386;
+    --tertiaryAccent: #8936b8;
+    --defaultButton: #00000000;
+
+    /*misc*/
+    --info: #1994ff;
+    --warn: #ffc400;
+    --alert: #ff0000;
+    --infoBackground: #222640;
+    --warnBackground: #2a261f;
+    --alertBackground: #46000f41;
+    
+    --imageInvert: 1;
+    --shadow: #00139263;
+}

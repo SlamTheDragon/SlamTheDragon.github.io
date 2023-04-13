@@ -1,0 +1,251 @@
+<!--
+===========================
+© 2022 Website Made By
+SlamTheDragon
+All Rights Reserved
+
+Coded with love <3
+===========================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/jpg" href="assets/images/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/jpg" href="assets/images/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/theme.css">
+    <link rel="stylesheet" href="assets/styles/page-components/service-agreement.css">
+    
+    <!-- internal stylesheet may be moved in the future -->
+    <style>
+        #ScrollUp {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            z-index: 2;
+            border: none;
+            outline: none;
+            background-color: rgb(19, 19, 19);
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 100%;
+            margin: 0px;
+            transition: all 200ms;
+            box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 10px 26px -6px rgba(0, 0, 0, 0.75);
+        }
+
+        #ScrollUp:hover {
+            background-color: #555;
+        }
+
+        #ScrollUp:focus-visible {
+            border: rgb(255, 255, 255);
+            border-style: solid;
+            background-color: #555;
+        }
+    </style>
+
+    <script src="/assets/scripts/main.js" defer></script>
+    <script src="/assets/scripts/page-components/service-and-agreement/scroll.js" defer></script>
+
+    <title>Service and Agreement</title>
+</head>
+
+<body class="serviceBody">
+    <div>
+
+        <!--Internal Header-->
+        <section class="Header">
+            <div class="info">
+                <h1>
+                    Service and Agreement
+                </h1>
+            </div>
+        </section>
+
+        <button onclick="topFunction()" id="ScrollUp" title="Go to top"><img src="/assets/images/icons/arrow-up.png" width="100%"></button>
+
+        <div id="destructableWarningIncomplete" class="cardDestructable">
+            <div id="toastWARN" class="card">
+                <div>
+                    <span class="material-symbols-rounded">info</span>
+                    <span>This page is still a WIP</span>
+                </div>
+                <button id="destructableDebug" class="material-symbols-rounded"
+                    onclick="destroyElement('destructableWarningIncomplete');">close</button>
+            </div>
+        </div>
+
+        <!--Card Content-->
+        <section class="Content">
+            <article>
+                <section id="Commissioning">
+                    <span style="font-style:italic; font-size:smaller; opacity: 0.5;">    
+                        last updated: 07/18/2022
+                    </span>
+                    <h1>Commissioning</h1>
+                    <p>
+                        Hello and welcome to this page! Please read the following things that I will be stating here before reaching out to me. I am a very busy person and I'd like things to be done straight so that my time won't be wasted as much. If my status on my
+                        <a href="/commissions.html">Commissions</a> page is closed therefore I'm closed, hence I will not entertain any messages regarding anything related to commissioning me. First comes first serve. If you are interested in commissioning
+                        me, keep an eye on my
+                        <a href="#socialsLinks" class="mobileLinks">Socials</a><a href="#socialsLinksDesktop" class="desktopLinks">Socials</a> I'll be posting my commission status on my <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a>                        monthly.
+                    </p>
+                    <p>I accept payments via <strong>PayPal</strong>, more about that later or you could skip ahead and check
+                        <a href="#Arrangements and Pricing">Arrangements and Pricing</a>. I mostly accept furry art but I can take anything too! <em>Except for Anime.</em> <strong>SFW Commissions only!</strong> Any commission requests related to NSFW
+                        will be <strong>denied</strong> immediately.
+                    </p>
+                </section>
+                <section id="Information">
+                    <h1>Commission and Offers</h1>
+                    <h2>Offers</h2>
+                    <p>Available Offers are listed on my <a href="/commissions.html">Commissions</a> page. However, there are more planned offers that I may do in the future. Possible Offers are listed below:</p>
+                    <div>
+                        <h3>Portraits <span style="font-weight: normal;">(No Background)</span></h3>
+                        <ul>
+                            <span style="color: rgb(0, 116, 100);">
+                                <li>Profile Photo</li>
+                                <li>Bust Shot</li>
+                                <li>Full Body</li>
+                                <li>Half Body</li>
+                            </span style="color: aquamarine;">
+                        </ul>
+
+                        <h3>Portraits With Backgrounds</h3>
+                        <ul>
+                            <span style="color: rgb(0, 116, 100);">                                                            
+                                <li>Half Body</li>
+                                <li>Full Body</li>
+                            </span style="color: aquamarine;">
+                        </ul>
+
+                        <h3>Illustration</h3>
+                        <ul>
+                            <span style="color: rgb(0, 116, 100);">
+                                <li>Character Illustration</li>
+                                <li>Just Landscape</li>
+                            </span style="color: aquamarine;">
+                        </ul>
+
+                        <h3>Other Services</h3>
+                        <ul>
+                            <span style="color: rgb(0, 116, 100);">
+                                <li>Character Redesign/Revisioning</li>
+                                <li>Character Prompt (Prompt me to create a character from scratch)</li>
+                            </span style="color: aquamarine;">
+                        </ul>
+                        
+                            <!-- <h3>Reference Sheet <span style="font-weight: normal;">(Sketch/Colored)</span></h3>
+                            <ul>
+                                <li>One Pose (With necessary information)</li>
+                                <li>3/4 Two Poses (With Necessary information)</li>
+                                <li>4 Poses (3D Modeller's Sheet)</li>
+                                <li>3/4 Two Poses (3D Modeller's Sheet)</li>
+                                <li>3/4 Two Poses (3D Modeller's Sheet with Full Body Illustration)</li>
+                            </ul>-->
+                            <!-- <h3>Bundles</h3>
+                            <ul>
+                                <li>Complete Bundle</li>
+                                Which Includes:
+                                <ul>
+                                    <li>Reference Sheet of your Choice</li>
+                                    <li>Full Body Portrait</li>
+                                    <li>Character Illustration</li>
+                                </ul>
+                            </ul> -->
+
+                    </div>
+                </section>
+                <section id="Arrangements and Pricing">
+                    <h1>Arrangements and Pricing</h1>
+                    <div id="importantHighlighted">
+                        <h2>User-Commissioner Agreement</h2>
+                        <p>Before contacting me, please provide your character's reference sheet including the order of your choice. Once received we'll be discussing some small matters regarding your commission request. After that, I'll be sending my PayPal
+                            account once we got a deal according to your order. To keep everything neat and secure, Slam will only accept your request if you agree upon the following:
+                        </p>
+                    </div>
+
+                    <h3>Prices Under $75</h3>
+                    <p>Slam requires full payment of your selected offer of the final pricing we had discussed (<a href="#Pricing">See Pricing</a>). Once the payment is received, Slam will proceed and start doing your commission request at his available
+                        schedule slots.
+                    </p>
+
+                    <h3>Prices Above $75</h3>
+                    <p>Larger and costly commissions are a bit daunting to get fully paid in the first place. Slam can offer a 40% downpayment of the final discussed price of the available offer of your choice. Once the initial payment is received, Slam
+                        will proceed and start doing your commission request at his available schedule slots. And finally, Slam will inform you once the piece has been finalized and will wait for the remaining payment before releasing the output to you.</p>
+
+                    <p>The length or duration of each piece can neither take up to 1-3 days or 2 weeks or even more depending on what offer you took as well as my schedule and availability.</p>
+
+                    <h2 id="Pricing">Pricing</h2>
+                    <p>Prices are based per <strong>character/OC</strong> of yours. <span id="example">(e.g. If you want to commission for two characters in one illustration, the total price of the original offer will be doubled).</span> This will be the
+                        main factor in pricing your commissioned piece. Another one is complexity. The more complex your character the higher the price will be. Lastly, time. If you're in a hurry or wanted to get your commissioned piece done sooner I
+                        have to charge you so that I have a reason to consider your commission request as my top priority. In addition, I can take up to
+                        <strong>1 iteration only</strong> of the finalized take of the piece but I have to <strong>charge</strong> you an additional $20, more or less depending on how big the scope of iteration is.</p>
+                    <p>To sum everything up, The prices posted on my <a href="/commissions.html">Commissions</a> page might be higher depending on any extras we end up adding during the process. These factors may or may not affect the final price of your
+                        placed order from me. Additionally, my rates may change depending on my life status and demand.</p>
+                </section>
+                <section id="Extras">
+                    <h1>Extras</h1>
+                    <p>You can freely tap me in my DMs regarding the progress of the commission you had on me. If you have any questions or clarifications hit me up in <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a>, my
+                        DMs are always open!</p>
+                    <p>If you are looking forward to getting me involved in such works on some custom/special arranged commissions OR any big related things (such as animation, storyboarding, or any possible studio-related work concerning concept art and
+                        illustration) I'm not yet open to that, unfortunately. I'll keep you updated via <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a> whenever I have updated this section/changed my mind.</p>
+                    <p>Woah, well anyway... If you reached this last part thank you for spending your time reading everything I've stated here! I hope to see you soon :D</p>
+                </section>
+            </article>
+            <div id="nav">
+                <a href="/commissions.html">Back</a>
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        <div class="footerDiv">
+    
+            <div class="footerHeader">
+    
+                <img id="footerLogo" src="/assets/images/favicon_light.png">
+    
+                <div class="footerHeaderContent">
+                    <div id="footerLinks">
+                        <a href="https://twitter.com/SlamTheDragon" target="_blank"><img
+                                src="/assets/images/icons/twitter-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://bit.ly/SlamTheDragon-I" target="_blank"><img
+                                src="/assets/images/icons/instagram-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://www.deviantart.com/slamdx16" target="_blank"><img
+                                src="/assets/images/icons/deviantart-icon.png"></a>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div class="footerText">
+                <p>
+                    <a id="footerGitLink" href="https://github.com/SlamTheDragon/SlamTheDragon.github.io" target="_blank">Coded With Love</a>
+                </p>
+                <p>
+                    © 2022 | Written By SlamTheDragon
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>

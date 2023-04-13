@@ -1,0 +1,77 @@
+h1 {
+    font-size: 24pt;
+    margin-bottom: 5px;
+}
+
+h2,
+h3 {
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.serviceBody {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
+    user-select: text;
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px;
+    user-select: none;
+}
+
+.info p,
+.info h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding: 24px;
+    color: var(--color);
+    background-color: var(--cardElement);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
+    -webkit-box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
+    -moz-box-shadow: 0px 10px 26px -9px rgba(0, 43, 84, 0.51);
+    justify-content: flex-start;
+    background-image: url(/assets/images/Commissions\ Background\ Temp.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 800px) {
+    .Content {
+        width: 95%;
+        padding: 15px;
+        padding-bottom: 40px;
+    }
+
+    .Content,
+    #nav {
+        text-align: right;
+    }
+
+    h1 {
+        font-size: 20pt;
+    }
+}

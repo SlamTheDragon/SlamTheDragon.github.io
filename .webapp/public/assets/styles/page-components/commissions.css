@@ -1,0 +1,1041 @@
+/* 
+    ==========[ COMMISSION.CSS OVERVIEW ]==========
+
+    ### THE STRUCTURE ###
+    * Main
+        - header containers
+        - commission page container
+        - Gallery
+*/
+
+
+
+/* ===[ MAIN ]=== */
+
+.Main {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 100px;
+}
+
+
+/* ===[ HEADER ]=== */
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background-image: url('/assets/images/Cover-Art.png');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 70vh;
+    padding: 50px;
+    margin: 80px 0px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px -10px var(--shadow);
+    white-space: nowrap;
+}
+
+#headerTexts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 70px;
+}
+
+#mainTitle {
+    padding: 0px;
+    margin: 0px;
+    font-size: 72pt;
+}
+
+#commissionStatus {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#commissionStatus a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5px;
+}
+
+#commissionStatus h1,
+#headerArrow {
+    margin: 0px;
+    color: white;
+}
+
+#headerArrow {
+    margin-left: 5px;
+}
+
+#commissionStatus a:hover {
+    text-decoration: none;
+    text-decoration-color: #00000000;
+    color: white;
+}
+
+a:hover > #headerArrow {
+    animation: pulseMove 1s infinite;
+    animation-timing-function: ease-in-out;
+    transition: pulseMove var(--transitionDelay);
+}
+
+a:focus-visible > #headerArrow {
+    animation: pulseMove 1s infinite;
+    animation-timing-function: ease-in-out;
+    transition: pulseMove var(--transitionDelay);
+}
+
+@keyframes pulseMove {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+#headerScroller button {
+    color: white;
+}
+
+
+/* ===[ COMMISSION PAGE CONTAINER ]=== */
+
+.commissionSheetContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    scroll-snap-type: y mandatory;
+}
+
+.commissionSheetContainer #commSelectionPanel button {
+    margin: 0px;
+}
+
+#commSelectionPanel,
+#commViewPanel {
+    margin: 55px 0px;
+}
+
+
+/* ### panel 1 ### */
+
+#commSelectionPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-right: 10px;
+    padding: 20px;
+    transition: var(--transitionDelay);
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#commSelectionPanel::-webkit-scrollbar {
+    display: none;
+}
+
+#commSelectionPanel button {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    color: var(--color);
+    border-color: #00000000;
+    background-color: var(--defaultButton);
+    width: 100%;
+    margin: 8px 15px;
+    padding: 13px 20px;
+    border-style: solid;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transitionDelay);
+}
+
+#commSelectionPanel button:hover {
+    color: var(--linksAccent);
+}
+
+#commSelectionPanel button:focus-visible {
+    outline-width: 0px;
+    border-radius: 100px;
+    color: var(--linksAccent);
+    border-color: var(--linksAccent);
+    transition: 0ms;
+    filter: brightness(110%);
+}
+
+#commSelectionPanel button:active {
+    color: var(--primaryAccent);
+}
+
+#commSelectionPanel button.active {
+    background-color: var(--subPrimaryAccent);
+}
+
+/* hamburger section */
+
+#hamburgerBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 8px 8px;
+}
+
+#hamburgerBtnContainer #hamburgerButton {
+    justify-content: center;
+    width: 55px;
+}
+
+#hamburgerButton:active {
+    transform: scaley(0.8);
+}
+
+#hamburgerBtnContainer button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    padding: 8px 8px;
+}
+
+#hamburgerBtnContainer img {
+    width: 35px;
+    height: 100%;
+    border-radius: 50%;
+    outline: 2px solid var(--color);
+    outline-offset: 3px;
+    z-index: 2;
+    transition: var(--transitionDelay);
+}
+
+#hamburgerBtnContainer img:hover {
+    outline: 2px solid var(--linksAccent);
+}
+
+#hamburgerInnerBtnContainer {
+    width: 100%;
+}
+
+/* tab buttons */
+
+.tabButtons {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#panelBtnTextContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+/* theme button */
+
+#extraBtnsContainer button.tabButtons {
+    margin-bottom: 10px;
+}
+
+#theme-btn {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#theme-btn span.panelBtnText {
+    font-family: 'Segoe UI';
+    font-weight: normal;
+    filter: brightness(150%);
+    opacity: 0.7;
+}
+
+#panelIcons {
+    transform: translateX(1.9px);
+}
+
+
+/* ### panel 2 ### */
+
+#commViewPanel {
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#commViewPanel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Containers */
+
+.mainTabContent {
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+
+/* ### PROFILE ### */
+
+/* Profile Containers */
+
+#profileCard {
+    display: flex;
+}
+
+
+#profileR1,
+#profileR2 {
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
+
+#profileInfo,
+#profileContact,
+#profileContactA,
+#profileContactB,
+#profileCurrentSatus,
+#profileArtPreview {
+    color: white;
+}
+
+#profileInfo,
+#profileContact,
+#profileContactA,
+#profileContactB,
+#profileCurrentSatus,
+#profileArtPreview {
+    margin: 10px;
+    transition: var(--transitionDelay);
+}
+
+#profileInfo:hover,
+#profileContactA:hover,
+#profileContactB:hover,
+#profileCurrentSatus:hover,
+#profileArtPreview:hover {
+    transform: translateY(-3px);
+    filter: brightness(110%);
+}
+
+#profileInfo {
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    background: linear-gradient(159deg, rgba(175,0,255,1) 0%, rgba(255,0,160,1) 100%);
+}
+
+#profileContactA,
+#profileContactB {
+    width: 30%;
+    background: linear-gradient(10deg, rgb(254, 157, 11) 0%, rgb(255, 0, 153) 100%);
+}
+
+#profileArtPreview {
+    width: 100%;
+    background: linear-gradient(187deg, rgb(0, 255, 153) 0%, rgb(0, 195, 255) 100%);
+}
+
+#profileCurrentSatus {
+    width: 40%;
+    background: linear-gradient(10deg, rgb(0, 200, 255) 0%, rgb(0, 102, 255) 100%);
+}
+
+
+/* #profileInfo */
+
+#profilePhoto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profilePhoto div img {
+    border-radius: 50%;
+    width: 100px;
+    outline: 3px solid white;
+    outline-offset: 7px;
+    box-shadow: 0px 6px 20px -10px var(--shadow);
+}
+
+#profileAboutMe {
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#profileAboutMe h1 {
+    margin: 0px 0px 10px 0px;
+}
+
+#profileAboutMe span {
+    line-height: 19px;
+}
+
+
+/* #profileContact */
+
+#profileContactA,
+#profileContactB {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 27px;
+    overflow: hidden;
+}
+
+#profileContactA p,
+#profileContactB p {
+    line-height: 19px;
+}
+
+#profileContactA button,
+#profileContactB button {
+    margin: 0px 0px 10px 0px;
+}
+
+#profileContactA h1,
+#profileContactB h1 {
+    margin-bottom: 0px;
+}
+
+
+/* #profileCurrentSatus */
+
+#profileCurrentSatus {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#profileCurrentSatus button {
+    margin: 15px 0px 0px 0px;
+}
+
+#profileCurrentSatus h1 {
+    margin: 15px 0px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#imageContainer {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/images/Placeholder.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #00000000;
+    overflow: hidden;
+}
+
+.openInFullView {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: #0000003e;
+    opacity: 0;
+    border-radius: 20px;
+    transition: var(--transitionDelay);
+}
+
+.openInFullView:hover {
+    opacity: 1;
+}
+
+
+/* #profileArtPreview */
+
+#profileArtPreview {
+    padding: 0px;
+}
+
+#profileArtPreviewImage h1 {
+    margin: 0px;
+    font-family: 'Segoe UI';
+    font-size: 48px;
+}
+
+#profileArtPreviewImage h1,
+#profileArtPreviewImage span {
+    margin-left: 40px;
+}
+
+#profileArtPreviewContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(187deg, rgb(0, 0, 0) 0%, rgba(0, 195, 255, 0) 100%);
+}
+
+#profileArtPreviewContents:hover {
+    cursor: pointer;
+    animation: backgroundTransitionHover 100ms cubic-bezier(0, .68, .37, .98) 0ms 1 alternate both;
+}
+
+@keyframes backgroundTransitionHover {
+    0% {
+        background: linear-gradient(187deg, rgb(0, 0, 0) 0%, rgb(0, 68, 78, 0) 100%);
+    }
+
+    10% {
+        background: linear-gradient(187deg, rgb(0, 12, 14) 0%, rgb(0, 68, 78, 0.1) 100%);
+    }
+
+    20% {
+        background: linear-gradient(187deg, rgb(0, 49, 29) 0%, rgb(0, 68, 78, 0.2) 100%);
+    }
+
+    30% {
+        background: linear-gradient(187deg, rgb(0, 63, 32) 0%, rgb(0, 68, 78, 0.3) 100%);
+    }
+
+    40% {
+        background: linear-gradient(187deg, rgb(0, 100, 48) 0%, rgb(0, 85, 96, 0.4) 100%);
+    }
+
+    50% {
+        background: linear-gradient(187deg, rgb(0, 134, 69) 0%, rgb(0, 120, 135, 0.5) 100%);
+    }
+
+    60% {
+        background: linear-gradient(187deg, rgb(0, 158, 87) 0%, rgb(0, 141, 173, 0.6) 100%);
+    }
+
+    70% {
+        background: linear-gradient(187deg, rgb(0, 180, 100) 0%, rgba(0, 160, 210, 0.7) 100%);
+    }
+
+    80% {
+        background: linear-gradient(187deg, rgb(0, 217, 127, 0.9) 0%, rgba(0, 170, 225, 0.8) 100%);
+    }
+
+    90% {
+        background: linear-gradient(187deg, rgb(0, 231, 139, 0.9) 0%, rgba(0, 180, 240, 0.9) 100%);
+    }
+
+    100% {
+        background: linear-gradient(187deg, rgb(0, 255, 153, 0.9) 0%, rgb(0, 195, 255, 0.9) 100%);
+    }
+}
+
+#profileArtPreviewImage {
+    overflow: hidden;
+    background-image: url('/assets/images/gallery-overview.png');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#imageContainerList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+#imageContainerList::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ### COMMISSION SECTION ### */
+
+/* ### Button Selection Panel ### */
+
+#contentSelectionBar {
+    width: 100%;
+    padding: 5px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#contentSelectionBar button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonSetPortrait {
+    width: 100%;
+}
+
+#buttonSetPortrait div,
+#buttonSetIllustration div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.barButtonsA.active, .barButtonsB.active {
+    background-color: var(--primaryAccent);
+}
+
+
+/* ### COMMISSION CONTAINERS ### */
+
+.subContent {
+    height: 100%;
+}
+
+#characterPortraits,
+#illustrations {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#portraitContainer,
+#illustrationsContainer {
+    padding: 0px;
+    width: 100%;
+    height: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#characterPortraits h1,
+#illustrations h1,
+#others h1 {
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+#priceTag {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+/* Commission Image Containers */
+
+#profileA,
+#profileB,
+#profileC,
+#profileD,
+#profileE,
+#profileF,
+#illustrationA,
+#illustrationB {
+    justify-content: flex-end;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* PORTRAITS */
+
+#profileA {
+    background-image: url('/assets/images/character-illustration-1.png');
+}
+
+#profileC {
+    background-image: url('/assets/images/character-illustration-3.png');
+}
+
+#profileE {
+    background-image: url('/assets/images/character-illustration-5.png');
+}
+
+#profileB {
+    background-image: url('/assets/images/character-illustration-2.png');
+}
+
+#profileD {
+    background-image: url('/assets/images/character-illustration-4.png');
+}
+
+#profileF {
+    background-image: url('/assets/images/character-illustration-6.png');
+}
+
+
+/* ILLUSTRATIONS */
+
+#illustrationA {
+    background-image: url('/assets/images/character-illustration-a.png');
+}
+
+#illustrationB {
+    background-image: url('/assets/images/character-illustration-b.png');
+}
+
+
+/* ===[ GALLERY ]=== */
+
+.Gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.Gallery .card {
+    padding: 50px 60px;
+}
+
+#gallerySection1 {
+    border-radius: 20px 20px 0px 0px;
+    margin: 55px 0px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#gallerySection2 {
+    border-radius: 0px;
+    margin: 55px 0px;
+    margin: 0;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    box-shadow: none;
+    scroll-snap-type: x proximity;
+}
+
+#gallerySection3 {
+    margin: 0;
+    border-radius: 0px 0px 20px 20px;
+}
+
+#gallerySection2::-webkit-scrollbar {
+    background-color: var(--cardElement);
+    height: 7px;
+}
+
+#gallerySection2::-webkit-scrollbar-thumb {
+    background-color: var(--color);
+    border-radius: 20px;
+}
+
+#artA,
+#artB,
+#artC,
+#artD,
+#artE {
+    color: #00000000;
+    border-radius: 20px;
+    margin: 15px;
+    width: 749px;
+    height: 503px;
+    background-image: url('/assets/images/Abstract-Art.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 6px 20px -10px var(--shadow);
+    scroll-snap-align: center;
+}
+
+#artA {
+    background-image: url("https://pbs.twimg.com/media/FjNJJJ1aEAEjSyh?format=jpg&name=4096x4096");
+}
+
+
+#artB {
+    background-image: url("https://pbs.twimg.com/media/Fcsp0nGaEAEnTre?format=jpg&name=4096x4096");
+}
+
+#artC {
+    background-image: url("https://pbs.twimg.com/media/FbBIgYpakAAefKM?format=jpg&name=large");
+}
+
+#artD {
+    background-image: url("https://pbs.twimg.com/media/FMk8GFeVgAUkyzZ?format=jpg&name=4096x4096");
+}
+
+#artE {
+    background-image: url("https://pbs.twimg.com/media/FCiC2I5VcAMMzVH?format=jpg&name=large");
+}
+
+/* ===[ MOBILE LAYOUT ]=== */
+
+@media only screen and (max-width: 800px) {
+
+
+/* ===[ MAIN ]=== */
+
+.Main {
+    margin: 0px;
+}
+
+
+/* ===[ HEADER ]=== */
+
+.headerContainer{
+    border-radius: 0px;
+    margin: 0px;
+    padding: 20px;
+    height: 100vh;
+    background-position: left;
+}
+
+#headerTexts {
+    line-height: 44px;
+}
+
+#mainTitle {
+    font-size: 48pt;
+}
+
+#commissionStatus a h1 {
+    font-size: 14pt;
+}
+
+#headerScroller button {
+    margin: 0px;
+}
+
+
+/* ===[ COMMISSION PAGE CONTAINER ]=== */
+
+.commissionSheetContainer {
+    flex-direction: column-reverse;
+}
+
+#commSelectionPanel,
+#commViewPanel {
+    margin: 0px;
+}
+
+#profileCard,
+#characterPortraits,
+#illustrations,
+#others,
+#specialComm {
+    padding-bottom: 70px;
+}
+
+
+
+/* ### panel 2 ### */
+
+#commViewPanel {
+    border-radius: 0px;
+    padding: 0px;
+    height: 100vh;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#profileR1,
+#profileR2 {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#profileInfo,
+#profileContact,
+#profileContactA,
+#profileContactB {
+    height: 100%;
+    width: unset;
+}
+
+
+/* #profileInfo */
+
+#profilePhoto {
+    flex-direction: column;
+}
+
+#profileAboutMe {
+    text-align: center;
+    align-items: center;
+    margin: 0px;
+}
+
+#profileAboutMe span {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+
+/* #profileCurrentSatus */
+
+#profileCurrentSatus {
+    display: none;
+}
+
+
+/* #profileArtPreview */
+
+#profileArtPreview {
+    height: 70%;
+    width: 95%;
+}
+
+/* ### panel 1 ### */
+
+#commSelectionPanel {
+    background-color: var(--cardElementB);
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 90%;
+    height: 50px;
+    flex-direction: row;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+.commissionSheetContainer #commSelectionPanel button {
+    padding: 0px 10px;
+}
+
+#commSelectionPanel #settings {
+    display: flex;
+    justify-content: center;
+}
+
+#hamburgerBtnContainer {
+    justify-content: center;
+}
+
+#hamburgerBtnContainer button {
+    height: 100%;
+    width: 100%;
+}
+
+#hamburgerBtnContainer img {
+    height: unset;
+}
+
+#hamburgerInnerBtnContainer {
+    display: none;
+}
+
+#commBtnsContainer {
+    margin: 0px 10px;
+}
+
+#commBtnsContainer,
+#extraBtnsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#commSelectionPanel button {
+    justify-content: center;
+}
+
+#hamburgerBtnContainer {
+    padding: 0px;
+}
+
+#panelBtnTextContainer {
+    display: none;
+}
+
+#panelIcons {
+    transform: none;
+}
+
+#extraBtnsContainer button.tabButtons {
+    margin: 0px;
+}
+
+/* ### COMMISSION SECTION ### */
+
+#contentSelectionBar {
+    overflow-x: scroll;
+}
+
+
+/* PORTRAITS */
+
+#priceTag {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 15px;
+}
+
+#profileA,
+#profileB,
+#profileC,
+#profileD,
+#profileE,
+#profileF {
+    background-position: -163px;
+}
+
+
+#illustrationA,
+#illustrationB {
+    display: flex;
+}
+
+/* ===[ GALLERY ]=== */
+
+.Gallery .card {
+    padding: 50px 28px;
+}
+
+#artA,
+#artB,
+#artC,
+#artD,
+#artE {
+    width: 300px;
+    height: 250px;
+}
+
+}
