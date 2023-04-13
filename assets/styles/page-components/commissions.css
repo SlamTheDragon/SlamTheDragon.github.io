@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
-    background-image: url('/assets/images/Cover-Art.png');
+    background-image: url('/assets/images/Cover-Art.jpg');
     background-position: center;
     background-size: cover;
     overflow: hidden;
@@ -683,38 +683,38 @@ a:focus-visible > #headerArrow {
 /* PORTRAITS */
 
 #profileA {
-    background-image: url('/assets/images/character-illustration-1.png');
+    background-image: url('/assets/images/character-illustration-1.jpg');
 }
 
 #profileC {
-    background-image: url('/assets/images/character-illustration-3.png');
+    background-image: url('/assets/images/character-illustration-3.jpg');
 }
 
 #profileE {
-    background-image: url('/assets/images/character-illustration-5.png');
+    background-image: url('/assets/images/character-illustration-5.jpg');
 }
 
 #profileB {
-    background-image: url('/assets/images/character-illustration-2.png');
+    background-image: url('/assets/images/character-illustration-2.jpg');
 }
 
 #profileD {
-    background-image: url('/assets/images/character-illustration-4.png');
+    background-image: url('/assets/images/character-illustration-4.jpg');
 }
 
 #profileF {
-    background-image: url('/assets/images/character-illustration-6.png');
+    background-image: url('/assets/images/character-illustration-6.jpg');
 }
 
 
 /* ILLUSTRATIONS */
 
 #illustrationA {
-    background-image: url('/assets/images/character-illustration-a.png');
+    background-image: url('/assets/images/character-illustration-a.jpg');
 }
 
 #illustrationB {
-    background-image: url('/assets/images/character-illustration-b.png');
+    background-image: url('/assets/images/character-illustration-b.jpg');
 }
 
 
