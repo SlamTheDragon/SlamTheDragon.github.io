@@ -4,6 +4,7 @@
   "description": "Personal Portfolio and Merchandise",
   "author": "SlamTheDragon",
   "private": true,
+  "homepage": "https://slamthedragon.github.io/SlamTheDragon.github.io",
   "dependencies": {
     "@material-design-icons/svg": "^0.14.5",
     "@testing-library/jest-dom": "^5.16.5",

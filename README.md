@@ -1,2 +1,2 @@
 # SlamTheDragon.github.io
-A personal websity for SlamTheDragon
+A personal website for SlamTheDragon
