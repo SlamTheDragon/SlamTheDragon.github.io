@@ -11,7 +11,8 @@
 */
 
 import React from 'react';
-import Button from './Button';
+import Button from '../Button/Button';
+import style from './modal.module.scss'
 
 interface ModalProps {
     modalTitle: string
@@ -38,29 +39,28 @@ export default function Modal(props: ModalProps) {
     const childArray = React.Children.toArray(props.children);
     const selectedChild = childArray[props.selectInterface];
 
-
     function onInteract() {
         document.body.classList.remove('disable-events');
     };
 
     return (
-        <div className="modal" onMouseEnter={onInteract}>
+        <div className={style.modal} onMouseEnter={onInteract}>
             
-            <div className="modal-wrapper card">
-                <div className='modal-header'>
+            <div className={style.modalWrapper}>
+                <div className={style.modalHeader}>
                     <h3>{props.modalTitle}</h3>
                     <Button onClick={props.onClose}>✖</Button>
                 </div>
-                <div className='modal-container'>
+                <div className={style.modalContainer}>
                     {selectedChild}
                 </div>
-                <div className='modal-action'>
-                    {/* TODO: make this customizable */}
+                <div className={style.modalAction}>
+                    {/* FIXME: make this customizable */}
                     <Button>Placeholder</Button>
                 </div>
             </div>
 
-            <div className="modal-background" onClick={props.onClose} />
+            <div className={style.modalBackground} onClick={props.onClose} />
         </div>
     );
 };

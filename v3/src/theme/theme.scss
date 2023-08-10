@@ -12,8 +12,15 @@ $danger: var(--danger);
 
 $background-color: var(--background-color);
 
+
 $shadow-color: var(--shadow-color);
+
+$default: var(--tone2);
+$disabled: var(--tone1);
+
 $tone1: var(--tone1);
+$tone2: var(--tone2);
+$tone3: var(--tone3);
 
 
 // # [BASE THEME]
@@ -38,6 +45,8 @@ $tone1: var(--tone1);
     --shadow-color: #060c1b; 
 
     --tone1: #333946; 
+    --tone2: #525d72;
+    --tone3: #7684a2;
 }
 
 // # [OTHER THEMES]

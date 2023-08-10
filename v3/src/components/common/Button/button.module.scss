@@ -1,0 +1,32 @@
+@import "../../../index.scss";
+
+.btn {
+	@include shadow;
+	@include wight(unset, 38px);
+	@include mar-pad(unset, 0 15px);
+	@include focus-style;
+	@include flex-center();
+
+	// extract or create a new default color for buttons
+	border: none;
+	border-radius: $global-border-radius;
+	background-color: $default;
+	color: $color;
+	fill: $color;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		filter: brightness(95%);
+	}
+
+	&:active {
+		filter: brightness(110%);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: $disabled;
+	}
+}
