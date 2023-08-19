@@ -1,15 +1,18 @@
-@import '../../index.scss';
+@import "../../index.scss";
 
 .interface {
 	// @include flex-center();
 	@include wight(100vw, 100vh);
+
 	flex-direction: column;
 
-	background-image: url('../../assets/images/WebV3CommissionPagePrototype.png');
+	background-image: url("../../assets/images/WebV3CommissionPagePrototype.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 
 	overflow-y: scroll;
 	overflow-x: hidden;
+
+	scroll-snap-type: y proximity;
 }

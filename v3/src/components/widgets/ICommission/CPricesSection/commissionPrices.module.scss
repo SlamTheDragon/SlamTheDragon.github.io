@@ -1,1 +1,26 @@
-@import '../../../../index.scss';
+@import "../../../../index.scss";
+
+.PricesWrapper {
+    @include ext-a-container;
+    @include flex-center;
+
+    
+    margin-top: 1300px;
+    height: 100%;
+    z-index: 9000;
+    position: relative;
+    flex-direction: row;
+    background-color: $success;
+
+    gap: $grid-a-gap;
+
+    .priceNavigator {
+        @include in-a-grid-1;
+        background-color: orange;
+    }
+    
+    .priceViewer {
+        @include in-a-grid-1;
+        background-color: red;
+    }
+}

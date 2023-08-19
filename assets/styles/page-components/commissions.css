@@ -82,13 +82,13 @@
     color: white;
 }
 
-a:hover > #headerArrow {
+a:hover>#headerArrow {
     animation: pulseMove 1s infinite;
     animation-timing-function: ease-in-out;
     transition: pulseMove var(--transitionDelay);
 }
 
-a:focus-visible > #headerArrow {
+a:focus-visible>#headerArrow {
     animation: pulseMove 1s infinite;
     animation-timing-function: ease-in-out;
     transition: pulseMove var(--transitionDelay);
@@ -98,9 +98,11 @@ a:focus-visible > #headerArrow {
     0% {
         transform: translateX(0px);
     }
+
     50% {
         transform: translateX(10px);
     }
+
     100% {
         transform: translateX(0px);
     }
@@ -352,7 +354,7 @@ a:focus-visible > #headerArrow {
     align-items: center;
     padding: 20px 50px;
     width: 100%;
-    background: linear-gradient(159deg, rgba(175,0,255,1) 0%, rgba(255,0,160,1) 100%);
+    background: linear-gradient(159deg, rgba(175, 0, 255, 1) 0%, rgba(255, 0, 160, 1) 100%);
 }
 
 #profileContactA,
@@ -614,7 +616,8 @@ a:focus-visible > #headerArrow {
     width: 100%;
 }
 
-.barButtonsA.active, .barButtonsB.active {
+.barButtonsA.active,
+.barButtonsB.active {
     background-color: var(--primaryAccent);
 }
 
@@ -807,235 +810,235 @@ a:focus-visible > #headerArrow {
 @media only screen and (max-width: 800px) {
 
 
-/* ===[ MAIN ]=== */
+    /* ===[ MAIN ]=== */
 
-.Main {
-    margin: 0px;
-}
-
-
-/* ===[ HEADER ]=== */
-
-.headerContainer{
-    border-radius: 0px;
-    margin: 0px;
-    padding: 20px;
-    height: 100vh;
-    background-position: left;
-}
-
-#headerTexts {
-    line-height: 44px;
-}
-
-#mainTitle {
-    font-size: 48pt;
-}
-
-#commissionStatus a h1 {
-    font-size: 14pt;
-}
-
-#headerScroller button {
-    margin: 0px;
-}
+    .Main {
+        margin: 0px;
+    }
 
 
-/* ===[ COMMISSION PAGE CONTAINER ]=== */
+    /* ===[ HEADER ]=== */
 
-.commissionSheetContainer {
-    flex-direction: column-reverse;
-}
+    .headerContainer {
+        border-radius: 0px;
+        margin: 0px;
+        padding: 20px;
+        height: 100vh;
+        background-position: left;
+    }
 
-#commSelectionPanel,
-#commViewPanel {
-    margin: 0px;
-}
+    #headerTexts {
+        line-height: 44px;
+    }
 
-#profileCard,
-#characterPortraits,
-#illustrations,
-#others,
-#specialComm {
-    padding-bottom: 70px;
-}
+    #mainTitle {
+        font-size: 48pt;
+    }
 
+    #commissionStatus a h1 {
+        font-size: 14pt;
+    }
 
-
-/* ### panel 2 ### */
-
-#commViewPanel {
-    border-radius: 0px;
-    padding: 0px;
-    height: 100vh;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-#profileR1,
-#profileR2 {
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-#profileInfo,
-#profileContact,
-#profileContactA,
-#profileContactB {
-    height: 100%;
-    width: unset;
-}
+    #headerScroller button {
+        margin: 0px;
+    }
 
 
-/* #profileInfo */
+    /* ===[ COMMISSION PAGE CONTAINER ]=== */
 
-#profilePhoto {
-    flex-direction: column;
-}
+    .commissionSheetContainer {
+        flex-direction: column-reverse;
+    }
 
-#profileAboutMe {
-    text-align: center;
-    align-items: center;
-    margin: 0px;
-}
+    #commSelectionPanel,
+    #commViewPanel {
+        margin: 0px;
+    }
 
-#profileAboutMe span {
-    padding: 20px;
-    padding-top: 0px;
-}
-
-
-/* #profileCurrentSatus */
-
-#profileCurrentSatus {
-    display: none;
-}
+    #profileCard,
+    #characterPortraits,
+    #illustrations,
+    #others,
+    #specialComm {
+        padding-bottom: 70px;
+    }
 
 
-/* #profileArtPreview */
 
-#profileArtPreview {
-    height: 70%;
-    width: 95%;
-}
+    /* ### panel 2 ### */
 
-/* ### panel 1 ### */
+    #commViewPanel {
+        border-radius: 0px;
+        padding: 0px;
+        height: 100vh;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
 
-#commSelectionPanel {
-    background-color: var(--cardElementB);
-    z-index: 5;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 90%;
-    height: 50px;
-    flex-direction: row;
-    padding: 5px;
-    margin: auto;
-    margin-bottom: 20px;
-    border-radius: 50px;
-}
+    #profileR1,
+    #profileR2 {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
 
-.commissionSheetContainer #commSelectionPanel button {
-    padding: 0px 10px;
-}
-
-#commSelectionPanel #settings {
-    display: flex;
-    justify-content: center;
-}
-
-#hamburgerBtnContainer {
-    justify-content: center;
-}
-
-#hamburgerBtnContainer button {
-    height: 100%;
-    width: 100%;
-}
-
-#hamburgerBtnContainer img {
-    height: unset;
-}
-
-#hamburgerInnerBtnContainer {
-    display: none;
-}
-
-#commBtnsContainer {
-    margin: 0px 10px;
-}
-
-#commBtnsContainer,
-#extraBtnsContainer {
-    display: flex;
-    flex-direction: row;
-}
-
-#commSelectionPanel button {
-    justify-content: center;
-}
-
-#hamburgerBtnContainer {
-    padding: 0px;
-}
-
-#panelBtnTextContainer {
-    display: none;
-}
-
-#panelIcons {
-    transform: none;
-}
-
-#extraBtnsContainer button.tabButtons {
-    margin: 0px;
-}
-
-/* ### COMMISSION SECTION ### */
-
-#contentSelectionBar {
-    overflow-x: scroll;
-}
+    #profileInfo,
+    #profileContact,
+    #profileContactA,
+    #profileContactB {
+        height: 100%;
+        width: unset;
+    }
 
 
-/* PORTRAITS */
+    /* #profileInfo */
 
-#priceTag {
-    justify-content: flex-end;
-    margin-bottom: 20px;
-    margin-right: 15px;
-}
+    #profilePhoto {
+        flex-direction: column;
+    }
 
-#profileA,
-#profileB,
-#profileC,
-#profileD,
-#profileE,
-#profileF {
-    background-position: -163px;
-}
+    #profileAboutMe {
+        text-align: center;
+        align-items: center;
+        margin: 0px;
+    }
+
+    #profileAboutMe span {
+        padding: 20px;
+        padding-top: 0px;
+    }
 
 
-#illustrationA,
-#illustrationB {
-    display: flex;
-}
+    /* #profileCurrentSatus */
 
-/* ===[ GALLERY ]=== */
+    #profileCurrentSatus {
+        display: none;
+    }
 
-.Gallery .card {
-    padding: 50px 28px;
-}
 
-#artA,
-#artB,
-#artC,
-#artD,
-#artE {
-    width: 300px;
-    height: 250px;
-}
+    /* #profileArtPreview */
+
+    #profileArtPreview {
+        height: 70%;
+        width: 95%;
+    }
+
+    /* ### panel 1 ### */
+
+    #commSelectionPanel {
+        background-color: var(--cardElementB);
+        z-index: 5;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 90%;
+        height: 50px;
+        flex-direction: row;
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 20px;
+        border-radius: 50px;
+    }
+
+    .commissionSheetContainer #commSelectionPanel button {
+        padding: 0px 10px;
+    }
+
+    #commSelectionPanel #settings {
+        display: flex;
+        justify-content: center;
+    }
+
+    #hamburgerBtnContainer {
+        justify-content: center;
+    }
+
+    #hamburgerBtnContainer button {
+        height: 100%;
+        width: 100%;
+    }
+
+    #hamburgerBtnContainer img {
+        height: unset;
+    }
+
+    #hamburgerInnerBtnContainer {
+        display: none;
+    }
+
+    #commBtnsContainer {
+        margin: 0px 10px;
+    }
+
+    #commBtnsContainer,
+    #extraBtnsContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #commSelectionPanel button {
+        justify-content: center;
+    }
+
+    #hamburgerBtnContainer {
+        padding: 0px;
+    }
+
+    #panelBtnTextContainer {
+        display: none;
+    }
+
+    #panelIcons {
+        transform: none;
+    }
+
+    #extraBtnsContainer button.tabButtons {
+        margin: 0px;
+    }
+
+    /* ### COMMISSION SECTION ### */
+
+    #contentSelectionBar {
+        overflow-x: scroll;
+    }
+
+
+    /* PORTRAITS */
+
+    #priceTag {
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        margin-right: 15px;
+    }
+
+    #profileA,
+    #profileB,
+    #profileC,
+    #profileD,
+    #profileE,
+    #profileF {
+        background-position: -163px;
+    }
+
+
+    #illustrationA,
+    #illustrationB {
+        display: flex;
+    }
+
+    /* ===[ GALLERY ]=== */
+
+    .Gallery .card {
+        padding: 50px 28px;
+    }
+
+    #artA,
+    #artB,
+    #artC,
+    #artD,
+    #artE {
+        width: 300px;
+        height: 250px;
+    }
 
 }

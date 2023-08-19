@@ -1,1 +1,12 @@
 @import '../../../../index.scss';
+
+
+.statusBoards {
+    // @include wight(100%, 100%);
+    @include ext-a-container;
+    height: 100%;
+
+    .column {
+        // @include in-a-grid-12;
+    }
+}

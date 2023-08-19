@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import { imageFiles } from "./utils/imagesFiles";
 import { soundEffectFiles } from "./utils/sfxFiles";
 import { videoFiles } from "./utils/videoFiles";
@@ -60,7 +60,7 @@ function App() {
 		};
 
 		// Preload images
-		images.forEach(preloadImage);
+		// images.forEach(preloadImage);
 
 		// Preload sounds
 		// sounds.forEach(preloadSound);
@@ -81,7 +81,7 @@ function App() {
 	// # Redux set
 	const dispatch = useDispatch()
 
-	
+
 	// # Initialize
 	document.addEventListener('keydown', handleEscapeKeyPress);
 

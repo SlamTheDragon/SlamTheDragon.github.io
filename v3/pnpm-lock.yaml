@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@material-design-icons/svg':
+    specifier: ^0.14.10
+    version: 0.14.10
   '@reduxjs/toolkit':
     specifier: ^1.9.5
     version: 1.9.5(react-redux@8.1.1)(react@18.2.0)
@@ -32,6 +35,9 @@ dependencies:
   '@types/react-redux':
     specifier: ^7.1.25
     version: 7.1.25
+  '@wixc3/react-board':
+    specifier: ^2.3.0
+    version: 2.3.0(react-dom@18.2.0)(react@18.2.0)
   firebase:
     specifier: ^10.1.0
     version: 10.1.0(react-native@0.72.3)
@@ -2705,6 +2711,10 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: false
 
+  /@material-design-icons/svg@0.14.10:
+    resolution: {integrity: sha512-rXxfqj5Su8i51aG8s8QRIe7mX1gB+C/ZCroLu3JvIsO3+Vx6PcWP97HLwIl7AQH/jYIHQlKq0E6OMqU91u5fCg==}
+    dev: false
+
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
     dependencies:
@@ -3927,6 +3937,21 @@ packages:
     dependencies:
       '@webassemblyjs/ast': 1.11.6
       '@xtuc/long': 4.2.2
+    dev: false
+
+  /@wixc3/board-core@2.3.0:
+    resolution: {integrity: sha512-uhq7hB72bfCK3yYb/+PRL8fEjoQxXQ1UjKhSY+Tr8UNo0lnRMw9EZ752ap9EGRKoldDumjbyrvFz4gjFsBgfJw==}
+    dev: false
+
+  /@wixc3/react-board@2.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-mEzTpHnFvvGrGNAifS1dMwuee/vlsnMbpJTkpggJX+XMyFCyVzm8BUw0wmh+RHkrcZjywrBYHP6AM6Iq6Aixdw==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@wixc3/board-core': 2.3.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@xtuc/ieee754@1.2.0:

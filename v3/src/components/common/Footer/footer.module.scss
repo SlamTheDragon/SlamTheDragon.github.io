@@ -1,9 +1,56 @@
-@import '../../../index.scss';
+@import "../../../index.scss";
 
-.footer {
+footer {
     @include flex-center;
-    @include wight(100vw, 500px);
+    @include wight(100vw, 700px);
+
+    z-index: 9000;
+    position: relative;
+
     text-align: center;
 
+    flex-direction: column;
     background-color: $background-color;
+
+    .footerHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .footerHeaderLinks {
+            @include flex-center;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+
+            a {
+                @include flex-center;
+
+                svg {
+                    @include wight(30px, 30px);
+
+                    fill: $tone3;
+                }
+            }
+        }
+    }
+
+    .footerText {
+        color: $tone3;
+
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 5px;
+
+        a {
+            color: $tone3;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
 }

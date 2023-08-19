@@ -159,7 +159,7 @@ body {
         opacity: 1;
         transform: translateY(0px);
     }
-    
+
     100% {
         height: 0%;
         opacity: 0;
@@ -187,7 +187,7 @@ body {
 #toastINFO span,
 #toastWARN span,
 #toastALERT span {
-    margin: 5px;   
+    margin: 5px;
 }
 
 #toastINFO {
@@ -231,6 +231,7 @@ a:hover {
     0% {
         text-decoration-color: #00000000;
     }
+
     100% {
         text-decoration-color: var(--linksAccent);
     }
@@ -334,6 +335,7 @@ button:focus-visible {
 #toastWARN button {
     color: var(--warn);
 }
+
 #toastALERT button {
     color: var(--alert);
 }
@@ -444,7 +446,7 @@ footer p {
 /* ===[ MOBILE LAYOUT ]=== */
 
 @media only screen and (max-width: 800px) {
-    
+
     /*common*/
 
     .headerTitle {
@@ -473,13 +475,16 @@ footer p {
         text-align: center;
         padding: 100px 0px;
     }
+
     footer p {
         margin: 0px;
         padding: 0px;
     }
+
     .footerDiv {
         align-items: center;
     }
+
     .footerText {
         padding: 10px;
         display: flex;

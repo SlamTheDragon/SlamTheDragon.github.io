@@ -1,5 +1,6 @@
 // # [GLOBALIZED VARIABLES]
 $color: var(--color);
+$color-prm: var(--color-prm);
 $color-i: var(--color-i);
 
 $primary: var(--primary);
@@ -11,6 +12,7 @@ $warn: var(--warn);
 $danger: var(--danger);
 
 $background-color: var(--background-color);
+$background-accent: var(--background-accent);
 
 
 $shadow-color: var(--shadow-color);
@@ -27,19 +29,21 @@ $tone3: var(--tone3);
 :root {
     // text colors
     --color: #ffffff;
+    --color-prm: #ffffff;
     --color-i: #000000;
 
     // accent colors
-    --primary: #0088ff;
+    --primary: #1282e4;
     --secondary: #8400ff;
 
-    --success: #00ff00;
-    --info: #0088ff;
-    --warn: #ffbb00;
-    --danger: #ff0000;
+    --success: #16c13b;
+    --info: #1282e4;
+    --warn: #a57f17;
+    --danger: #ce2626;
 
     // background colors
     --background-color: #0f182c;
+    --background-accent: #141f36;
 
     // miscellaneous
     --shadow-color: #060c1b; 

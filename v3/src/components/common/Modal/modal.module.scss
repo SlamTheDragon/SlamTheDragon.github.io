@@ -8,7 +8,7 @@ $_internal-padding: 15px;
 	inset: 0;
 	position: fixed;
 	pointer-events: all;
-	z-index: 8000;
+	z-index: 10000;
 
 	.modalWrapper {
 		@include mar-pad(0, 0);

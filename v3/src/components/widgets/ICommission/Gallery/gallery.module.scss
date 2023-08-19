@@ -1,1 +1,10 @@
-@import '../../../../index.scss';
+@import "../../../../index.scss";
+
+.gallery {
+    @include ext-a-container;
+    height: 100%;
+
+    .galleryCarousel {
+        background-color: #000000;
+    }
+}

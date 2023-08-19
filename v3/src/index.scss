@@ -1,10 +1,98 @@
 @import "./theme/theme.scss";
 
+@font-face {
+	font-family: "Segoe UI";
+	src:
+		url("./assets/font-packages/SegoeUI-BoldItalic.woff2") format("woff2"),
+		url("./assets/font-packages/SegoeUI-BoldItalic.woff") format("woff");
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	src:
+		url("./assets/font-packages/SegoeUI-Italic.woff2") format("woff2"),
+		url("./assets/font-packages/SegoeUI-Italic.woff") format("woff");
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	src:
+		url("./assets/font-packages/SegoeUI-Bold.woff2") format("woff2"),
+		url("./assets/font-packages/SegoeUI-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	src:
+		url("./assets/font-packages/SegoeUI.woff2") format("woff2"),
+		url("./assets/font-packages/SegoeUI.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 // # [VARIABLES]
+
+// --[ GLOBAL ]--
 $global-border-radius: 10px;
 $box-shadow-values: 0px 10px 5px -13px;
 
-// # [MIXINS]
+// --[ 12TH GRID ]--
+$e-grid-6: 1315px;
+$e-grid-5: 1095px;
+$e-grid-4: 875px;
+$e-grid-3: 650px;
+$e-grid-2: 425px;
+$e-grid-1: 205px;
+
+$i-grid-1: 96px;
+$i-grid-2: 207px;
+$i-grid-3: 318px;
+$i-grid-4: 429px;
+$i-grid-5: 538px;
+$i-grid-6: 649px;
+$i-grid-7: 760px;
+$i-grid-8: 871px;
+$i-grid-9: 980px;
+$i-grid-10: 1092px;
+$i-grid-11: 1203px;
+$i-grid-12: 1315px;
+
+$a-e-grid-x: 85.6%;
+$a-e-grid-6: 100%;
+$a-e-grid-5: 83.1%;
+$a-e-grid-4: 66.4%;
+$a-e-grid-3: 49.3%;
+$a-e-grid-2: 33%;
+$a-e-grid-1: 15.6%;
+
+// FIXME:
+$a-i-grid-1: 10%;
+$a-i-grid-2: 10%;
+$a-i-grid-3: 10%;
+$a-i-grid-4: 10%;
+$a-i-grid-5: 10%;
+$a-i-grid-6: 10%;
+$a-i-grid-7: 10%;
+$a-i-grid-8: 10%;
+$a-i-grid-9: 10%;
+$a-i-grid-10: 10%;
+$a-i-grid-11: 10%;
+$a-i-grid-12: 10%;
+
+$grid-gap: 12px;
+$grid-a-gap: 16px;
+
+// # [GENERAL MIXINS]
 
 @mixin wight($w, $h) {
 	width: $w;
@@ -47,13 +135,246 @@ $box-shadow-values: 0px 10px 5px -13px;
 	}
 
 	&:focus-visible {
+		// fill: $primary;
 		outline: 3px solid $primary;
 		outline-offset: 3px;
 		transition: none;
+		border-radius: $global-border-radius;
+		opacity: 1;
+		-moz-outline-radius: $global-border-radius;
 	}
 }
 
-// # [COMPONENTS]
+@mixin transition-anim {
+	transition: 0.3s;
+}
+
+@mixin card {
+	@include shadow;
+	// @include mar-pad(15px, 15px);
+	// @include focus-style;
+	@include transition-anim;
+
+	// @include wight(20px, 38px);
+	// display: flex;
+
+	background-color: $background-accent;
+	border-radius: $global-border-radius;
+}
+
+// # [ALIGNMENT MIXINS]
+
+@mixin ext-container {
+	min-width: 0px;
+	max-width: $e-grid-6;
+	width: $e-grid-6;
+}
+@mixin ext-grid-5 {
+	min-width: 0px;
+	max-width: $e-grid-5;
+	width: $e-grid-5;
+}
+@mixin ext-grid-4 {
+	min-width: 0px;
+	max-width: $e-grid-4;
+	width: $e-grid-4;
+}
+@mixin ext-grid-3 {
+	min-width: 0px;
+	max-width: $e-grid-3;
+	width: $e-grid-3;
+}
+@mixin ext-grid-2 {
+	min-width: 0px;
+	max-width: $e-grid-2;
+	width: $e-grid-2;
+}
+@mixin ext-grid-1 {
+	min-width: 0px;
+	max-width: $e-grid-1;
+	width: $e-grid-1;
+}
+
+@mixin in-grid-1 {
+	min-width: 0px;
+	max-width: $i-grid-1;
+	width: $i-grid-1;
+}
+@mixin in-grid-2 {
+	min-width: 0px;
+	max-width: $i-grid-2;
+	width: $i-grid-2;
+}
+@mixin in-grid-3 {
+	min-width: 0px;
+	max-width: $i-grid-3;
+	width: $i-grid-3;
+}
+@mixin in-grid-4 {
+	min-width: 0px;
+	max-width: $i-grid-4;
+	width: $i-grid-4;
+}
+@mixin in-grid-5 {
+	min-width: 0px;
+	max-width: $i-grid-5;
+	width: $i-grid-5;
+}
+@mixin in-grid-6 {
+	min-width: 0px;
+	max-width: $i-grid-6;
+	width: $i-grid-6;
+}
+@mixin in-grid-7 {
+	min-width: 0px;
+	max-width: $i-grid-7;
+	width: $i-grid-7;
+}
+@mixin in-grid-8 {
+	min-width: 0px;
+	max-width: $i-grid-8;
+	width: $i-grid-8;
+}
+@mixin in-grid-9 {
+	min-width: 0px;
+	max-width: $i-grid-9;
+	width: $i-grid-9;
+}
+@mixin in-grid-10 {
+	min-width: 0px;
+	max-width: $i-grid-10;
+	width: $i-grid-10;
+}
+@mixin in-grid-11 {
+	min-width: 0px;
+	max-width: $i-grid-11;
+	width: $i-grid-11;
+}
+@mixin in-grid-12 {
+	min-width: 0px;
+	max-width: $i-grid-12;
+	width: $i-grid-12;
+}
+
+// #
+
+@mixin ext-a-container {
+	min-width: 0px;
+	max-width: $a-e-grid-x;
+	width: 100%;
+	margin: 0 auto;
+}
+@mixin ext-a-grid-6 {
+	min-width: 0px;
+	max-width: $a-e-grid-6;
+	// width: $a-e-grid-6;
+	width: 100%;
+}
+@mixin ext-a-grid-5 {
+	min-width: 0px;
+	max-width: $a-e-grid-5;
+	// width: $a-e-grid-5;
+	width: 100%;
+}
+@mixin ext-a-grid-4 {
+	min-width: 0px;
+	max-width: $a-e-grid-4;
+	// width: $a-e-grid-4;
+	width: 100%;
+}
+@mixin ext-a-grid-3 {
+	min-width: 0px;
+	max-width: $a-e-grid-3;
+	// width: $a-e-grid-3;
+	width: 100%;
+}
+@mixin ext-a-grid-2 {
+	min-width: 0px;
+	max-width: $a-e-grid-2;
+	// width: $a-e-grid-2;
+	width: 100%;
+}
+@mixin ext-a-grid-1 {
+	min-width: 0px;
+	max-width: $a-e-grid-1;
+	// width: $a-e-grid-1;
+	width: 100%;
+}
+
+@mixin in-a-grid-1 {
+	min-width: 0px;
+	max-width: $a-i-grid-1;
+	// width: $a-i-grid-1;
+	width: 100%;
+}
+@mixin in-a-grid-2 {
+	min-width: 0px;
+	max-width: $a-i-grid-2;
+	// width: $a-i-grid-2;
+	width: 100%;
+}
+@mixin in-a-grid-3 {
+	min-width: 0px;
+	max-width: $a-i-grid-3;
+	// width: $a-i-grid-3;
+	width: 100%;
+}
+@mixin in-a-grid-4 {
+	min-width: 0px;
+	max-width: $a-i-grid-4;
+	// width: $a-i-grid-4;
+	width: 100%;
+}
+@mixin in-a-grid-5 {
+	min-width: 0px;
+	max-width: $a-i-grid-5;
+	// width: $a-i-grid-5;
+	width: 100%;
+}
+@mixin in-a-grid-6 {
+	min-width: 0px;
+	max-width: $a-i-grid-6;
+	// width: $a-i-grid-6;
+	width: 100%;
+}
+@mixin in-a-grid-7 {
+	min-width: 0px;
+	max-width: $a-i-grid-7;
+	// width: $a-i-grid-7;
+	width: 100%;
+}
+@mixin in-a-grid-8 {
+	min-width: 0px;
+	max-width: $a-i-grid-8;
+	// width: $a-i-grid-8;
+	width: 100%;
+}
+@mixin in-a-grid-9 {
+	min-width: 0px;
+	max-width: $a-i-grid-9;
+	// width: $a-i-grid-9;
+	width: 100%;
+}
+@mixin in-a-grid-10 {
+	min-width: 0px;
+	max-width: $a-i-grid-10;
+	// width: $a-i-grid-10;
+	width: 100%;
+}
+@mixin in-a-grid-11 {
+	min-width: 0px;
+	max-width: $a-i-grid-11;
+	// width: $a-i-grid-11;
+	width: 100%;
+}
+@mixin in-a-grid-12 {
+	min-width: 0px;
+	max-width: $a-i-grid-12;
+	// width: $a-i-grid-12;
+	width: 100%;
+}
+
+// # [COMPONENT BOOTSTRAP]
 
 // --[ BUTTON ]--
 
@@ -81,6 +402,12 @@ $box-shadow-values: 0px 10px 5px -13px;
 	background-color: $danger;
 }
 
+// --[ CARD ]--
+
+.card {
+	@include card();
+}
+
 // # [ROOT]
 
 html,
@@ -90,7 +417,7 @@ body {
 	@include wight(100vw, 100vh);
 
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-size: small;
+	// font-size: small;
 	color: $color;
 	background-color: $background-color;
 	overflow: hidden;
@@ -98,6 +425,7 @@ body {
 
 a {
 	@include focus-style();
+	@include transition-anim;
 
 	text-decoration: none;
 	font-weight: bold;
@@ -114,28 +442,37 @@ a {
 	}
 }
 
+svg {
+	fill: $color;
+}
+
+// Interface
+.snap {
+	scroll-snap-align: center;
+}
+
 // # [SCROLLBARS]
 
-$thumb: $tone1;
-$track: $background-color;
+$_thumb: $tone1;
+$_track: $background-color;
 
 /* Chrome, Edge, Firefox, and Safari */
 * {
-	scrollbar-width: thin;
-	scrollbar-color: $thumb $track;
+	scroll-behavior: smooth;
 
 	&::-webkit-scrollbar {
 		width: 15px;
+		width: 0px;
 	}
 	&::-webkit-scrollbar-track {
-		background: $track;
+		background: $_track;
 	}
 	&::-webkit-scrollbar-thumb {
-		background-color: $thumb;
+		background-color: $_thumb;
 		border-radius: 10px;
-		border: 3px solid $track;
+		border: 3px solid $_track;
 	}
 	&::-webkit-scrollbar-corner {
-		background-color: $thumb;
+		background-color: $_thumb;
 	}
 }

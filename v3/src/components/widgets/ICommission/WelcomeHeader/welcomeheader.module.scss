@@ -1,2 +1,166 @@
-@import '../../../index.scss'
+@import "../../../../index.scss";
 
+$_h1-spacing: 0;
+
+.head {
+    height: 100vh;
+
+    .splash {
+        z-index: 7000;
+
+        // @include card;
+        // @include mar-pad(0, 0px 110px);
+        @include flex-center;
+        @include wight(100%, 100%);
+        
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        top: 0px;
+        
+        color: $color-prm;
+        border-radius: unset;
+        
+        background-color: #0ad6ff30;
+        // background-image: url("../../../../assets/images/Placeholder.png");
+        // background-position: center;
+        // background-size: cover;
+        // background-repeat: no-repeat;
+
+        overflow: hidden;
+        transition: none;
+
+        pointer-events: none;
+        .wrapper {
+            @include ext-a-container;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            .headerTitle {
+                @include flex-center;
+
+                align-items: flex-start;
+                flex-direction: column;
+                line-height: 70px;
+                gap: 10px;
+
+                h1 {
+                    font-size: 72pt;
+                    margin: $_h1-spacing;
+                }
+
+                .headerInfo {
+                    width: 100%;
+                    margin-left: 8px;
+                    pointer-events: all;
+
+                    a {
+                        // overflow: visible;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        width: min-content;
+
+                        h1 {
+                            font-size: 24pt;
+                            margin: $_h1-spacing;
+                        }
+
+                        svg {
+                            @include transition-anim;
+                            translate: 0px 2px;
+                        }
+
+                        &:hover {
+                            fill: $primary;
+                            translate: 5px 0px;
+
+                            svg {
+                                translate: 5px 2px;
+                                fill: $primary;
+                            }
+                        }
+
+                        &:active {
+                            translate: 4px 0px;
+
+                            svg {
+                                translate: 0px 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        button {
+            background-color: unset;
+            box-shadow: unset;
+            -webkit-box-shadow: unset;
+            -moz-box-shadow: unset;
+            pointer-events: all;
+
+            &:hover {
+                translate: 0px 5px;
+            }
+
+            &:active {
+                translate: 0px 3px;
+            }
+        }
+    }
+
+    .layer1,
+    .layer2,
+    .layer3,
+    .layer4,
+    .layer5,
+    .layer6 {
+        @include flex-center;
+        pointer-events: none;
+
+        background-color: #aaaaaa1b;
+        top: 0px;
+        position: absolute;
+    }
+
+    // layer 1 being the background
+    .layer1 {
+        @include wight(100%, 100vh);
+        z-index: 1000;
+        
+        // background-color: #aaaaaa1b;
+    }
+    .layer2 {
+        @include wight(100%, 100vh);
+        z-index: 2000;
+        
+        // background-color: #aaaaaa1b;
+    }
+    .layer3 {
+        @include wight(100%, 100vh);
+        z-index: 3000;
+        
+        // background-color: #aaaaaa1b;
+    }
+    .layer4 {
+        @include wight(100%, 100vh);
+        z-index: 4000;
+        
+        // background-color: #aaaaaa1b;
+    }
+    .layer5 {
+        @include wight(100%, 100vh);
+        z-index: 5000;
+        
+        // background-color: #aaaaaa1b;
+    }
+    .layer6 {
+        @include wight(100%, 100vh);
+        z-index: 6000;
+        
+        // background-color: #aaaaaa1b;
+    }
+}

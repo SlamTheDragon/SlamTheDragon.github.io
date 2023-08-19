@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { selectCount } from '../slice/counterSlice'
+import { useDispatch } from 'react-redux'
+import { setScrollLayer } from '../slice/parallax-slices/parallaxScrollerSlice'
 import { useModalOperation } from '../../utils/component-utils/modalOperation'
 import style from './interface.module.scss'
 import Footer from '../common/Footer'
@@ -14,19 +14,22 @@ import Gallery from '../widgets/ICommission/Gallery/Gallery'
  */
 export default function Interface() {
     // get
-    const count = useSelector(selectCount)
+
     // set
     const dispatch = useDispatch()
     const openModal = useModalOperation()
 
+    function transferScrollData(event: { currentTarget: { scrollTop: number; }; }) {
+        dispatch(setScrollLayer(event.currentTarget.scrollTop))
+    };
 
     return (
         <>
-            <div className={style.interface}>
+            <div className={style.interface} onScroll={transferScrollData}>
                 <WelcomeHeader />
                 <CommissionPrices />
                 <CommissionStatus />
-                <Gallery/>
+                <Gallery />
                 <Footer />
             </div>
         </>

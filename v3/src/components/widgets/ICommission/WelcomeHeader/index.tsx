@@ -1,1 +1,1 @@
-export {default} from './WelcomeHeader'
+export {default} from './WelcomeHeaderWrapper'
