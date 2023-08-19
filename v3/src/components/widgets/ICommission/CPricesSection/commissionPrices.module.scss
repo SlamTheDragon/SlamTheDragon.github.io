@@ -10,17 +10,24 @@
     z-index: 9000;
     position: relative;
     flex-direction: row;
-    background-color: $success;
+    // background-color: $success;
 
     gap: $grid-a-gap;
 
+    outline: 1px solid white;
+    outline-offset: -1;
+    
     .priceNavigator {
+        outline: 1px solid white;
+        outline-offset: -1;
         @include in-a-grid-1;
-        background-color: orange;
+        // background-color: orange;
     }
     
     .priceViewer {
+        outline: 1px solid white;
+        outline-offset: -1;
         @include in-a-grid-1;
-        background-color: red;
+        // background-color: red;
     }
 }

@@ -3,8 +3,7 @@
 export default function DefaultModal() {
     return(
         <>
-            This is the default interface for this Modal component. <br/>
-            go to <code>..components/widgets/modal-contents/</code> to add more interfaces and include them inside the Modal component in <code>App.tsx</code>
+            Hey! Thanks for visiting. This website is still a WIP, please click this <a href="https://slamthedragon.me/commissions" style={{textDecoration:'underline'}}>link</a> to view the old site.
         </>
     );
 }

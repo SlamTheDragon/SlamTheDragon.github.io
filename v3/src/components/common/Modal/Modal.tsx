@@ -56,7 +56,7 @@ export default function Modal(props: ModalProps) {
                 </div>
                 <div className={style.modalAction}>
                     {/* FIXME: make this customizable */}
-                    <Button>Placeholder</Button>
+                    <Button classItem='primary' onClick={() => (window.location.href = "https://slamthedragon.me/commissions")}>The Link</Button>
                 </div>
             </div>
 
