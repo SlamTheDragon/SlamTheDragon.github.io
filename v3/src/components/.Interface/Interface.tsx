@@ -21,7 +21,7 @@ export default function Interface() {
 
     function transferScrollData(event: { currentTarget: { scrollTop: number; }; }) {
         dispatch(setScrollLayer(event.currentTarget.scrollTop))
-        openModal("Welcome!", 0)
+        // openModal("Welcome!", 0)
     };
 
     return (
