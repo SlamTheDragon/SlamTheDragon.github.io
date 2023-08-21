@@ -3,7 +3,7 @@
 $_h1-spacing: 0;
 
 .head {
-    height: 100vh;
+    height: 100%;
 
     .splash {
         z-index: 7000;
@@ -12,15 +12,15 @@ $_h1-spacing: 0;
         // @include mar-pad(0, 0px 110px);
         @include flex-center;
         @include wight(100%, 100%);
-        
+
         flex-direction: column;
         justify-content: space-around;
         position: absolute;
         top: 0px;
-        
+
         color: $color-prm;
         border-radius: unset;
-        
+
         background-color: #0ad6ff30;
         // background-image: url("../../../../assets/images/Placeholder.png");
         // background-position: center;
@@ -51,7 +51,7 @@ $_h1-spacing: 0;
                 }
 
                 .headerInfo {
-                    width: 100%;
+                    // width: 100%;
                     margin-left: 8px;
                     pointer-events: all;
 
@@ -119,6 +119,7 @@ $_h1-spacing: 0;
     .layer5,
     .layer6 {
         @include flex-center;
+        @include wight(100%, 100%);
         pointer-events: none;
 
         background-color: #aaaaaa1b;
@@ -128,39 +129,27 @@ $_h1-spacing: 0;
 
     // layer 1 being the background
     .layer1 {
-        @include wight(100%, 100vh);
         z-index: 1000;
-        
         // background-color: #aaaaaa1b;
     }
     .layer2 {
-        @include wight(100%, 100vh);
         z-index: 2000;
-        
         // background-color: #aaaaaa1b;
     }
     .layer3 {
-        @include wight(100%, 100vh);
         z-index: 3000;
-        
         // background-color: #aaaaaa1b;
     }
     .layer4 {
-        @include wight(100%, 100vh);
         z-index: 4000;
-        
         // background-color: #aaaaaa1b;
     }
     .layer5 {
-        @include wight(100%, 100vh);
         z-index: 5000;
-        
         // background-color: #aaaaaa1b;
     }
     .layer6 {
-        @include wight(100%, 100vh);
         z-index: 6000;
-        
         // background-color: #aaaaaa1b;
     }
 }

@@ -14,7 +14,6 @@ $danger: var(--danger);
 $background-color: var(--background-color);
 $background-accent: var(--background-accent);
 
-
 $shadow-color: var(--shadow-color);
 
 $default: var(--tone2);
@@ -24,6 +23,10 @@ $tone1: var(--tone1);
 $tone2: var(--tone2);
 $tone3: var(--tone3);
 
+$twitter: var(--twitter);
+$discord: var(--discord);
+$instagram: var(--instagram);
+$deviant: var(--deviant);
 
 // # [BASE THEME]
 :root {
@@ -46,11 +49,18 @@ $tone3: var(--tone3);
     --background-accent: #141f36;
 
     // miscellaneous
-    --shadow-color: #060c1b; 
+    --shadow-color: #060c1b;
 
-    --tone1: #333946; 
+    --tone1: #333946;
     --tone2: #525d72;
     --tone3: #7684a2;
+
+    // companies
+    --twitter: #1DA1F2;
+    --discord: #5865F2;
+    --instagram: #d62976;
+    // --instagram: linear-gradient(3deg, rgba(254,218,117,1) 0%, rgba(250,126,30,1) 24%, rgba(214,41,118,1) 44%, rgba(150,47,191,1) 68%, rgba(79,91,213,1) 85%);
+    --deviant: #05CC46;
 }
 
 // # [OTHER THEMES]

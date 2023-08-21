@@ -43,7 +43,7 @@
 // # [VARIABLES]
 
 // --[ GLOBAL ]--
-$global-border-radius: 10px;
+$global-border-radius: 12px;
 $box-shadow-values: 0px 10px 5px -13px;
 
 // --[ 12TH GRID ]--
@@ -135,13 +135,16 @@ $grid-a-gap: 16px;
 	}
 
 	&:focus-visible {
-		// fill: $primary;
 		outline: 3px solid $primary;
 		outline-offset: 3px;
 		transition: none;
 		border-radius: $global-border-radius;
 		opacity: 1;
 		-moz-outline-radius: $global-border-radius;
+
+		&::after {
+			fill: $primary;
+		}
 	}
 }
 

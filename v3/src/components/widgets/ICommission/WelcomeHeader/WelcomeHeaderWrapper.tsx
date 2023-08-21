@@ -16,27 +16,27 @@ export default function WelcomeHeaderWrapper() {
 	const l6 = l0 / 5.75
 
 	return (
-		<section className={style.head}>
+		<section className={style.head + " snap"}>
 			<div style={{ top: "-" + l0 + "px" }} className={style.layer6}>
-				A
+				
 			</div>
 			<div style={{ top: "-" + l1 + "px" }} className={style.layer5}>
-				A
+				
 			</div>
 			<div style={{ top: "-" + l2 + "px" }} className={style.layer4}>
-				A
+				
 			</div>
 			<div style={{ top: "-" + l3 + "px" }} className={style.splash}>
 				<Splash/>
 			</div>
 			<div style={{ top: "-" + l4 + "px" }} className={style.layer3}>
-				A
+				
 			</div>
 			<div style={{ top: "-" + l5 + "px" }} className={style.layer2}>
-				A
+				
 			</div>
 			<div style={{ top: "-" + l6 + "px" }} className={style.layer1}>
-				A
+				
 			</div>
 		</section>
 	)

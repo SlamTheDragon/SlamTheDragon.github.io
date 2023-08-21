@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { setScrollLayer } from '../slice/parallax-slices/parallaxScrollerSlice'
 import { useModalOperation } from '../../utils/component-utils/modalOperation'
+import { focusComponent } from '../../utils/focus-element/focusElement'
 import style from './interface.module.scss'
 import Footer from '../common/Footer'
 import WelcomeHeader from '../widgets/ICommission/WelcomeHeader'
@@ -13,6 +15,11 @@ import Gallery from '../widgets/ICommission/Gallery/Gallery'
  * @returns Interface
  */
 export default function Interface() {
+    useEffect(() => {
+        console.log('view mounted');
+        focusComponent('view')
+    }, []);
+
     // get
 
     // set
@@ -24,9 +31,10 @@ export default function Interface() {
         // openModal("Welcome!", 0)
     };
 
+
     return (
         <>
-            <div className={style.interface} onScroll={transferScrollData}>
+            <div className={style.interface} onScroll={transferScrollData} id='view'>
                 <WelcomeHeader />
                 <CommissionPrices />
                 <CommissionStatus />
