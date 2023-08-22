@@ -3,8 +3,25 @@
 @mixin pricesPanels {
     display: flex;
 
-    border-radius: $global-border-radius;
+    border-radius: $global-border-radius + 10;
     background-color: $background-accent;
+}
+
+@mixin buttonContent {
+    svg {
+        @include transition-anim;
+        width: 28px;
+        max-width: 28px;
+        min-width: 28px;
+    }
+
+    span {
+        @include flex-center;
+
+        width: 100%;
+        margin-left: 20px;
+        overflow: hidden;
+    }
 }
 
 .PricesWrapper {
@@ -31,19 +48,93 @@
         .priceNavigator {
             @include pricesPanels;
             @include wight(20%, 85%);
+            @include transition-anim;
 
-            display: flex;
             flex-direction: column;
+            justify-content: space-between;
 
-            
-            div {
-                outline: 1px solid $tone1;
+            overflow: hidden;
+
+            .s1,
+            .s2,
+            .s3 {
+                display: flex;
+                flex-direction: column;
+                padding: 40px 11.5%;
+                gap: 10px;
+
+                overflow: hidden;
+
+                button {
+                    @include buttonContent;
+
+                    box-shadow: unset;
+                    -webkit-box-shadow: unset;
+                    -moz-box-shadow: unset;
+
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    border-radius: $global-border-radius + 11;
+
+                    background-color: unset;
+
+                    font-weight: bold;
+                    overflow: hidden;
+
+                    &:hover {
+                        color: $secondary;
+
+                        svg {
+                            fill: $secondary;
+                        }
+                    }
+                }
+
+                .btnSelected {
+                    background-color: $tone0;
+                }
+            }
+
+            .s1 {
+                display: unset;
+
+                button:nth-child(1) {
+                    width: unset;
+                    margin-bottom: 10px;
+
+                    &:hover {
+                        transform: scale(1, 1.1);
+                    }
+
+                    &:active {
+                        transform: scale(1, 0.95);
+                    }
+                }
+                button:nth-child(2) {
+                    @include buttonContent;
+
+                    width: 100%;
+                }
+            }
+
+            .s3 {
+                @include flex-center;
+
+                span {
+                    text-overflow: clip;
+                    font-size: smaller;
+                    color: $tone3;
+                }
             }
         }
 
         .priceViewer {
             @include pricesPanels;
             @include wight(80%, 85%);
+            @include transition-anim;
         }
     }
 }
+
