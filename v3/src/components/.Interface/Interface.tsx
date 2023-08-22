@@ -25,7 +25,7 @@ export default function Interface() {
                     A new front is on the works!
                 </h1>
 
-                    <h3>Please click this <u><a href='https://slamthedragon.me/commissions'>link</a></u> to visit the old site, thank you!</h3> <br />
+                    <h3>Please click this <u><a href='https://slamthedragon.me/commissions-old'>link</a></u> to visit the old site, thank you!</h3> <br />
                 <div style={{ display: "flex", flexDirection: "row", gap: 20, alignItems: "center" }}>
                     <Button onClick={() => dispatch(decrement())}>-</Button>
                     <h1 style={{ marginTop: 0, marginBottom: 0 }}>
