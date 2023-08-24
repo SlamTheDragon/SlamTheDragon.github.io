@@ -266,6 +266,11 @@ $grid-a-gap: 16px;
 	max-height: $h;
 }
 
+@mixin min-wight($w, $h) {
+	min-width: $w;
+	min-height: $h;
+}
+
 @mixin mar-pad($m, $p) {
 	margin: $m;
 	padding: $p;

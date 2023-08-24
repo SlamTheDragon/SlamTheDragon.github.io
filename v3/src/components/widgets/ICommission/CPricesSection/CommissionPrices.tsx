@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ReactComponent as Menu } from '@material-design-icons/svg/outlined/menu.svg'
 import { ReactComponent as Person } from '@material-design-icons/svg/outlined/person.svg'
 import { ReactComponent as Panorama } from '@material-design-icons/svg/outlined/panorama.svg'
 import { ReactComponent as Apps } from '@material-design-icons/svg/outlined/apps.svg'
 import { ReactComponent as Logo } from '../../../../assets/svg/SlamTheDragon Logo.svg'
+import { getTarget, setPanelTarget } from '../../../slice/commission-panel-slices/panelViewSlice'
 import AboutMe from '../CPricesPanels/PanelAboutMe/'
 import Portraits from '../CPricesPanels/PanelPortraits/'
 import Button from '../../../common/Button'
@@ -11,16 +13,14 @@ import Illustrations from '../CPricesPanels/PanelIllustrations/Illustrations'
 import Others from '../CPricesPanels/PanelOthers/Others'
 import style from './commissionPrices.module.scss'
 
-enum Target {
-	A,
-	B,
-	C,
-	D,
-}
 
 export default function CommissionPrices() {
 	const [getIsFolded, setIsFolded] = useState(false)
-	const [getTarget, setTarget] = useState<Target | null>(Target.A)
+
+	// redux get
+	const target = useSelector(getTarget)
+	// redux set
+	const dispatch = useDispatch()
 
 	function toggleFold() {
 		setIsFolded(current => !current)
@@ -28,15 +28,16 @@ export default function CommissionPrices() {
 
 	// get firebase data here
 
-	function renderView(target: Target | null) {
+	function renderView() {
+
 		switch (target) {
-			case Target.A:
+			case 0:
 				return <AboutMe />
-			case Target.B:
+			case 1:
 				return <Portraits />
-			case Target.C:
+			case 2:
 				return <Illustrations />
-			case Target.D:
+			case 3:
 				return <Others />
 
 			default:
@@ -45,7 +46,7 @@ export default function CommissionPrices() {
 	}
 
 	return (
-		<section className={style.PricesWrapper + " snap"} id='a'>
+		<section className={style.PricesWrapper + " snap"} id='offers'>
 			{/* background wrapper */}
 			<div className={style.pricesContainer}>
 				<div className={style.priceNavigator} style={{ width: `${getIsFolded ? 72.72 : 259.76}px` }}>
@@ -56,8 +57,8 @@ export default function CommissionPrices() {
 							<Menu />
 						</Button>
 
-						<Button onClick={() => { setTarget(Target.A) }}
-							classItem={getTarget === Target.A ? style.btnSelected : ''}
+						<Button onClick={() => { dispatch(setPanelTarget(0)) }}
+							classItem={target === 0 ? style.btnSelected : ''}
 							titleTooltip='About SlamTheDragon'>
 							<Logo />
 
@@ -68,8 +69,8 @@ export default function CommissionPrices() {
 
 					<div className={style.s2} style={{ padding: `40px ${getIsFolded ? 6.7 : 30}px` }}>
 						{/* profile */}
-						<Button onClick={() => { setTarget(Target.B) }}
-							classItem={getTarget === Target.B ? style.btnSelected : ''}
+						<Button onClick={() => { dispatch(setPanelTarget(1)) }}
+							classItem={target === 1 ? style.btnSelected : ''}
 							titleTooltip='Portraits'>
 							<Person />
 
@@ -78,8 +79,8 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* illustrations */}
-						<Button onClick={() => { setTarget(Target.C) }}
-							classItem={getTarget === Target.C ? style.btnSelected : ''}
+						<Button onClick={() => { dispatch(setPanelTarget(2)) }}
+							classItem={target === 2 ? style.btnSelected : ''}
 							titleTooltip='Illustrations'>
 							<Panorama />
 
@@ -88,8 +89,8 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* others */}
-						<Button onClick={() => { setTarget(Target.D) }}
-							classItem={getTarget === Target.D ? style.btnSelected : ''}
+						<Button onClick={() => { dispatch(setPanelTarget(3)) }}
+							classItem={target === 3 ? style.btnSelected : ''}
 							titleTooltip='Others/Special Request'
 						>
 							<Apps />
@@ -103,7 +104,7 @@ export default function CommissionPrices() {
 				</div>
 
 				<div className={style.priceViewer} style={{ width: `${getIsFolded ? 1226.94 : 1041.6}px` }}>
-					{getTarget !== null && renderView(getTarget)}
+					{renderView()}
 				</div>
 			</div>
 		</section>

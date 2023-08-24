@@ -6,7 +6,7 @@ import modalInterfaceID from "../components/slice/modal-slices/modalInterfaceSli
 import themeID from "../components/slice/theme-slices/themeSlice"
 import themeBool from "../components/slice/theme-slices/themeBoolSlice"
 import scrollStyleEffect from "../components/slice/parallax-slices/parallaxScrollerSlice"
-
+import getTarget from "../components/slice/commission-panel-slices/panelViewSlice"
 
 export default configureStore({
     reducer: {
@@ -17,6 +17,7 @@ export default configureStore({
         theme: themeID,
         themeBool,
         setScrollLayer: scrollStyleEffect,
+        getTarget: getTarget
     }
 })
 

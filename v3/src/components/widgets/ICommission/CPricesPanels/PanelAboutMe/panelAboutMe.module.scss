@@ -53,6 +53,7 @@ h1 {
         .cardC,
         .cardD {
             @include flex-center;
+            @include focus-style;
 
             &:hover {
                 transform: translateY(-4px);
@@ -67,7 +68,8 @@ h1 {
 
                 opacity: 0.9;
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     opacity: 1;
                 }
             }
@@ -76,8 +78,10 @@ h1 {
         .cardA {
             background: linear-gradient(159deg, #af00ff 0%, #ff00a0 100%);
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 $_setshadowcolor: #ae00ff9f;
+
                 box-shadow: 0px 6px 30px -15px $_setshadowcolor;
                 -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
                 -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
@@ -119,10 +123,13 @@ h1 {
 
                         display: flex;
                         flex-direction: column;
+
+                        gap: 3px;
                     }
                 }
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     img {
                         $_shadow-color: #ee8bff79;
 
@@ -139,6 +146,51 @@ h1 {
 
         .cardB {
             background: linear-gradient(10deg, #fe9d0b 0%, #ff0099 100%);
+
+            .contentB {
+                @include flex-center;
+                flex-direction: column;
+                // justify-content: space-around;
+
+                height: max-content;
+                padding: 0px 37px;
+                background-color: unset;
+                gap: 0;
+                overflow: visible;
+                
+                div {
+                    @include flex-center;
+                    flex-direction: column;
+                    background-color: unset;
+                    
+                    overflow: visible;
+                    
+                    h1 {
+                        line-height: 26pt;
+                    }
+
+                    span {
+                        @include font-desc();
+                    }
+
+                    button {
+                        margin: 60px 0 0 0;
+                        width: 100%;
+                    }
+                }
+
+                div:nth-child(1) {
+                    align-items: flex-start;
+                }
+            }
+
+            &:hover,
+            &:focus-visible {
+                $_setshadowcolor: #fe9d0b91;
+                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+            }
         }
 
         .cardC {
@@ -180,7 +232,8 @@ h1 {
                 }
             }
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 $_setshadowcolor: #0088ff78;
                 box-shadow: 0px 6px 30px -15px $_setshadowcolor;
                 -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
@@ -228,7 +281,8 @@ h1 {
                         background: linear-gradient(187deg, #00ff99 0%, #00c3ff 100%);
                         gap: 0;
 
-                        &:hover {
+                        &:hover,
+                        &:focus-visible {
                             opacity: 1;
 
                             img {
@@ -247,6 +301,7 @@ h1 {
 
                             @include wight(100%, 100%);
                             @include max-wight(302px, 302px);
+                            @include min-wight(302px, 302px);
                             @include transition-anim;
 
                             box-shadow: 0px 0px 0px 0px $_setshadowcolor;
@@ -279,7 +334,8 @@ h1 {
                 filter: brightness(110%);
             }
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 $_setshadowcolor: #00ffdd78;
                 box-shadow: 0px 6px 30px -15px $_setshadowcolor;
                 -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;

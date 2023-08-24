@@ -19,7 +19,7 @@ export default function Splash() {
                     <h1>Welcome!</h1>
 
                     <span className={style.headerInfo}>
-                        <a href='#a'>
+                        <a href='#offers'>
                             <h1>Commissions are</h1>
                             <h1>{status}</h1>
                             <Jump />
@@ -28,7 +28,7 @@ export default function Splash() {
 
                 </div>
             </div>
-            <Button onClick={() => (window.location.href = "#a")}><ExpandMore /></Button>
+            <Button onClick={() => (window.location.href = "#offers")}><ExpandMore /></Button>
         </>
     )
 }
