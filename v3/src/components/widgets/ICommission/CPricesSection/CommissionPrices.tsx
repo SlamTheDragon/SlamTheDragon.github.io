@@ -4,8 +4,12 @@ import { ReactComponent as Person } from '@material-design-icons/svg/outlined/pe
 import { ReactComponent as Panorama } from '@material-design-icons/svg/outlined/panorama.svg'
 import { ReactComponent as Apps } from '@material-design-icons/svg/outlined/apps.svg'
 import { ReactComponent as Logo } from '../../../../assets/svg/SlamTheDragon Logo.svg'
+import AboutMe from '../CPricesPanels/PanelAboutMe/'
+import Portraits from '../CPricesPanels/PanelPortraits/'
+import Button from '../../../common/Button'
+import Illustrations from '../CPricesPanels/PanelIllustrations/Illustrations'
+import Others from '../CPricesPanels/PanelOthers/Others'
 import style from './commissionPrices.module.scss'
-import Button from '../../../common/Button/Button'
 
 enum Target {
 	A,
@@ -22,43 +26,21 @@ export default function CommissionPrices() {
 		setIsFolded(current => !current)
 	}
 
+	// get firebase data here
+
 	function renderView(target: Target | null) {
 		switch (target) {
 			case Target.A:
-				
-				return (
-					<>
-						a
-					</>
-				);
+				return <AboutMe />
 			case Target.B:
-				
-				return (
-					<>
-						b
-					</>
-				);
+				return <Portraits />
 			case Target.C:
-				
-				return (
-					<>
-						c
-					</>
-				);
+				return <Illustrations />
 			case Target.D:
-				
-				return (
-					<>
-						d
-					</>
-				);
+				return <Others />
 
 			default:
-				return (
-					<>
-						loading
-					</>
-				)
+				return (<>loading</>)
 		}
 	}
 
@@ -66,20 +48,17 @@ export default function CommissionPrices() {
 		<section className={style.PricesWrapper + " snap"} id='a'>
 			{/* background wrapper */}
 			<div className={style.pricesContainer}>
-				<div className={style.priceNavigator} style={{ width: `${getIsFolded ? 5.6 : 20}%` }}>
+				<div className={style.priceNavigator} style={{ width: `${getIsFolded ? 72.72 : 259.76}px` }}>
 
-					<div className={style.s1}>
+					<div className={style.s1} style={{ padding: `40px ${getIsFolded ? 6.7 : 30}px` }}>
 						{/* hamburg */}
-						<Button onClick={toggleFold}>
+						<Button onClick={toggleFold} titleTooltip='Toggle Menu'>
 							<Menu />
 						</Button>
 
-						<Button onClick={
-							() => {
-								setTarget(Target.A)
-							}}
+						<Button onClick={() => { setTarget(Target.A) }}
 							classItem={getTarget === Target.A ? style.btnSelected : ''}
-						>
+							titleTooltip='About SlamTheDragon'>
 							<Logo />
 
 							{/* {getIsFolded ? null : <span>SlamTheDragon</span>} */}
@@ -87,14 +66,11 @@ export default function CommissionPrices() {
 						</Button>
 					</div>
 
-					<div className={style.s2}>
+					<div className={style.s2} style={{ padding: `40px ${getIsFolded ? 6.7 : 30}px` }}>
 						{/* profile */}
-						<Button onClick={
-							() => {
-								setTarget(Target.B)
-							}}
+						<Button onClick={() => { setTarget(Target.B) }}
 							classItem={getTarget === Target.B ? style.btnSelected : ''}
-						>
+							titleTooltip='Portraits'>
 							<Person />
 
 							{/* {getIsFolded ? null : <span>Portraits</span>} */}
@@ -102,12 +78,9 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* illustrations */}
-						<Button onClick={
-							() => {
-								setTarget(Target.C)
-							}}
+						<Button onClick={() => { setTarget(Target.C) }}
 							classItem={getTarget === Target.C ? style.btnSelected : ''}
-						>
+							titleTooltip='Illustrations'>
 							<Panorama />
 
 							{/* {getIsFolded ? null : <span>Illustrations</span>} */}
@@ -115,11 +88,9 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* others */}
-						<Button onClick={
-							() => {
-								setTarget(Target.D)
-							}}
+						<Button onClick={() => { setTarget(Target.D) }}
 							classItem={getTarget === Target.D ? style.btnSelected : ''}
+							titleTooltip='Others/Special Request'
 						>
 							<Apps />
 
@@ -128,12 +99,10 @@ export default function CommissionPrices() {
 						</Button>
 					</div>
 
-					<div className={style.s3}>
-						{/* {getIsFolded ? null : <span>Join my Discord!</span>} */}
-					</div>
+					<div className={style.s3} style={{ padding: `40px ${getIsFolded ? 6.7 : 30}px` }}></div>
 				</div>
 
-				<div className={style.priceViewer} style={{ width: `${getIsFolded ? 94.4 : 80}%` }}>
+				<div className={style.priceViewer} style={{ width: `${getIsFolded ? 1226.94 : 1041.6}px` }}>
 					{getTarget !== null && renderView(getTarget)}
 				</div>
 			</div>

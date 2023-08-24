@@ -47,17 +47,18 @@
 
         .priceNavigator {
             @include pricesPanels;
-            @include wight(20%, 85%);
+            @include wight(259.76px, 85%);
             @include transition-anim;
-
+            
             flex-direction: column;
             justify-content: space-between;
-
+            
             overflow: hidden;
-
+            
             .s1,
             .s2,
             .s3 {
+                @include transition-anim;
                 display: flex;
                 flex-direction: column;
                 padding: 40px 11.5%;
@@ -134,6 +135,9 @@
             @include pricesPanels;
             @include wight(80%, 85%);
             @include transition-anim;
+
+            background-color: unset;
+            flex-direction: column;
         }
     }
 }

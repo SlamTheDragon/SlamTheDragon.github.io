@@ -1,0 +1,290 @@
+@import "../../../../../index.scss";
+
+$_gap: 15px;
+
+@mixin font-desc {
+    font-family: "Poppins";
+    font-weight: 400;
+    line-height: 13.5pt;
+    word-spacing: 0.1pt;
+    letter-spacing: -0.1pt;
+}
+
+h1 {
+    font-size: xx-large;
+    margin: 0;
+}
+
+.AboutMeContainer {
+    @include wight(100%, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: $_gap;
+
+    div {
+        @include wight(100%, 100%);
+
+        display: flex;
+        flex-direction: row;
+        gap: $_gap;
+
+        div {
+            @include card;
+            @include flex-center;
+
+            overflow: hidden;
+
+            background-color: $tone0;
+
+            // outline: 1px solid $tone3;
+            outline-offset: -1px;
+        }
+
+        .i1 {
+            width: 70%;
+        }
+
+        .i2 {
+            width: 30%;
+        }
+
+        .cardA,
+        .cardB,
+        .cardC,
+        .cardD {
+            @include flex-center;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+
+            .contentA,
+            .contentB,
+            .contentC,
+            .contentD {
+                background-color: #00000000;
+                padding: 0px 56px;
+
+                opacity: 0.9;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .cardA {
+            background: linear-gradient(159deg, #af00ff 0%, #ff00a0 100%);
+
+            &:hover {
+                $_setshadowcolor: #ae00ff9f;
+                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+            }
+
+            .contentA {
+                @include flex-center;
+
+                img {
+                    $_setshadowcolor: #ff6ac872;
+
+                    @include transition-anim;
+
+                    box-shadow: 0px 0px 0px 110px $_setshadowcolor;
+                    -webkit-box-shadow: 0px 0px 0px 110px $_setshadowcolor;
+                    -moz-box-shadow: 0px 0px 0px 110px $_setshadowcolor;
+
+                    outline: 315px solid #ff47bc72;
+                    outline-offset: 439px;
+
+                    border-radius: 100%;
+                    width: 120px;
+
+                    margin-right: 8px;
+                    margin-top: 9.5px;
+                }
+
+                .innerContentA {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    background-color: unset;
+                    outline: unset;
+
+                    gap: 8px;
+
+                    span {
+                        @include font-desc();
+
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                &:hover {
+                    img {
+                        $_shadow-color: #ee8bff79;
+
+                        box-shadow: 0px 0px 0px 38px $_shadow-color;
+                        -webkit-box-shadow: 0px 0px 0px 38px $_shadow-color;
+                        -moz-box-shadow: 0px 0px 0px 38px $_shadow-color;
+
+                        outline: 300px solid #e341ff79;
+                        outline-offset: 200px;
+                    }
+                }
+            }
+        }
+
+        .cardB {
+            background: linear-gradient(10deg, #fe9d0b 0%, #ff0099 100%);
+        }
+
+        .cardC {
+            background: linear-gradient(10deg, #00c8ff 0%, #0066ff 100%);
+            cursor: pointer;
+
+            .contentC {
+                @include flex-center;
+                flex-direction: column;
+                background-image: url("../../../../../assets/images/Placeholder.png");
+                gap: 0;
+
+                .innerContentC {
+                    gap: 0;
+                    background-color: unset;
+
+                    span {
+                        @include font-desc();
+                    }
+                }
+
+                .innerContentC:nth-child(1) {
+                    height: 100%;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .innerContentC:nth-child(2) {
+                    height: 0;
+
+                    span {
+                        @include flex-center;
+                        gap: 8px;
+
+                        svg {
+                            width: 14px;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                $_setshadowcolor: #0088ff78;
+                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+
+                .contentC {
+                    .innerContentC:nth-child(1) {
+                        height: 0;
+                    }
+                    .innerContentC:nth-child(2) {
+                        height: 100%;
+                    }
+
+                    // FIXME: add background
+                    // background-color: #ffffff;
+                }
+            }
+
+            &:active {
+                transform: translateY(-2px);
+                filter: brightness(110%);
+            }
+        }
+
+        .cardD {
+            background: linear-gradient(187deg, #00ff99 0%, #00c3ff 100%);
+            cursor: pointer;
+
+            .contentWrapperD {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: url("../../../../../assets/images/gallery-overview.png");
+                background-color: unset;
+                outline: unset;
+
+                .contentSubWrapperD {
+                    outline: unset;
+                    background: linear-gradient(187deg, #00351c00 0%, #00c3ff00 100%);
+                    // background: linear-gradient(187deg, #00ff99 0%, #00c3ff 100%);
+
+                    .contentD {
+                        @include flex-center;
+
+                        outline: unset;
+                        background: linear-gradient(187deg, #00ff99 0%, #00c3ff 100%);
+                        gap: 0;
+
+                        &:hover {
+                            opacity: 1;
+
+                            img {
+                                $_setshadowcolor: #00ffbb73;
+
+                                outline-offset: 339px;
+
+                                box-shadow: 0px 0px 0px 150px $_setshadowcolor;
+                                -webkit-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
+                                -moz-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
+                            }
+                        }
+
+                        img {
+                            $_setshadowcolor: #00ffbb73;
+
+                            @include wight(100%, 100%);
+                            @include max-wight(302px, 302px);
+                            @include transition-anim;
+
+                            box-shadow: 0px 0px 0px 0px $_setshadowcolor;
+                            -webkit-box-shadow: 0px 0px 0px 0px $_setshadowcolor;
+                            -moz-box-shadow: 0px 0px 0px 0px $_setshadowcolor;
+
+                            border-radius: 100%;
+                            outline: 105px solid #00ffbb73;
+                            outline-offset: 49px;
+                            mix-blend-mode: color-dodge;
+                        }
+
+                        .innerContentD {
+                            width: 100%;
+
+                            outline: unset;
+                            background-color: unset;
+                            text-shadow: 0px 0px 3px #005c4473;
+
+                            .text {
+                                @include font-desc();
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:active {
+                transform: translateY(-2px);
+                filter: brightness(110%);
+            }
+
+            &:hover {
+                $_setshadowcolor: #00ffdd78;
+                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+            }
+        }
+    }
+}
