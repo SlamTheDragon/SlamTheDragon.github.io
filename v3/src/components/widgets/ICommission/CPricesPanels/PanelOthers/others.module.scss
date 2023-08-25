@@ -1,2 +1,85 @@
-@import '../../../../../index.scss';
+@import "../../../../../index.scss";
 
+$_gap: 15px;
+
+.OthersContainer {
+    @include wight(100%, 100%);
+
+    display: grid;
+    // grid-template-columns: 100% 100% 100%;
+    grid-template-columns: auto auto auto;
+    gap: $_gap;
+
+    div {
+        @include card;
+        @include flex-center;
+        flex-direction: column;
+
+        outline: 1px solid $tone2;
+        outline-offset: -1px;
+
+        box-shadow: unset;
+        -webkit-box-shadow: unset;
+        -moz-box-shadow: unset;
+
+        &:hover {
+            filter: brightness(110%);
+            transform: translateY(-2px);
+        }
+
+        .innerContainer {
+            @include wight(240px, 230px);
+            align-items: flex-start;
+
+            outline: unset;
+            background-color: unset;
+
+            gap: $_gap - 5;
+
+            h2 {
+                line-height: 20pt;
+            }
+
+            span {
+                font-family: "Poppins";
+                font-weight: 300;
+                line-height: 13.5pt;
+                word-spacing: 1pt;
+                // letter-spacing: -0.1pt;
+                
+                a {
+                    font-weight: 600;
+                    letter-spacing: 0.8pt;
+                    text-decoration: underline;
+
+                    text-decoration-color: $tone3;
+                    -moz-text-decoration-color: $tone3;
+                    
+                    &:hover {
+                        text-decoration-color: $primary;
+                        -moz-text-decoration-color: $primary;
+                    }
+                }
+            }
+        }
+    }
+
+    // div:nth-child(1) {
+    //     background-color: #123;
+    // }
+    div:nth-child(2) {
+        background-color: #134;
+    }
+    div:nth-child(3) {
+        background-color: #4b1155;
+    }
+    div:nth-child(4) {
+        background-color: #134;
+    }
+    div:nth-child(5) {
+        background-color: #4b1155;
+    }
+    div:nth-child(6) {
+        // background-color: #124;
+    }
+}

@@ -40,7 +40,9 @@ $_gap: 20px;
         @include wight(100%, 100%);
         margin-top: $_gap;
         border-radius: $global-border-radius + 10;
-
+        outline: 1px solid $tone2;
+        outline-offset: -1px;
+        
         &:hover {
             @include local-shadow(#ff8c009f);
             transform: translateY(-3px);

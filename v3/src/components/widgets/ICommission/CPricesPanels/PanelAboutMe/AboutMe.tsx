@@ -13,14 +13,13 @@ export default function AboutMe() {
 
     function mouseMoveHandler(event: { clientX: any; clientY: any; }) {
         setMousePos({
-            // add mathf
             x: event.clientX,
             y: event.clientY
         });
     }
 
     function hoverIn() {
-        setAlpha(0.2)
+        setAlpha(0.25)
     }
 
     function hoverOut() {

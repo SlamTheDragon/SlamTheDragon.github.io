@@ -7,6 +7,8 @@ import characterIllustration3 from "../assets/images/character-illustration-3.jp
 import characterIllustration4 from "../assets/images/character-illustration-4.jpg"
 import characterIllustration5 from "../assets/images/character-illustration-5.jpg"
 import characterIllustration6 from "../assets/images/character-illustration-6.jpg"
+import characterIllustrationA from "../assets/images/character-illustration-a.jpg"
+import characterIllustrationB from "../assets/images/character-illustration-b.jpg"
 
 
 export const imageFiles = {
@@ -18,4 +20,6 @@ export const imageFiles = {
     characterIllustration4,
     characterIllustration5,
     characterIllustration6,
+    characterIllustrationA,
+    characterIllustrationB,
 }

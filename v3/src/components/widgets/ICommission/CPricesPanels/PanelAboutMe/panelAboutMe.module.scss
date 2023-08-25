@@ -62,6 +62,8 @@ $_gap: 15px;
         .cardD {
             @include flex-center;
             @include focus-style;
+                    outline: 1px solid $tone3;
+        outline-offset: -1px;
 
             &:hover {
                 transform: translateY(-4px);

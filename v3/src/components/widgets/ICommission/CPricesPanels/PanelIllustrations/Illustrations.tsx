@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { useModalOperation } from '../../../../../utils/component-utils/modalOperation';
 import Button from '../../../../common/Button'
 import IllustrationsHeader from './IllustrationsHeader';
 import style from './illustrations.module.scss'
