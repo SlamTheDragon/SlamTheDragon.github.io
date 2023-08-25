@@ -10,9 +10,20 @@ $_gap: 15px;
     letter-spacing: -0.1pt;
 }
 
-h1 {
-    font-size: xx-large;
-    margin: 0;
+@mixin local-shadow($setshadowcolor) {
+    @if ($setshadowcolor == none) {
+        box-shadow: $setshadowcolor;
+        -webkit-box-shadow: $setshadowcolor;
+        -moz-box-shadow: $setshadowcolor;
+    }
+    @if ($setshadowcolor == unset) {
+        box-shadow: $setshadowcolor;
+        -webkit-box-shadow: $setshadowcolor;
+        -moz-box-shadow: $setshadowcolor;
+    }
+    box-shadow: 0px 6px 30px -15px $setshadowcolor;
+    -webkit-box-shadow: 0px 6px 30px -15px $setshadowcolor;
+    -moz-box-shadow: 0px 6px 30px -15px $setshadowcolor;
 }
 
 .AboutMeContainer {
@@ -32,12 +43,9 @@ h1 {
             @include card;
             @include flex-center;
 
-            overflow: hidden;
-
-            background-color: $tone0;
-
-            // outline: 1px solid $tone3;
             outline-offset: -1px;
+            background-color: $tone0;
+            overflow: hidden;
         }
 
         .i1 {
@@ -91,9 +99,9 @@ h1 {
                 @include flex-center;
 
                 img {
-                    $_setshadowcolor: #ff6ac872;
-
                     @include transition-anim;
+                    
+                    $_setshadowcolor: #ff6ac872;
 
                     box-shadow: 0px 0px 0px 110px $_setshadowcolor;
                     -webkit-box-shadow: 0px 0px 0px 110px $_setshadowcolor;
@@ -149,22 +157,24 @@ h1 {
 
             .contentB {
                 @include flex-center;
+                @include local-shadow(none);
+
                 flex-direction: column;
-                // justify-content: space-around;
 
                 height: max-content;
                 padding: 0px 37px;
                 background-color: unset;
                 gap: 0;
                 overflow: visible;
-                
+
                 div {
+                    @include local-shadow(none);
                     @include flex-center;
+
                     flex-direction: column;
                     background-color: unset;
-                    
                     overflow: visible;
-                    
+
                     h1 {
                         line-height: 26pt;
                     }
@@ -186,10 +196,7 @@ h1 {
 
             &:hover,
             &:focus-visible {
-                $_setshadowcolor: #fe9d0b91;
-                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                @include local-shadow(#fe9d0b91);
             }
         }
 
@@ -199,6 +206,7 @@ h1 {
 
             .contentC {
                 @include flex-center;
+
                 flex-direction: column;
                 background-image: url("../../../../../assets/images/Placeholder.png");
                 gap: 0;
@@ -234,10 +242,7 @@ h1 {
 
             &:hover,
             &:focus-visible {
-                $_setshadowcolor: #0088ff78;
-                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                @include local-shadow(#0088ff78);
 
                 .contentC {
                     .innerContentC:nth-child(1) {
@@ -272,7 +277,6 @@ h1 {
                 .contentSubWrapperD {
                     outline: unset;
                     background: linear-gradient(187deg, #00351c00 0%, #00c3ff00 100%);
-                    // background: linear-gradient(187deg, #00ff99 0%, #00c3ff 100%);
 
                     .contentD {
                         @include flex-center;
@@ -288,11 +292,25 @@ h1 {
                             img {
                                 $_setshadowcolor: #00ffbb73;
 
+
+                                outline-offset: 339px;
+
+                                
                                 outline-offset: 339px;
 
                                 box-shadow: 0px 0px 0px 150px $_setshadowcolor;
                                 -webkit-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
                                 -moz-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
+
+                                outline-offset: 339px;
+                            }
+                            
+                            .innerContentD {
+                                h1 {
+                                    svg {
+                                        transform: translate(8px, 4px);
+                                    }
+                                }
                             }
                         }
 
@@ -321,6 +339,16 @@ h1 {
                             background-color: unset;
                             text-shadow: 0px 0px 3px #005c4473;
 
+                            h1 {
+                                @include flex-center;
+                                justify-content: flex-start;
+
+                                svg {
+                                    @include transition-anim;
+                                    transform: translateY(4px);
+                                }
+                            }
+
                             .text {
                                 @include font-desc();
                             }
@@ -336,10 +364,7 @@ h1 {
 
             &:hover,
             &:focus-visible {
-                $_setshadowcolor: #00ffdd78;
-                box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -webkit-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
-                -moz-box-shadow: 0px 6px 30px -15px $_setshadowcolor;
+                @include local-shadow(#00ffdd78);
             }
         }
     }

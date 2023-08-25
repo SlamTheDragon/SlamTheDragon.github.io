@@ -15,10 +15,10 @@ import Gallery from '../widgets/ICommission/Gallery/Gallery'
  * @returns Interface
  */
 export default function Interface() {
-    useEffect(() => {
-        console.log('view mounted');
-        focusComponent('view')
-    }, []);
+    // useEffect(() => {
+    //     console.log('view mounted');
+    //     focusComponent('view')
+    // }, []);
 
     // get
 

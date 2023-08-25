@@ -1,11 +1,38 @@
+import { SetStateAction, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { setPanelTarget } from '../../../../slice/commission-panel-slices/panelViewSlice'
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg'
+import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
 import placeholder from '../../../../../assets/images/Placeholder.png'
-import style from './panelAboutMe.module.scss'
 import Button from '../../../../common/Button'
+import style from './panelAboutMe.module.scss'
 
 export default function AboutMe() {
+    const [getMousePos, setMousePos] = useState({ x: 0, y: 0 })
+    const [getAlpha, setAlpha] = useState(0.0)
+
+    function mouseMoveHandler(event: { clientX: any; clientY: any; }) {
+        setMousePos({
+            // add mathf
+            x: event.clientX,
+            y: event.clientY
+        });
+    }
+
+    function hoverIn() {
+        setAlpha(0.2)
+    }
+
+    function hoverOut() {
+        setAlpha(0)
+    }
+
+    useEffect(() => {
+        window.addEventListener('mousemove', mouseMoveHandler);
+        return (() => {
+            window.removeEventListener('mousemove', mouseMoveHandler);
+        })
+    }, [])
 
     const dispatch = useDispatch()
 
@@ -34,7 +61,7 @@ export default function AboutMe() {
             <div>
                 <div className={style.i1 + ' ' + style.cardA}>
 
-                    <div className={style.contentA}>
+                    <div className={style.contentA} id='gradientHover' onMouseOver={() => hoverIn()} onMouseOut={() => hoverOut()} style={{ background: `radial-gradient(circle at ${getMousePos.x}px ${getMousePos.y}px, rgb(255, 121, 255, ${getAlpha}) 0%, rgba(255, 121, 255, 0) 100%)` }}>
                         {/* FIXME: firebase plsplsplspslspl */}
                         <img src="https://cdn.discordapp.com/avatars/345819451247296516/641a89f38531660a654450d40d5955a5.webp?size=240" alt="Profile" draggable='false' />
                         <div className={style.innerContentA}>
@@ -43,10 +70,10 @@ export default function AboutMe() {
                             </h1>
                             <span>
                                 <span>
-                                    I'm an artist! I can make vibrant art for you from portraits, illustrations, and more!
+                                    I can make vibrant art from portraits, illustrations, character sheets, and more!
                                 </span>
                                 <span>
-                                    Check other cards I've provided to see what else I have for you.
+                                    If you're curious, take a look at the cards I've provided to see more of what I have.
                                 </span>
                             </span>
                         </div>
@@ -92,7 +119,7 @@ export default function AboutMe() {
                                 Latest
                             </span>
                             <h1>
-                                WIP
+                                WIP <Jump />
                             </h1>
                         </div>
                         <div className={style.innerContentC}>
@@ -113,7 +140,7 @@ export default function AboutMe() {
                             <div className={style.contentD}>
                                 <div className={style.innerContentD}>
                                     <span>
-                                        <h1>Artworks</h1>
+                                        <h1>Artworks <Jump /></h1>
                                         <span className={style.text}>See all my recent finished artworks here.</span>
                                     </span>
                                 </div>
