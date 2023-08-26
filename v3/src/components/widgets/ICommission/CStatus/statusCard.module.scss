@@ -1,0 +1,114 @@
+@import "../../../../index.scss";
+
+$_gap: 15px;
+
+.statusCard {
+    @include card;
+    @include focus-style;
+
+    margin: $_gap + 10 auto;
+
+    max-width: 85%;
+    max-height: 230px;
+    height: 100%;
+
+    background-color: $tone0;
+    overflow: hidden;
+    
+    .statusCardHeader {
+        padding: 4%;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .statusCardBody {
+        @include card;
+
+        cursor: pointer;
+        max-height: 79%;
+        height: 100%;
+
+        // outline: 5px solid $tone0;
+        // outline-offset: -5px;
+
+        
+        .statusCardPreview {
+            @include card;
+            height: 100%;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            div {
+                @include card;
+                @include transition-anim;
+                @include flex-center;
+                @include wight(100%, 100%);
+
+                opacity: 0;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus-visible {
+        .statusCardBody {
+
+
+            .statusCardPreview {
+                div {
+                    background-color: #0000007c;
+                    opacity: 1;
+                }
+            }
+        }
+
+        transform: translateY(-4px);
+    }
+    
+    &:active {
+        filter: brightness(120%);
+        transform: translateY(-2px);
+    }
+}
+
+.statusCardA {
+    &:hover {
+        $_color: #5622b883;
+        .statusCardBody {
+            outline-color: $_color;
+        }
+        background-color: $_color;
+    }
+}
+.statusCardB {
+    &:hover {
+        $_color: #0070a483;
+        .statusCardBody {
+            outline-color: $_color;
+        }
+        background-color: $_color;
+    }
+}
+.statusCardC {
+    &:hover {
+        $_color: #681178;
+        .statusCardBody {
+            outline-color: $_color;
+        }
+        background-color: $_color;
+    }
+}
+
+
+.onHold {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    
+    &:active {
+        filter: grayscale(90%);
+        transform: translateY(-2px);
+    }
+}

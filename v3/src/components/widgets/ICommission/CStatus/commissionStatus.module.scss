@@ -1,12 +1,113 @@
-@import '../../../../index.scss';
+@import "../../../../index.scss";
 
+$_gap: 15px;
+
+@mixin local-shadow($color) {
+    box-shadow: 0px 6px 30px -15px $color;
+    -webkit-box-shadow: 0px 6px 30px -15px $color;
+    -moz-box-shadow: 0px 6px 30px -15px $color;
+}
 
 .statusBoards {
-    // @include wight(100%, 100%);
-    @include ext-a-container;
-    height: 100%;
+    @include flex-center;
+    @include wight(100%, 100%);
 
-    .column {
-        // @include in-a-grid-12;
+    z-index: 9000;
+
+    flex-direction: column;
+    background-color: $background-color;
+    position: relative;
+    gap: $_gap;
+
+    .statusHeaderWrapper {
+        @include ext-a-container;
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        // margin: 1% 0;
+    }
+
+    .columnWrapper {
+        @include ext-a-container;
+        @include flex-center;
+
+        flex-direction: row;
+        gap: $_gap;
+        height: 78%;
+
+        .column {
+            @include card;
+            @include wight(100%, 100%);
+
+            outline: 1px solid $tone2;
+            outline-offset: -1px;
+
+            overflow: hidden;
+
+            // &:focus-within {
+            //     outline: 3px solid $primary;
+            //     outline-offset: 3px;
+            //     transition: none;
+            //     border-radius: $global-border-radius;
+            //     opacity: 1;
+            //     -moz-outline-radius: $global-border-radius;
+
+            //     &::after {
+            //         fill: $primary;
+            //     }
+            // }
+
+            .colHeader {
+                @include local-shadow($tone0);
+                @include transition-anim;
+
+                padding: 10px 6%;
+                background-color: $tone0;
+            }
+
+            .colBody {
+                @include wight(100%, 94%);
+
+                gap: $_gap;
+                overflow-y: scroll;
+            }
+        }
+
+        .colA {
+            $_localColor: #681178;
+            &:hover {
+                @include local-shadow($_localColor);
+                outline-color: $_localColor;
+
+                .colHeaderA {
+                    background-color: $_localColor;
+                }
+            }
+        }
+
+        .colB {
+            $_localColor: #0070a483;
+            &:hover {
+                @include local-shadow($_localColor);
+                outline-color: $_localColor;
+
+                .colHeaderB {
+                    background-color: $_localColor;
+                }
+            }
+        }
+        .colC {
+            $_localColor: #5622b883;
+            &:hover {
+                @include local-shadow($_localColor);
+                outline-color: $_localColor;
+
+                .colHeaderC {
+                    background-color: $_localColor;
+                }
+            }
+        }
     }
 }

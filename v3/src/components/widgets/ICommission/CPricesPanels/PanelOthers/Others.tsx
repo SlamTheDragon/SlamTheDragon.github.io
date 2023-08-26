@@ -63,7 +63,7 @@ export default function Others() {
                         Join my Server!
                     </h1>
                     <span>
-                        You are <a href="https://discord.gg/GSKdSPgjQb" target='_blank' rel="noreferrer">invited</a> to meet the man himself and other potential creators. Get exclusive updates and WIPs regarding my lore and such!
+                        You are <a href="https://discord.gg/GSKdSPgjQb" target='_blank' rel="noreferrer">invited</a> to meet the man himself and other potential creators. Get exclusive updates and WIPs regarding his lore and such!
                     </span>
                 </div>
             </div>
@@ -83,7 +83,7 @@ export default function Others() {
                         ToS & Agreement
                     </h2>
                     <span>
-                        Please read my <a href="https://slamthedragon.me/commissions-old/service-and-agreement" target='_blank' rel="noreferrer">Terms of Service & Commissioner's Agreement</a> before we make an arrangement together.
+                        Please read my <a href="https://slamthedragon.me/commissions-old/service-and-agreement">Terms of Service & Commissioner's Agreement</a> before we make an arrangement together.
                     </span>
                 </div>
             </div>

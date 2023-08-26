@@ -61,8 +61,6 @@ export default function CommissionPrices() {
 							classItem={target === 0 ? style.btnSelected : ''}
 							titleTooltip='About SlamTheDragon'>
 							<Logo />
-
-							{/* {getIsFolded ? null : <span>SlamTheDragon</span>} */}
 							<span>SlamTheDragon</span>
 						</Button>
 					</div>
@@ -73,8 +71,6 @@ export default function CommissionPrices() {
 							classItem={target === 1 ? style.btnSelected : ''}
 							titleTooltip='Portraits'>
 							<Person />
-
-							{/* {getIsFolded ? null : <span>Portraits</span>} */}
 							<span>Portraits</span>
 						</Button>
 
@@ -83,8 +79,6 @@ export default function CommissionPrices() {
 							classItem={target === 2 ? style.btnSelected : ''}
 							titleTooltip='Illustrations'>
 							<Panorama />
-
-							{/* {getIsFolded ? null : <span>Illustrations</span>} */}
 							<span>Illustrations</span>
 						</Button>
 
@@ -94,8 +88,6 @@ export default function CommissionPrices() {
 							titleTooltip='Others/Special Request'
 						>
 							<Apps />
-
-							{/* {getIsFolded ? null : <span>Others</span>} */}
 							<span>Others</span>
 						</Button>
 					</div>
