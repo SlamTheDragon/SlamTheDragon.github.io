@@ -26,8 +26,12 @@ $_gap: 15px;
             filter: brightness(110%);
             transform: translateY(-2px);
         }
-
+        
         .innerContainer {
+            &:hover {
+                filter: unset;
+                transform: unset;
+            }
             @include wight(240px, 230px);
             align-items: flex-start;
 
