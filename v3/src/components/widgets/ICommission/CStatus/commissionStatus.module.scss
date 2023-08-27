@@ -8,6 +8,14 @@ $_gap: 15px;
     -moz-box-shadow: 0px 6px 30px -15px $color;
 }
 
+@mixin font-desc {
+    font-family: "Poppins";
+    font-weight: 400;
+    // line-height: 13.5pt;
+    word-spacing: 0.1pt;
+    letter-spacing: -0.1pt;
+}
+
 .statusBoards {
     @include flex-center;
     @include wight(100%, 100%);
@@ -17,16 +25,107 @@ $_gap: 15px;
     flex-direction: column;
     background-color: $background-color;
     position: relative;
-    gap: $_gap;
+    gap: $_gap + 10;
 
     .statusHeaderWrapper {
         @include ext-a-container;
-        width: 100%;
+        justify-content: space-between;
 
         display: flex;
         align-items: flex-start;
         flex-direction: row;
-        // margin: 1% 0;
+
+        h1 {
+            @include flex-center;
+            @include wight(30%, 100%);
+
+            justify-content: flex-start;
+
+
+            svg {
+                transform: translateY(2px);
+                width: 48px;
+                margin-right: 5px;
+            }
+        }
+
+        .statusHeaderContainer {
+            @include card;
+            @include wight(80%, 100%);
+            @include flex-center;
+
+            flex-direction: row;
+            justify-content: flex-start;
+            background-color: $tone0;
+
+            outline: 1px solid $tone2;
+
+            // gap: $_gap;
+
+            div {
+                @include font-desc;
+                display: flex;
+                align-items: center;
+
+                font-size: small;
+                padding: 0 15px;
+            }
+
+            .sHC1 {
+                @include flex-center;
+
+                div {
+                    @include transition-anim;
+                    @include mar-pad(0 0 0 7.5px, 0 10px);
+                    @include flex-center;
+
+                    border-radius: $global-border-radius;
+                    font-size: smaller;
+
+                    // transform: translateY(1px);
+                    overflow: hidden;
+                    
+                    span {
+                        text-align: center;
+                        overflow: hidden;
+                        width: 0;
+                    }
+                }
+                
+                .sHCPaintR {
+                    width: 0;
+                    background-color: $tone3;
+                    opacity: 0.9;
+                }
+                .sHCPaintB {
+                    width: 0;
+                    background-color: $secondary;
+                    opacity: 0.9;
+                }
+
+                .sHCPaintProgress {
+                    width: 100%;
+                    margin-left: 20px;
+                }
+
+                width: 50%;
+            }
+
+            .sHC2 {
+                gap: $_gap;
+                // width: 50%;
+            }
+            
+            &:hover {
+                .sHCPaintR,
+                .sHCPaintB {
+                    span {
+                        width: 100%;
+                    }
+                    width: inherit;
+                }
+            }
+        }
     }
 
     .columnWrapper {
@@ -60,6 +159,7 @@ $_gap: 15px;
             // }
 
             .colHeader {
+                // @include card;
                 @include local-shadow($tone0);
                 @include transition-anim;
 
@@ -72,6 +172,13 @@ $_gap: 15px;
 
                 gap: $_gap;
                 overflow-y: scroll;
+                
+                .theBottom {
+                    height: 30px;
+                    margin: 15px 0;
+                    color: $tone2;
+                    @include flex-center;
+                }
             }
         }
 

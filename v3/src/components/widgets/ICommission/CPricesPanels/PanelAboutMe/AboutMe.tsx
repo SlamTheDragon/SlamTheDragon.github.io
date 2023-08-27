@@ -37,15 +37,33 @@ export default function AboutMe() {
 
     // FIXME: firebase
     const latestWip = 143114121
-    const parsedStatus = 0
+    let parsedStatus = 0
+    const isOnHold = true
 
-    const commStateParse = ["Closed", "Open"]
-    const commDescription = ["I am unfortunately not accepting any orders at this moment. Please check back again later!", "Give me money"]
+    const commStateParse = ["Closed", "Open", "Paused"]
+    const commDescription = ["I am unfortunately not accepting any orders at this moment. Please check back again later!", "Give me money", "My Commissions are momentarily paused, potentially due to unplanned real-life disturbances or significant matters requiring urgent attention."]
+
+    function parseStatus() {
+        if (isOnHold) {
+            return 2
+        }
+        if (parsedStatus === 0) {
+            return 0
+        }
+        if (parsedStatus === 1) {
+            return 1
+        }
+
+        return 0
+    }
 
     function renderView() {
         // FIXME: add await fallback when firebase is not ready
-
         let foo = parsedStatus
+
+        if (isOnHold) {
+            return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Current Status</Button>
+        }
         if (foo === 0) {
             return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Status</Button>
         }
@@ -83,10 +101,10 @@ export default function AboutMe() {
                     <div className={style.contentB}>
                         <div>
                             <h1>
-                                Commissions are {commStateParse[parsedStatus]}
+                                Commissions are {commStateParse[parseStatus()]}
                             </h1>
                             <span>
-                                {commDescription[parsedStatus]}
+                                {commDescription[parseStatus()]}
                             </span>
                         </div>
                         <div>

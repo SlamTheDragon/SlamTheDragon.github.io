@@ -1,10 +1,20 @@
 @import "../../../../index.scss";
 
 .gallery {
-    @include ext-a-container;
-    height: 100%;
+    // FIXME: remove margin
+    // margin-top: 10px;
 
-    .galleryCarousel {
-        background-color: #000000;
+    z-index: 9000;
+    height: max-content;
+    background-color: $background-color;
+    position: relative;
+    
+    .galleryContainer {
+        @include ext-a-container;
+        height: max-content;
+        outline: 1px solid $tone3;
+        outline-offset: -1px;
+
+        // background-color: #000000;
     }
 }

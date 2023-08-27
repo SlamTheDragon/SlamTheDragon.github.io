@@ -16,11 +16,12 @@ export enum ColumnID {
 }
 
 export interface StatusCardInterface {
-    column: ColumnID;
+    column: ColumnID
     previewUrl?: string;
-    commID?: number;
-    commName?: string;
-    isOnHold?: boolean;
+    commID?: number
+    commName?: string
+    isOnHold?: boolean
+    isTargetedOnHold?: boolean
 }
 
 /**
@@ -58,11 +59,11 @@ export default function StatusCard(props: StatusCardInterface) {
     }
 
     return (
-        <div tabIndex={0} className={`${style.statusCard} ${designateColumn()} ${props.isOnHold ? style.onHold : ''}`} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+        <div tabIndex={0} className={`${style.statusCard} ${designateColumn()} ${props.isOnHold ? style.onHold : ''} ${props.isTargetedOnHold ? style.onHold : ''}`} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
             if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${props.commID}`) }
         }}>
             <div className={style.statusCardHeader}>
-                <strong>#{props.commID} &nbsp; {props.commName}</strong> <span>{props.isOnHold ? 'On Hold' : ''}</span>
+                <strong>#{props.commID} &nbsp; {props.commName}</strong> <span>{props.isOnHold || props.isTargetedOnHold ? 'On Hold' : ''}</span>
             </div>
 
             <div className={style.statusCardBody}>

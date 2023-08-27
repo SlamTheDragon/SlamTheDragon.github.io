@@ -15,6 +15,9 @@ $_gap: 15px;
     background-color: $tone0;
     overflow: hidden;
     
+    outline: 1px solid $tone2;
+    outline-offset: -1px;
+
     .statusCardHeader {
         padding: 4%;
 
@@ -24,23 +27,20 @@ $_gap: 15px;
 
     .statusCardBody {
         @include card;
-
+        
         cursor: pointer;
         max-height: 79%;
         height: 100%;
-
-        // outline: 5px solid $tone0;
-        // outline-offset: -5px;
-
         
         .statusCardPreview {
             @include card;
             height: 100%;
-
+            
+            // background-image: url('../../../../assets/images/Placeholder.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-
+            
             div {
                 @include card;
                 @include transition-anim;
