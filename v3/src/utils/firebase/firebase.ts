@@ -1,3 +1,8 @@
+import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref } from 'firebase/database'
+
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
@@ -6,6 +11,7 @@ const key = process.env.REACT_APP_FIREBASE_TOKEN
 const firebaseConfig = {
     apiKey: key,
     authDomain: "slamthedragondb.firebaseapp.com",
+    databaseURL: "https://slamthedragondb-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "slamthedragondb",
     storageBucket: "slamthedragondb.appspot.com",
     messagingSenderId: "197882433510",
@@ -13,4 +19,6 @@ const firebaseConfig = {
     measurementId: "G-B5QDPCS9GN"
 };
 
-export { firebaseConfig }
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app)
+export const db = getDatabase(app);

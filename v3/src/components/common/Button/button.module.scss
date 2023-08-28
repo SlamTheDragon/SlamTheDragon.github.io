@@ -18,6 +18,11 @@
 	text-decoration: none;
 	cursor: pointer;
 
+	svg {
+		width: 12px;
+		// margin-left: 10px;
+	}
+
 	&:hover {
 		filter: brightness(95%);
 	}

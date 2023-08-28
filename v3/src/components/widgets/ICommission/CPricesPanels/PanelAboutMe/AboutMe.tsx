@@ -36,21 +36,21 @@ export default function AboutMe() {
     const dispatch = useDispatch()
 
     // FIXME: firebase
-    const latestWip = 143114121
-    let parsedStatus = 0
-    const isOnHold = true
+    const latestWip = 0
+    const parsedStatus = true
+    const isOnHold = false
 
     const commStateParse = ["Closed", "Open", "Paused"]
-    const commDescription = ["I am unfortunately not accepting any orders at this moment. Please check back again later!", "Give me money", "My Commissions are momentarily paused, potentially due to unplanned real-life disturbances or significant matters requiring urgent attention."]
+    const commDescription = ["I am unfortunately not accepting any orders at this moment. Please check back again later!", "My DM's are currently open! Please feel free to browse through my offers or view some of my sample artworks.", "My Commissions are momentarily paused, potentially due to unplanned real-life disturbances or significant matters requiring urgent attention."]
 
     function parseStatus() {
         if (isOnHold) {
             return 2
         }
-        if (parsedStatus === 0) {
+        if (!parsedStatus) {
             return 0
         }
-        if (parsedStatus === 1) {
+        if (parsedStatus) {
             return 1
         }
 
@@ -59,15 +59,13 @@ export default function AboutMe() {
 
     function renderView() {
         // FIXME: add await fallback when firebase is not ready
-        let foo = parsedStatus
-
         if (isOnHold) {
             return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Current Status</Button>
         }
-        if (foo === 0) {
+        if (!parsedStatus) {
             return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Status</Button>
         }
-        if (foo === 1) {
+        if (parsedStatus) {
             return <Button classItem='secondary' onClick={() => dispatch(setPanelTarget(1))}>Browse Offers</Button>
         }
     }

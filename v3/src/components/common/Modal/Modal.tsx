@@ -11,6 +11,7 @@
 */
 
 import React from 'react';
+import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg';
 import Button from '../Button/Button';
 import style from './modal.module.scss'
 
@@ -56,7 +57,7 @@ export default function Modal(props: ModalProps) {
                 </div>
                 <div className={style.modalAction}>
                     {/* FIXME: make this customizable */}
-                    <Button classItem='primary' onClick={() => (window.location.href = "https://slamthedragon.me/commissions")}>The Link</Button>
+                    <Button classItem='primary' onClick={() => (window.location.href = "https://slamthedragon.me/commissions-old")}>Old Site &nbsp; <Open/></Button>
                 </div>
             </div>
 
