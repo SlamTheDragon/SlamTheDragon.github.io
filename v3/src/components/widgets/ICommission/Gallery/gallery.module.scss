@@ -12,9 +12,26 @@
     .galleryContainer {
         @include ext-a-container;
         height: max-content;
-        outline: 1px solid $tone3;
-        outline-offset: -1px;
-
+        // outline: 1px solid $tone3;
+        // outline-offset: -1px;
+        
         // background-color: #000000;
+        
+        .galleryHeader { 
+            padding: 15px 0;
+        }
+        
+        .galleryBody { 
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            .galleryLoadIndicator {
+                @include flex-center;
+                color: $tone2;
+                height: 100px;
+                margin-top: 15px;
+            }
+        }
     }
 }

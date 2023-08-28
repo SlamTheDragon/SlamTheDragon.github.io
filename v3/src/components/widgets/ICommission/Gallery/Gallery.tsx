@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import style from './gallery.module.scss';
+import GalleryLoader from './GalleryLoader';
 
 export default function Gallery() {
 	const [items, setItems] = useState<number[]>([1, 2, 3]); // Initial items
@@ -33,11 +34,11 @@ export default function Gallery() {
 		};
 
 		const observer = new IntersectionObserver(handleObserver, options);
-		
+
 		if (loaderRef.current) {
 			observer.observe(loaderRef.current);
 		}
-		
+
 		// Clean up
 		return () => {
 			if (loaderRef.current) {
@@ -45,8 +46,8 @@ export default function Gallery() {
 			}
 		};
 	}, []);
-	
-	
+
+	// FIXME: undo this when things get out of scope
 	function bar() {
 		const foo = document.getElementById('view')
 		foo?.style.setProperty('scroll-snap-type', 'none');
@@ -56,12 +57,12 @@ export default function Gallery() {
 	return (
 		<section className={style.gallery} id='gallery'>
 			<div className={style.galleryContainer}>
-				<div>
+				<div className={style.galleryHeader}>
 					<h1>
 						Gallery
 					</h1>
 				</div>
-				<div>
+				{/* <div>
 					<ul>
 						{items.map((item) => (
 							<li key={item}>{item}</li>
@@ -76,16 +77,14 @@ export default function Gallery() {
 					<div ref={loaderRef} >
 						{loading && bar()}
 					</div>
+				</div> */}
 
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+				<div className={style.galleryBody}>
+					<GalleryLoader />
+					
+					<div className={style.galleryLoadIndicator} style={{ display: loading ? 'none' : 'flex' }}>
+						&bull;
+					</div>
 				</div>
 			</div>
 		</section>

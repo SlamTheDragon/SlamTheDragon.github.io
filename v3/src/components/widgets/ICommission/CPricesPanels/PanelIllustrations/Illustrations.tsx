@@ -7,8 +7,8 @@ export default function Illustrations() {
     const [getPortraitType, setPortraitType] = useState(0);
 
     // FIXME: get from firebase
-    const portraitValueHead = 30
-    const portraitValueHalf = 42
+    const portraitValueHead = 130
+    const portraitValueHalf = 100
 
     const getPortraitTypeDetails = ["Character Illustration", "Illustration"]
     const portraitValue = [portraitValueHead, portraitValueHalf]
@@ -21,14 +21,14 @@ export default function Illustrations() {
                     // this might be the most unreadable code I've ever created ngl
                     <div className={`${style.view}  ${style.bgIlluV1}`}>
                         <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} />
-                        <div className={style.description}><strong>Portraits</strong> | 2k res | Square</div>
+                        <div className={style.description}><strong>Illustrations</strong> | 4k </div>
                     </div>
                 )
             case 1:
                 return (
                     <div className={`${style.view}  ${style.bgIlluV2}`}>
                         <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} />
-                        <div className={style.description}><strong>Portraits</strong> | 4k res | Vertical Portrait</div>
+                        <div className={style.description}><strong>Illustrations</strong> | 4k </div>
                     </div>
                 )
 
@@ -47,8 +47,8 @@ export default function Illustrations() {
 
             <div className={style.navigator}>
                 <div className={style.subNavigator}>
-                    <Button classItem={(getPortraitType === 0) ? style.btnSelected : ''} onClick={() => { setPortraitType(0) }}>Headshot</Button>
-                    <Button classItem={(getPortraitType === 1) ? style.btnSelected : ''} onClick={() => { setPortraitType(1) }}>Halfshot</Button>
+                    <Button classItem={(getPortraitType === 0) ? style.btnSelected : ''} onClick={() => { setPortraitType(0) }}>Character Illustration</Button>
+                    <Button classItem={(getPortraitType === 1) ? style.btnSelected : ''} onClick={() => { setPortraitType(1) }}>Illustration</Button>
                 </div>
             </div>
         </div>

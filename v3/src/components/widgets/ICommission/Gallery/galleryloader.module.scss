@@ -1,0 +1,131 @@
+@import "../../../../index.scss";
+
+$_gap: 15px;
+
+.galleryRow {
+    @include wight(100%, 100%);
+    // @include flex-center;
+    // margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $_gap - 4;
+
+    justify-content: center;
+    align-items: center;
+
+    .galleryCardLoader {
+        @include card;
+        @include wight(100%, 300px);
+        // margin-top: 15px;
+        // align-items: center;
+
+        animation: loadePulse 5s ease 0s infinite normal forwards;
+
+        // @include wight(100%, 100%);
+        // .galleryOpen {
+        //     gap: $_gap - 10;
+        //     @include flex-center;
+
+        //     svg {
+        //         $_wight: 14px;
+        //         @include wight($_wight, $_wight);
+        //         transform: translateY(1.5px);
+        //     }
+        // }
+    }
+
+    .widthA {
+        @include in-grid-3;
+    }
+    .widthB {
+        @include in-grid-4;
+    }
+    .widthC {
+        @include in-grid-5;
+    }
+}
+
+@keyframes loadePulse {
+    0%,
+    50%,
+    100% {
+        filter: brightness(100%);
+        background-color: $background-accent;
+    }
+
+    25%,
+    75% {
+        filter: brightness(115%);
+        background-color: $background-accent;
+    }
+}
+
+@media only screen and (max-width: 1530px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-4;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-4;
+        }
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-3;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-4;
+        }
+    }
+}
+
+@media only screen and (max-width: 1270px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-2;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-3;
+        }
+    }
+}
+
+@media only screen and (max-width: 1110px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-3;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-3;
+        }
+    }
+}
+
+// @media only screen and (max-width: 880px) {
+//     .galleryRow {
+//         .widthA {
+//             @include in-grid-3;
+//         }
+//         .widthB {
+//             @include in-grid-3;
+//         }
+//         .widthC {
+//             @include in-grid-3;
+//         }
+//     }
+// }
