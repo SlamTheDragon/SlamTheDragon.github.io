@@ -7,6 +7,8 @@ import themeID from "../components/slice/theme-slices/themeSlice"
 import themeBool from "../components/slice/theme-slices/themeBoolSlice"
 import scrollStyleEffect from "../components/slice/parallax-slices/parallaxScrollerSlice"
 import getTarget from "../components/slice/commission-panel-slices/panelViewSlice"
+import getCacheLockState from "../components/slice/cache-lock-slice/lockCacheSlice"
+
 
 export default configureStore({
     reducer: {
@@ -17,7 +19,8 @@ export default configureStore({
         theme: themeID,
         themeBool,
         setScrollLayer: scrollStyleEffect,
-        getTarget: getTarget
+        getTarget: getTarget,
+        getCacheLockState: getCacheLockState,
     }
 })
 

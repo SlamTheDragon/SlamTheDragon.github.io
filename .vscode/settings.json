@@ -1,6 +1,17 @@
 {
     "liveServer.settings.port": 5500,
     "cSpell.words": [
-        "INPROG"
+        "Comms",
+        "customstatus",
+        "Fullshot",
+        "Halfshot",
+        "Headshot",
+        "INPROG",
+        "isonhold",
+        "kofi",
+        "PRELOADERS",
+        "queuelimit",
+        "startingprices",
+        "thatnerd"
     ]
 }

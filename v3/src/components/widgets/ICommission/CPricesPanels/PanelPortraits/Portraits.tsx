@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react'
-import { useModalOperation } from '../../../../../utils/component-utils/modalOperation';
-import { useDispatch } from 'react-redux';
+import { ModalOperation } from '../../../../../utils/component-utils/modalOperation'
+import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot'
 import Button from '../../../../common/Button'
-import PortraitHeader from './PortraitHeader';
+import PortraitHeader from './PortraitHeader'
 import style from './portraits.module.scss'
 
-export default function Portraits() {
-    const [getBackgroundType, setBackgroundType] = useState(false);
-    const [getBackgroundTypeDecoded, setDecodedBackgroundType] = useState(0);
-    const [getPortraitType, setPortraitType] = useState(0);
 
-    const dispatch = useDispatch()
-    const openModal = useModalOperation()
+export default function Portraits() {
+    const [getBackgroundType, setBackgroundType] = useState(false)
+    const [getBackgroundTypeDecoded, setDecodedBackgroundType] = useState(0)
+    const [getPortraitType, setPortraitType] = useState(0)
+    const [portraitValueHead, setPortraitValueHead] = useState(Object.values(GetSnapshot.startingPrices)[3])
+    const [portraitValueHalf, setPortraitValueHalf] = useState(Object.values(GetSnapshot.startingPrices)[2])
+    const [portraitValueFull, setPortraitValueFull] = useState(Object.values(GetSnapshot.startingPrices)[1])
+    const backgroundTypeDetails = ["Simple Background", "With Background"]
+    const getPortraitTypeDetails = ["Headshot", "Halfshot", "Fullshot"]
+    const portraitValue = [portraitValueHead, portraitValueHalf, portraitValueFull]
+
+
+    // const openModal = new ModalOperation()
 
     useEffect(() => {
         if (getBackgroundType) {
@@ -19,39 +26,44 @@ export default function Portraits() {
         } else {
             setDecodedBackgroundType(0)
         }
-    }, [getBackgroundType]);
+    }, [getBackgroundType])
 
-    // FIXME: get from firebase
-    const portraitValueHead = 30
-    const portraitValueHalf = 42
-    const portraitValueFull = 60
+    useEffect(() => {
+        const change = () => {
+            setPortraitValueHead(Object.values(GetSnapshot.startingPrices)[3])
+            setPortraitValueHalf(Object.values(GetSnapshot.startingPrices)[2])
+            setPortraitValueFull(Object.values(GetSnapshot.startingPrices)[1])
+        }
 
-    const backgroundTypeDetails = ["Simple Background", "With Background"]
-    const getPortraitTypeDetails = ["Headshot", "Halfshot", "Fullshot"]
-    const portraitValue = [portraitValueHead, portraitValueHalf, portraitValueFull]
+        GetSnapshot.addSnapshotListener(change)
+
+        return (() => {
+            GetSnapshot.removeSnapshotListener(change)
+        })
+    }, [])
+
 
     function renderView() {
-
         switch (getPortraitType) {
             case 0:
                 return (
                     // this might be the most unreadable code I've ever created ngl
                     <div className={`${style.view}  ${getBackgroundType ? style.nbgV1 : style.bgV1}`}>
-                        <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />
+                        {(portraitValueHead === undefined) ? <h1>Loading Prices...</h1> : <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />}
                         <div className={style.description}><strong>Portraits</strong> | 2k res | Square</div>
                     </div>
                 )
             case 1:
                 return (
                     <div className={`${style.view}  ${getBackgroundType ? style.nbgV2 : style.bgV2}`}>
-                        <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />
+                        {(portraitValueHalf === undefined) ? <h1>Loading Prices...</h1> : <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />}
                         <div className={style.description}><strong>Portraits</strong> | 4k res | Vertical Portrait</div>
                     </div>
                 )
             case 2:
                 return (
                     <div className={`${style.view}  ${getBackgroundType ? style.nbgV3 : style.bgV3}`}>
-                        <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />
+                        {(portraitValueFull === undefined) ? <h1>Loading Prices...</h1> : <PortraitHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} isBackground={getBackgroundType} />}
                         <div className={style.description}><strong>Portraits</strong> | 4k+ res | Vertical Portrait/Landscape</div>
                     </div>
                 )
@@ -63,8 +75,6 @@ export default function Portraits() {
 
     return (
         <div className={style.PortraitsContainer}>
-
-            {/* FIXME: make conditional when firebase is in */}
             <div className={style.content}>
                 {renderView()}
             </div>

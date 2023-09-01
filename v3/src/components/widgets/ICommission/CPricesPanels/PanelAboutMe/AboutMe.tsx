@@ -1,13 +1,18 @@
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { setPanelTarget } from '../../../../slice/commission-panel-slices/panelViewSlice'
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg'
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
+import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot';
 import placeholder from '../../../../../assets/images/Placeholder.png'
 import Button from '../../../../common/Button'
 import style from './panelAboutMe.module.scss'
 
+
 export default function AboutMe() {
+    const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status);
+    const [onHold, setOnHold] = useState<boolean | undefined>(GetSnapshot.onHold);
+
     const [getMousePos, setMousePos] = useState({ x: 0, y: 0 })
     const [getAlpha, setAlpha] = useState(0.0)
 
@@ -19,7 +24,7 @@ export default function AboutMe() {
     }
 
     function hoverIn() {
-        setAlpha(0.25)
+        setAlpha(0.35)
     }
 
     function hoverOut() {
@@ -27,8 +32,16 @@ export default function AboutMe() {
     }
 
     useEffect(() => {
+        const change = () => {
+            setStatus(GetSnapshot.status)
+            setOnHold(GetSnapshot.onHold)
+        }
+
+        GetSnapshot.addSnapshotListener(change);
         window.addEventListener('mousemove', mouseMoveHandler);
+
         return (() => {
+            GetSnapshot.removeSnapshotListener(change);
             window.removeEventListener('mousemove', mouseMoveHandler);
         })
     }, [])
@@ -37,36 +50,45 @@ export default function AboutMe() {
 
     // FIXME: firebase
     const latestWip = 0
-    const parsedStatus = true
-    const isOnHold = false
 
-    const commStateParse = ["Closed", "Open", "Paused"]
-    const commDescription = ["I am unfortunately not accepting any orders at this moment. Please check back again later!", "My DM's are currently open! Please feel free to browse through my offers or view some of my sample artworks.", "My Commissions are momentarily paused, potentially due to unplanned real-life disturbances or significant matters requiring urgent attention."]
+    const commStateParse = ["Paused", "Open", "Closed", "Loading"]
+    const commDescription = [
+        "My Commissions are momentarily paused, potentially due to unplanned real-life disturbances or significant matters requiring urgent attention.",
+        "My DM's are currently open! Please feel free to browse through my offers or view some of my sample artworks.",
+        "I am unfortunately not accepting any orders at this moment. Please check back again later!",
+        "Please wait...",
+    ]
 
     function parseStatus() {
-        if (isOnHold) {
-            return 2
+        if (GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) {
+            return 3
         }
-        if (!parsedStatus) {
+
+        if (onHold) {
             return 0
         }
-        if (parsedStatus) {
+        if (status) {
             return 1
+        }
+        if (!status) {
+            return 2
         }
 
         return 0
     }
 
     function renderView() {
-        // FIXME: add await fallback when firebase is not ready
-        if (isOnHold) {
+        if (GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) {
+            return <Button disabled> Loading </Button>
+        }
+        if (onHold) {
             return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Current Status</Button>
         }
-        if (!parsedStatus) {
-            return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Status</Button>
-        }
-        if (parsedStatus) {
+        if (status) {
             return <Button classItem='secondary' onClick={() => dispatch(setPanelTarget(1))}>Browse Offers</Button>
+        }
+        if (!status) {
+            return <Button classItem='secondary' onClick={() => (window.location.href = "#status")}>Check Status</Button>
         }
     }
 
@@ -77,7 +99,6 @@ export default function AboutMe() {
                 <div className={style.i1 + ' ' + style.cardA}>
 
                     <div className={style.contentA} id='gradientHover' onMouseOver={() => hoverIn()} onMouseOut={() => hoverOut()} style={{ background: `radial-gradient(circle at ${getMousePos.x}px ${getMousePos.y}px, rgb(255, 121, 255, ${getAlpha}) 0%, rgba(255, 121, 255, 0) 100%)` }}>
-                        {/* FIXME: firebase plsplsplspslspl */}
                         <img src="https://cdn.discordapp.com/avatars/345819451247296516/641a89f38531660a654450d40d5955a5.webp?size=240" alt="Profile" draggable='false' />
                         <div className={style.innerContentA}>
                             <h1>
@@ -119,7 +140,6 @@ export default function AboutMe() {
                     REQUIREMENT FOR GET:
                     - image preview (if there are multiple entries then just obtain the first)
                     - query link
-
                 */}
                 <div className={style.i2 + ' ' + style.cardC}
                     onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -131,10 +151,10 @@ export default function AboutMe() {
                     <div className={style.contentC} style={{ backgroundImage: `url(${placeholder})` }}>
                         <div className={style.innerContentC}>
                             <span>
-                                Latest
+                                {(GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) ? `Loading` : 'Latest'}
                             </span>
                             <h1>
-                                WIP <Jump />
+                                {(GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) ? `Loading` : 'WIP'} <Jump />
                             </h1>
                         </div>
                         <div className={style.innerContentC}>

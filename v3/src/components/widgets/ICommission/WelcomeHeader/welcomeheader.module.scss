@@ -68,6 +68,7 @@ $_h1-spacing: 0;
                             margin: $_h1-spacing;
                         }
 
+
                         svg {
                             @include transition-anim;
                             translate: 0px 2px;

@@ -50,6 +50,7 @@ $_gap: 15px;
         }
 
         .statusHeaderContainer {
+            @include transition-anim;
             @include card;
             @include wight(80%, 100%);
             @include flex-center;

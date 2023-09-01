@@ -1,5 +1,6 @@
 import { ReactComponent as Logo } from '../../../assets/svg/SlamTheDragon Logo.svg'
 import { ReactComponent as Twitter } from '../../../assets/svg/twitterIcon.svg'
+import { ReactComponent as Kofi } from '../../../assets/svg/kofiIcon.svg'
 import { ReactComponent as Threads } from '../../../assets/svg/threadsIcon.svg'
 import { ReactComponent as Instagram } from '../../../assets/svg/instagramIcon.svg'
 import { ReactComponent as Deviant } from '../../../assets/svg/deviantartIcon.svg'
@@ -36,6 +37,9 @@ export default function Footer() {
                 </div>
                 <div>
                     <a className={style.twitter} href="https://twitter.com/SlamTheDragon" target="_blank" rel="noreferrer"><Twitter /></a>
+                </div>
+                <div>
+                    <a className={style.kofi} href="https://ko-fi.com/slamthedragon" target="_blank" rel="noreferrer"><Kofi /></a>
                 </div>
                 <div>
                     <a href="https://www.threads.net/@slamthedragon" target="_blank" rel="noreferrer"><Threads /></a>

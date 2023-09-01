@@ -613,7 +613,9 @@ body {
 	// font-size: small;
 	color: $color;
 	background-color: $background-color;
-	overflow: hidden;
+	// FIXME: somethign weird is going on here
+	// overflow: hidden;
+	// // overflow-y: scroll;
 }
 
 a {

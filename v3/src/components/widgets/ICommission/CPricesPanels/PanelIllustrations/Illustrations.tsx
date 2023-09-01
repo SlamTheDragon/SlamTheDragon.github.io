@@ -1,33 +1,44 @@
 import { useEffect, useState } from 'react'
+import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot';
 import Button from '../../../../common/Button'
 import IllustrationsHeader from './IllustrationsHeader';
 import style from './illustrations.module.scss'
 
+
 export default function Illustrations() {
-    const [getPortraitType, setPortraitType] = useState(0);
-
-    // FIXME: get from firebase
-    const portraitValueHead = 130
-    const portraitValueHalf = 100
-
+    const [getIllustrationType, setIllustrationType] = useState(0);
+    const [illusValueCharacter, setIllusValueCharacter] = useState(Object.values(GetSnapshot.startingPrices)[0])
+    const [illusValue, setIllusValue] = useState(Object.values(GetSnapshot.startingPrices)[4])
     const getPortraitTypeDetails = ["Character Illustration", "Illustration"]
-    const portraitValue = [portraitValueHead, portraitValueHalf]
+    const portraitValue = [illusValueCharacter, illusValue]
+
+    useEffect(() => {
+        const change = () => {
+            setIllusValueCharacter(Object.values(GetSnapshot.startingPrices)[0])
+            setIllusValue(Object.values(GetSnapshot.startingPrices)[4])
+        }
+
+        GetSnapshot.addSnapshotListener(change)
+
+        return (() => {
+            GetSnapshot.removeSnapshotListener(change)
+        })
+    }, [])
+
 
     function renderView() {
-
-        switch (getPortraitType) {
+        switch (getIllustrationType) {
             case 0:
                 return (
-                    // this might be the most unreadable code I've ever created ngl
-                    <div className={`${style.view}  ${style.bgIlluV1}`}>
-                        <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} />
+                    <div className={`${style.view} ${style.bgIlluV1}`}>
+                        {(illusValueCharacter === undefined)? <h1>Loading Prices...</h1> : <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getIllustrationType} />}
                         <div className={style.description}><strong>Illustrations</strong> | 4k </div>
                     </div>
                 )
             case 1:
                 return (
-                    <div className={`${style.view}  ${style.bgIlluV2}`}>
-                        <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getPortraitType} />
+                    <div className={`${style.view} ${style.bgIlluV2}`}>
+                        {(illusValue === undefined)? <h1>Loading Prices...</h1> : <IllustrationsHeader headerName={getPortraitTypeDetails} priceArray={portraitValue} priceID={getIllustrationType} />}
                         <div className={style.description}><strong>Illustrations</strong> | 4k </div>
                     </div>
                 )
@@ -47,8 +58,8 @@ export default function Illustrations() {
 
             <div className={style.navigator}>
                 <div className={style.subNavigator}>
-                    <Button classItem={(getPortraitType === 0) ? style.btnSelected : ''} onClick={() => { setPortraitType(0) }}>Character Illustration</Button>
-                    <Button classItem={(getPortraitType === 1) ? style.btnSelected : ''} onClick={() => { setPortraitType(1) }}>Illustration</Button>
+                    <Button classItem={(getIllustrationType === 0) ? style.btnSelected : ''} onClick={() => { setIllustrationType(0) }}>Character Illustration</Button>
+                    <Button classItem={(getIllustrationType === 1) ? style.btnSelected : ''} onClick={() => { setIllustrationType(1) }}>Illustration</Button>
                 </div>
             </div>
         </div>

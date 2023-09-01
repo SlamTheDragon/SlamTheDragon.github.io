@@ -73,6 +73,13 @@ footer {
                 }
             }
         }
+        .kofi {
+            svg {
+                &:active {
+                    fill: $kofi;
+                }
+            }
+        }
         .discord {
             svg {
                 &:active {

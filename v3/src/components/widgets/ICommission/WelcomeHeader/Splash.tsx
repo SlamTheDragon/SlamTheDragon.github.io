@@ -1,12 +1,49 @@
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
 import { ReactComponent as ExpandMore } from '@material-design-icons/svg/filled/expand_more.svg';
+import { GetSnapshot } from '../../../../utils/firebase/getsnapshot';
+import { useEffect, useState } from 'react';
 import Button from '../../../common/Button'
+import ChipLoader from '../../../common/ChipLoader/ChipLoader';
 import style from './welcomeheader.module.scss'
+import { Logging } from '../../../../utils/logger';
 
 export default function Splash() {
+    const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status);
+    const [onHold, setOnHold] = useState<boolean | undefined>(GetSnapshot.onHold);
 
-    // GET FROM FIREBASE
-    const status = "Closed"
+    useEffect(() => {
+        const change = () => {
+            setStatus(GetSnapshot.status)
+            setOnHold(GetSnapshot.onHold)
+        }
+
+        GetSnapshot.addSnapshotListener(change)
+
+        return () => {
+            GetSnapshot.removeSnapshotListener(change)
+        }
+    }, [])
+
+    
+    function renderStatus() {
+        if (GetSnapshot.status === undefined) {
+            return <ChipLoader/>
+        }
+        if (GetSnapshot.onHold === undefined) {
+            return <ChipLoader/>
+        }
+
+        if (onHold) {
+            return <h1>Paused</h1>
+        }
+        if (status) {
+            return <h1>Open</h1>
+        }
+        if (!status) {
+            return <h1>Closed</h1>
+        }
+    }
+    
 
     return (
         <>
@@ -21,7 +58,7 @@ export default function Splash() {
                     <span className={style.headerInfo}>
                         <a href='#offers'>
                             <h1>Commissions are</h1>
-                            <h1>{status}</h1>
+                            {renderStatus()} 
                             <Jump />
                         </a>
                     </span>

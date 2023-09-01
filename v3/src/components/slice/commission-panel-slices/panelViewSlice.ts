@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { DataCache } from '../../../utils/firebase/datacache'
 
 
 export const panelViewSlice = createSlice({
@@ -9,6 +10,7 @@ export const panelViewSlice = createSlice({
     reducers: {
         setPanelTarget: (state, action: PayloadAction<number>) => {
             state.value = action.payload
+            // DataCache.fetch()
         }
     },
 })

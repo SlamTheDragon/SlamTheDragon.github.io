@@ -1,27 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './others.module.scss'
+import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot'
 
 export default function Others() {
-    const [getRefSheetState, setRefSheetState] = useState(0)
-    const [getCustomState, setCustomState] = useState(0)
-    const [getBundleState, setBundleState] = useState(0)
+    const [getBundleState, setBundleState] = useState<boolean | undefined>(Object.values(GetSnapshot.customStatus)[0])
+    const [getCustomState, setCustomState] = useState<boolean | undefined>(Object.values(GetSnapshot.customStatus)[1])
+    const [getRefSheetState, setRefSheetState] = useState<boolean | undefined>(Object.values(GetSnapshot.customStatus)[2])
 
-    const refSheet = false
-    const custom = false
-    const bundles = false
+    useEffect(() => {
+        const change = () => {
+            setBundleState(Object.values(GetSnapshot.customStatus)[0])
+            setCustomState(Object.values(GetSnapshot.customStatus)[1])
+            setRefSheetState(Object.values(GetSnapshot.customStatus)[2])
+        }
 
-    if (refSheet) {
-        setRefSheetState(1)
-    }
-    if (custom) {
-        setCustomState(1)
-    }
-    if (bundles) {
-        setBundleState(1)
-    }
+        GetSnapshot.addSnapshotListener(change)
 
-    const description = ['not accepting', 'accepting']
-
+        return () => {
+            GetSnapshot.removeSnapshotListener(change)
+        }
+    }, [])
 
 
     return (
@@ -33,7 +31,7 @@ export default function Others() {
                         Reference Sheet
                     </h2>
                     <span>
-                        Currently {description[getRefSheetState]}
+                        Currently {(getRefSheetState) ? 'accepting' : 'not accepting'}
                     </span>
                 </div>
             </div>
@@ -43,7 +41,7 @@ export default function Others() {
                         Custom Commissions
                     </h2>
                     <span>
-                        Currently {description[getCustomState]}
+                        Currently {(getCustomState) ? 'accepting' : 'not accepting'}
                     </span>
                 </div>
             </div>
@@ -53,7 +51,7 @@ export default function Others() {
                         Bundles
                     </h2>
                     <span>
-                        Currently {description[getBundleState]}
+                        Currently {(getBundleState) ? 'accepting' : 'not accepting'}
                     </span>
                 </div>
             </div>
