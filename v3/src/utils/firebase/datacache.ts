@@ -14,14 +14,14 @@ export class DataCache {
 
     public static async fetch() {        
         if (this.retry === 4) {
-            Logging.ERROR(`Failed to verify snapshot registration, please refresh your browser`)
+            Logging.ERROR(`Failed to verify data snapshot registration, please refresh your browser`)
             this.notifyChange()
             return
         }
         
         if (!this.hasInitiatedLiveUpdate) {
-            Logging.INFO('Initial Fetch Start')
-            Logging.VERBOSE('Initializing Refresh Timer')
+            Logging.INFO('Initial Fetch Start from Database')
+            Logging.INFO('Initializing Refresh Timer')
             await Promise.all([this.getCommData(), this.getProfileData()])
             this.hasInitiatedLiveUpdate = true
         } else {
@@ -31,9 +31,9 @@ export class DataCache {
         if (await GetSnapshot.fetchProfile() && await GetSnapshot.fetchComms()) {
             await GetSnapshot.registerSnapshot()
             this.refreshSnapshot()
-            Logging.INFO(`Refreshed: Data has been verified and registered`)
+            Logging.VERBOSE(`Refreshed: Fetched data has been verified and registered`)
         } else {
-            Logging.WARN(`Failed to verify snapshot registration, retrying operation...`)
+            Logging.WARN(`Failed to verify data snapshot registration, retrying operation...`)
             this.verifyFetchStatus()
         }
     }

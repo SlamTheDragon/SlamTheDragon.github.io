@@ -10,6 +10,7 @@ export const panelViewSlice = createSlice({
     reducers: {
         setPanelTarget: (state, action: PayloadAction<number>) => {
             state.value = action.payload
+            window.location.href = "#offers"
             // DataCache.fetch()
         }
     },

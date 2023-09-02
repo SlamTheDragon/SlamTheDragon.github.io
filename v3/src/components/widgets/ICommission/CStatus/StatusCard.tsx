@@ -10,9 +10,9 @@ import style from './statusCard.module.scss';
  * @property {string} DONE - Represents the 'DONE' column status.
  */
 export enum ColumnID {
-    TODO = 'cardColC',
-    INPROG = 'cardColB',
-    DONE = 'cardColA'
+    TODO,
+    INPROG,
+    DONE
 }
 
 export interface StatusCardInterface {

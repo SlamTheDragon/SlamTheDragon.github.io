@@ -10,7 +10,7 @@ export class GetSnapshot {
     public static startingPrices: object = []
     public static status: boolean | undefined = undefined
 
-    public static commissionList: object = []
+    public static commissionList: object[] = []
 
     public static async fetchProfile() {
         try {
@@ -33,8 +33,16 @@ export class GetSnapshot {
     public static async fetchComms() {
         try {
             const snapshotComms = DataCache.commissionData
-            this.commissionList = snapshotComms?.val()
-            console.log(Object.values(this.commissionList))
+            let result = []
+            for (let x of snapshotComms?.val()) {
+                result.push(x)
+            }
+            // this.commissionList = snapshotComms?.val()
+            // this.commissionList.push(result)
+            this.commissionList = result
+
+            // console.log(this.commissionList);
+            
 
             return true
         } catch (error) {

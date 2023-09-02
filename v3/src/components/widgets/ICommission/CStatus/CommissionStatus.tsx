@@ -37,16 +37,36 @@ export default function CommissionStatus() {
 		}
 	}, [])
 
-	// List all artworks in TODO, IN-PROGRESS, and DONE columns
-	// FIXME: use firebase lol
+	// List all artworks in TODO, IN-PROGRESS, and DONE column
 	const statusData: StatusCardInterface[] = [
-		// {
-		// 	column: ColumnID.TODO,
-		// 	previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
-		// 	commID: 1,
-		// 	commName: 'Name',
-		// 	isOnHold: false,
-		// },
+		{
+			column: ColumnID.INPROG,
+			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
+			commID: 1,
+			commName: 'Name',
+			isOnHold: false,
+		},
+		{
+			column: ColumnID.TODO,
+			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
+			commID: 2,
+			commName: 'Name',
+			isOnHold: false,
+		},
+		{
+			column: ColumnID.DONE,
+			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
+			commID: 3,
+			commName: 'Name',
+			isOnHold: false,
+		},
+		{
+			column: ColumnID.INPROG,
+			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
+			commID: 4,
+			commName: 'Name',
+			isOnHold: true,
+		},
 	]
 
 	// Group the status data by their respective columns

@@ -14,6 +14,7 @@ import React from 'react';
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg';
 import Button from '../Button/Button';
 import style from './modal.module.scss'
+import { Logging } from '../../../utils/logger';
 
 interface ModalProps {
     modalTitle: string
@@ -38,7 +39,8 @@ export default function Modal(props: ModalProps) {
     if (!props.isOpen) return null;
 
     const childArray = React.Children.toArray(props.children);
-    const selectedChild = childArray[props.selectInterface];
+    const selectedChild = childArray[props.selectInterface];   
+    // console.log(Object.values(selectedChild)[2]);
 
     function onInteract() {
         document.body.classList.remove('disable-events');
@@ -56,8 +58,8 @@ export default function Modal(props: ModalProps) {
                     {selectedChild}
                 </div>
                 <div className={style.modalAction}>
-                    {/* FIXME: make this customizable */}
-                    <Button classItem='primary' onClick={() => (window.location.href = "https://slamthedragon.me/commissions-old")}>Old Site &nbsp; <Open/></Button>
+                    {/* TODO: make this globally customizable */}
+                    {(Object.values(selectedChild)[2] !== '.$1') ? <Button classItem='primary' onClick={props.onClose}>Okay</Button> : <Button classItem='primary' onClick={() => (window.location.href = "https://slamthedragon.me/commissions-old")}>Old Site &nbsp; <Open/></Button>}
                 </div>
             </div>
 
