@@ -1,8 +1,10 @@
 import { Logging } from "../logger";
 import { DataCache } from "./datacache";
+import { ContentBuilder } from "./contentbuilders";
 
 
 export class GetSnapshot {
+    // Master Data
     public static availability: number | undefined = undefined
     public static customStatus: object = []
     public static onHold: boolean | undefined = undefined
@@ -10,7 +12,8 @@ export class GetSnapshot {
     public static startingPrices: object = []
     public static status: boolean | undefined = undefined
 
-    public static commissionList: object[] = []
+    // Packaged Content Data
+    public static commissionList: any[] = []
 
     public static async fetchProfile() {
         try {
@@ -22,7 +25,7 @@ export class GetSnapshot {
             this.queueLimit = snapshotProfile?.val().queuelimit
             this.startingPrices = snapshotProfile?.val().startingprices
             this.status = snapshotProfile?.val().status
-                        
+
             return true
         } catch (error) {
             Logging.WARN(`Failed to fetch data from firebase. ${error}`)
@@ -37,13 +40,9 @@ export class GetSnapshot {
             for (let x of snapshotComms?.val()) {
                 result.push(x)
             }
-            // this.commissionList = snapshotComms?.val()
-            // this.commissionList.push(result)
             this.commissionList = result
 
-            // console.log(this.commissionList);
-            
-
+            await ContentBuilder.contentRead()
             return true
         } catch (error) {
             Logging.WARN(`Failed to fetch data from firebase. ${error}`);
@@ -54,12 +53,12 @@ export class GetSnapshot {
     public static async registerSnapshot() {
         this.notifySnapshotEvent()
     }
-    
 
-    private static snapshotListeners: (() => void)[] = [];
+
+    private static snapshotListeners: (() => void)[] = []
 
     public static addSnapshotListener(listener: () => void) {
-        this.snapshotListeners.push(listener);
+        this.snapshotListeners.push(listener)
     }
 
     public static removeSnapshotListener(listener: () => void) {
@@ -70,6 +69,6 @@ export class GetSnapshot {
 
     private static notifySnapshotEvent() {
         Logging.VERBOSE('Notifying UI components to update...')
-        this.snapshotListeners.forEach((listener) => listener());
+        this.snapshotListeners.forEach((listener) => listener())
     }
 }

@@ -4,6 +4,7 @@ import { setPanelTarget } from '../../../../slice/commission-panel-slices/panelV
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg'
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
 import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot';
+import { ContentBuilder, ContentColumnID } from '../../../../../utils/firebase/contentbuilders';
 import placeholder from '../../../../../assets/images/Placeholder.png'
 import Button from '../../../../common/Button'
 import style from './panelAboutMe.module.scss'
@@ -15,6 +16,10 @@ export default function AboutMe() {
 
     const [getMousePos, setMousePos] = useState({ x: 0, y: 0 })
     const [getAlpha, setAlpha] = useState(0.0)
+    // debugger
+    const [latestWip, setLatestWip] = useState<number | undefined>(undefined)
+    const [thumbnail, setThumbnail] = useState<string | undefined>(undefined)
+
 
     function mouseMoveHandler(event: { clientX: any; clientY: any; }) {
         setMousePos({
@@ -35,6 +40,8 @@ export default function AboutMe() {
         const change = () => {
             setStatus(GetSnapshot.status)
             setOnHold(GetSnapshot.onHold)
+            setLatestWip(ContentBuilder.columns[ContentColumnID.INPROG][0].entryKeyID)
+            setThumbnail(ContentBuilder.columns[ContentColumnID.INPROG][0].thumbnail)
         }
 
         GetSnapshot.addSnapshotListener(change);
@@ -49,7 +56,6 @@ export default function AboutMe() {
     const dispatch = useDispatch()
 
     // FIXME: firebase
-    const latestWip = 0
 
     const commStateParse = ["Paused", "Open", "Closed", "Loading"]
     const commDescription = [
@@ -143,12 +149,12 @@ export default function AboutMe() {
                 */}
                 <div className={style.i2 + ' ' + style.cardC}
                     onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${latestWip}`) }
+                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${(latestWip === undefined) ? 'notfound' : latestWip}`) }
                     }}
                     tabIndex={0}
-                    onClick={() => (window.open(`https://slamthedragon.me/latest-wip/?${latestWip}`))}
+                    onClick={() => (window.open(`https://slamthedragon.me/latest-wip/?${(latestWip === undefined) ? 'notfound' : latestWip}`))}
                 >
-                    <div className={style.contentC} style={{ backgroundImage: `url(${placeholder})` }}>
+                    <div className={style.contentC} style={{ backgroundImage: `url(${(thumbnail === undefined) ? placeholder : thumbnail})` }}>
                         <div className={style.innerContentC}>
                             <span>
                                 {(GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) ? `Loading` : 'Latest'}

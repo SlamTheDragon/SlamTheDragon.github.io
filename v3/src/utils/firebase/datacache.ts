@@ -12,13 +12,13 @@ export class DataCache {
     private static retry: number = 0
     private static timeout: number = 200
 
-    public static async fetch() {        
+    public static async fetch() {
         if (this.retry === 4) {
             Logging.ERROR(`Failed to verify data snapshot registration, please refresh your browser`)
             this.notifyChange()
             return
         }
-        
+
         if (!this.hasInitiatedLiveUpdate) {
             Logging.INFO('Initial Fetch Start from Database')
             Logging.INFO('Initializing Refresh Timer')
@@ -50,7 +50,7 @@ export class DataCache {
         setTimeout(() => {
             Logging.VERBOSE('Refreshing Data...')
             this.fetch()
-        }, 15000)
+        }, 30000)
     }
 
     // Code by @thatnerd527 directly taken from the bot lol

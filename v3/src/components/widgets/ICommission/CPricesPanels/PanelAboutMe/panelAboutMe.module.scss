@@ -62,8 +62,8 @@ $_gap: 15px;
         .cardD {
             @include flex-center;
             @include focus-style;
-                    outline: 1px solid $tone3;
-        outline-offset: -1px;
+            outline: 1px solid $tone3;
+            outline-offset: -1px;
 
             &:hover {
                 transform: translateY(-4px);
@@ -102,7 +102,7 @@ $_gap: 15px;
 
                 img {
                     @include transition-anim;
-                    
+
                     $_setshadowcolor: #ff6ac872;
 
                     box-shadow: 0px 0px 0px 110px $_setshadowcolor;
@@ -212,17 +212,28 @@ $_gap: 15px;
 
             .contentC {
                 @include flex-center;
-
+                padding: 0;
                 flex-direction: column;
                 background-image: url("../../../../../assets/images/Placeholder.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 gap: 0;
 
                 .innerContentC {
+                    box-shadow: unset;
+                    -webkit-box-shadow: unset;
+                    -moz-box-shadow: unset;
+                    border-radius: 0;
                     gap: 0;
-                    background-color: unset;
+                    background-color: #00000043;
 
                     span {
+                        padding: 0 56px;
                         @include font-desc();
+                    }
+                    h1 {
+                        padding: 0 56px;
                     }
                 }
 
@@ -298,19 +309,13 @@ $_gap: 15px;
                             img {
                                 $_setshadowcolor: #00ffbb73;
 
-
-                                outline-offset: 339px;
-
-                                
                                 outline-offset: 339px;
 
                                 box-shadow: 0px 0px 0px 150px $_setshadowcolor;
                                 -webkit-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
                                 -moz-box-shadow: 0px 0px 0px 150px $_setshadowcolor;
-
-                                outline-offset: 339px;
                             }
-                            
+
                             .innerContentD {
                                 h1 {
                                     svg {

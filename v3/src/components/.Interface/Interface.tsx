@@ -8,7 +8,6 @@ import CommissionPrices from '../widgets/ICommission/CPricesSection/CommissionPr
 import CommissionStatus from '../widgets/ICommission/CStatus/CommissionStatus'
 import Gallery from '../widgets/ICommission/Gallery/Gallery'
 import style from './interface.module.scss'
-import { StatusCardBuilder } from '../../utils/firebase/statuscardbuilders'
 
 /**
  * This is your main interface, all components shall pass through here
@@ -35,7 +34,6 @@ export default function Interface() {
             <div className={style.interface} onScroll={transferScrollData} id='view'>
                 <WelcomeHeader />
                 <CommissionPrices />
-            <button onClick={() => { StatusCardBuilder.statusRead() }}>AAAAAAAAAAAA</button>
                 <CommissionStatus />
                 <Gallery />
                 <Footer />

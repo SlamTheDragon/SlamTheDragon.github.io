@@ -1,28 +1,7 @@
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg';
 import style from './statusCard.module.scss';
+import { ContentColumnID, ContentInterface } from '../../../../utils/firebase/contentbuilders';
 
-/**
- * Enum representing possible column IDs for commission status.
- *
- * @enum {string}
- * @property {string} TODO - Represents the 'TODO' column status.
- * @property {string} INPROG - Represents the 'IN-PROGRESS' column status.
- * @property {string} DONE - Represents the 'DONE' column status.
- */
-export enum ColumnID {
-    TODO,
-    INPROG,
-    DONE
-}
-
-export interface StatusCardInterface {
-    column: ColumnID
-    previewUrl?: string;
-    commID?: number
-    commName?: string
-    isOnHold?: boolean
-    isTargetedOnHold?: boolean
-}
 
 /**
  * Commission Status Card Component.
@@ -32,7 +11,7 @@ export interface StatusCardInterface {
  * commission ID, commissioner's name, and whether the commission is on hold.
  *
  * @component
- * @param {StatusCardInterface} props - The props containing commission details.
+ * @param {ContentInterface} props - The props containing commission details.
  * @returns {JSX.Element} Rendered commission status card.
  * 
  * Interface for the designated column status.
@@ -44,31 +23,31 @@ export interface StatusCardInterface {
  * @property {string | undefined} commName - The name of the person who commissioned.
  * @property {boolean | undefined} isOnHold - Indicates if the order/commission is on hold.
  */
-export default function StatusCard(props: StatusCardInterface) {
+export default function StatusCard(props: ContentInterface) {
 
     function designateColumn() {
-        if (props.column === ColumnID.TODO) {
+        if (props.progressStatus === ContentColumnID.TODO) {
             return style.statusCardA
         }
-        if (props.column === ColumnID.INPROG) {
+        if (props.progressStatus === ContentColumnID.INPROG) {
             return style.statusCardB
         }
-        if (props.column === ColumnID.DONE) {
+        if (props.progressStatus === ContentColumnID.DONE) {
             return style.statusCardC
         }
     }
 
     return (
-        <div tabIndex={0} className={`${style.statusCard} ${designateColumn()} ${props.isOnHold ? style.onHold : ''} ${props.isTargetedOnHold ? style.onHold : ''}`} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${props.commID}`) }
+        <div tabIndex={0} className={`${style.statusCard} ${designateColumn()} ${props.isOnHold ? style.onHold : ''} ${props.isGlobalOnHold ? style.onHold : ''}`} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${props.entryKeyID}`) }
         }}>
             <div className={style.statusCardHeader}>
-                <strong>#{props.commID} &nbsp; {props.commName}</strong> <span>{props.isOnHold || props.isTargetedOnHold ? 'On Hold' : ''}</span>
+                <strong>#{props.entryKeyID} &nbsp; {props.commissioner}</strong> <span>{props.isOnHold || props.isGlobalOnHold ? 'On Hold' : ''}</span>
             </div>
 
             <div className={style.statusCardBody}>
-                <div className={style.statusCardPreview} style={{ backgroundImage: `url(${props.previewUrl})` }}>
-                    <div onClick={() => window.open(`https://slamthedragon.me/latest-wip/?${props.commID}`)}>
+                <div className={style.statusCardPreview} style={{ backgroundImage: `url(${props.thumbnail})` }}>
+                    <div onClick={() => window.open(`https://slamthedragon.me/latest-wip/?${props.entryKeyID}`)}>
                         Open <Open />
                     </div>
                 </div>

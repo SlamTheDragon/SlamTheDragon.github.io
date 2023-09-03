@@ -11,7 +11,9 @@ export const panelViewSlice = createSlice({
         setPanelTarget: (state, action: PayloadAction<number>) => {
             state.value = action.payload
             window.location.href = "#offers"
-            // DataCache.fetch()
+            if (action.payload === 0) {
+                DataCache.fetch()
+            }
         }
     },
 })

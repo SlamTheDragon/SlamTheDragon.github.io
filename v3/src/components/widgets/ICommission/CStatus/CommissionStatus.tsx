@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { ReactComponent as Logo } from '../../../../assets/svg/SlamTheDragon Logo.svg'
-import StatusCard, { ColumnID, StatusCardInterface } from './StatusCard'
 import { GetSnapshot } from '../../../../utils/firebase/getsnapshot'
+import { ContentBuilder, ContentColumnID } from '../../../../utils/firebase/contentbuilders'
+import StatusCard from './StatusCard'
 import ChipTextLoader from '../../../common/ChipTextLoader/ChipTextLoader'
 import style from './commissionStatus.module.scss'
 
@@ -10,15 +11,10 @@ export default function CommissionStatus() {
 	const [availability, setAvailability] = useState<number | undefined>(GetSnapshot.availability)
 	const [availabilityBar, setAvailabilityBar] = useState<number>(0)
 	const [queueLimit, setQueueLimit] = useState<number | undefined>(GetSnapshot.queueLimit)
-	const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status);
-	const [onHold, setOnHold] = useState<boolean | undefined>(GetSnapshot.onHold);
-	const columns: Record<ColumnID, StatusCardInterface[]> = {
-		[ColumnID.TODO]: [],
-		[ColumnID.INPROG]: [],
-		[ColumnID.DONE]: [],
-	}
-	const queueTotal = columns[ColumnID.TODO].length + columns[ColumnID.INPROG].length
-
+	const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status)
+	const [onHold, setOnHold] = useState<boolean | undefined>(GetSnapshot.onHold)
+	const [statusDataPresent, setStatusDataPresent] = useState(false)
+	const queueTotal = ContentBuilder.columns[ContentColumnID.TODO].length
 
 	useEffect(() => {
 		const change = () => {
@@ -29,6 +25,9 @@ export default function CommissionStatus() {
 			setQueueLimit(GetSnapshot.queueLimit)
 			setStatus(GetSnapshot.status)
 			setOnHold(GetSnapshot.onHold)
+			
+			// setStatusDataPresent((statusDataPresent !== statusDataPresent)) ///\FIXME: AAA must hide and unhide component
+			setStatusDataPresent(true)
 		}
 		
 		GetSnapshot.addSnapshotListener(change)
@@ -36,51 +35,16 @@ export default function CommissionStatus() {
 			GetSnapshot.removeSnapshotListener(change)
 		}
 	}, [])
-
-	// List all artworks in TODO, IN-PROGRESS, and DONE column
-	const statusData: StatusCardInterface[] = [
-		{
-			column: ColumnID.INPROG,
-			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
-			commID: 1,
-			commName: 'Name',
-			isOnHold: false,
-		},
-		{
-			column: ColumnID.TODO,
-			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
-			commID: 2,
-			commName: 'Name',
-			isOnHold: false,
-		},
-		{
-			column: ColumnID.DONE,
-			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
-			commID: 3,
-			commName: 'Name',
-			isOnHold: false,
-		},
-		{
-			column: ColumnID.INPROG,
-			previewUrl: 'https://media.discordapp.net/attachments/1088311530606563338/1146406555542114371/image.png?width=336&height=125',
-			commID: 4,
-			commName: 'Name',
-			isOnHold: true,
-		},
-	]
-
-	// Group the status data by their respective columns
-	if (statusData) {
-		statusData.forEach((data) => {
-			columns[data.column].push(data)
-		})
+	
+	function renderMappedCards(column: ContentColumnID) {
+		if (column === ContentColumnID.INPROG) {
+			return ContentBuilder.columns[column].map((data, index) => (<StatusCard key={index} {...data} isGlobalOnHold={onHold} />))
+		}
+		return ContentBuilder.columns[column].map((data, index) => (<StatusCard key={index} {...data} />))
 	}
 
 	function renderStatus() {
-		if (GetSnapshot.status === undefined) {
-			return <ChipTextLoader />
-		}
-		if (GetSnapshot.onHold === undefined) {
+		if ((GetSnapshot.status || GetSnapshot.onHold) === undefined) {
 			return <ChipTextLoader />
 		}
 
@@ -135,9 +99,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyA}`}>
-						{columns[ColumnID.DONE].map((data, index) => (
-							<StatusCard key={index} {...data} />
-						))}
+						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.DONE) : 'loading'}
 						<div className={style.theBottom}>
 							&bull;
 						</div>
@@ -150,9 +112,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyB}`}>
-						{columns[ColumnID.INPROG].map((data, index) => (
-							<StatusCard key={index} {...data} isTargetedOnHold={onHold} />
-						))}
+						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.INPROG) : 'loading'}
 						<div className={style.theBottom}>
 							&bull;
 						</div>
@@ -165,9 +125,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyC}`}>
-						{columns[ColumnID.TODO].map((data, index) => (
-							<StatusCard key={index} {...data} />
-						))}
+						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.TODO) : 'loading'}
 						<div className={style.theBottom}>
 							&bull;
 						</div>
