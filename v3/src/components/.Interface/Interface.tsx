@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux'
 import { setScrollLayer } from '../slice/parallax-slices/parallaxScrollerSlice'
 import { ModalOperation } from '../../utils/component-utils/modalOperation'
 import { checkDevice } from '../../utils/device-checker/checkDevice'
+import { setPanelFold } from '../slice/commission-panel-slices/collapseNavSlice'
 import Footer from '../common/Footer'
 import WelcomeHeader from '../widgets/ICommission/WelcomeHeader'
 import CommissionPrices from '../widgets/ICommission/CPricesSection/CommissionPrices'
 import CommissionStatus from '../widgets/ICommission/CStatus/CommissionStatus'
 import Gallery from '../widgets/ICommission/Gallery/Gallery'
 import style from './interface.module.scss'
-import { setPanelFold } from '../slice/commission-panel-slices/collapseNavSlice'
 
 /**
  * This is your main interface, all components shall pass through here
