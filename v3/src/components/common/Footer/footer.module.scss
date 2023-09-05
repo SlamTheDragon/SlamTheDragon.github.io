@@ -1,0 +1,105 @@
+@import "../../../index.scss";
+
+footer {
+    @include flex-center;
+    @include wight(100vw, 100%);
+
+    z-index: 9000;
+    position: relative;
+
+    text-align: center;
+
+    flex-direction: column;
+    background-color: $background-color;
+    gap: 30px;
+
+    .footerHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        svg {
+            width: 170px;
+        }
+
+        .footerText {
+            color: $tone3;
+
+            // padding: 20px;
+            font-size: small;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 5px;
+
+            a {
+                color: $tone3;
+
+                &:hover {
+                    color: $primary;
+                    fill: $primary;
+                }
+            }
+        }
+    }
+
+    .footerHeaderLinks {
+        @include flex-center;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        a {
+            @include flex-center;
+
+            // TODO: make colored
+            svg {
+                @include wight(24px, 24px);
+                @include transition-anim;
+
+                fill: $tone3;
+
+                &:hover {
+                    fill: $color;
+                }
+            }
+        }
+
+        .twitter {
+            svg {
+                &:active {
+                    fill: $twitter;
+                }
+            }
+        }
+        .kofi {
+            svg {
+                &:active {
+                    fill: $kofi;
+                }
+            }
+        }
+        .discord {
+            svg {
+                &:active {
+                    fill: $discord;
+                }
+            }
+        }
+        .instagram {
+            svg {
+                &:active {
+                    fill: $instagram;
+                }
+            }
+        }
+        .deviant {
+            svg {
+                &:active {
+                    fill: $deviant;
+                }
+            }
+        }
+    }
+}

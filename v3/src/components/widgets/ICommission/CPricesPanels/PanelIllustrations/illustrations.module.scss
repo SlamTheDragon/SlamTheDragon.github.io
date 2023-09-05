@@ -1,0 +1,131 @@
+@import "../../../../../index.scss";
+
+$_gap: 20px;
+
+@mixin font-desc {
+    font-family: "Poppins";
+    font-weight: 400;
+    line-height: 13.5pt;
+    word-spacing: 0.1pt;
+    letter-spacing: -0.1pt;
+}
+
+@mixin local-shadow($setshadowcolor) {
+    @if ($setshadowcolor == none) {
+        box-shadow: $setshadowcolor;
+        -webkit-box-shadow: $setshadowcolor;
+        -moz-box-shadow: $setshadowcolor;
+    }
+    @if ($setshadowcolor == unset) {
+        box-shadow: $setshadowcolor;
+        -webkit-box-shadow: $setshadowcolor;
+        -moz-box-shadow: $setshadowcolor;
+    }
+    box-shadow: 0px 6px 30px -15px $setshadowcolor;
+    -webkit-box-shadow: 0px 6px 30px -15px $setshadowcolor;
+    -moz-box-shadow: 0px 6px 30px -15px $setshadowcolor;
+}
+
+.PortraitsContainer {
+    @include wight(100%, 100%);
+
+    display: flex;
+    flex-direction: column;
+    gap: $_gap;
+
+    // outline: 1px solid white;
+
+    .content {
+        @include transition-anim;
+        @include wight(100%, 100%);
+        margin-top: $_gap;
+        border-radius: $global-border-radius + 10;
+        outline: 1px solid $tone2;
+        outline-offset: -1px;
+        
+        &:hover {
+            @include local-shadow(#ff8c009f);
+            transform: translateY(-3px);
+        }
+
+        .view {
+            @include wight(100%, 100%);
+            border-radius: $global-border-radius + 10;
+
+            h1 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                span {
+                    font-size: medium;
+                }
+            }
+
+            .description {
+                @include font-desc;
+            }
+        }
+
+        .bgIlluV1,
+        .bgIlluV2 {
+            @include flex-center;
+
+            flex-direction: column;
+            align-items: flex-end;
+
+            background-position: -50px;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            div,
+            h1 {
+                gap: $_gap - 13;
+                margin-right: 50px;
+            }
+
+            h1 {
+                margin-bottom: 4px;
+            }
+        }
+
+        .bgIlluV1 {
+            background-image: url("../../../../../assets/images/character-illustration-a.jpg");
+            // background-position: -50px 0.68px;
+        }
+        .bgIlluV2 {
+            background-image: url("../../../../../assets/images/character-illustration-b.jpg");
+        }
+    }
+
+    .navigator {
+        @include flex-center;
+
+        gap: $_gap;
+
+        margin-bottom: $_gap;
+
+        .subNavigator {
+            @include flex-center;
+
+            gap: $_gap - 5;
+            flex-direction: row;
+            width: 100%;
+
+            // button {
+            //    width: 100%;
+            // }
+        }
+
+        button {
+            width: 100%;
+            border-radius: 20px;
+
+            background-color: $tone0;
+        }
+
+        .btnSelected {
+            background-color: $secondary;
+        }
+    }
+}

@@ -3,7 +3,7 @@
 export default function Sample2() {
     return(
         <>
-            Hello World 2
+            Please refresh your browser.
         </>
     );
 }

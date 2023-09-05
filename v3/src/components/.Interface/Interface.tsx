@@ -1,8 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement, selectCount } from '../slice/counterSlice'
-import { useModalOperation } from '../../utils/component-utils/modalOperation';
-import logo from "../../assets/images/logo192.png"
-import Button from "../common/Button";
+import { useDispatch } from 'react-redux'
+import { setScrollLayer } from '../slice/parallax-slices/parallaxScrollerSlice'
+import { ModalOperation } from '../../utils/component-utils/modalOperation'
+import { checkDevice } from '../../utils/device-checker/checkDevice'
+import { setPanelFold } from '../slice/commission-panel-slices/collapseNavSlice'
+import Footer from '../common/Footer'
+import WelcomeHeader from '../widgets/ICommission/WelcomeHeader'
+import CommissionPrices from '../widgets/ICommission/CPricesSection/CommissionPrices'
+import CommissionStatus from '../widgets/ICommission/CStatus/CommissionStatus'
+import Gallery from '../widgets/ICommission/Gallery/Gallery'
+import style from './interface.module.scss'
 
 /**
  * This is your main interface, all components shall pass through here
@@ -10,36 +16,32 @@ import Button from "../common/Button";
  */
 export default function Interface() {
     // get
-    const count = useSelector(selectCount)
+
     // set
     const dispatch = useDispatch()
-    const openModal = useModalOperation()
+    const openModal = ModalOperation()
+    
+    if (checkDevice()) {
+        dispatch(setPanelFold(true))
+    }
 
+    function transferScrollData(event: { currentTarget: { scrollTop: number; }; }) {
+        dispatch(setScrollLayer(event.currentTarget.scrollTop))
+
+        // becometh notorious >:3
+        if (checkDevice()) {
+            openModal("Warning", 1)
+        }
+    };
 
     return (
         <>
-            <div className="interface">
-                <img src={logo} alt="logo" draggable="false" />
-
-                <h1 id="output">
-                    A new front is on the works!
-                </h1>
-
-                    <h3>Please click this <u><a href='https://slamthedragon.me/commissions-old'>link</a></u> to visit the old site, thank you!</h3> <br />
-                <div style={{ display: "flex", flexDirection: "row", gap: 20, alignItems: "center" }}>
-                    <Button onClick={() => dispatch(decrement())}>-</Button>
-                    <h1 style={{ marginTop: 0, marginBottom: 0 }}>
-                        {count}
-                    </h1>
-                    <Button onClick={() => dispatch(increment())}>+</Button>
-
-                    <Button onClick={() => openModal("Sample Title", count)}>Feature Toggle</Button>
-                </div>
-
-                <div style={{ opacity: 0.7, padding: 30, display: "flex", flexDirection: "column", alignItems: "center", gap: 5 }}>
-                    <span>template used by <a href="https://github.com/SlamTheDragon" target="blank">SlamTheDragon</a></span>
-                    <span>Check out this template I made <a href="https://github.com/SlamTheDragon/slam-react-basic/blob/main/README.md" target="blank">README.md</a></span>
-                </div>
+            <div className={style.interface} onScroll={transferScrollData} id='view'>
+                <WelcomeHeader />
+                <CommissionPrices />
+                <CommissionStatus />
+                <Gallery />
+                <Footer />
             </div>
         </>
     );

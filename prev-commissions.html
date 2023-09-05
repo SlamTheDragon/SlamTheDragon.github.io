@@ -1,0 +1,500 @@
+<!--
+===========================
+© 2022 Website Made By
+SlamTheDragon
+All Rights Reserved
+
+Coded with love <3
+===========================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/jpg" href="assets/images/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/jpg" href="assets/images/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/theme.css">
+    <link rel="stylesheet" href="assets/styles/page-components/commissions.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
+    <script src="assets/scripts/main.js" defer></script>
+    <script src="assets/scripts/page-components/commissions/commissions.js" defer></script>
+    <script src="assets/scripts/page-components/commissions/commissionsClock.js" defer></script>
+
+    <title>SlamTheDragon - Commissions</title>
+</head>
+
+<body>
+
+    <div class="Main">
+
+
+
+        <section class="headerContainer">
+            
+            <div><!-- empty --></div>    
+            <div id="headerTexts">
+
+                <h1 id="mainTitle">Welcome!</h1>
+                <div id="commissionStatus">
+                    <a href="#commissionSheet">
+                        <h1>Commissions are&#8196</h1>
+                        <h1 id="commissionStatusContainer"><span style="font-family: 'Segoe UI'; font-weight:normal; font-style:italic;">loading</span></h1>
+                        <span class="material-symbols-rounded" id="headerArrow">arrow_forward_ios</span>
+                    </a>
+                </div>
+                <p>(portfolio is still being made | this is not a portfolio*)</p>
+
+            </div>
+            <div id="headerScroller"><button onclick="focusScroll('#commissionSheet');"><strong><span class="material-symbols-rounded">expand_more</span></strong></button></div>
+
+        </section>
+
+
+        <section class="commissionSheetContainer" id="commissionSheet">
+            
+            <!-- ### PANEL 1 ### -->
+            <div id="commSelectionPanel" class="card">
+
+                <div id="hamburgerBtnContainer">
+                    <span id="hamburgerInnerBtnContainer">
+                        <button id="hamburgerButton" onclick="panelToggle();">
+                            <span class="material-symbols-rounded">menu</span>
+                        </button>
+                        <span></span>
+                    </span>
+                    <button id="scrollOpen" class="tabButtons" onclick="mainTabClicker(event, 'profileCard'); contentSelectionTab();">
+                        <img src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240">
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">SlamTheDragon</span>
+                        </span>
+                    </button>
+                </div>
+
+                <div id="commBtnsContainer">
+                    <button id="defaultOpen" class="tabButtons" onclick="mainTabClicker(event, 'characterPortraits'); contentSelectionTab('buttonSetPortrait'); document.getElementById('ribbonDefaultOpen').click();">
+                        <span class="material-symbols-rounded" id="panelIcons">person</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Portraits</span>
+                        </span>
+                    </button>
+
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'illustrations'); contentSelectionTab('buttonSetIllustration'); document.getElementById('ribbonDefaultOpen2').click();">
+                        <span class="material-symbols-rounded" id="panelIcons">panorama</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">illustrations</span>
+                        </span>
+                    </button>
+
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'others'); contentSelectionTab();">
+                        <span class="material-symbols-rounded" id="panelIcons">apps</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Others</span>
+                        </span>
+                    </button>
+
+                </div>
+                
+                <div id="extraBtnsContainer">                    
+
+                    <button class="tabButtons" onclick="mainTabClicker(event, 'specialComm'); contentSelectionTab();">
+                        <span class="material-symbols-rounded" id="panelIcons">temp_preferences_custom</span>
+                        <span id="panelBtnTextContainer">
+                            <span class="panelBtnText">Special</span>
+                        </span>
+                    </button>
+
+                    <div id="settings">
+                        <button id="theme-btn" onclick="themeChanger()">
+                            <span class="material-symbols-rounded">dark_mode</span>
+                            <span id="panelBtnTextContainer">
+                                <span class="panelBtnText">Change Mode</span>
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ### PANEL 2 ### -->
+            <div id="commViewPanel" class="card">
+                
+                <div id="destructableToSReminder" class="cardDestructable">
+                    <div id="toastINFO" class="card">
+                        <div>
+                            <span class="material-symbols-rounded">info</span>
+                            <span>Please read <a href="/service-and-agreement.html">Commissioner's Service and Agreement</a> before
+                                contacting me via <a href="https://discord.com/users/345819451247296516" target="_blank">Discord</a> or
+                                <a href="https://twitter.com/SlamTheDragon" target="_blank">Twitter</a> for any inquiries</span>
+                        </div>
+                        <button id="destructableDebug" class="material-symbols-rounded" onclick="destroyElement('destructableToSReminder');">close</button>
+                    </div>
+                </div>
+
+                <div id="profileCard" class="mainTabContent">
+                    
+                    <!-- row 1 -->
+                    <div id="profileR1">
+
+                        <div id="profileInfo" class="card">
+                            
+                            <div id="profilePhoto">
+                                <div>
+                                    <img src="https://cdn.discordapp.com/avatars/345819451247296516/d7f4d6f255dd5e72b4b386e1175b7c08.webp?size=240">
+                                </div>
+                                <div id="profileAboutMe">
+                                    <h1 id="headerTitle">SlamTheDragon</h1>
+                                    <span>
+                                        Hey! I'm Slam, I'm an artist! I can make beautiful and vibrant art for you from portraits to illustrations!
+                                    </span>
+                                    <span>
+                                        Check other cards I've provided to see what else I have for you.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="profileContactA" class="card" style="display: none;">
+                            <span>
+                                <h1>Ready to Commission Me?</h1>
+                                <p>
+                                    make sure you have read <a href="/service-and-agreement.html">my ToS</a> before contacting me.
+                                </p>
+                            </span>
+                            <button class="alertButton" onclick="focusScroll('#commissionSection1')">click here</button>
+                        </div>
+                        <div id="profileContactB" class="card" style="display: none;">
+                            <span>
+                                <h1>Commissions Are Closed</h1>
+                                <p>
+                                    Unfortunately my commissions are currently closed. Please come back next time!
+                                </p>
+                            </span>
+                            <button class="alertButton">Check Availability</button>
+                        </div>
+                        <div id="profileContact" class="card B">
+                        </div>
+                    </div>
+                     
+
+                    <!-- row 2 -->
+                    <div id="profileR2">
+
+                        <div id="profileCurrentSatus" class="card">
+                            <div>
+                                <h1>Current WIP</h1>
+                            </div>
+
+                            <!-- add paramenter for later in Js -->
+
+                            <div id="imageContainer" class="card">
+                                <div class="openInFullView" >
+                                    <span>
+                                        Open
+                                    </span>
+                                    <span class="material-symbols-outlined">open_in_new</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="profileArtPreview" class="card" onclick="focusScroll('#sectionArtworks');" tabindex="0">
+                            <div id="profileArtPreviewImage">
+                                <div id="profileArtPreviewContents">
+                                    <div>
+                                        <h1>Artworks</h1>
+                                    </div>
+                                    <div>
+                                        <span>Check what else I've done here</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div id="characterPortraits" style="flex-direction: row;" class="mainTabContent">
+                    <h1 id="headerTitle">Portraits</h1>
+
+                    <div id="portraitContainer" class="card B">
+
+                        <div id="profileHead" class="subContent">
+                            <div id="profileA" class="portraitNoBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Headshot | $30
+                                    </h1>
+                                    <span>
+                                        2k+ | Square
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileB" class="portraitBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Headshot | $34+
+                                    </h1>
+                                    <span>
+                                        2k+ | Square
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="profileHalf" class="subContent">
+                            <div id="profileC" class="portraitNoBackground">
+
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Halfshot | $56
+                                    </h1>
+                                    <span>
+                                        4k | Portrait
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileD" class="portraitBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Halfshot | $56+
+                                    </h1>
+                                    <span>
+                                        4k | Portrait
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="profileFull" class="subContent">
+                            <div id="profileE" class="portraitNoBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Fullshot | $79
+                                    </h1>
+                                    <span>
+                                        4k+ | Portrait/Landscape
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div id="profileF" class="portraitBackground">
+                                
+                                <div id="priceTag">
+                                    <h1 id="headerTitle">
+                                        Fullshot | $89+
+                                    </h1>
+                                    <span>
+                                        4k+ | Portrait/Landscape
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card B" id="contentSelectionBar">
+                    
+                        <div id="buttonSetPortrait">
+                            <div id="buttonSetLeft">
+                    
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileHead', 'subContent', 'barButtonsA')" id="ribbonDefaultOpen"><span>Headshot</span></button>
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileHalf', 'subContent', 'barButtonsA')"><span>Halfshot</span></button>
+                                <button class="barButtonsA" onclick="barBtnClicker(event, 'profileFull', 'subContent', 'barButtonsA')"><span>Fullshot</span></button>
+                    
+                            </div>
+                            <div id="buttonSetRight">
+                    
+                                <button id="backgroundBtnA" style="background-color:var(--primaryAccent); filter: brightness(110%);"
+                                    onclick="backgroundSelector('A')"><span>Simple Background</span></button>
+                                <button id="backgroundBtnB" style="background-color:var(--primaryAccent); filter: brightness(120%);"
+                                    onclick="backgroundSelector('B')"><span>With Background</span></button>
+                    
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+
+
+                <div id="illustrations" style="flex-direction: row;" class="mainTabContent">
+                    <h1 id="headerTitle">Illustrations</h1>
+
+                    <div id="illustrationsContainer" class="card B">
+
+                        <div id="illustrationCharacter" class="subContent">
+
+                            <div id="illustrationA">
+                                <div id="priceTag">
+                                    <h1>
+                                        Character Illustration | $136+
+                                    </h1>
+                                    <span>
+                                        4k+
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="illustrationNoCharacter" class="subContent">
+
+                            <div id="illustrationB">
+                                <div id="priceTag">
+                                    <h1>
+                                        Illustration | $106+
+                                    </h1>
+                                    <span>
+                                        4k+
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card B" id="contentSelectionBar">
+                        <div id="buttonSetIllustration">
+                            <div>
+                                <button class="barButtonsB" onclick="barBtnClicker(event, 'illustrationCharacter', 'subContent', 'barButtonsB')" id="ribbonDefaultOpen2"><span>Character Illustration</span></button>
+                                <button class="barButtonsB" onclick="barBtnClicker(event, 'illustrationNoCharacter', 'subContent', 'barButtonsB')"><span>Landscape</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="others" class="mainTabContent">
+                    <h1 id="headerTitle">Other Offers</h1>
+                    
+                    <div id="pageNotAvailable" class="cardDestructable">
+                        <div id="toastALERT" class="card">
+                            <div>
+                                <span class="material-symbols-rounded">info</span>
+                                <span>This page is not available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="specialComm" class="mainTabContent">
+                    <h1 id="headerTitle">Special</h1>
+
+                    <div id="pageNotAvailable" class="cardDestructable">
+                        <div id="toastALERT" class="card">
+                            <div>
+                                <span class="material-symbols-rounded">info</span>
+                                <span>This page is not available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="Gallery" id="sectionArtworks">
+
+            <div id="commissionSection1" class="card">
+                <h1 id="headerTitle">Commission Status</h1>
+                <div id="moreInfoReminder" class="cardDestructable">
+                    <div id="toastINFO" class="card">
+                        <div>
+                            <span class="material-symbols-rounded">info</span>
+                            <span>More info will be added here soon!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gallerySection1" class="card">
+                <h1 id="headerTitle">Featured Gallery</h1>
+            </div>
+            
+            <div id="gallerySection2" class="card">
+                <div id="artA">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </div>
+                <div id="artB">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </div>
+                <div id="artC">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </div>
+                <div id="artD">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </div>
+                <div id="artE">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </div>
+            </div>
+
+            <div id="gallerySection3" class="card">
+
+                <div id="moreInfoReminder" class="cardDestructable">
+                    <div id="toastINFO" class="card">
+                        <div>
+                            <span class="material-symbols-rounded">info</span>
+                            <span>More info will be added here soon!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h1 id="headerTitle">Quick Links</h1>
+                    <ul>
+                        <li><a href="/service-and-agreement.html">Terms of Service and Agreement</a></li>
+                        <li><a href="/home.html">home</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footerDiv">
+
+            <div class="footerHeader">
+
+                <img id="footerLogo" src="/assets/images/favicon_light.png">
+
+                <div class="footerHeaderContent">
+                    <div id="footerLinks">
+                        <a href="https://twitter.com/SlamTheDragon" target="_blank"><img src="/assets/images/icons/twitter-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://bit.ly/SlamTheDragon-I" target="_blank"><img src="/assets/images/icons/instagram-icon.png"></a>
+                    </div>
+                    <div id="footerLinks">
+                        <a href="https://www.deviantart.com/slamdx16" target="_blank"><img src="/assets/images/icons/deviantart-icon.png"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footerText">
+                <p>
+                    <a id="footerGitLink" href="https://github.com/SlamTheDragon/SlamTheDragon.github.io" target="_blank">Coded With Love | Powered By Github Pages</a>
+                </p>
+                <p>
+                    © 2022 Written By SlamTheDragon
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

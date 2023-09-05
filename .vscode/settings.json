@@ -1,3 +1,29 @@
 {
-    "liveServer.settings.port": 5504
+    "liveServer.settings.port": 5500,
+    "cSpell.words": [
+        "CHARILLUSTRATION",
+        "commissiontype",
+        "Comms",
+        "contentbuilders",
+        "customstatus",
+        "customvalue",
+        "datapath",
+        "enddate",
+        "Fullshot",
+        "gallerycard",
+        "galleryloader",
+        "galleryview",
+        "Halfshot",
+        "Headshot",
+        "INPROG",
+        "isonhold",
+        "kofi",
+        "ONHOLD",
+        "PRELOADERS",
+        "progressstatus",
+        "progressstatusreason",
+        "queuelimit",
+        "startingprices",
+        "thatnerd"
+    ]
 }

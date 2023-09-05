@@ -1,0 +1,43 @@
+@import "../../../../index.scss";
+
+$_gap: 15px;
+
+.gallery {
+    z-index: 9000;
+    height: max-content;
+    background-color: $background-color;
+    position: relative;
+
+    .galleryContainer {
+        @include ext-a-container;
+        height: max-content;
+        
+        .galleryHeader {
+            outline: none;
+            padding: 15px 0;
+        }
+
+        .galleryBody {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            .galleryRow {
+                @include wight(100%, 100%);
+                display: flex;
+                flex-wrap: wrap;
+                gap: $_gap - 4;
+
+                justify-content: center;
+                align-items: center;
+            }
+
+            .galleryLoadIndicator {
+                @include flex-center;
+                color: $tone2;
+                height: 100px;
+                margin-top: 15px;
+            }
+        }
+    }
+}

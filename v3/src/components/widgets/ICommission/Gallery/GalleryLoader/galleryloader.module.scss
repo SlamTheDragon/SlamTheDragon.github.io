@@ -1,0 +1,140 @@
+@import "../../../../../index.scss";
+
+$_gap: 15px;
+
+.gallerySpinner {
+    @include flex-center;
+    @include wight(25px, 25px);
+
+    border: 4px solid #00000000;
+    border-top: 4px solid $primary;
+    border-radius: 100%;
+
+    animation: spin 1s linear 0s infinite normal forwards;
+}
+
+.galleryCardLoader {
+        @include card;
+        @include wight(100%, 300px);
+        // margin-top: 15px;
+        // align-items: center;
+
+        animation: loadePulse 5s ease 0s infinite normal forwards;
+
+        // @include wight(100%, 100%);
+        // .galleryOpen {
+        //     gap: $_gap - 10;
+        //     @include flex-center;
+
+        //     svg {
+        //         $_wight: 14px;
+        //         @include wight($_wight, $_wight);
+        //         transform: translateY(1.5px);
+        //     }
+        // }
+    }
+
+    .widthA {
+        @include in-grid-3;
+    }
+    .widthB {
+        @include in-grid-4;
+    }
+    .widthC {
+        @include in-grid-5;
+    }
+
+@keyframes loadePulse {
+    0%,
+    50%,
+    100% {
+        filter: brightness(100%);
+        background-color: $background-accent;
+    }
+
+    25%,
+    75% {
+        filter: brightness(115%);
+        background-color: $background-accent;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 1530px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-4;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-4;
+        }
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-3;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-4;
+        }
+    }
+}
+
+@media only screen and (max-width: 1270px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-2;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-3;
+        }
+    }
+}
+
+@media only screen and (max-width: 1110px) {
+    .galleryRow {
+        .widthA {
+            @include in-grid-3;
+        }
+        .widthB {
+            @include in-grid-3;
+        }
+        .widthC {
+            @include in-grid-3;
+        }
+    }
+}
+
+// @media only screen and (max-width: 880px) {
+//     .galleryRow {
+//         .widthA {
+//             @include in-grid-3;
+//         }
+//         .widthB {
+//             @include in-grid-3;
+//         }
+//         .widthC {
+//             @include in-grid-3;
+//         }
+//     }
+// }
