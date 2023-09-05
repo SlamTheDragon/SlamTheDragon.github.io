@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import style from './others.module.scss'
-import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot'
+import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot'
 
 export default function Others() {
     const [getBundleState, setBundleState] = useState<boolean | undefined>(Object.values(GetSnapshot.customStatus)[0])
@@ -14,10 +14,10 @@ export default function Others() {
             setRefSheetState(Object.values(GetSnapshot.customStatus)[2])
         }
 
-        GetSnapshot.addSnapshotListener(change)
+        SnapshotNotify.addSnapshotListener(change)
 
         return () => {
-            GetSnapshot.removeSnapshotListener(change)
+            SnapshotNotify.removeSnapshotListener(change)
         }
     }, [])
 

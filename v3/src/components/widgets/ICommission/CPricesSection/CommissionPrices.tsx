@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactComponent as Menu } from '@material-design-icons/svg/outlined/menu.svg'
 import { ReactComponent as Person } from '@material-design-icons/svg/outlined/person.svg'
@@ -12,18 +12,20 @@ import Button from '../../../common/Button'
 import Illustrations from '../CPricesPanels/PanelIllustrations/Illustrations'
 import Others from '../CPricesPanels/PanelOthers/Others'
 import style from './commissionPrices.module.scss'
+import { getFoldState, setPanelFold } from '../../../slice/commission-panel-slices/collapseNavSlice'
+import { checkDevice } from '../../../../utils/device-checker/checkDevice'
 
 
 export default function CommissionPrices() {
-	const [getIsFolded, setIsFolded] = useState(false)
-
 	// redux get
 	const target = useSelector(getTarget)
+	const getIsFolded = useSelector(getFoldState)
+
 	// redux set
 	const dispatch = useDispatch()
 
 	function toggleFold() {
-		setIsFolded(current => !current)
+		dispatch(setPanelFold(!getIsFolded))
 	}
 
 	// get firebase data here
@@ -57,7 +59,12 @@ export default function CommissionPrices() {
 							<Menu />
 						</Button>
 
-						<Button onClick={() => { dispatch(setPanelTarget(0)) }}
+						<Button onClick={() => {
+							dispatch(setPanelTarget(0))
+							if (checkDevice()) {
+								dispatch(setPanelFold(true))
+							}
+						}}
 							classItem={target === 0 ? style.btnSelected : ''}
 							titleTooltip='About SlamTheDragon'>
 							<Logo />
@@ -67,7 +74,12 @@ export default function CommissionPrices() {
 
 					<div className={style.s2} style={{ padding: `40px ${getIsFolded ? 6.7 : 30}px` }}>
 						{/* profile */}
-						<Button onClick={() => { dispatch(setPanelTarget(1)) }}
+						<Button onClick={() => {
+							dispatch(setPanelTarget(1))
+							if (checkDevice()) {
+								dispatch(setPanelFold(true))
+							}
+						}}
 							classItem={target === 1 ? style.btnSelected : ''}
 							titleTooltip='Portraits'>
 							<Person />
@@ -75,7 +87,12 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* illustrations */}
-						<Button onClick={() => { dispatch(setPanelTarget(2)) }}
+						<Button onClick={() => {
+							dispatch(setPanelTarget(2))
+							if (checkDevice()) {
+								dispatch(setPanelFold(true))
+							}
+						}}
 							classItem={target === 2 ? style.btnSelected : ''}
 							titleTooltip='Illustrations'>
 							<Panorama />
@@ -83,7 +100,12 @@ export default function CommissionPrices() {
 						</Button>
 
 						{/* others */}
-						<Button onClick={() => { dispatch(setPanelTarget(3)) }}
+						<Button onClick={() => {
+							dispatch(setPanelTarget(3))
+							if (checkDevice()) {
+								dispatch(setPanelFold(true))
+							}
+						}}
 							classItem={target === 3 ? style.btnSelected : ''}
 							titleTooltip='Others/Special Request'
 						>

@@ -1,6 +1,6 @@
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
 import { ReactComponent as ExpandMore } from '@material-design-icons/svg/filled/expand_more.svg';
-import { GetSnapshot } from '../../../../utils/firebase/getsnapshot';
+import { GetSnapshot, SnapshotNotify } from '../../../../utils/firebase/getsnapshot';
 import { useEffect, useState } from 'react';
 import Button from '../../../common/Button'
 import ChipLoader from '../../../common/ChipLoader/ChipLoader';
@@ -17,10 +17,10 @@ export default function Splash() {
             setOnHold(GetSnapshot.onHold)
         }
 
-        GetSnapshot.addSnapshotListener(change)
+        SnapshotNotify.addSnapshotListener(change)
 
         return () => {
-            GetSnapshot.removeSnapshotListener(change)
+            SnapshotNotify.removeSnapshotListener(change)
         }
     }, [])
 

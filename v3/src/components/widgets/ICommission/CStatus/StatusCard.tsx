@@ -39,7 +39,7 @@ export default function StatusCard(props: ContentInterface) {
 
     return (
         <div tabIndex={0} className={`${style.statusCard} ${designateColumn()} ${props.isOnHold ? style.onHold : ''} ${props.isGlobalOnHold ? style.onHold : ''}`} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${props.entryKeyID}`) }
+            if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?id=${props.entryKeyID}`) }
         }}>
             <div className={style.statusCardHeader}>
                 <strong>#{props.entryKeyID} &nbsp; {props.commissioner}</strong> <span>{props.isOnHold || props.isGlobalOnHold ? 'On Hold' : ''}</span>
@@ -47,7 +47,7 @@ export default function StatusCard(props: ContentInterface) {
 
             <div className={style.statusCardBody}>
                 <div className={style.statusCardPreview} style={{ backgroundImage: `url(${props.thumbnail})` }}>
-                    <div onClick={() => window.open(`https://slamthedragon.me/latest-wip/?${props.entryKeyID}`)}>
+                    <div onClick={() => window.open(`https://slamthedragon.me/latest-wip/?id=${props.entryKeyID}`)}>
                         Open <Open />
                     </div>
                 </div>

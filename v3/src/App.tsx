@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import { imageFiles } from "./utils/imagesFiles"
-import { soundEffectFiles } from "./utils/sfxFiles"
-import { videoFiles } from "./utils/videoFiles"
+import { imageFiles } from "./utils/asset-managers/imagesFiles"
+import { soundEffectFiles } from "./utils/asset-managers/sfxFiles"
+import { videoFiles } from "./utils/asset-managers/videoFiles"
 import { useDispatch, useSelector } from "react-redux"
 import { closeModal, modalState } from "./components/slice/modal-slices/modalSlice"
 import { readHeader } from "./components/slice/modal-slices/modalHeaderSlice"
@@ -9,16 +9,14 @@ import { readModalInterface } from "./components/slice/modal-slices/modalInterfa
 import { focusComponent } from "./utils/focus-element/focusElement"
 import { ModalOperation } from "./utils/component-utils/modalOperation"
 import { DataCache } from "./utils/firebase/datacache"
-import { flipCache, getCacheLockState } from "./components/slice/cache-lock-slice/lockCacheSlice"
 import { checkDevice } from "./utils/device-checker/checkDevice"
+import { Logging } from "./utils/logger"
 import Interface from "./components/.Interface"
 import Modal from "./components/common/Modal"
 import DefaultModal from "./components/widgets/modal-contents/DefaulModal"
 import Sample1 from "./components/widgets/modal-contents/SsampleContentA"
 import Sample2 from "./components/widgets/modal-contents/SsampleContentB"
 import Sample3 from "./components/widgets/modal-contents/SsampleContentC"
-import { GetSnapshot } from "./utils/firebase/getsnapshot"
-import { Logging } from "./utils/logger"
 
 
 function App() {
@@ -143,13 +141,11 @@ function App() {
 
 	/***************[ CACHING ]**************/
 	function cleanUp() {
-		const check = checkDevice()
-
-		if (check) {
+		if (checkDevice()) {
 			Logging.DEBUG('Device is mobile')
 			modalDispatch('Warning', 1)
 		}
-		if (!check) {
+		if (!checkDevice()) {
 			Logging.DEBUG('Device is desktop')
 		}
 

@@ -1,0 +1,108 @@
+@import "../../../../../index.scss";
+
+$_gap: 15px;
+
+.galleryCard {
+    @include focus-style;
+    @include card;
+    @include wight(100%, 300px);
+    cursor: pointer;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .galleryOpen {
+        @include card;
+        @include transition-anim;
+        @include wight(100%, 100%);
+        @include flex-center;
+
+        background-color: #0000004a;
+        opacity: 0;
+        gap: $_gap - 10;
+
+        svg {
+            $_wight: 14px;
+
+            @include wight($_wight, $_wight);
+            transform: translateY(1.5px);
+        }
+    }
+
+    &:hover,
+    &:focus-visible {
+        transform: translateY(-4px);
+
+        .galleryOpen {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        filter: brightness(110%);
+        transform: translateY(-2px);
+
+        box-shadow: 0px 6px 20px -15px $primary;
+        -webkit-box-shadow: 0px 6px 20px -15px $primary;
+        -moz-box-shadow: 0px 6px 20px -15px $primary;
+    }
+}
+
+.widthA {
+    @include in-grid-3;
+}
+.widthB {
+    @include in-grid-4;
+}
+.widthC {
+    @include in-grid-5;
+}
+
+@media only screen and (max-width: 1530px) {
+    .widthA {
+        @include in-grid-4;
+    }
+    .widthB {
+        @include in-grid-3;
+    }
+    .widthC {
+        @include in-grid-4;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .widthA {
+        @include in-grid-3;
+    }
+    .widthB {
+        @include in-grid-3;
+    }
+    .widthC {
+        @include in-grid-4;
+    }
+}
+
+@media only screen and (max-width: 1270px) {
+    .widthA {
+        @include in-grid-2;
+    }
+    .widthB {
+        @include in-grid-3;
+    }
+    .widthC {
+        @include in-grid-3;
+    }
+}
+
+@media only screen and (max-width: 1110px) {
+    .widthA {
+        @include in-grid-3;
+    }
+    .widthB {
+        @include in-grid-3;
+    }
+    .widthC {
+        @include in-grid-3;
+    }
+}

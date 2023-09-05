@@ -14,7 +14,7 @@ export class DataCache {
 
     public static async fetch() {
         if (this.retry === 4) {
-            Logging.ERROR(`Failed to verify data snapshot registration, please refresh your browser`)
+            Logging.ERROR(`Failed to verify data snapshot registration, please refresh your browser or report an issue directly to the developer.`)
             this.notifyChange()
             return
         }

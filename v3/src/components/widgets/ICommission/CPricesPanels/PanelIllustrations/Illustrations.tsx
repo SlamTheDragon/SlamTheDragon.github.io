@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot';
+import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot';
 import Button from '../../../../common/Button'
 import IllustrationsHeader from './IllustrationsHeader';
 import style from './illustrations.module.scss'
@@ -18,10 +18,10 @@ export default function Illustrations() {
             setIllusValue(Object.values(GetSnapshot.startingPrices)[4])
         }
 
-        GetSnapshot.addSnapshotListener(change)
+        SnapshotNotify.addSnapshotListener(change)
 
         return (() => {
-            GetSnapshot.removeSnapshotListener(change)
+            SnapshotNotify.removeSnapshotListener(change)
         })
     }, [])
 

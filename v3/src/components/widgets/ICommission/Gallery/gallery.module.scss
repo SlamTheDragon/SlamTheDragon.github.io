@@ -1,30 +1,36 @@
 @import "../../../../index.scss";
 
-.gallery {
-    // FIXME: remove margin
-    // margin-top: 10px;
+$_gap: 15px;
 
+.gallery {
     z-index: 9000;
     height: max-content;
     background-color: $background-color;
     position: relative;
-    
+
     .galleryContainer {
         @include ext-a-container;
         height: max-content;
-        // outline: 1px solid $tone3;
-        // outline-offset: -1px;
         
-        // background-color: #000000;
-        
-        .galleryHeader { 
+        .galleryHeader {
+            outline: none;
             padding: 15px 0;
         }
-        
-        .galleryBody { 
+
+        .galleryBody {
             display: flex;
             flex-direction: column;
             gap: 11px;
+
+            .galleryRow {
+                @include wight(100%, 100%);
+                display: flex;
+                flex-wrap: wrap;
+                gap: $_gap - 4;
+
+                justify-content: center;
+                align-items: center;
+            }
 
             .galleryLoadIndicator {
                 @include flex-center;

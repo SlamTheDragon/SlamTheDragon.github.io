@@ -26,6 +26,7 @@ $_gap: 15px;
     -moz-box-shadow: 0px 6px 30px -15px $setshadowcolor;
 }
 
+
 .AboutMeContainer {
     @include wight(100%, 100%);
     display: flex;
@@ -190,7 +191,7 @@ $_gap: 15px;
                     }
 
                     button {
-                        margin: 60px 0 0 0;
+                        margin: 20px 0 0 0;
                         width: 100%;
                     }
                 }
@@ -268,9 +269,6 @@ $_gap: 15px;
                     .innerContentC:nth-child(2) {
                         height: 100%;
                     }
-
-                    // FIXME: add background
-                    // background-color: #ffffff;
                 }
             }
 

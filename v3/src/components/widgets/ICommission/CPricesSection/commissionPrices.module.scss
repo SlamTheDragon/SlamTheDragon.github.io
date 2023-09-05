@@ -16,8 +16,9 @@
     }
 
     span {
-        @include flex-center;
+        // @include flex-center;
 
+        text-overflow: ellipsis;
         width: 100%;
         margin-left: 20px;
         overflow: hidden;

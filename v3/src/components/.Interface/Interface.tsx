@@ -8,6 +8,7 @@ import CommissionPrices from '../widgets/ICommission/CPricesSection/CommissionPr
 import CommissionStatus from '../widgets/ICommission/CStatus/CommissionStatus'
 import Gallery from '../widgets/ICommission/Gallery/Gallery'
 import style from './interface.module.scss'
+import { setPanelFold } from '../slice/commission-panel-slices/collapseNavSlice'
 
 /**
  * This is your main interface, all components shall pass through here
@@ -19,6 +20,10 @@ export default function Interface() {
     // set
     const dispatch = useDispatch()
     const openModal = ModalOperation()
+    
+    if (checkDevice()) {
+        dispatch(setPanelFold(true))
+    }
 
     function transferScrollData(event: { currentTarget: { scrollTop: number; }; }) {
         dispatch(setScrollLayer(event.currentTarget.scrollTop))

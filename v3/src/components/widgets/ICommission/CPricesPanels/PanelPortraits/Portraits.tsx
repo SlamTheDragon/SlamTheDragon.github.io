@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ModalOperation } from '../../../../../utils/component-utils/modalOperation'
-import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot'
+import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot'
 import Button from '../../../../common/Button'
 import PortraitHeader from './PortraitHeader'
 import style from './portraits.module.scss'
@@ -35,10 +35,10 @@ export default function Portraits() {
             setPortraitValueFull(Object.values(GetSnapshot.startingPrices)[1])
         }
 
-        GetSnapshot.addSnapshotListener(change)
+        SnapshotNotify.addSnapshotListener(change)
 
         return (() => {
-            GetSnapshot.removeSnapshotListener(change)
+            SnapshotNotify.removeSnapshotListener(change)
         })
     }, [])
 

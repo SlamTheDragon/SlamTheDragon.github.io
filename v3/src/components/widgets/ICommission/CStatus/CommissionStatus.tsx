@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ReactComponent as Logo } from '../../../../assets/svg/SlamTheDragon Logo.svg'
-import { GetSnapshot } from '../../../../utils/firebase/getsnapshot'
+import { GetSnapshot, SnapshotNotify } from '../../../../utils/firebase/getsnapshot'
 import { ContentBuilder, ContentColumnID } from '../../../../utils/firebase/contentbuilders'
 import StatusCard from './StatusCard'
 import ChipTextLoader from '../../../common/ChipTextLoader/ChipTextLoader'
@@ -13,8 +13,8 @@ export default function CommissionStatus() {
 	const [queueLimit, setQueueLimit] = useState<number | undefined>(GetSnapshot.queueLimit)
 	const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status)
 	const [onHold, setOnHold] = useState<boolean | undefined>(GetSnapshot.onHold)
-	const [statusDataPresent, setStatusDataPresent] = useState(false)
-	const queueTotal = ContentBuilder.columns[ContentColumnID.TODO].length
+	const [columns, setColumn] = useState(ContentBuilder.columns)
+	const [queueTotal, setQueueTotal] = useState(ContentBuilder.columns[ContentColumnID.TODO].length)
 
 	useEffect(() => {
 		const change = () => {
@@ -25,22 +25,22 @@ export default function CommissionStatus() {
 			setQueueLimit(GetSnapshot.queueLimit)
 			setStatus(GetSnapshot.status)
 			setOnHold(GetSnapshot.onHold)
-			
-			// setStatusDataPresent((statusDataPresent !== statusDataPresent)) ///\FIXME: AAA must hide and unhide component
-			setStatusDataPresent(true)
+			setQueueTotal(ContentBuilder.columns[ContentColumnID.TODO].length)
+			setColumn(ContentBuilder.columns)
 		}
-		
-		GetSnapshot.addSnapshotListener(change)
+
+		SnapshotNotify.addSnapshotListener(change)
 		return () => {
-			GetSnapshot.removeSnapshotListener(change)
+			SnapshotNotify.removeSnapshotListener(change)
 		}
 	}, [])
-	
+
+	// cant rerender lol
 	function renderMappedCards(column: ContentColumnID) {
 		if (column === ContentColumnID.INPROG) {
-			return ContentBuilder.columns[column].map((data, index) => (<StatusCard key={index} {...data} isGlobalOnHold={onHold} />))
+			return columns[column].map((data, index) => (<StatusCard key={index} {...data} isGlobalOnHold={onHold} />))
 		}
-		return ContentBuilder.columns[column].map((data, index) => (<StatusCard key={index} {...data} />))
+		return columns[column].map((data, index) => (<StatusCard key={index} {...data} isGlobalOnHold={false} />))
 	}
 
 	function renderStatus() {
@@ -80,7 +80,8 @@ export default function CommissionStatus() {
 				</h1>
 				<div className={style.statusHeaderContainer}>
 					<div className={style.sHC1}>
-						<strong>Availability:</strong> <div className={style.sHCPaintB}><span>Busy</span></div> <div className={style.sHCPaintR}><span>Reachable</span></div> <div className={style.sHCPaintProgress} style={{ background: `linear-gradient(90deg, #8c45ff ${availabilityBar}%, #7684a2 ${availabilityBar + 0.1}%)` }}> {availability}% Busy</div>
+						<strong>Availability:</strong>
+						<div className={style.sHCPaintProgress} style={{ background: `linear-gradient(90deg, #8c45ff ${availabilityBar}%, #7684a2 ${availabilityBar + 0.1}%)` }}> {availability}% Busy</div>
 					</div>
 					<div className={style.sHC2}>
 						<strong>Queue:</strong> {queueTotal} / {renderQueueLimit()}
@@ -99,7 +100,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyA}`}>
-						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.DONE) : 'loading'}
+						{renderMappedCards(ContentColumnID.DONE)}
 						<div className={style.theBottom}>
 							&bull;
 						</div>
@@ -112,7 +113,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyB}`}>
-						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.INPROG) : 'loading'}
+						{renderMappedCards(ContentColumnID.INPROG)}
 						<div className={style.theBottom}>
 							&bull;
 						</div>
@@ -125,7 +126,7 @@ export default function CommissionStatus() {
 						</h3>
 					</div>
 					<div className={`${style.colBody} ${style.colBodyC}`}>
-						{(statusDataPresent === true) ? renderMappedCards(ContentColumnID.TODO) : 'loading'}
+						{renderMappedCards(ContentColumnID.TODO)}
 						<div className={style.theBottom}>
 							&bull;
 						</div>

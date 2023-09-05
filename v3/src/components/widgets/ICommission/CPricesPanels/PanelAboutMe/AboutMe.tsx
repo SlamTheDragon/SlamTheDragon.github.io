@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { setPanelTarget } from '../../../../slice/commission-panel-slices/panelViewSlice'
 import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open_in_new.svg'
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
-import { GetSnapshot } from '../../../../../utils/firebase/getsnapshot';
+import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot';
 import { ContentBuilder, ContentColumnID } from '../../../../../utils/firebase/contentbuilders';
 import placeholder from '../../../../../assets/images/Placeholder.png'
 import Button from '../../../../common/Button'
@@ -40,15 +40,17 @@ export default function AboutMe() {
         const change = () => {
             setStatus(GetSnapshot.status)
             setOnHold(GetSnapshot.onHold)
-            setLatestWip(ContentBuilder.columns[ContentColumnID.INPROG][0].entryKeyID)
-            setThumbnail(ContentBuilder.columns[ContentColumnID.INPROG][0].thumbnail)
+            if (ContentBuilder.columns[ContentColumnID.INPROG][0] !== undefined) {
+                setLatestWip(ContentBuilder.columns[ContentColumnID.INPROG][0].entryKeyID)
+                setThumbnail(ContentBuilder.columns[ContentColumnID.INPROG][0].thumbnail)
+            }
         }
 
-        GetSnapshot.addSnapshotListener(change);
+        SnapshotNotify.addSnapshotListener(change);
         window.addEventListener('mousemove', mouseMoveHandler);
 
         return (() => {
-            GetSnapshot.removeSnapshotListener(change);
+            SnapshotNotify.removeSnapshotListener(change);
             window.removeEventListener('mousemove', mouseMoveHandler);
         })
     }, [])
@@ -141,20 +143,14 @@ export default function AboutMe() {
 
 
             <div>
-                {/* FIXME: firebase thingy goes here
-
-                    REQUIREMENT FOR GET:
-                    - image preview (if there are multiple entries then just obtain the first)
-                    - query link
-                */}
                 <div className={style.i2 + ' ' + style.cardC}
                     onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?${(latestWip === undefined) ? 'notfound' : latestWip}`) }
+                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/latest-wip/?id=${latestWip ?? 'notfound'}`) }
                     }}
                     tabIndex={0}
-                    onClick={() => (window.open(`https://slamthedragon.me/latest-wip/?${(latestWip === undefined) ? 'notfound' : latestWip}`))}
+                    onClick={() => (window.open(`https://slamthedragon.me/latest-wip/?id=${latestWip ?? 'notfound'}`))}
                 >
-                    <div className={style.contentC} style={{ backgroundImage: `url(${(thumbnail === undefined) ? placeholder : thumbnail})` }}>
+                    <div className={style.contentC} style={{ backgroundImage: `url(${thumbnail ?? placeholder})` }}>
                         <div className={style.innerContentC}>
                             <span>
                                 {(GetSnapshot.status === undefined && GetSnapshot.onHold === undefined) ? `Loading` : 'Latest'}

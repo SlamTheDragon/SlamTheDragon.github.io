@@ -42,7 +42,7 @@ export class GetSnapshot {
             }
             this.commissionList = result
 
-            await ContentBuilder.contentRead()
+            await ContentBuilder.main()
             return true
         } catch (error) {
             Logging.WARN(`Failed to fetch data from firebase. ${error}`);
@@ -51,10 +51,11 @@ export class GetSnapshot {
     }
 
     public static async registerSnapshot() {
-        this.notifySnapshotEvent()
+        SnapshotNotify.notifySnapshotEvent()
     }
+}
 
-
+export class SnapshotNotify {
     private static snapshotListeners: (() => void)[] = []
 
     public static addSnapshotListener(listener: () => void) {
@@ -64,10 +65,10 @@ export class GetSnapshot {
     public static removeSnapshotListener(listener: () => void) {
         this.snapshotListeners = this.snapshotListeners.filter(
             (existingListener) => existingListener !== listener
-        );
+        )
     }
 
-    private static notifySnapshotEvent() {
+    public static notifySnapshotEvent() {
         Logging.VERBOSE('Notifying UI components to update...')
         this.snapshotListeners.forEach((listener) => listener())
     }

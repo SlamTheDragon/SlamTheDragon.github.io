@@ -1,30 +1,32 @@
 import { useState, useRef, useEffect } from 'react';
-import style from './gallery.module.scss';
+import { ContentBuilder, GalleryBuilder } from '../../../../utils/firebase/contentbuilders';
 import GalleryLoader from './GalleryLoader';
+import GalleryCard from './GalleryCard';
+import style from './gallery.module.scss';
+
 
 export default function Gallery() {
-	const [items, setItems] = useState<number[]>([1, 2, 3]); // Initial items
-	const [loading, setLoading] = useState(false);
-	const loaderRef = useRef<HTMLDivElement | null>(null);
+	const [items, setItems] = useState<any[]>([])
+	const [loading, setLoading] = useState(false)
+	const loaderRef = useRef<HTMLDivElement | null>(null)
 
-	const loadMoreItems = () => {
-		if (loading) return;
-		setLoading(true);
+	function loadMoreItems() {
+		if (loading) return
+		setLoading(true)
 
-		// Simulate loading new items
 		setTimeout(() => {
-			const newItems = items.concat([4, 5, 6]); // New items
-			setItems(newItems);
-			setLoading(false);
-		}, 1000);
-	};
+			const newItems = items.concat(ContentBuilder.galleryLocked)
+			setItems(newItems)
+			setLoading(false)
+		}, 1000)
+	}
 
-	const handleObserver = (entities: IntersectionObserverEntry[]) => {
+	function handleObserver(entities: IntersectionObserverEntry[]) {
 		const target = entities[0];
 		if (target.intersectionRatio >= 1) {
-			loadMoreItems();
+			loadMoreItems()
 		}
-	};
+	}
 
 	useEffect(() => {
 		const options = {
@@ -44,48 +46,29 @@ export default function Gallery() {
 			if (loaderRef.current) {
 				observer.unobserve(loaderRef.current);
 			}
-		};
-	}, []);
+		}
+	}, [])
 
-	// FIXME: undo this when things get out of scope
-	function bar() {
-		const foo = document.getElementById('view')
-		foo?.style.setProperty('scroll-snap-type', 'none');
-		return null;
-	}
 
 	return (
 		<section className={style.gallery} id='gallery'>
-			<div className={style.galleryContainer}>
-				<div className={style.galleryHeader}>
-					<h1>
-						Gallery
-					</h1>
+			<div className={style.galleryContainer} >
+				<div className={style.galleryHeader} tabIndex={0}>
+					<h1>Gallery</h1>
 				</div>
-				{/* <div>
-					<ul>
-						{items.map((item) => (
-							<li key={item}>{item}</li>
-						))}
-					</ul>
-					<div style={{ display: loading ? 'flex' : 'none' }}>
-						Spinning loading thing
-					</div>
-					<div style={{ display: loading ? 'none' : 'flex' }}>
-						&bull;
-					</div>
-					<div ref={loaderRef} >
-						{loading && bar()}
-					</div>
-				</div> */}
 
 				<div className={style.galleryBody}>
-					<GalleryLoader />
-					
-					<div className={style.galleryLoadIndicator} style={{ display: loading ? 'none' : 'flex' }}>
-						&bull;
+
+					<div className={style.galleryRow}>
+						{items.map((data, index) => (
+							<GalleryCard key={index} {...data} />
+						))}
+						<div ref={loaderRef}>{loading}</div>
 					</div>
+					<div className={style.galleryLoadIndicator} style={{ display: loading ? 'flex' : 'none' }}><GalleryLoader/></div>
+					<div className={style.galleryLoadIndicator} style={{ display: loading ? 'none' : 'flex' }}>&bull;</div>
 				</div>
+
 			</div>
 		</section>
 	)
