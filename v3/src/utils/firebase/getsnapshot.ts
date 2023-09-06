@@ -36,11 +36,16 @@ export class GetSnapshot {
     public static async fetchComms() {
         try {
             const snapshotComms = DataCache.commissionData
-            let result = []
-            for (let x of snapshotComms?.val()) {
-                result.push(x)
+            let result: any[] = []
+
+            if (!snapshotComms?.val()) {
+                Logging.WARN(`Commission data is non existent`)
+            } else {
+                for (let x of snapshotComms?.val()) {
+                    result.push(x)
+                }
+                this.commissionList = result
             }
-            this.commissionList = result
 
             await ContentBuilder.main()
             return true

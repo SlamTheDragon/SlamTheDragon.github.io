@@ -25,13 +25,23 @@
     }
 }
 
-.mysteriousGap {
-    // margin-top: 1300px;
-    height: 1300px;
+@mixin mysteriousGap {
+    pointer-events: none;
     width: 100%;
-    background: linear-gradient(0deg, #0f182c 0%, #00000000 20%);
     z-index: 9000;
     position: relative;
+}
+
+.mysteriousGap {
+    @include mysteriousGap();
+    height: 1300px;
+    background: linear-gradient(0deg, #0f182c 0%, #0f182c00 20%);
+}
+
+.mysteriousGapMobile {
+    @include mysteriousGap();
+    height: 150px;
+    background: linear-gradient(0deg, #0f182c 0%, #0f182c00 100%);
 }
 
 .PricesWrapper {

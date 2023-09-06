@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactComponent as Menu } from '@material-design-icons/svg/outlined/menu.svg'
 import { ReactComponent as Person } from '@material-design-icons/svg/outlined/person.svg'
@@ -49,7 +48,7 @@ export default function CommissionPrices() {
 
 	return (
 		<>
-			<section className={style.mysteriousGap}></section>
+			{(checkDevice() ? <section className={style.mysteriousGapMobile}></section> : <section className={style.mysteriousGap}></section>)}
 			<section className={style.PricesWrapper + " snap"} id='offers'>
 				{/* background wrapper */}
 				<div className={style.pricesContainer}>

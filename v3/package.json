@@ -1,6 +1,6 @@
 {
-  "name": "slam-react-template",
-  "version": "3.0.0",
+  "name": "slam-webapp",
+  "version": "3.0.1",
   "private": true,
   "dependencies": {
     "@material-design-icons/svg": "^0.14.10",

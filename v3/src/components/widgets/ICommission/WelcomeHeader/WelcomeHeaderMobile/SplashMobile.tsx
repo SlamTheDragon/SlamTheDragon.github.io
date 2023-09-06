@@ -1,11 +1,11 @@
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg';
 import { ReactComponent as ExpandMore } from '@material-design-icons/svg/filled/expand_more.svg';
-import { GetSnapshot, SnapshotNotify } from '../../../../utils/firebase/getsnapshot';
+import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot';
 import { useEffect, useState } from 'react';
-import Button from '../../../common/Button'
-import ChipLoader from '../../../common/ChipLoader/ChipLoader';
+import Button from '../../../../common/Button'
+import ChipLoader from '../../../../common/ChipLoader/ChipLoader';
 import style from './welcomeheader.module.scss'
-import { Logging } from '../../../../utils/logger';
+
 
 export default function Splash() {
     const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status);

@@ -344,12 +344,7 @@ $grid-a-gap: 16px;
 
 @mixin card {
 	@include shadow;
-	// @include mar-pad(15px, 15px);
-	// @include focus-style;
 	@include transition-anim;
-
-	// @include wight(20px, 38px);
-	// display: flex;
 
 	background-color: $background-accent;
 	border-radius: $global-border-radius;
@@ -610,10 +605,8 @@ body {
 	@include wight(100vw, 100vh);
 
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	// font-size: small;
 	color: $color;
 	background-color: $background-color;
-	// FIXME: somethign weird is going on here
 	overflow: hidden;
 }
 
@@ -640,10 +633,10 @@ svg {
 	fill: $color;
 }
 
-// Interface
-// .snap {
-// 	scroll-snap-align: center;
-// }
+// INTERFACE
+.snap {
+	scroll-snap-align: center;
+}
 
 h1 {
 	font-size: xx-large;
@@ -663,13 +656,13 @@ h6 {
 $_thumb: $tone1;
 $_track: $background-color;
 
-/* Chrome, Edge, Firefox, and Safari */
+// Chrome, Edge, Firefox, and Safari
 * {
 	scroll-behavior: smooth;
 
 	&::-webkit-scrollbar {
 		width: 15px;
-		width: 0px;
+		width: 5px;
 	}
 	&::-webkit-scrollbar-track {
 		background: $_track;
@@ -681,5 +674,12 @@ $_track: $background-color;
 	}
 	&::-webkit-scrollbar-corner {
 		background-color: $_thumb;
+	}
+}
+
+@media only screen and (max-width: 430px) {
+	html,
+	body {
+		overflow-y: scroll;
 	}
 }

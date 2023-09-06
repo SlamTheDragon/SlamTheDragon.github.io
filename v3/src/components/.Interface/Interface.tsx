@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux'
 import { setScrollLayer } from '../slice/parallax-slices/parallaxScrollerSlice'
-import { ModalOperation } from '../../utils/component-utils/modalOperation'
 import { checkDevice } from '../../utils/device-checker/checkDevice'
 import { setPanelFold } from '../slice/commission-panel-slices/collapseNavSlice'
 import Footer from '../common/Footer'
-import WelcomeHeader from '../widgets/ICommission/WelcomeHeader'
+import WelcomeHeaderDesktop from '../widgets/ICommission/WelcomeHeader/WelcomeHeaderDesktop'
 import CommissionPrices from '../widgets/ICommission/CPricesSection/CommissionPrices'
 import CommissionStatus from '../widgets/ICommission/CStatus/CommissionStatus'
 import Gallery from '../widgets/ICommission/Gallery/Gallery'
+import WelcomeHeaderMobile from '../widgets/ICommission/WelcomeHeader/WelcomeHeaderMobile'
 import style from './interface.module.scss'
 
 /**
@@ -15,31 +15,22 @@ import style from './interface.module.scss'
  * @returns Interface
  */
 export default function Interface() {
-    // get
-
-    // set
     const dispatch = useDispatch()
-    const openModal = ModalOperation()
-    
+
     if (checkDevice()) {
         dispatch(setPanelFold(true))
     }
 
     function transferScrollData(event: { currentTarget: { scrollTop: number; }; }) {
         dispatch(setScrollLayer(event.currentTarget.scrollTop))
-
-        // becometh notorious >:3
-        if (checkDevice()) {
-            openModal("Warning", 1)
-        }
-    };
+    }
 
     return (
         <>
             <div className={style.interface} onScroll={transferScrollData} id='view'>
-                <WelcomeHeader />
+                {(checkDevice()) ? <WelcomeHeaderMobile /> : <WelcomeHeaderDesktop />}
                 <CommissionPrices />
-                <CommissionStatus />
+                {(checkDevice()) ? <></> : <CommissionStatus />}
                 <Gallery />
                 <Footer />
             </div>

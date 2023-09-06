@@ -3,7 +3,7 @@
 export default function Sample1() {
     return(
         <>
-            This website currently does not support the mobile layout. please use the old website instead or open this website on your desktop. Thank you!
+            This website  <strong>doesn't fully</strong> support the mobile layout. You may want to open this website on your desktop or check the old version of this site. Thank you!
         </>
     );
 }
