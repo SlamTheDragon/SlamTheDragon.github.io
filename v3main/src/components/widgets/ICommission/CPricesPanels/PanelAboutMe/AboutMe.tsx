@@ -146,10 +146,10 @@ export default function AboutMe() {
             <div>
                 <div className={style.i2 + ' ' + style.cardC}
                     onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/status/?id=${latestWip ?? 'notfound'}`) }
+                        if (e.key === "Enter") { window.open(`https://slamthedragon.me/status?id=${latestWip ?? 'notfound'}`) }
                     }}
                     tabIndex={0}
-                    onClick={() => (window.open(`https://slamthedragon.me/status/?id=${latestWip ?? 'notfound'}`))}
+                    onClick={() => (window.open(`https://slamthedragon.me/status?id=${latestWip ?? 'notfound'}`))}
                 >
                     <div className={style.contentC} style={{ backgroundImage: `url(${thumbnail ?? placeholder})` }}>
                         <div className={style.innerContentC}>
