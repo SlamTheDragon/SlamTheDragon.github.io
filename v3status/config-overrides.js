@@ -21,8 +21,8 @@ module.exports = function override(config, env) {
                     innerRule.options &&
                     innerRule.options.name
                 ) {
-                    innerRule.options.name = "static/media/[name].[hash:8].[ext]";
-                    // innerRule.options.name = "static/media/[name].[ext]";
+                    // innerRule.options.name = "static/media/[name].[hash:8].[ext]";
+                    innerRule.options.name = "static/media/[name].[ext]";
                 }
             });
         }

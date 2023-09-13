@@ -1,6 +1,6 @@
 {
   "name": "slamthedragon-webapp-main",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "private": true,
   "dependencies": {
     "@material-design-icons/svg": "^0.14.10",
@@ -27,8 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:rewired": "react-app-rewired start",
-    "build": "rm -rf build && react-scripts build",
-    "build:rewired": "rm -rf build && react-app-rewired build",
+    "build": "rm -rf build && react-app-rewired build",
     "test": "react-scripts test",
     "test:rewired": "react-app-rewired test",
     "eject": "react-scripts eject"

@@ -1,9 +1,8 @@
 @import "../../../index.scss";
 
-footer {
+.footer {
     @include flex-center;
     @include wight(100vw, 100%);
-
     z-index: 9000;
     position: relative;
 

@@ -11,7 +11,7 @@ import style from './footermobile.module.scss'
 export default function FooterMobile() {
 
     return (
-        <footer style={style}>
+        <footer className={style.footerMobile}>
             <Logo />
             <div className={style.footerHeaderLinks}>
                 <div>

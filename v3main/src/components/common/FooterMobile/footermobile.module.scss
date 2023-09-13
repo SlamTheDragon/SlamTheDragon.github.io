@@ -1,6 +1,6 @@
 @import "../../../index.scss";
 
-footer {
+.footerMobile {
     @include flex-center;
     height: max-content;
     text-align: center;

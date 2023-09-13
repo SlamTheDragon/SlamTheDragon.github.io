@@ -11,7 +11,7 @@ import style from './footer.module.scss'
 export default function Footer() {
 
     return (
-        <footer>
+        <footer className={style.footer}>
             <div className={style.footerHeader}>
 
                 <Logo />
