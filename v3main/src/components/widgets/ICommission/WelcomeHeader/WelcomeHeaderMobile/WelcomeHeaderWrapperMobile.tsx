@@ -5,13 +5,15 @@ import style from './welcomeheader.module.scss'
 
 
 export default function WelcomeHeaderWrapperMobile() {
-	const l0 = (useSelector(scrollStyleEffect) / 5)
+	const l0 = useSelector(scrollStyleEffect)
+	const l1 = (l0 - 0) / 2
 
 	return (
-		<section className={style.head + " snap"}>
-			<div style={{ top: "-" + l0 + "px" }} className={style.splash}>
+		<section className={style.head} style={{ top: `${l1}px` }}>
+			{/* <div style={{ top: "-" + l0 + "px" }} className={style.splash}>
 				<Splash />
-			</div>
+			</div> */}
+			<Splash />
 		</section>
 	)
 }

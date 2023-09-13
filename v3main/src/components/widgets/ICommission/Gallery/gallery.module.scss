@@ -11,7 +11,7 @@ $_gap: 15px;
     .galleryContainer {
         @include ext-a-container;
         height: max-content;
-        
+
         .galleryHeader {
             outline: none;
             padding: 15px 0;
@@ -37,6 +37,16 @@ $_gap: 15px;
                 color: $tone2;
                 height: 100px;
                 margin-top: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .gallery {
+        .galleryContainer {
+            .galleryHeader {
+                margin-top: 40px;
             }
         }
     }

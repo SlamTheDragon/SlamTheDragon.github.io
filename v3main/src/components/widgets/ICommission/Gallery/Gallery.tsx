@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { ContentBuilder, GalleryBuilder } from '../../../../utils/firebase/contentbuilders';
+import { ContentBuilder } from '../../../../utils/firebase/contentbuilders';
 import GalleryLoader from './GalleryLoader';
 import GalleryCard from './GalleryCard';
 import style from './gallery.module.scss';

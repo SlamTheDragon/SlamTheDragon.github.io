@@ -662,7 +662,7 @@ $_track: $background-color;
 
 	&::-webkit-scrollbar {
 		width: 15px;
-		width: 5px;
+		width: 0px;
 	}
 	&::-webkit-scrollbar-track {
 		background: $_track;
