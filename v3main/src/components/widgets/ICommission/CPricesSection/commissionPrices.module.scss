@@ -1,0 +1,182 @@
+@import "../../../../index.scss";
+
+@mixin pricesPanels {
+    display: flex;
+
+    border-radius: $global-border-radius + 10;
+    background-color: $background-accent;
+}
+
+@mixin buttonContent {
+    svg {
+        @include transition-anim;
+        width: 28px;
+        max-width: 28px;
+        min-width: 28px;
+    }
+
+    span {
+        // @include flex-center;
+
+        text-overflow: ellipsis;
+        width: 100%;
+        margin-left: 20px;
+        overflow: hidden;
+    }
+}
+
+@mixin mysteriousGap {
+    pointer-events: none;
+    width: 100%;
+    z-index: 9000;
+    position: relative;
+}
+
+.mysteriousGap {
+    @include mysteriousGap();
+    height: 1300px;
+    background: linear-gradient(0deg, #0f182c 0%, #0f182c00 20%);
+}
+
+.mysteriousGapMobile {
+    @include mysteriousGap();
+    height: 150px;
+    background: linear-gradient(0deg, #0f182c 0%, #0f182c00 100%);
+}
+
+.PricesWrapper {
+    z-index: 9000;
+    position: relative;
+
+    height: 100%;
+
+    background-color: $background-color;
+
+    .pricesContainer {
+        @include ext-a-container;
+        @include flex-center;
+
+        height: 100%;
+        position: relative;
+        flex-direction: row;
+
+        gap: $grid-a-gap;
+
+        // padding: 10px 0px;
+
+        .priceNavigator {
+            @include pricesPanels;
+            @include wight(259.76px, 85%);
+            @include transition-anim;
+
+            flex-direction: column;
+            justify-content: space-between;
+
+            overflow: hidden;
+
+            .s1,
+            .s2,
+            .s3 {
+                @include transition-anim;
+                display: flex;
+                flex-direction: column;
+                padding: 40px 11.5%;
+                gap: 10px;
+
+                overflow: hidden;
+
+                button {
+                    @include buttonContent;
+
+                    box-shadow: unset;
+                    -webkit-box-shadow: unset;
+                    -moz-box-shadow: unset;
+
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    border-radius: $global-border-radius + 11;
+
+                    background-color: unset;
+
+                    font-weight: bold;
+                    overflow: hidden;
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $secondary;
+                        opacity: 1;
+
+                        svg {
+                            fill: $secondary;
+                        }
+                    }
+                }
+
+                .btnSelected {
+                    background-color: $tone0;
+                }
+            }
+
+            .s1 {
+                display: unset;
+
+                button:nth-child(1) {
+                    width: unset;
+                    margin-bottom: 10px;
+
+                    &:hover {
+                        transform: scale(1, 1.1);
+                    }
+
+                    &:active {
+                        transform: scale(1, 0.95);
+                    }
+                }
+                button:nth-child(2) {
+                    @include buttonContent;
+                    width: 100%;
+                    opacity: 0.85;
+
+                    &:hover,
+                    &:focus-visible {
+                        opacity: 1;
+                    }
+                }
+
+                .btnSelected:nth-child(2) {
+                    opacity: 1;
+                }
+            }
+
+            .s2 {
+                button {
+                    opacity: 0.85;
+                }
+                .btnSelected {
+                    opacity: 1;
+                }
+            }
+
+            .s3 {
+                @include flex-center;
+
+                span {
+                    text-overflow: clip;
+                    font-size: smaller;
+                    color: $tone3;
+                }
+            }
+        }
+
+        .priceViewer {
+            @include pricesPanels;
+            @include wight(80%, 85%);
+            @include transition-anim;
+
+            background-color: unset;
+            flex-direction: column;
+        }
+    }
+}

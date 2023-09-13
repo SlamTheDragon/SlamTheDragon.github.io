@@ -13,6 +13,7 @@
         "gallerycard",
         "galleryloader",
         "galleryview",
+        "getsnapshot",
         "Halfshot",
         "Headshot",
         "INPROG",
@@ -23,7 +24,11 @@
         "progressstatus",
         "progressstatusreason",
         "queuelimit",
+        "SCROLLBARS",
+        "Scroller",
+        "slamthedragon",
         "startingprices",
-        "thatnerd"
+        "thatnerd",
+        "welcomeheader"
     ]
 }

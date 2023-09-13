@@ -1,0 +1,164 @@
+@import "../../../../../index.scss";
+
+$_h1-spacing: 0;
+
+.head {
+    height: 100%;
+    overflow-x: hidden;
+
+    .splash {
+        z-index: 7000;
+
+        @include flex-center;
+        @include wight(100%, 100%);
+
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        top: 0px;
+
+        color: $color-prm;
+        border-radius: unset;
+
+        overflow: hidden;
+        transition: none;
+
+        pointer-events: none;
+
+        .wrapper {
+            @include ext-a-container;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            .headerTitle {
+                @include flex-center;
+
+                align-items: flex-start;
+                flex-direction: column;
+                line-height: 70px;
+                gap: 10px;
+
+                h1 {
+                    font-size: 72pt;
+                    margin: $_h1-spacing;
+                }
+
+                .headerInfo {
+                    margin-left: 8px;
+                    pointer-events: all;
+
+                    a {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        width: min-content;
+
+                        h1 {
+                            font-size: 24pt;
+                            margin: $_h1-spacing;
+                        }
+
+                        svg {
+                            @include transition-anim;
+                            translate: 0px 2px;
+                        }
+
+                        &:hover {
+                            fill: $primary;
+                            translate: 5px 0px;
+
+                            svg {
+                                translate: 5px 2px;
+                                fill: $primary;
+                            }
+                        }
+
+                        &:active {
+                            translate: 4px 0px;
+
+                            svg {
+                                translate: 0px 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        button {
+            background-color: unset;
+            box-shadow: unset;
+            -webkit-box-shadow: unset;
+            -moz-box-shadow: unset;
+            pointer-events: all;
+
+            &:hover {
+                translate: 0px 5px;
+            }
+
+            &:active {
+                translate: 0px 3px;
+            }
+        }
+    }
+
+    .layer1,
+    .layer2,
+    .layer3,
+    .layer4,
+    .layer5,
+    .layer6 {
+        width: 100%;
+        pointer-events: none;
+        overflow-x: hidden;
+        top: 0px;
+        position: absolute;
+        svg {
+            overflow: hidden;
+        }
+    }
+
+    .layer1 {
+        img {
+            width: 100%;
+        }
+        z-index: 1000;
+    }
+    .layer2 {
+        img {
+            transform: translate(-36px, -279px) scale(1);
+            width: 100%;
+        }
+        z-index: 2000;
+    }
+    .layer3 {
+        img {
+            transform: translate(-286px, -274px) scale(0.7);
+            width: 100%;
+        }
+        z-index: 3000;
+    }
+    .layer4 {
+        img {
+            transform: translate(536px, -71px) scale(0.3);
+            width: 100%;
+        }
+        z-index: 4000;
+    }
+    .layer5 {
+        img {
+            transform: translate(543px, -312px) scale(0.9);
+            width: 100%;
+        }
+        z-index: 5000;
+    }
+    .layer6 {
+        img {
+            transform: translate(-567px, -435px) scale(0.9);
+            width: 100%;
+        }
+        z-index: 6000;
+    }
+}
