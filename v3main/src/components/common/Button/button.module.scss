@@ -34,5 +34,10 @@
 	&:disabled {
 		cursor: not-allowed;
 		background-color: $disabled;
+		color: $tone2;
+
+		svg {
+			fill: $tone2;
+		}
 	}
 }

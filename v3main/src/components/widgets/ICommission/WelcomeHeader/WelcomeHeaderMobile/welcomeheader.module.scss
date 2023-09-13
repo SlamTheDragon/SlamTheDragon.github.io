@@ -5,31 +5,30 @@ $_h1-spacing: 0;
 .head {
     height: 100%;
     overflow-x: hidden;
-    
-    .splash {
-        background-image: url('../../../../../assets/images/MobileSplash.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: 7000;
 
-        @include flex-center;
-        @include wight(100%, 100%);
+    background-image: url('../../../../../assets/images/MobileSplash.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 7000;
 
-        flex-direction: column;
-        justify-content: space-around;
-        position: absolute;
-        top: 0px;
+    @include flex-center;
+    @include wight(100%, 100%);
 
-        color: $color-prm;
-        border-radius: unset;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 0px;
 
-        overflow: hidden;
-        transition: none;
+    color: $color-prm;
+    border-radius: unset;
 
-        pointer-events: none;
+    overflow: hidden;
+    transition: none;
 
-        .wrapper {
+    pointer-events: none;
+
+            .wrapper {
             @include ext-a-container;
             width: 100%;
             text-overflow: ellipsis;
@@ -108,7 +107,6 @@ $_h1-spacing: 0;
                 translate: 0px 3px;
             }
         }
-    }
 
     .layer1,
     .layer2,
