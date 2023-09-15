@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Button from '../../../../common/Button'
 import ChipLoader from '../../../../common/ChipLoader/ChipLoader';
 import style from './welcomeheader.module.scss'
-import { Logging } from '../../../../../utils/logger';
 
 export default function Splash() {
     const [status, setStatus] = useState<boolean | undefined>(GetSnapshot.status);

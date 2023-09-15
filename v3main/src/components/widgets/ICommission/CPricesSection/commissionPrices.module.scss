@@ -16,8 +16,6 @@
     }
 
     span {
-        // @include flex-center;
-
         text-overflow: ellipsis;
         width: 100%;
         margin-left: 20px;
@@ -51,6 +49,10 @@
     height: 100%;
 
     background-color: $background-color;
+
+    .mobileNavigator {
+        display: none;
+    }
 
     .pricesContainer {
         @include ext-a-container;
@@ -177,6 +179,81 @@
 
             background-color: unset;
             flex-direction: column;
+        }
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .PricesWrapper {
+        .pricesContainer {
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+
+            .priceViewer {
+                @include wight(100%, 80%); //FIXME: make inner views for comms 95%
+            }
+        }
+
+        .mobileNavigatorContainer {
+            @include wight(100%, 100vh);
+            @include max-wight(100%, 100vh);
+
+            z-index: 10000;
+            justify-content: flex-end;
+            position: absolute;
+            overflow: hidden;
+            overflow-y: scroll;
+            top: 0;
+
+            outline: 1px solid $tone2;
+            scroll-snap-type: y mandatory;
+            pointer-events: none;
+
+            .mobileDrawerSpace {
+                @include wight(100%, 90%);
+                scroll-snap-align: center;
+
+                &:focus-visible {
+                    outline: unset;
+                }
+            }
+
+            .mobileDrawer {
+                @include wight(100%, max-content);
+                @include flex-center;
+
+                // margin-top: 20px;
+                padding: 0 0 100px 0;
+                flex-direction: column;
+                background-color: $tone1;
+                scroll-snap-align: center;
+                gap: 10px;
+
+                border-radius: $global-border-radius $global-border-radius 0 0;
+
+                pointer-events: all;
+
+                .mobileDrawerKnob {
+                    @include wight(15%, 5px);
+
+                    margin: 10px auto 60px auto;
+
+                    background-color: $tone3;
+
+                    border-radius: $global-border-radius;
+                    pointer-events: all;
+                }
+
+                button {
+                    @include buttonContent();
+                    width: 80%;
+
+                    span {
+                        margin: unset;
+                    }
+                }
+            }
         }
     }
 }

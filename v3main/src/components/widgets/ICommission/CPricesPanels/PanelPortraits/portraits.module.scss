@@ -127,10 +127,6 @@ $_gap: 20px;
             gap: $_gap - 5;
             flex-direction: row;
             width: 100%;
-
-            // button {
-            //    width: 100%;
-            // }
         }
 
         button {
@@ -142,6 +138,33 @@ $_gap: 20px;
 
         .btnSelected {
             background-color: $secondary;
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .PortraitsContainer {
+        .navigator {
+            @include wight(100%, 80px);
+
+            justify-content: flex-start;
+
+            border-radius: unset;
+            overflow: hidden;
+            overflow-x: scroll;
+
+            gap: $_gap - 7;
+            
+            .subNavigator {
+                gap: $_gap - 12;
+                border-radius: unset;
+            }
+            
+            button {
+                border-radius: $global-border-radius;
+                text-overflow: ellipsis;
+                text-wrap: nowrap;
+            }
         }
     }
 }

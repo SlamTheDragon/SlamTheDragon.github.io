@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { ModalOperation } from '../../../../../utils/component-utils/modalOperation'
 import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot'
 import Button from '../../../../common/Button'
 import PortraitHeader from './PortraitHeader'

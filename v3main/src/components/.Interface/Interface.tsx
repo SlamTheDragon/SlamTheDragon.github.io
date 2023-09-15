@@ -48,10 +48,10 @@ export default function Interface() {
     function renderInterface() {
         if (checkDevice()) {
             return (content) ?
-                <div className={style.innerInterface} style={{ filter: `blur(${(isNavOpen) ? 60 : 0}px)` }}>
+                <div className={style.innerInterface} style={{ filter: `blur(${(isNavOpen) ? 20 : 0}px)` }}>
                     <Gallery />
                 </div> :
-                <div className={style.innerInterface} style={{ filter: `blur(${(isNavOpen) ? 60 : 0}px)` }} onScroll={transferScrollData}>
+                <div className={style.innerInterface} style={{ filter: `blur(${(isNavOpen) ? 20 : 0}px)` }} onScroll={transferScrollData}>
                     <WelcomeHeaderMobile />
                     <CommissionPrices />
                 </div>
