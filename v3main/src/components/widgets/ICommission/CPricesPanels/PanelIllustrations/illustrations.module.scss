@@ -26,14 +26,12 @@ $_gap: 20px;
     -moz-box-shadow: 0px 6px 30px -15px $setshadowcolor;
 }
 
-.PortraitsContainer {
+.IllustrationContainer {
     @include wight(100%, 100%);
 
     display: flex;
     flex-direction: column;
     gap: $_gap;
-
-    // outline: 1px solid white;
 
     .content {
         @include transition-anim;
@@ -42,7 +40,7 @@ $_gap: 20px;
         border-radius: $global-border-radius + 10;
         outline: 1px solid $tone2;
         outline-offset: -1px;
-        
+
         &:hover {
             @include local-shadow(#ff8c009f);
             transform: translateY(-3px);
@@ -91,7 +89,6 @@ $_gap: 20px;
 
         .bgIlluV1 {
             background-image: url("../../../../../assets/images/character-illustration-a.jpg");
-            // background-position: -50px 0.68px;
         }
         .bgIlluV2 {
             background-image: url("../../../../../assets/images/character-illustration-b.jpg");
@@ -102,7 +99,6 @@ $_gap: 20px;
         @include flex-center;
 
         gap: $_gap;
-
         margin-bottom: $_gap;
 
         .subNavigator {
@@ -111,10 +107,6 @@ $_gap: 20px;
             gap: $_gap - 5;
             flex-direction: row;
             width: 100%;
-
-            // button {
-            //    width: 100%;
-            // }
         }
 
         button {
@@ -126,6 +118,68 @@ $_gap: 20px;
 
         .btnSelected {
             background-color: $secondary;
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .IllustrationContainer {
+        @include flex-center;
+
+        .content {
+            @include wight(95%, 100%);
+            overflow: hidden;
+
+            .bgIlluV1,
+            .bgIlluV2 {
+                background-position: center;
+                background-position-x: -280px;
+                justify-content: flex-end;
+                text-shadow: 0px 0px 5px #00000073;
+
+                div,
+                h1 {
+                    margin-right: 10px;
+                    text-wrap: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                h1 {
+                    font-size: large;
+                }
+
+                div {
+                    font-size: small;
+                    margin-bottom: 50px;
+                }
+            }
+
+            &:hover {
+                transform: unset;
+            }
+        }
+
+        .navigator {
+            @include wight(95%, 80px);
+
+            justify-content: flex-start;
+
+            border-radius: unset;
+            overflow: hidden;
+            overflow-x: scroll;
+
+            gap: $_gap - 7;
+
+            .subNavigator {
+                gap: $_gap - 12;
+                border-radius: unset;
+            }
+
+            button {
+                border-radius: $global-border-radius;
+                text-overflow: ellipsis;
+                text-wrap: nowrap;
+            }
         }
     }
 }

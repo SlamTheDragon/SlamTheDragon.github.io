@@ -143,7 +143,7 @@ function App() {
 	function cleanUp() {
 		if (checkDevice()) {
 			Logging.DEBUG('Device is mobile')
-			modalDispatch('Warning', 1)
+			// modalDispatch('Warning', 1)
 		}
 		if (!checkDevice()) {
 			Logging.DEBUG('Device is desktop')

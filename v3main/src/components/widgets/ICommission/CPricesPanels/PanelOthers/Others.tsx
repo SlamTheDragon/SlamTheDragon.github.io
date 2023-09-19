@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import style from './others.module.scss'
 import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot'
+import style from './others.module.scss'
 
 export default function Others() {
     const [getBundleState, setBundleState] = useState<boolean | undefined>(Object.values(GetSnapshot.customStatus)[0])

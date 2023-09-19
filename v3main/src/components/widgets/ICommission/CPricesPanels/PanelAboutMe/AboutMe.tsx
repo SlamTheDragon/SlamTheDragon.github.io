@@ -5,6 +5,7 @@ import { ReactComponent as Open } from '@material-design-icons/svg/outlined/open
 import { ReactComponent as Jump } from '@material-design-icons/svg/filled/arrow_forward_ios.svg'
 import { GetSnapshot, SnapshotNotify } from '../../../../../utils/firebase/getsnapshot'
 import { ContentBuilder, ContentColumnID } from '../../../../../utils/firebase/contentbuilders'
+import { checkDevice } from '../../../../../utils/device-checker/checkDevice'
 import avatar from '../../../../../assets/images/avatar.jpg'
 import placeholder from '../../../../../assets/images/Placeholder.png'
 import Button from '../../../../common/Button'
@@ -125,21 +126,23 @@ export default function AboutMe() {
                     </div>
                 </div>
 
-                <div className={style.i2 + ' ' + style.cardB}>
-                    <div className={style.contentB}>
-                        <div>
-                            <h1>
-                                Commissions are {commStateParse[parseStatus()]}
-                            </h1>
-                            <span>
-                                {commDescription[parseStatus()]}
-                            </span>
+                {(checkDevice()) ?
+                    <></> :
+                    <div className={style.i2 + ' ' + style.cardB}>
+                        <div className={style.contentB}>
+                            <div>
+                                <h1>
+                                    Commissions are {commStateParse[parseStatus()]}
+                                </h1>
+                                <span>
+                                    {commDescription[parseStatus()]}
+                                </span>
+                            </div>
+                            <div>
+                                {renderView()}
+                            </div>
                         </div>
-                        <div>
-                            {renderView()}
-                        </div>
-                    </div>
-                </div>
+                    </div>}
             </div>
 
 
@@ -167,26 +170,28 @@ export default function AboutMe() {
                         </div>
                     </div>
                 </div>
-
-                <div className={style.i1 + ' ' + style.cardD}
-                    onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-                        if (e.key === "Enter") { window.location.href = "#gallery" }
-                    }} tabIndex={0} onClick={() => (window.location.href = "#gallery")}
-                >
-                    <div className={style.contentWrapperD}>
-                        <div className={style.contentSubWrapperD}>
-                            <div className={style.contentD}>
-                                <div className={style.innerContentD}>
-                                    <span>
-                                        <h1>Artworks <Jump /></h1>
-                                        <span className={style.text}>See all my recent finished artworks here.</span>
-                                    </span>
+                
+                {(checkDevice()) ?
+                    <></> :
+                    <div className={style.i1 + ' ' + style.cardD}
+                        onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+                            if (e.key === "Enter") { window.location.href = "#gallery" }
+                        }} tabIndex={0} onClick={() => (window.location.href = "#gallery")}
+                    >
+                        <div className={style.contentWrapperD}>
+                            <div className={style.contentSubWrapperD}>
+                                <div className={style.contentD}>
+                                    <div className={style.innerContentD}>
+                                        <span>
+                                            <h1>Artworks <Jump /></h1>
+                                            <span className={style.text}>See all my recent finished artworks here.</span>
+                                        </span>
+                                    </div>
+                                    <img alt='' />
                                 </div>
-                                <img alt='' />
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </div>
 
         </div>

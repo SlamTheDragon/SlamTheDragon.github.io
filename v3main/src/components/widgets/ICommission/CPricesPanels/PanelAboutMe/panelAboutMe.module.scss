@@ -26,7 +26,6 @@ $_gap: 15px;
     -moz-box-shadow: 0px 6px 30px -15px $setshadowcolor;
 }
 
-
 .AboutMeContainer {
     @include wight(100%, 100%);
     display: flex;
@@ -374,6 +373,63 @@ $_gap: 15px;
             &:hover,
             &:focus-visible {
                 @include local-shadow(#00ffdd78);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .AboutMeContainer {
+        height: 95%;
+
+        div {
+            @include flex-center;
+
+            .i1,
+            .i2 {
+                width: 95%;
+            }
+
+            .cardA,
+            .cardB,
+            .cardC,
+            .cardD {
+                &:hover {
+                    transform: unset;
+                }
+            }
+
+            .cardA {
+                .contentA {
+                    padding: 20px;
+                    gap: 10px;
+
+                    img {
+                        @include wight(72px, 72px);
+                        margin: 0;
+                        margin-bottom: 48px;
+
+                        $_setshadowcolor: #ff6ac872;
+
+                        box-shadow: 0px 0px 0px 72px $_setshadowcolor;
+                        -webkit-box-shadow: 0px 0px 0px 72px $_setshadowcolor;
+                        -moz-box-shadow: 0px 0px 0px 72px $_setshadowcolor;
+                    }
+
+                    .innerContentA {
+                        gap: 2px;
+                        
+                        h1 {
+                            font-size: x-large;
+                            text-overflow: ellipsis;
+
+                        }
+                        span {
+                            font-size: 10pt;
+                            line-height: 11pt;
+                        }
+                    }
+                }
             }
         }
     }

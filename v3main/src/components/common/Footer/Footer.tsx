@@ -40,9 +40,9 @@ export default function Footer() {
                 <div>
                     <a className={style.kofi} href="https://ko-fi.com/slamthedragon" target="_blank" rel="noreferrer"><Kofi /></a>
                 </div>
-                <div>
+                {/* <div>
                     <a href="https://www.threads.net/@slamthedragon" target="_blank" rel="noreferrer"><Threads /></a>
-                </div>
+                </div> */}
                 <div>
                     <a className={style.instagram} href="https://www.instagram.com/slamthedragon/" target="_blank" rel="noreferrer"><Instagram /></a>
                 </div>

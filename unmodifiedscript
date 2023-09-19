@@ -1,0 +1,14 @@
+rm -rf static &&
+rm -rf asset-manifest.json &&
+rm -rf favicon.ico &&
+rm -rf favicon-light.ico &&
+rm -rf index.html &&
+rm -rf logo192.png &&
+rm -rf logo192-light.png &&
+rm -rf logo512.png &&
+rm -rf logo512-light.png &&
+rm -rf Placeholder.png &&
+rm -rf robots.txt &&
+rm -rf splash.png &&
+rm -rf status.html &&
+rm -rf status.png

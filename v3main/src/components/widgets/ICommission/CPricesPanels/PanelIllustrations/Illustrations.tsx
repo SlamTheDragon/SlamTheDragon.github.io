@@ -49,9 +49,7 @@ export default function Illustrations() {
     }
 
     return (
-        <div className={style.PortraitsContainer}>
-
-            {/* FIXME: make conditional when firebase is in */}
+        <div className={style.IllustrationContainer}>
             <div className={style.content}>
                 {renderView()}
             </div>

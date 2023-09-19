@@ -84,7 +84,9 @@ export default function Portraits() {
                     <Button classItem={(getPortraitType === 1) ? style.btnSelected : ''} onClick={() => { setPortraitType(1) }}>Halfshot</Button>
                     <Button classItem={(getPortraitType === 2) ? style.btnSelected : ''} onClick={() => { setPortraitType(2) }}>Fullshot</Button>
                 </div>
+                <div className={style.previewSwitch}>
                 <Button onClick={() => { setBackgroundType(!getBackgroundType) }}>{backgroundTypeDetails[getBackgroundTypeDecoded]}</Button>
+                </div>
             </div>
         </div>
     )

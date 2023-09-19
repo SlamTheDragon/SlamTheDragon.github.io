@@ -28,6 +28,15 @@ export default function CommissionPrices() {
 		dispatch(setPanelFold(!getIsFolded))
 	}
 
+	function checkComponent() {
+		if (document.getElementById('empty')) {
+			focusComponent('empty')
+		}
+		// else {
+		// 	checkComponent()
+		// }
+	}
+
 	// get firebase data here
 
 	function renderView() {
@@ -124,7 +133,7 @@ export default function CommissionPrices() {
 						<div className={style.priceViewer} style={{ width: `${getIsFolded ? 1226.94 : 1041.6}px` }}>
 							{renderView()}
 						</div> :
-						<div className={style.priceViewer} onClick={() => { focusComponent('empty') }}>
+						<div className={style.priceViewer} onClick={() => { checkComponent() }}>
 							{renderView()}
 						</div>
 					}
@@ -138,9 +147,7 @@ export default function CommissionPrices() {
 							<div className={style.mobileDrawerKnob}></div>
 							<Button onClick={() => {
 								dispatch(setPanelTarget(0))
-								if (checkDevice()) {
-									dispatch(setPanelFold(true))
-								}
+								checkComponent()
 							}}
 								classItem={target === 0 ? 'primary' : ''}
 								titleTooltip='About SlamTheDragon'>
@@ -150,9 +157,7 @@ export default function CommissionPrices() {
 							{/* profile */}
 							<Button onClick={() => {
 								dispatch(setPanelTarget(1))
-								if (checkDevice()) {
-									dispatch(setPanelFold(true))
-								}
+								checkComponent()
 							}}
 								classItem={target === 1 ? 'primary' : ''}
 								titleTooltip='Portraits'>
@@ -162,9 +167,7 @@ export default function CommissionPrices() {
 							{/* illustrations */}
 							<Button onClick={() => {
 								dispatch(setPanelTarget(2))
-								if (checkDevice()) {
-									dispatch(setPanelFold(true))
-								}
+								checkComponent()
 							}}
 								classItem={target === 2 ? 'primary' : ''}
 								titleTooltip='Illustrations'>
@@ -174,9 +177,7 @@ export default function CommissionPrices() {
 							{/* others */}
 							<Button onClick={() => {
 								dispatch(setPanelTarget(3))
-								if (checkDevice()) {
-									dispatch(setPanelFold(true))
-								}
+								checkComponent()
 							}}
 								classItem={target === 3 ? 'primary' : ''}
 								titleTooltip='Others/Special Request'

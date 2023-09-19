@@ -191,7 +191,7 @@
             max-width: 100%;
 
             .priceViewer {
-                @include wight(100%, 80%); //FIXME: make inner views for comms 95%
+                @include wight(100%, 80%);
             }
         }
 
@@ -206,14 +206,14 @@
             overflow-y: scroll;
             top: 0;
 
-            outline: 1px solid $tone2;
             scroll-snap-type: y mandatory;
             pointer-events: none;
-
+            
             .mobileDrawerSpace {
                 @include wight(100%, 90%);
                 scroll-snap-align: center;
-
+                pointer-events: none;
+                
                 &:focus-visible {
                     outline: unset;
                 }
@@ -223,7 +223,6 @@
                 @include wight(100%, max-content);
                 @include flex-center;
 
-                // margin-top: 20px;
                 padding: 0 0 100px 0;
                 flex-direction: column;
                 background-color: $tone1;
