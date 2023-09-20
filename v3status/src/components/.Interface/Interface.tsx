@@ -224,7 +224,7 @@ export default function Interface() {
                         <span className={style.searchNotFound} style={{ filter: `blur(${(isNavOpen) ? 20 : 0}px)` }}>
                             The entry you have provided does not exist.
                         </span>
-                        <Button classItem={`primary ${style.searchNotFoundBtn}`} onClick={() => { setQuery(0) }}>Try Searching</Button>
+                        <Button style={{ filter: `blur(${(isNavOpen) ? 20 : 0}px)` }} classItem={`primary ${style.searchNotFoundBtn}`} onClick={() => { setQuery(0) }}>Try Searching</Button>
 
                         {(checkDevice()) ?
                             <></> :
@@ -248,7 +248,7 @@ export default function Interface() {
                 </div>
                 <div className={style.navContent} style={{ height: `${(isNavOpen) ? 100 : 0}%`, opacity: `${(isNavOpen) ? 1 : 0}` }} onClick={() => { toggleNav() }}>
                     <h1>
-                        Commission Queue
+                        Menu
                     </h1>
                     <div className={style.navSelections}>
                         <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.location.href = 'https://slamthedragon.me/' }}>
@@ -258,10 +258,10 @@ export default function Interface() {
                             Commission Queue
                         </Button>
                         <Button disabled={true}>
-                            Portfolio <Open />
+                            Terms of Service
                         </Button>
                         <Button disabled={true}>
-                            Terms of Service <Open />
+                            Portfolio <Open />
                         </Button>
                     </div>
 

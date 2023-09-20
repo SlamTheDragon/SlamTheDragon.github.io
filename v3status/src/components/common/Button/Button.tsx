@@ -6,7 +6,7 @@ interface ButtonInterface {
     disabled?: boolean
     tabIndex?: number
     onClick?: () => any
-
+    style?: object
     titleTooltip?: string
 }
 
@@ -41,6 +41,7 @@ export default function Button(props: ButtonInterface) {
             className={style.btn + " " + props.classItem}
             onClick={props.onClick}
             title={props.titleTooltip}
+            style={props.style}
         >
             {props.children}
         </button>

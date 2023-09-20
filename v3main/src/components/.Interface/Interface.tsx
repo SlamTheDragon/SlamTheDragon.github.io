@@ -87,14 +87,14 @@ export default function Interface() {
                         <Button tabIndex={(isNavOpen) ? 0 : -1}  classItem={(content) ? 'primary' : ''} onClick={() => { switchContent(1); toggleNav() }}>
                             Finished Commissions
                         </Button>
+                        <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.open('https://slamthedragon.me/status') }}>
+                            Commission Queue <Open />
+                        </Button>
                         <Button disabled={true}>
                             Terms of Service
                         </Button>
                         <Button disabled={true}>
                             Portfolio <Open />
-                        </Button>
-                        <Button disabled={true}>
-                            Commission Queue <Open />
                         </Button>
                     </div>
 
