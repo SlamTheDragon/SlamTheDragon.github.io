@@ -9,7 +9,7 @@ import { getDatabase, ref } from 'firebase/database'
 const key = process.env.REACT_APP_FIREBASE_TOKEN
 
 const firebaseConfig = {
-    apiKey: key,
+    apiKey: 'AIzaSyAzrv1xEDLXE_H42y4PbKbnYfNrMshGvrU',
     authDomain: "slamthedragondb.firebaseapp.com",
     databaseURL: "https://slamthedragondb-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "slamthedragondb",
