@@ -18,6 +18,7 @@ import Sample1 from "./components/widgets/modal-contents/SsampleContentA"
 import Sample2 from "./components/widgets/modal-contents/SsampleContentB"
 import Sample3 from "./components/widgets/modal-contents/SsampleContentC"
 import React from "react"
+import { QueryDecoder } from "./utils/url-query-decoders/queryDecoder"
 
 
 function App() {
@@ -46,9 +47,12 @@ function App() {
 	useEffect(() => { 
 		if (!isLoading) {
 			DataCache.fetch()
+			QueryDecoder.Set()
 
 			// focus view
 			focusComponent('view')
+			focusComponent('searchBar')
+			
 			// get hash
 			const hash = window.location.hash
 			Logging.DEBUG(`Current hash is '${hash}'`)
@@ -144,7 +148,7 @@ function App() {
 	function cleanUp() {
 		if (checkDevice()) {
 			Logging.DEBUG('Device is mobile')
-			modalDispatch('Warning', 1)
+			// modalDispatch('Warning', 1)
 		}
 		if (!checkDevice()) {
 			Logging.DEBUG('Device is desktop')

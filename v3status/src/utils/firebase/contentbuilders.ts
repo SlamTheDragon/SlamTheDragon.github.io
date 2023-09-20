@@ -38,10 +38,11 @@ export interface ContentInterface {
     isGlobalOnHold?: boolean
     progressStatus?: ContentColumnID
     progressStatusReason?: string
+    cancelReason?: string
     timeEnd?: number
     timeStart?: number
     thumbnail?: string
-    title?: number
+    title?: string
 }
 
 export class ContentBuilder {
@@ -58,16 +59,13 @@ export class ContentBuilder {
     private static _isOnHold: boolean | undefined = undefined
     private static _progressStatus: ContentColumnID
     private static _progressStatusReason: string | undefined = undefined
+    private static _cancelReason: string | undefined = undefined
     private static _timeStart: number | undefined = undefined
     private static _thumbnail: string | undefined = undefined
-    private static _title: number | undefined = undefined
+    private static _title: string | undefined = undefined
 
     // Shuffler Variables
     private static _galleryCardWidth: ClassSelection | undefined
-    private static _gallerySelectionIndex: number = 0
-    private static _checkA: boolean = false
-    private static _checkB: boolean = false
-    private static _checkC: boolean = false
 
     // Containers
     public static statusData: ContentInterface[] = []
@@ -77,7 +75,7 @@ export class ContentBuilder {
         [ContentColumnID.DONE]: [],
         [ContentColumnID.CANCELED]: []
     }
-    private static _gallery: any[] = []
+    public static _gallery: any[] = []
     private static _isGalleryLocked: boolean = false
     public static galleryLocked: any[] = []
 
@@ -100,6 +98,7 @@ export class ContentBuilder {
         this._link = undefined
         this._isOnHold = undefined
         this._progressStatusReason = undefined
+        this._cancelReason = undefined
         this._timeStart = undefined
         this._thumbnail = undefined
         this._title = undefined
@@ -122,8 +121,9 @@ export class ContentBuilder {
                 this._link = obj.link
                 this._progressStatus = obj.progressStatus
                 this._progressStatusReason = obj.progressstatusreason
-                this._timeStart = obj.enddate
-                this._timeEnd = obj.timeEnd
+                this._cancelReason = obj.cancelreason
+                this._timeStart = obj.startdate
+                this._timeEnd = obj.enddate
                 this._thumbnail = obj.thumbnail
                 this._title = obj.title
                 
@@ -131,10 +131,9 @@ export class ContentBuilder {
             }
         }
 
-        await this.sortColumns()
         await this.lockGallery()
     }
-
+    
     private static async lockGallery() {
         if (!this._isGalleryLocked) {
             this.galleryLocked = this._gallery
@@ -142,86 +141,7 @@ export class ContentBuilder {
         }
     }
 
-    private static async GetShuffledSelector() {
-        let loop = true
-        let out = undefined
-
-        while (loop) {
-            const select = await this.getRandomSelection()
-
-            switch (select) {
-                case 1:
-                    const a = this.check(this._checkA, select)
-                    this.resetShuffler()
-                    out = a
-                    if (await a) { loop = false }
-                    break
-                case 2:
-                    const b = this.check(this._checkB, select)
-                    this.resetShuffler()
-                    out = b
-                    if (await b) { loop = false }
-                    break
-                case 3:
-                    const c = this.check(this._checkC, select)
-                    this.resetShuffler()
-                    out = c
-                    if (await c) { loop = false }
-                    break
-
-                default:
-                    break
-            }
-        }
-
-        return out
-    }
-
-    private static async getRandomSelection() {
-        return Math.floor(Math.random() * 3) + 1
-    }
-
-    private static async resetShuffler() {
-        if (this._checkA && this._checkB && this._checkC) {
-            this._checkA = false
-            this._checkB = false
-            this._checkC = false
-        }
-    }
-
-    private static async check(returnType: boolean, selector: number) {
-        if (!returnType) {
-            if (selector === 1) {
-                this._checkA = true
-                return ClassSelection.WidthA
-            }
-            if (selector === 2) {
-                this._checkB = true
-                return ClassSelection.WidthB
-            }
-            if (selector === 3) {
-                this._checkC = true
-                return ClassSelection.WidthC
-            }
-        }
-        return undefined
-    }
-
-    private static async sortColumns() {
-        this.statusData.forEach((data) => {
-            if (data.progressStatus) {
-                this.columns[data.progressStatus].push(data)
-            }
-        })
-    }
-
     private static async objectBuilder() {
-        if (this._archived) {
-            this._galleryCardWidth = await this.GetShuffledSelector()
-        } else {
-            this._galleryCardWidth = undefined
-        }
-
         const builder: ContentInterface[] = [
             {
                 entryKeyID: this._entryKeyID,
@@ -235,27 +155,13 @@ export class ContentBuilder {
                 isOnHold: this._isOnHold,
                 progressStatus: this._progressStatus,
                 progressStatusReason: this._progressStatusReason,
+                cancelReason: this._cancelReason,
                 timeEnd: this._timeEnd,
                 timeStart: this._timeStart,
                 thumbnail: this._thumbnail,
                 title: this._title,
             }
         ]
-        if (!this._archived) {
-            this.statusData.push(builder[0])
-        } else {
-            this._gallery.push(builder[0])
-        }
-    }
-}
-
-export class GalleryBuilder {
-    public static renderQueue: any[] = []
-    
-    public static main() {
-        // console.log(ContentBuilder.galleryLocked)
-        // maybe we dont need this lol
-        // it was meant to divide gallery content so it would not render all at once
-        // this will be left for future updates.
+        this._gallery.push(builder[0])
     }
 }

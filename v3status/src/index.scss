@@ -649,6 +649,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
+	font-family: 'Segoe UI';
 }
 
 // # [SCROLLBARS]
@@ -662,7 +663,7 @@ $_track: $background-color;
 
 	&::-webkit-scrollbar {
 		width: 15px;
-		width: 5px;
+		width: 0px;
 	}
 	&::-webkit-scrollbar-track {
 		background: $_track;
@@ -675,6 +676,22 @@ $_track: $background-color;
 	&::-webkit-scrollbar-corner {
 		background-color: $_thumb;
 	}
+}
+
+::placeholder {
+	color: $tone3;
+}
+::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	height: 1em;
+	width: 1em;
+	border-radius: 50em;
+	background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 100% 100%;
+	background-size: contain;
+	opacity: 0.5;
+	cursor: pointer;
+	
+	filter: invert(100%);
 }
 
 @media only screen and (max-width: 430px) {

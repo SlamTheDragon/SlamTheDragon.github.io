@@ -1,27 +1,21 @@
 @import "../../../index.scss";
 
-footer {
+.footerMobile {
     @include flex-center;
-    @include wight(100vw, 60%);
-
-    z-index: 9000;
-    position: relative;
-
+    height: max-content;
     text-align: center;
-
     flex-direction: column;
-    background-color: $background-color;
-    gap: 30px;
+    background-color: unset;
+    gap: 15px;
+
+    svg {
+        width: 80px;
+    }
 
     .footerHeader {
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        svg {
-            width: 140px;
-            fill: $tone3;
-        }
 
         .footerText {
             color: $tone3;

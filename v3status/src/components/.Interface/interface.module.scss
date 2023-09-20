@@ -1,11 +1,8 @@
 @import "../../index.scss";
 
 .interface {
-	$_thumb: $tone1;
-	$_track: $background-color;
-
 	@include wight(100vw, 100vh);
-
+	display: flex;
 	flex-direction: column;
 
 	background-position: center;
@@ -17,11 +14,323 @@
 
 	scroll-snap-type: unset;
 	scroll-snap-stop: unset;
+
+	.searchBarHeader {
+		@include transition-anim;
+
+		margin: 200px 0 20px 0;
+		width: 80%;
+		align-self: center;
+		text-align: center;
+	}
+
+	.searchBar {
+		@include card;
+		@include transition-anim;
+		@include flex-center;
+		@include wight(unset, 75px);
+		@include in-a-grid-6;
+
+		gap: 15px;
+		align-self: center;
+		padding: 0 10px;
+
+		background-color: $tone0;
+
+		.searchField {
+			@include transition-anim;
+			@include focus-style;
+			@include wight(100%, max-content);
+
+			font-family: "Poppins";
+			font-size: medium;
+			color: $color;
+			background-color: $background-accent;
+
+			padding: 10px;
+			border: unset;
+			border-radius: $global-border-radius;
+
+			&:hover {
+				filter: brightness(110%);
+			}
+
+			&:disabled {
+				background-color: $tone0;
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	.searchError {
+		@include in-a-grid-6;
+
+		margin: 5px 0 0 0;
+		display: flex;
+		align-self: center;
+	}
+
+	.searchNotFound {
+		@include transition-anim;
+		@include in-a-grid-6;
+
+		display: flex;
+		align-self: center;
+		justify-content: center;
+	}
+	.searchNotFoundBtn {
+		@include flex-center;
+
+		margin: 10px 0;
+		display: flex;
+		align-self: center;
+		// height: 50px;
+	}
+
+	.main {
+		@include transition-anim;
+		@include wight(100%, 100%);
+		@include ext-a-container;
+		display: flex;
+		flex-direction: row;
+
+		gap: 20px;
+
+		.thumbnailContainer {
+			@include flex-center;
+			@include wight(70%, 100%);
+
+			.thumbnail {
+				@include card;
+				@include wight(93%, 93%);
+
+				background-color: $background-accent;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+
+				outline: 1px solid $tone1;
+				border-radius: $global-border-radius + 5;
+			}
+		}
+
+		.information {
+			@include wight(30%, 100%);
+			@include flex-center;
+			align-items: flex-start;
+			flex-direction: column;
+
+			gap: 15px;
+
+			.noTitle {
+				color: $tone3;
+			}
+
+			.iHeader {
+				.titleHeaderFix {
+					display: flex;
+					flex-direction: row;
+				}
+
+				span {
+					@include flex-center;
+					justify-content: flex-start;
+					flex-direction: row;
+
+					.statusChipTODO,
+					.statusChipINPROG,
+					.statusChipDONE,
+					.statusChipHOLD,
+					.statusChipCANCELED {
+						@include card;
+						padding: 4px 8px;
+
+						font-family: 'Poppins';
+						font-weight: bolder;
+						font-size: 8pt;
+
+						border-radius: $global-border-radius - 4;
+					}
+
+					.statusChipHOLD {
+						background-color: #cd7816;
+					}
+					.statusChipTODO {
+						background-color: #451a94;
+					}
+					.statusChipINPROG {
+						background-color: #064b6b;
+					}
+					.statusChipDONE {
+						background-color: #681178;
+					}
+					.statusChipCANCELED {
+						background-color: #ec316c;
+					}
+				}
+
+				h1 {
+					font-family: 'Poppins';
+					font-weight: bold;
+				}
+			}
+
+			.iInfo {
+				display: flex;
+				flex-direction: column;
+				
+				gap: 5px;
+				
+				.iDescription {
+					display: flex;
+					flex-direction: column;
+					
+					
+					h2 {
+						margin-bottom: 5px;
+					}
+
+					span {
+						font-family: 'Poppins';	
+						line-height: 15pt;
+					}
+				}
+
+				.iFootNote {
+					font-size: small;
+				}
+			}
+
+			button {
+				@include flex-center;
+
+				gap: 5px;
+				svg {
+					@include wight(14px, 14px);
+				}
+			}
+		}
+	}
+
+	.navBtn,
+	.navContent {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 430px) {
 	.interface {
 		scroll-snap-type: y proximity;
 		scroll-snap-stop: normal;
+
+		.searchBarHeader {
+			text-align: unset;
+			margin-bottom: 20px;
+		}
+
+		.searchBar {
+			width: 100%;
+			max-width: 80%;
+			height: 5%;
+			background-color: unset;
+
+			.searchField {
+				padding: 0;
+				padding-left: 10px;
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.searchError {
+			width: 100%;
+			max-width: 80%;
+		}
+		.searchNotFound,
+		.searchNotFoundBtn {
+			max-width: 80%;
+		}
+
+		.main {
+			flex-direction: column;
+			overflow-y: scroll;
+			gap: 5px;
+
+			.thumbnailContainer {
+				margin-top: 50px;
+			}
+
+			.thumbnailContainer,
+			.information {
+				width: 100%;
+				
+				.thumbnail {
+					width: 100%;
+				}
+			}
+
+			.information {
+				height: max-content;
+			}
+
+			button {
+				align-self: flex-end;
+				margin-bottom: 50px;
+			}
+		}
+
+		.navBtn {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			position: absolute;
+			z-index: 10000;
+			margin-top: 10px;
+
+			pointer-events: none;
+
+			button {
+				pointer-events: all;
+				box-shadow: unset;
+				-webkit-box-shadow: unset;
+				-moz-box-shadow: unset;
+				background-color: unset;
+			}
+		}
+
+		.navContent {
+			@include transition-anim;
+			@include wight(100%, 100%);
+			@include flex-center;
+
+			flex-direction: column;
+			justify-content: space-evenly;
+			position: absolute;
+			z-index: 9900;
+
+			overflow: hidden;
+
+			outline: 2px solid $tone1;
+			background-color: #0f182c5b;
+
+			.navSelections {
+				@include wight(80%, max-content);
+				@include flex-center;
+				flex-direction: column;
+
+				gap: 10px;
+
+				button {
+					// @include wight(100%, 100%);
+					@include flex-center;
+					gap: 10px;
+					width: 100%;
+
+					svg {
+						width: 14px;
+					}
+				}
+			}
+		}
 	}
 }

@@ -1,6 +1,7 @@
 import { Logging } from "../logger";
 import { DataCache } from "./datacache";
 import { ContentBuilder } from "./contentbuilders";
+import { focusComponent } from "../focus-element/focusElement";
 
 
 export class GetSnapshot {
@@ -73,7 +74,7 @@ export class SnapshotNotify {
         )
     }
 
-    public static notifySnapshotEvent() {
+    public static async notifySnapshotEvent() {
         Logging.VERBOSE('Notifying UI components to update...')
         this.snapshotListeners.forEach((listener) => listener())
     }

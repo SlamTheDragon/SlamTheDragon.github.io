@@ -2,6 +2,7 @@ import { DataSnapshot, Unsubscribe, onValue, ref } from "firebase/database"
 import { db } from "./firebase"
 import { GetSnapshot } from "./getsnapshot"
 import { Logging } from "../logger"
+import { focusComponent } from "../focus-element/focusElement"
 
 
 export class DataCache {
@@ -16,7 +17,7 @@ export class DataCache {
         if (this.retry === 4) {
             Logging.ERROR(`Failed to verify data snapshot registration, please refresh your browser or report an issue directly to the developer.`)
             this.notifyChange()
-            return
+            return false
         }
 
         if (!this.hasInitiatedLiveUpdate) {
@@ -32,10 +33,22 @@ export class DataCache {
             await GetSnapshot.registerSnapshot()
             this.refreshSnapshot()
             Logging.VERBOSE(`Refreshed: Fetched data has been verified and registered`)
+            DataCache.focusElement('searchBar')
         } else {
             Logging.WARN(`Failed to verify data snapshot registration, retrying operation...`)
             this.verifyFetchStatus()
         }
+
+        return true
+    }
+
+    private static focusElement(id: string) {
+        setTimeout(() => {
+            const element = document.getElementById(id)
+            if (element) {
+                element?.focus()
+            }
+        }, 10)
     }
 
     private static async verifyFetchStatus() {
