@@ -3,7 +3,7 @@ import { ReactComponent as Menu } from '@material-design-icons/svg/outlined/menu
 import { ReactComponent as Search } from '@material-design-icons/svg/outlined/search.svg'
 import { ChangeEvent, useEffect, useState } from 'react';
 import { QueryDecoder } from '../../utils/url-query-decoders/queryDecoder';
-import { GetSnapshot, SnapshotNotify } from '../../utils/firebase/getsnapshot';
+import { SnapshotNotify } from '../../utils/firebase/getsnapshot';
 import { ContentBuilder, ContentColumnID, ContentInterface } from '../../utils/firebase/contentbuilders';
 import { checkDevice } from '../../utils/device-checker/checkDevice';
 import { focusComponent } from '../../utils/focus-element/focusElement';
@@ -257,7 +257,7 @@ export default function Interface() {
                         <Button tabIndex={(isNavOpen) ? 0 : -1} classItem={'primary'} onClick={() => { toggleNav() }}>
                             Commission Queue
                         </Button>
-                        <Button disabled={true}>
+                        <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.location.href = 'https://slamthedragon.me/' }}>
                             Terms of Service
                         </Button>
                         <Button disabled={true}>
