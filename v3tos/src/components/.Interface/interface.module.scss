@@ -2,219 +2,166 @@
 
 .interface {
 	@include wight(100vw, 100vh);
-	display: flex;
-	flex-direction: column;
+	display: block;
 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-
+	// background-position: center;
+	// background-repeat: no-repeat;
+	// background-size: cover;
+	// background-image: url("../../assets/images/WebV3CommissionPagePrototype.png");
+	background: linear-gradient(30deg, #0f182c 0%, #330628 84%, #4b052a 100%);
 	overflow-y: scroll;
 	overflow-x: hidden;
 
 	scroll-snap-type: unset;
 	scroll-snap-stop: unset;
 
-	.searchBarHeader {
-		@include transition-anim;
-
-		margin: 200px 0 20px 0;
-		width: 80%;
-		align-self: center;
-		text-align: center;
-	}
-
-	.searchBar {
-		@include card;
-		@include transition-anim;
-		@include flex-center;
-		@include wight(unset, 75px);
-		@include in-a-grid-6;
-
-		gap: 15px;
-		align-self: center;
-		padding: 0 10px;
-
-		background-color: $tone0;
-
-		.searchField {
-			@include transition-anim;
-			@include focus-style;
-			@include wight(100%, max-content);
-
-			font-family: "Poppins";
-			font-size: medium;
-			color: $color;
-			background-color: $background-accent;
-
-			padding: 10px;
-			border: unset;
-			border-radius: $global-border-radius;
-
-			&:hover {
-				filter: brightness(110%);
-			}
-
-			&:disabled {
-				background-color: $tone0;
-				cursor: not-allowed;
-			}
-		}
-	}
-
-	.searchError {
-		@include in-a-grid-6;
-
-		margin: 5px 0 0 0;
-		display: flex;
-		align-self: center;
-	}
-
-	.searchNotFound {
-		@include transition-anim;
-		@include in-a-grid-6;
-
-		display: flex;
-		align-self: center;
-		justify-content: center;
-	}
-	.searchNotFoundBtn {
-		@include flex-center;
-
-		margin: 10px 0;
-		display: flex;
-		align-self: center;
-		// height: 50px;
-	}
-
-	.main {
-		@include transition-anim;
-		@include wight(100%, 100%);
-		@include ext-a-container;
-		display: flex;
-		flex-direction: row;
-
-		gap: 20px;
-
-		.thumbnailContainer {
-			@include flex-center;
-			@include wight(70%, 100%);
-
-			.thumbnail {
-				@include card;
-				@include wight(93%, 93%);
-
-				background-color: $background-accent;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-
-				outline: 1px solid $tone1;
-				border-radius: $global-border-radius + 5;
-			}
-		}
-
-		.information {
-			@include wight(30%, 100%);
-			@include flex-center;
-			align-items: flex-start;
-			flex-direction: column;
-
-			gap: 15px;
-
-			.noTitle {
-				color: $tone3;
-			}
-
-			.iHeader {
-				.titleHeaderFix {
-					display: flex;
-					flex-direction: row;
-				}
-
-				span {
-					@include flex-center;
-					justify-content: flex-start;
-					flex-direction: row;
-
-					.statusChipTODO,
-					.statusChipINPROG,
-					.statusChipDONE,
-					.statusChipHOLD,
-					.statusChipCANCELED {
-						@include card;
-						padding: 4px 8px;
-
-						font-family: 'Poppins';
-						font-weight: bolder;
-						font-size: 8pt;
-
-						border-radius: $global-border-radius - 4;
-					}
-
-					.statusChipHOLD {
-						background-color: #cd7816;
-					}
-					.statusChipTODO {
-						background-color: #451a94;
-					}
-					.statusChipINPROG {
-						background-color: #064b6b;
-					}
-					.statusChipDONE {
-						background-color: #681178;
-					}
-					.statusChipCANCELED {
-						background-color: #ec316c;
-					}
-				}
-
-				h1 {
-					font-family: 'Poppins';
-					font-weight: bold;
-				}
-			}
-
-			.iInfo {
-				display: flex;
-				flex-direction: column;
-				
-				gap: 5px;
-				
-				.iDescription {
-					display: flex;
-					flex-direction: column;
-					
-					
-					h2 {
-						margin-bottom: 5px;
-					}
-
-					span {
-						font-family: 'Poppins';	
-						line-height: 15pt;
-					}
-				}
-
-				.iFootNote {
-					font-size: small;
-				}
-			}
-
-			button {
-				@include flex-center;
-
-				gap: 5px;
-				svg {
-					@include wight(14px, 14px);
-				}
-			}
-		}
-	}
-
 	.navBtn,
 	.navContent {
 		display: none;
+	}
+	.navContent {
+		backdrop-filter: blur(40px);
+	}
+
+	.splash {
+		@include wight(100vw, 100vh);
+	}
+
+	.container {
+		@include ext-a-container;
+
+		margin: 100px auto;
+		display: flex;
+		align-items: flex-start;
+
+		gap: 15px;
+
+		.spacer {
+			@include in-a-grid-1;
+		}
+
+		.content {
+			@include in-a-grid-7;
+
+			padding: 0 30px;
+			padding-bottom: 20px;
+			border-radius: $global-border-radius;
+			user-select: text;
+			background-color: #33394619;
+			backdrop-filter: blur(200px);
+
+			p {
+				text-wrap: wrap;
+			}
+
+			h1,
+			h3 {
+				@include focus-style;
+				@include flex-center;
+				@include transition-anim;
+
+				width: max-content;
+				cursor: pointer;
+
+				svg {
+					@include transition-anim;
+					opacity: 0;
+				}
+
+				&:hover {
+					// color: $primary;
+
+					svg {
+						opacity: 1;
+						// fill: $primary;
+					}
+				}
+
+				&:focus {
+					svg {
+						opacity: 1;
+						fill: $primary;
+					}
+				}
+			}
+
+			h1 {
+				margin-top: 40px;
+
+				svg {
+					transform: translateY(3px);
+					width: 24pt;
+				}
+
+				&:active {
+					filter: brightness(110%);
+
+					svg {
+						transform: translateY(3px) translateX(-3px);
+					}
+				}
+			}
+
+			h3 {
+				svg {
+					transform: translateY(2px);
+					width: 12pt;
+				}
+
+				&:active {
+					filter: brightness(110%);
+
+					svg {
+						transform: translateY(2px) translateX(-2px);
+					}
+				}
+			}
+		}
+
+		.sidebar {
+			@include in-a-grid-2;
+			position: relative;
+			height: max-content;
+
+			h2 {
+				margin-top: 20px;
+				margin-bottom: 5px;
+			}
+
+			svg {
+				// fill: $tone3;
+				width: 80px;
+
+				transform: translate(-17px, 0);
+			}
+
+			.selected {
+				h1,
+				h2,
+				h3,
+				h4 {
+					color: $primary;
+				}
+			}
+
+			.sidebarTitle {
+				@include wight(max-content, max-content);
+				@include focus-style;
+				display: block;
+			}
+
+			.subList {
+				margin-left: 20px;
+
+				h4 {
+					font-weight: 500;
+				}
+			}
+
+			a {
+				font-weight: 500;
+			}
+		}
 	}
 }
 
@@ -222,61 +169,6 @@
 	.interface {
 		scroll-snap-type: y proximity;
 		scroll-snap-stop: normal;
-
-		.searchBarHeader {
-			text-align: unset;
-			margin-bottom: 20px;
-		}
-
-		.searchBar {
-			width: 100%;
-			max-width: 80%;
-			height: 5%;
-			background-color: unset;
-
-			.searchField {
-				padding: 0;
-				padding-left: 10px;
-				width: 100%;
-				height: 100%;
-			}
-		}
-		.searchError {
-			width: 100%;
-			max-width: 80%;
-		}
-		.searchNotFound,
-		.searchNotFoundBtn {
-			max-width: 80%;
-		}
-
-		.main {
-			flex-direction: column;
-			overflow-y: scroll;
-			gap: 5px;
-
-			.thumbnailContainer {
-				margin-top: 50px;
-			}
-
-			.thumbnailContainer,
-			.information {
-				width: 100%;
-				
-				.thumbnail {
-					width: 100%;
-				}
-			}
-
-			.information {
-				height: max-content;
-			}
-
-			button {
-				align-self: flex-end;
-				margin-bottom: 50px;
-			}
-		}
 
 		.navBtn {
 			width: 100%;
@@ -330,6 +222,22 @@
 						width: 14px;
 					}
 				}
+			}
+		}
+
+		.container {
+			flex-direction: column-reverse;
+
+			.content,
+			.sidebar {
+				max-width: 100%;
+				width: 100%;
+			}
+
+			.content {
+				backdrop-filter: unset;
+				background-color: unset;
+				padding: 0;
 			}
 		}
 	}

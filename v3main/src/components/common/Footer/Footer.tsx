@@ -21,7 +21,10 @@ export default function Footer() {
                         <a href="https://github.com/SlamTheDragon/SlamTheDragon.github.io" target="_blank" rel="noreferrer">Coded With Love <span style={{ fontSize: '7pt' }}>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;</span> Powered By Github Pages</a>
                     </span>
                     <span>
-                        <a href="https://slamthedragon.me/service-and-agreement">Terms of Service & Commissioner Agreement</a>
+                        <a href="https://slamthedragon.me/terms">Terms of Service & Commissioner Agreement</a>
+                    </span>
+                    <span>
+                        <a href="https://slamthedragon.me/attributions">Attributions and Open Source Licenses</a>
                     </span>
                     <span>
                         © 2023 Written By SlamTheDragon
@@ -40,9 +43,6 @@ export default function Footer() {
                 <div>
                     <a className={style.kofi} href="https://ko-fi.com/slamthedragon" target="_blank" rel="noreferrer"><Kofi /></a>
                 </div>
-                {/* <div>
-                    <a href="https://www.threads.net/@slamthedragon" target="_blank" rel="noreferrer"><Threads /></a>
-                </div> */}
                 <div>
                     <a className={style.instagram} href="https://www.instagram.com/slamthedragon/" target="_blank" rel="noreferrer"><Instagram /></a>
                 </div>

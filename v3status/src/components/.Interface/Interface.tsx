@@ -257,7 +257,7 @@ export default function Interface() {
                         <Button tabIndex={(isNavOpen) ? 0 : -1} classItem={'primary'} onClick={() => { toggleNav() }}>
                             Commission Queue
                         </Button>
-                        <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.location.href = 'https://slamthedragon.me/' }}>
+                        <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.location.href = 'https://slamthedragon.me/terms' }}>
                             Terms of Service
                         </Button>
                         <Button disabled={true}>

@@ -2,7 +2,7 @@
 
 footer {
     @include flex-center;
-    @include wight(100vw, 60%);
+    @include wight(100vw, 100vh);
 
     z-index: 9000;
     position: relative;

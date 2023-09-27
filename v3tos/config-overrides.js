@@ -1,13 +1,13 @@
 module.exports = function override(config, env) {
     // Change the output filename and path
-    config.output.filename = "static/js/status.js";
-    config.output.chunkFilename = "static/js/statuschunk.js";
+    config.output.filename = "static/js/terms.js";
+    config.output.chunkFilename = "static/js/termschunk.js";
     config.output.path = config.output.path.replace("build", "build");
 
     // Change the CSS filename and path
     config.plugins.forEach((plugin) => {
         if (plugin.constructor.name === "MiniCssExtractPlugin") {
-            plugin.options.filename = "static/css/status.css";
+            plugin.options.filename = "static/css/terms.css";
         }
     });
 

@@ -1,0 +1,44 @@
+echo refreshing directory
+
+rm -rf static 
+rm -rf asset-manifest.json 
+rm -rf favicon.ico 
+rm -rf favicon-light.ico 
+rm -rf index.html 
+rm -rf logo192.png 
+rm -rf logo192-light.png 
+rm -rf logo512.png 
+rm -rf logo512-light.png 
+rm -rf Placeholder.png 
+rm -rf robots.txt 
+rm -rf splash.png 
+rm -rf status.html 
+rm -rf status.png
+rm -rf terms.html 
+rm -rf terms.png
+
+echo starting building process \(1\/3\)
+
+cd v3main 
+pnpm build 
+cd ..
+
+echo starting building process \(2\/3\)
+
+cd v3status 
+pnpm build 
+cd build
+rm -rf asset-manifest.json
+mv index.html status.html
+cd ../..
+
+echo starting building process \(3\/3\)
+
+cd v3tos 
+pnpm build
+cd build
+rm -rf asset-manifest.json
+mv index.html terms.html
+cd ../..
+
+echo done!

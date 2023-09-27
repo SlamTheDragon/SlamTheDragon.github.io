@@ -78,10 +78,10 @@ export default function Others() {
             <div>
                 <div className={style.innerContainer}>
                     <h2>
-                        ToS & Agreement
+                        Terms of Service
                     </h2>
                     <span>
-                        Please read my <a href="https://slamthedragon.me/commissions-old/service-and-agreement">Terms of Service & Commissioner's Agreement</a> before we make an arrangement together.
+                        Please read my <a href="https://slamthedragon.me/terms">Terms of Service & Commissioner's Agreement</a> before we make an arrangement together.
                     </span>
                 </div>
             </div>

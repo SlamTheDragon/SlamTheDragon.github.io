@@ -90,7 +90,7 @@ export default function Interface() {
                         <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.open('https://slamthedragon.me/status') }}>
                             Commission Queue <Open />
                         </Button>
-                        <Button disabled={true}>
+                        <Button tabIndex={(isNavOpen) ? 0 : -1} onClick={() => { window.open('https://slamthedragon.me/terms') }}>
                             Terms of Service
                         </Button>
                         <Button disabled={true}>

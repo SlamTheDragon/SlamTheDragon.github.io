@@ -4,6 +4,7 @@ import modalHeaderReducer from "../components/slice/modal-slices/modalHeaderSlic
 import modalInterfaceID from "../components/slice/modal-slices/modalInterfaceSlice"
 import themeID from "../components/slice/theme-slices/themeSlice"
 import themeBool from "../components/slice/theme-slices/themeBoolSlice"
+import scrollStyleEffect from "../components/slice/parallaxScrollerSlice"
 
 
 export default configureStore({
@@ -13,5 +14,6 @@ export default configureStore({
         modalInterface: modalInterfaceID,
         theme: themeID,
         themeBool,
+        setScrollLayer: scrollStyleEffect,
     }
 })

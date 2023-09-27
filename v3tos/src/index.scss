@@ -262,7 +262,7 @@ $a-i-grid-3: 24.3%;
 $a-i-grid-4: 32.8%;
 $a-i-grid-5: 41%;
 $a-i-grid-6: 49.5%;
-$a-i-grid-7: 10%;
+$a-i-grid-7: 64.5%;
 $a-i-grid-8: 10%;
 $a-i-grid-9: 10%;
 $a-i-grid-10: 10%;
@@ -607,7 +607,8 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	color: $color;
 	background-color: $background-color;
-	overflow: hidden;
+	// background: linear-gradient(30deg, #0f182c 0%, #330628 82%, #4b052a 100%);
+	// overflow: hidden;
 }
 
 a {
@@ -661,21 +662,21 @@ $_track: $background-color;
 * {
 	scroll-behavior: smooth;
 
-	&::-webkit-scrollbar {
-		width: 15px;
-		width: 0px;
-	}
-	&::-webkit-scrollbar-track {
-		background: $_track;
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: $_thumb;
-		border-radius: 10px;
-		border: 3px solid $_track;
-	}
-	&::-webkit-scrollbar-corner {
-		background-color: $_thumb;
-	}
+	// &::-webkit-scrollbar {
+	// 	width: 15px;
+	// 	width: 0px;
+	// }
+	// &::-webkit-scrollbar-track {
+	// 	background: $_track;
+	// }
+	// &::-webkit-scrollbar-thumb {
+	// 	background-color: $_thumb;
+	// 	border-radius: 10px;
+	// 	border: 3px solid $_track;
+	// }
+	// &::-webkit-scrollbar-corner {
+	// 	background-color: $_thumb;
+	// }
 }
 
 ::placeholder {

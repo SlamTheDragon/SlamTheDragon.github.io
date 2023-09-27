@@ -11,14 +11,13 @@ import { ModalOperation } from "./utils/component-utils/modalOperation"
 import { DataCache } from "./utils/firebase/datacache"
 import { checkDevice } from "./utils/device-checker/checkDevice"
 import { Logging } from "./utils/logger"
+import { QueryDecoder } from "./utils/url-query-decoders/queryDecoder"
 import Interface from "./components/.Interface"
 import Modal from "./components/common/Modal"
 import DefaultModal from "./components/widgets/modal-contents/DefaulModal"
 import Sample1 from "./components/widgets/modal-contents/SsampleContentA"
 import Sample2 from "./components/widgets/modal-contents/SsampleContentB"
 import Sample3 from "./components/widgets/modal-contents/SsampleContentC"
-import React from "react"
-import { QueryDecoder } from "./utils/url-query-decoders/queryDecoder"
 
 
 function App() {
