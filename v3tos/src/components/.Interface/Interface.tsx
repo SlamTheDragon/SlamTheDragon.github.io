@@ -164,7 +164,7 @@ export default function Interface() {
                 <article className={style.content}>
                     <div ref={visibleA} id='getOverview'></div>
                     <div style={{ marginTop: 30, color: '#7684a2'}}><i>last updated: 2023/09/27</i></div>
-                    <h1 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#overview')} id='overview'>Overview <Tag /></h1>
+                    <h1 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#overview')} id='overview'>Overview <Tag /></h1>
                     <p>
                         Hi! I’m Slam, a college student, and a part-time freelance artist. I can make vibrant digital illustrations ranging from portraits to landscapes or any possible kind of art that I can do for you. I have three years of experience in digital art and roughly five and a half years of experience doing any medium of art in general for fun. You may visit some of my social media accounts if you are curious about my accomplishments so far.
                     </p>
@@ -176,16 +176,16 @@ export default function Interface() {
                     </p>
 
                     <div ref={visibleB} id='getTerms'></div>
-                    <h1 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#terms')} id='terms'>Terms <Tag /></h1>
+                    <h1 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#terms')} id='terms'>Terms <Tag /></h1>
 
                     <div ref={visibleC} id='getContent'></div>
-                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#content')} id='content'>Content & Limitations <Tag /></h3>
+                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#content')} id='content'>Content & Limitations <Tag /></h3>
                     <p>
                         I do not accept any commissions that depict anything sexual(nudity, fetishes, etc.), hate/violence, content depicting absurd horrors/gore/deaths, and extremely suggestive characters. I am mostly but not limited to drawing furred or anthropomorphic characters. I limit my content that is suitable for ages 16 and above.
                     </p>
 
                     <div ref={visibleD} id='getArrangement'></div>
-                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#arrangement')} id='arrangement'>Arrangement <Tag /></h3>
+                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#arrangement')} id='arrangement'>Arrangement <Tag /></h3>
                     <p>
                         I will accept your commission if you agree to the payment conditions I have stated as follows:
                     </p>
@@ -197,7 +197,7 @@ export default function Interface() {
                     </p>
 
                     <div ref={visibleE} id='getConditions'></div>
-                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#conditions')} id='conditions'>Conditions <Tag /></h3>
+                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#conditions')} id='conditions'>Conditions <Tag /></h3>
                     <ul>
                         <li> I will not accept any commissions if you are found to be under 18, not unless I have obtained proper consent from your parents/guardians regarding the matter.</li>
                         <li> I will not entertain users if found to be below the age of 16.</li>
@@ -208,7 +208,7 @@ export default function Interface() {
                     </ul>
 
                     <div ref={visibleF} id='getRights'></div>
-                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms/#rights')} id='rights'>Rights <Tag /></h3>
+                    <h3 tabIndex={0} onClick={() => navigator.clipboard.writeText('https://slamthedragon.me/terms#rights')} id='rights'>Rights <Tag /></h3>
                     <ul>
                         <li> Slam reserves the right to own all commissioned artworks he created for his customers. The commissioner also reserves the right to own the artwork they have commissioned from Slam.</li>
                         <li> All individuals are not allowed to reproduce or manufacture Slam’s digital works to be sold physically or as a digital copy online without my direct consent.</li>
