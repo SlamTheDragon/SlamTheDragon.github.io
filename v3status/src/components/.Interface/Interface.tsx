@@ -18,11 +18,11 @@ function RenderData(props: ContentInterface) {
     const [timeEnd, setTimeEnd] = useState('')
 
     useEffect(() => {
-        if (props.timeStart && props.timeEnd) {
-            const a = new Date(props.timeStart)
-            const b = new Date(props.timeEnd)
-            setTimeStart(a.toLocaleDateString())
-            setTimeEnd(b.toLocaleDateString())
+        if (props.timeStart) {
+            setTimeStart(new Date(props.timeStart).toLocaleDateString())
+        }
+        if (props.timeEnd) {
+            setTimeEnd(new Date(props.timeEnd).toLocaleDateString())
         }
     }, [])
 
@@ -113,7 +113,7 @@ export default function Interface() {
             setQuery(QueryDecoder.Check())
 
             const newList = getList.concat(ContentBuilder.galleryLocked[QueryDecoder.Get()])
-
+            // console.log(ContentBuilder.galleryLocked[QueryDecoder.Get()]);
             if (!isReady) {
                 setList(newList)
             }
