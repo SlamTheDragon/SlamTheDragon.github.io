@@ -85,7 +85,7 @@ function RenderData(props: ContentInterface) {
                 </div>
 
                 {(props.archived) ?
-                    <Button classItem='primary' onClick={() => { window.open(props.socialMediaLink) }}>
+                    <Button classItem='primary' onClick={() => { window.location.href = `${props.socialMediaLink}` }}>
                         Go to post <Open />
                     </Button> :
                     <></>}

@@ -1,0 +1,23 @@
+echo Installing Dependencies with pnpm.
+
+echo install step \(1\/4\)
+cd v3comms
+pnpm i
+cd ..
+
+echo install step \(2\/4\)
+cd v3comms
+pnpm i
+cd ..
+
+echo install step \(3\/4\)
+cd v3status
+pnpm i
+cd ..
+
+echo install step \(4\/4\)
+cd v3status
+pnpm i
+cd ..
+
+echo Done!

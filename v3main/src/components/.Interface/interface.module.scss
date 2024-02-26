@@ -1,84 +1,82 @@
 @import "../../index.scss";
 
-.interface {
-	.innerInterface {
-		@include transition-anim;
-		@include wight(100vw, 100vh);
+.container {
+	@include wight(100%, 100%);
+	@include flex-center;
+	flex-direction: column;
+	background: radial-gradient(ellipse at top, #6895ff17 0%, #004cff12 20%, #004cff00 50%);
+
+	font-weight: bolder;
+	text-shadow: 0 0 30px #004cff46;
+
+	svg {
+		filter: drop-shadow(0 0 0.75rem #004cff54);
+		
+		position: relative;
+		width: 120px;
+		animation: fadeIn 1s cubic-bezier(.31,.23,.26,1.01) forwards;
+		opacity: 0;
+	}
+
+	.content {
+		@include flex-center;
+		position: relative;
+
+		h2 {
+			@include flex-center;
+			flex-direction: row;
+			gap: 10px;
+		}
+
+		animation: fadeIn 1s 0.15s cubic-bezier(.31,.23,.26,1.01) forwards;
+		opacity: 0;
+	}
+
+	.innerCard {
+		@include flex-center;
+		@include card;
+
+		position: relative;
+		background-color: unset;
+		border: 1px solid $background-accent;
 
 		flex-direction: column;
+		gap: 20px;
+		padding: 40px 80px;
 
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
+		box-shadow: 0 0 50px #004cff1a;
 
-		overflow-y: scroll;
-		overflow-x: hidden;
-
-		scroll-snap-type: unset;
-		scroll-snap-stop: unset;
+		animation: fadeIn 1s 0.25s cubic-bezier(.31,.23,.26,1.01) forwards;
+		opacity: 0;
 	}
-	.navBtn,
-	.navContent {
-		display: none;
+}
+
+@keyframes fadeIn {
+	from {
+		bottom: -30px;
+		opacity: 0;
+	}
+	
+	to {
+		bottom: 0;
+		opacity: 1;
 	}
 }
 
 @media only screen and (max-width: 430px) {
-	.interface {
-		.innerInterface {
-			scroll-snap-type: y proximity;
-			scroll-snap-stop: normal;
-		}
-		.navBtn {
-			width: 100%;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-end;
-			position: absolute;
-			z-index: 10000;
-			margin-top: 10px;
+	.container {
 
-			button {
-				box-shadow: unset;
-				-webkit-box-shadow: unset;
-				-moz-box-shadow: unset;
-				background-color: unset;
-			}
+		h1 {
+			font-size: 2.3rem;
+		}
+		
+		h2 {
+			font-size: 1.3rem;
 		}
 
-		.navContent {
-			@include transition-anim;
-			@include wight(100%, 100%);
-			@include flex-center;
-
-			flex-direction: column;
-			justify-content: space-evenly;
-			position: absolute;
-			z-index: 9900;
-
-			overflow: hidden;
-
-			outline: 2px solid $tone1;
-			background-color: #0f182c5b;
-
-			.navSelections {
-				@include wight(80%, max-content);
-				@include flex-center;
-				flex-direction: column;
-
-				gap: 10px;
-
-				button {
-					// @include wight(100%, 100%);
-					@include flex-center;
-					gap: 10px;
-					width: 100%;
-
-					svg {
-						width: 14px;
-					}
-				}
-			}
+		.innerCard {
+			margin-top: 50px;
+			padding: 40px 20px;
 		}
 	}
 }

@@ -1,0 +1,84 @@
+@import "../../index.scss";
+
+.interface {
+	.innerInterface {
+		@include transition-anim;
+		@include wight(100vw, 100vh);
+
+		flex-direction: column;
+
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		overflow-y: scroll;
+		overflow-x: hidden;
+
+		scroll-snap-type: unset;
+		scroll-snap-stop: unset;
+	}
+	.navBtn,
+	.navContent {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 430px) {
+	.interface {
+		.innerInterface {
+			scroll-snap-type: y proximity;
+			scroll-snap-stop: normal;
+		}
+		.navBtn {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			position: absolute;
+			z-index: 10000;
+			margin-top: 10px;
+
+			button {
+				box-shadow: unset;
+				-webkit-box-shadow: unset;
+				-moz-box-shadow: unset;
+				background-color: unset;
+			}
+		}
+
+		.navContent {
+			@include transition-anim;
+			@include wight(100%, 100%);
+			@include flex-center;
+
+			flex-direction: column;
+			justify-content: space-evenly;
+			position: absolute;
+			z-index: 9900;
+
+			overflow: hidden;
+
+			outline: 2px solid $tone1;
+			background-color: #0f182c5b;
+
+			.navSelections {
+				@include wight(80%, max-content);
+				@include flex-center;
+				flex-direction: column;
+
+				gap: 10px;
+
+				button {
+					// @include wight(100%, 100%);
+					@include flex-center;
+					gap: 10px;
+					width: 100%;
+
+					svg {
+						width: 14px;
+					}
+				}
+			}
+		}
+	}
+}

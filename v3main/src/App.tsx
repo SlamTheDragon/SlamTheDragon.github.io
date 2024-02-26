@@ -8,7 +8,6 @@ import { readHeader } from "./components/slice/modal-slices/modalHeaderSlice"
 import { readModalInterface } from "./components/slice/modal-slices/modalInterfaceSlice"
 import { focusComponent } from "./utils/focus-element/focusElement"
 import { ModalOperation } from "./utils/component-utils/modalOperation"
-import { DataCache } from "./utils/firebase/datacache"
 import { checkDevice } from "./utils/device-checker/checkDevice"
 import { Logging } from "./utils/logger"
 import Interface from "./components/.Interface"
@@ -44,8 +43,6 @@ function App() {
 	// Cache Firebase Data after all assets have been loaded then do other things
 	useEffect(() => { 
 		if (!isLoading) {
-			DataCache.fetch()
-
 			// focus view
 			focusComponent('view')
 			// get hash
@@ -120,16 +117,8 @@ function App() {
 		// Preload videos
 		// videos.forEach(preloadVideo)
 
-
-		const change = () => {
-			modalDispatch("Something went wrong", 2)
-		};
-
-		DataCache.addChangeListener(change)
-
 		return () => {
 			window.removeEventListener('hashchange', handleHashChange)
-			DataCache.removeChangeListener(change)
 		};
 	}, [])
 
