@@ -6,7 +6,7 @@ interface ButtonInterface {
     disabled?: boolean
     tabIndex?: number
     onClick?: () => any
-
+    style?: object
     titleTooltip?: string
 }
 
@@ -34,13 +34,14 @@ interface ButtonInterface {
  * // Disabled button with custom tabIndex
  * <Button disabled tabIndex={1}>Disabled Button</Button>
  */
-export default function Button(props: ButtonInterface) {
+export default function Button(props: Readonly<ButtonInterface>) {
     return (
         <button disabled={props.disabled}
             tabIndex={props.tabIndex}
             className={style.btn + " " + props.classItem}
             onClick={props.onClick}
             title={props.titleTooltip}
+            style={props.style}
         >
             {props.children}
         </button>

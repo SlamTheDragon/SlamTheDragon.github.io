@@ -1,3 +1,0 @@
-# Assets
-
-Assets goes here

@@ -606,14 +606,8 @@ body {
 
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	color: $color;
-	background: rgb(0,0,0);
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,5,24,1) 47%, rgba(19,34,116,1) 47.2%, rgba(0,14,29,1) 47.5%, rgba(0,0,0,1) 100%);
+	background-color: $background-color;
 	overflow: hidden;
-}
-
-#root {
-	@include wight(100%, 100%);
-	@include flex-center;
 }
 
 a {
@@ -645,11 +639,7 @@ svg {
 }
 
 h1 {
-	font-size: 132px;
-}
-
-h2 {
-	font-size: 62px;
+	font-size: xx-large;
 }
 
 h1,

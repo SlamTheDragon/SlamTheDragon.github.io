@@ -18,6 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
+    "react-router-dom": "^6.24.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "sass": "^1.62.1",
@@ -52,5 +53,6 @@
   },
   "devDependencies": {
     "react-app-rewired": "^2.2.1"
-  }
+  },
+  "packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
 }

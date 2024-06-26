@@ -27,7 +27,7 @@ export default function Footer() {
                         <a href="https://slamthedragon.me/attributions">Attributions and Open Source Licenses</a>
                     </span>
                     <span>
-                        © 2023 Written By SlamTheDragon
+                        © 2024 Written By SlamTheDragon
                     </span>
                 </div>
 

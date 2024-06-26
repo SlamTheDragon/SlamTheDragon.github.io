@@ -1,30 +1,28 @@
-import { useState, useEffect } from "react"
-import { imageFiles } from "./utils/asset-managers/imagesFiles"
-import { soundEffectFiles } from "./utils/asset-managers/sfxFiles"
-import { videoFiles } from "./utils/asset-managers/videoFiles"
 import { useDispatch, useSelector } from "react-redux"
 import { closeModal, modalState } from "./components/slice/modal-slices/modalSlice"
 import { readHeader } from "./components/slice/modal-slices/modalHeaderSlice"
 import { readModalInterface } from "./components/slice/modal-slices/modalInterfaceSlice"
-import { focusComponent } from "./utils/focus-element/focusElement"
 import { ModalOperation } from "./utils/component-utils/modalOperation"
 import { checkDevice } from "./utils/device-checker/checkDevice"
 import { Logging } from "./utils/logger"
-import Interface from "./components/.Interface"
+import Home from "./components/Pages/Home"
 import Modal from "./components/common/Modal"
 import DefaultModal from "./components/widgets/modal-contents/DefaulModal"
 import Sample1 from "./components/widgets/modal-contents/SsampleContentA"
 import Sample2 from "./components/widgets/modal-contents/SsampleContentB"
 import Sample3 from "./components/widgets/modal-contents/SsampleContentC"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Terms from "./components/Pages/Terms"
+import Status from "./components/Pages/Status"
+import FourOhFour from "./components/Pages/404"
+import Commissions from "./components/Pages/Commissions"
+import { DataCache } from "./utils/firebase/datacache"
+import { useEffect, useState } from "react"
+import { focusComponent } from "./utils/focus-element/focusElement"
+import { QueryDecoder } from "./utils/url-query-decoders/queryDecoder"
 
 
 function App() {
-	// You can setup this asset preloaders if needed. Removed if you want all assets to lazy-load
-	// Perhaps... Refactor?
-	const [isLoading, setIsLoading] = useState(true) // use isLoading if you want to hide the interface at start
-	const [totalLoaded, setLoadedAssets] = useState(0)
-	// const [isOffline, setIsOffline] = useState<boolean>(GetSnapshot.isOffline)
-
 	// # Redux get
 	// ...
 	const isModalOpen = useSelector(modalState)
@@ -35,14 +33,14 @@ function App() {
 	const dispatch = useDispatch()
 	const modalDispatch = ModalOperation()
 
-	// totally messy and redundant code here ngl
-	// function forceInitialCacheLock() {
-	// 	dispatch(flipCache())
-	// }
+	const [isLoading, setIsLoading] = useState(true) // use isLoading if you want to hide the interface at start
 
 	// Cache Firebase Data after all assets have been loaded then do other things
-	useEffect(() => { 
+	useEffect(() => {
 		if (!isLoading) {
+			DataCache.fetch()
+			QueryDecoder.Set()
+
 			// focus view
 			focusComponent('view')
 			// get hash
@@ -51,74 +49,25 @@ function App() {
 			// hash jump guard
 			if (hash === '') {
 				Logging.VERBOSE(`no hash detected: stopping jump: hash decode "${hash}"`)
-
-				// if (!isLoading) {
-				// }
 				return cleanUp()
-				// Logging.ERROR(`Assets still loading: ${isLoading}`)
 			}
 			window.location.href = hash
 		}
 	}, [isLoading])
 
 	useEffect(() => {
-		/**
-		 * 	FIXME: useEffect resumes and triggers two calls for when the component
-		 *  is mounted and unmounted.It is better to move this into a utility file
-		 *  to ensure these operations will be triggered once.
-		*/
-
 		window.addEventListener('hashchange', handleHashChange)
 
-		/***************[ ASSET PRELOADERS ]**************/
-
-		const images = Object.values(imageFiles)
-		const sounds = Object.values(soundEffectFiles)
-		const videos = Object.values(videoFiles)
-
-		const totalAssets = images.length + sounds.length + videos.length
-		let loadedAssets = 0
-
-		const assetLoaded = () => {
-			loadedAssets++
-			setLoadedAssets(loadedAssets)
-
-			if (loadedAssets === totalAssets) {
-				setIsLoading(false) // All assets are loaded
-			}
-		}
-
-		const preloadImage = (url: string) => {
-			const img = new Image()
-			img.onload = assetLoaded
-			img.src = url
-		}
-
-		const preloadSound = (url: string) => {
-			const audio = new Audio()
-			audio.oncanplaythrough = assetLoaded
-			audio.src = url
-		}
-
-		const preloadVideo = (url: string) => {
-			const video = document.createElement('video')
-			video.oncanplaythrough = assetLoaded
-			video.src = url
-		}
-
-		// uncomment only if needed
-
-		// Preload images
-		images.forEach(preloadImage)
-
-		// Preload sounds
-		// sounds.forEach(preloadSound)
-
-		// Preload videos
-		// videos.forEach(preloadVideo)
+		const change = () => {
+			modalDispatch("Something went wrong", 2)
+		};
+		setIsLoading(false);
+		
+		DataCache.addChangeListener(change)
 
 		return () => {
 			window.removeEventListener('hashchange', handleHashChange)
+			DataCache.removeChangeListener(change)
 		};
 	}, [])
 
@@ -183,7 +132,16 @@ function App() {
 				<Sample2 key={2} />
 				<Sample3 key={3} />
 			</Modal>
-			<Interface />
+
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/terms" element={<Terms />} />
+					<Route path="/status" element={<Status />} />
+					<Route path="/commissions" element={<Commissions />} />
+					<Route path="*" element={<FourOhFour />} />
+				</Routes>
+			</BrowserRouter>
 		</>
 	)
 }

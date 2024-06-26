@@ -2,19 +2,24 @@
 echo refreshing directory
 
 # List all files that needs to be deleted here in the root directory
+rm -rf 404.html
 rm -rf static
 rm -rf asset-manifest.json 
-rm -rf favicon.ico 
+rm -rf attributions.html
+rm -rf attributions.png
+rm -rf commissions.html 
+rm -rf commissions.png 
 rm -rf favicon-light.ico 
-rm -rf index.html 
-rm -rf logo192.png 
+rm -rf favicon.ico 
+rm -rf index.html
+rm -rf kudzo.jpg
 rm -rf logo192-light.png 
-rm -rf logo512.png 
+rm -rf logo192.png
 rm -rf logo512-light.png 
+rm -rf logo512.png 
 rm -rf Placeholder.png 
 rm -rf robots.txt 
 rm -rf splash.png 
-rm -rf commissions.png 
 rm -rf status.html 
 rm -rf status.png
 rm -rf terms.html 
@@ -25,39 +30,6 @@ echo starting building process :: PAGE V3MAIN \(1\/3\)
 
 cd v3main 
 pnpm build
-cp -rf build/* ../
-cd ..
-
-echo starting building process :: PAGE V3COMMS \(2\/3\)
-
-cd v3comms 
-pnpm build
-cd build
-rm -rf asset-manifest.json
-mv index.html commissions.html
-cd ..
-cp -rf build/* ../
-cd ..
-
-echo starting building process :: PAGE V3STATUS \(3\/4\)
-
-cd v3status 
-pnpm build 
-cd build
-rm -rf asset-manifest.json
-mv index.html status.html
-cd ..
-cp -rf build/* ../
-cd ..
-
-echo starting building process :: PAGE V3TOS \(4\/4\)
-
-cd v3tos 
-pnpm build
-cd build
-rm -rf asset-manifest.json
-mv index.html terms.html
-cd ..
 cp -rf build/* ../
 cd ..
 
