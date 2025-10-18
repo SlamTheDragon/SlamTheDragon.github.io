@@ -24,14 +24,14 @@ rm -rf terms.png
 echo starting building process :: PAGE V3MAIN \(1\/3\)
 
 cd v3main 
-pnpm build
+npm run build
 cp -rf build/* ../
 cd ..
 
 echo starting building process :: PAGE V3COMMS \(2\/3\)
 
 cd v3comms 
-pnpm build
+npm run build
 cd build
 rm -rf asset-manifest.json
 mv index.html commissions.html
@@ -42,7 +42,7 @@ cd ..
 echo starting building process :: PAGE V3STATUS \(3\/4\)
 
 cd v3status 
-pnpm build 
+npm run build 
 cd build
 rm -rf asset-manifest.json
 mv index.html status.html
@@ -52,8 +52,8 @@ cd ..
 
 echo starting building process :: PAGE V3TOS \(4\/4\)
 
-cd v3tos 
-pnpm build
+cd v3tos
+npm run build
 cd build
 rm -rf asset-manifest.json
 mv index.html terms.html
