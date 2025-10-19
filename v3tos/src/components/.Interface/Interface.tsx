@@ -184,7 +184,7 @@ export default function Interface() {
                                 <ul>
                                     <li>These are the default illustration commissions that I offer as stated in my <a href="https://slamthedragon.me/commissions" style={{ textDecoration: 'underline' }}>Commissions</a> page.</li>
                                     <li>
-                                        If such offer is currently available and if you’re ready to commission me, please join my <a style={{ textDecoration: 'underline' }} href="https://discord.gg/UtVTgUqEMx" target='_blank'>Discord Server</a> and DM me through there or hit me up on Twitter/X whenever I’m available and accepting DM’s. If you hesitate to go through any of these platforms, you can reach me via <a href="mailto:slamthedragon@gmail.com" style={{ textDecoration: 'underline' }}>slamthedragon@gmail.com</a> <br />
+                                        If such offer is currently available and if you’re ready to commission me, please join my <a style={{ textDecoration: 'underline' }} href="https://discord.gg/GSKdSPgjQb" target='_blank'>Discord Server</a> and DM me through there or hit me up on Twitter/X whenever I’m available and accepting DM’s. If you hesitate to go through any of these platforms, you can reach me via <a href="mailto:slamthedragon@gmail.com" style={{ textDecoration: 'underline' }}>slamthedragon@gmail.com</a> <br />
                                         <i> NOTE: <b>This is bound to change.</b> </i>
                                     </li>
                                 </ul>
