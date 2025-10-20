@@ -25,9 +25,9 @@ export default function Splash() {
 
     
     function renderStatus() {
-        // if (GetSnapshot.status === undefined) {
-        //     return <ChipLoader/>
-        // }
+        if (GetSnapshot.status === undefined) {
+            return <ChipLoader/>
+        }
         // if (GetSnapshot.onHold === undefined) {
         //     return <ChipLoader/>
         // }
@@ -56,7 +56,7 @@ export default function Splash() {
 
                     <span className={style.headerInfo}>
                         <a href='#offers'>
-                            <h1>Commissions are</h1>
+                            <h1>YCH Commissions are</h1>
                             {renderStatus()} 
                             <Jump />
                         </a>

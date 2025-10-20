@@ -24,13 +24,13 @@ export default function Splash() {
         }
     }, [])
 
-    
+
     function renderStatus() {
         if (GetSnapshot.status === undefined) {
-            return <ChipLoader/>
+            return <ChipLoader />
         }
         if (GetSnapshot.onHold === undefined) {
-            return <ChipLoader/>
+            return <ChipLoader />
         }
 
         if (onHold) {
@@ -43,7 +43,7 @@ export default function Splash() {
             return <h1>Closed</h1>
         }
     }
-    
+
 
     return (
         <>
@@ -57,10 +57,20 @@ export default function Splash() {
 
                     <span className={style.headerInfo}>
                         <a href='#offers'>
-                            <h1>Commissions are</h1>
-                            {renderStatus()} 
+                            <h1>YCH Commissions are</h1>
+                            {renderStatus()}
                             <Jump />
                         </a>
+                        <div style={{ lineHeight: '18px', border: 'red 1px dashed' , padding: '0px 10px', borderRadius: '7px'}}>
+                            <br />
+                            <b>NOTE:</b> <br />
+                            A full view of all commission statuses <br />
+                            are only available in desktop.
+                            <br /> <br />
+                            Instead, please visit the page
+                            <a style={{textDecoration: 'underline'}} href="https://slamthedragon.me/status">Here.</a>
+                            <br />
+                        </div>
                     </span>
 
                 </div>

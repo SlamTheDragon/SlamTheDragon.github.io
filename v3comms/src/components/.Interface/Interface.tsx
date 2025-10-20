@@ -69,7 +69,6 @@ export default function Interface() {
     }
 
     return (
-        <>
             <div className={style.interface} id='view'>
                 <div className={style.navBtn}>
                     <Button onClick={() => { toggleNav() }}>
@@ -103,6 +102,5 @@ export default function Interface() {
 
                 {renderInterface()}
             </div>
-        </>
     );
 }
